@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>p-n oʻtish</title>
+<meta name="description" content="Kremniy p-n o'tishining zona diagrammasi, zaryad va maydon taqsimoti; kuchlanish va legirlashni o'zgartirib ko'ring. 7-bob.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><a class="home" href="../../">← Yarimoʻtkazgichlar fizikasi asoslari</a><span class="chip">7-bob</span></header>
+  <h1>p-n oʻtish: kuchlanish berilganda nima oʻzgaradi?</h1>
+  <p class="lead">Kuchlanishni surgich bilan oʻzgartiring. Musbat qiymat — toʻgʻri kuchlanish, manfiy qiymat — teskari kuchlanish. Potensial toʻsiq, kambagʻallashgan soha kengligi va elektr maydon qanday oʻzgarishini kuzating.</p>
+
+  <div class="grid sim">
+    <div class="card">
+      <canvas id="band" aria-label="p-n o'tishning energiya zonalari diagrammasi"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--ec)"></i>E<sub>c</sub></span>
+        <span><i style="background:var(--ev)"></i>E<sub>v</sub></span>
+        <span><i style="background:var(--ef)"></i>Fermi sathlari (kvazi-Fermi sathlari)</span>
+        <span><i style="background:var(--accent-soft);height:10px"></i>kambagʻallashgan soha</span>
+      </div>
+      <canvas id="field" style="margin-top:12px" aria-label="Zaryad zichligi va elektr maydon taqsimoti"></canvas>
+    </div>
+    <div class="card controls">
+      <label for="V">Tashqi kuchlanish V <span class="v" id="Vv"></span></label>
+      <input type="range" id="V" min="-10" max="0.7" step="0.01" value="0">
+      <div class="seg" id="presets" style="margin-top:6px">
+        <button data-v="-5" aria-pressed="false">−5 V</button>
+        <button data-v="0" aria-pressed="true">0 V</button>
+        <button data-v="0.5" aria-pressed="false">+0,5 V</button>
+      </div>
+      <label for="Na">p-soha: akseptorlar N<sub>a</sub> <span class="v" id="Nav"></span></label>
+      <input type="range" id="Na" min="14" max="18" step="0.05" value="17">
+      <label for="Nd">n-soha: donorlar N<sub>d</sub> <span class="v" id="Ndv"></span></label>
+      <input type="range" id="Nd" min="14" max="18" step="0.05" value="16">
+      <table class="vals" id="vals"></table>
+    </div>
+  </div>
+
+  <div class="task">Topshiriqlar: 1) N<sub>a</sub> = 10¹⁷, N<sub>d</sub> = 10¹⁵ sm⁻³ qiling. Kambagʻallashgan soha asosan qaysi tomonga yoyiladi va nima uchun? 2) Teskari kuchlanishni 0 dan −10 V gacha oshiring: W necha marta kengayadi? W ∝ √(V<sub>bi</sub> − V) ekanini tekshiring. 3) Toʻgʻri kuchlanishda Fermi sathlari qancha masofaga ajraladi?</div>
+  <p class="note">Model: kremniy, T = 300 K, n<sub>i</sub> = 9,65 × 10⁹ sm⁻³, ε<sub>r</sub> = 11,7; keskin oʻtish, kambagʻallashish yaqinlashuvi. V<sub>bi</sub> = (kT/q)·ln(N<sub>a</sub>N<sub>d</sub>/n<sub>i</sub>²), W = √[2ε(V<sub>bi</sub> − V)(1/N<sub>a</sub> + 1/N<sub>d</sub>)/q]. Toʻgʻri kuchlanish V<sub>bi</sub> ga yaqinlashganda bu yaqinlashuv yaroqsiz boʻladi, shuning uchun V &lt; V<sub>bi</sub> − 0,1 V bilan cheklangan.</p>
+  <footer>Interaktiv model «Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasining 7-bobiga ilova.</footer>
+</div>
+<script src="../../assets/common.js"></script>
+<script>
+const q=1.602e-19,kT=0.025852,ni=9.65e9,eps=11.7*8.854e-14,Eg=1.12;
+const $=id=>document.getElementById(id);
+function calc(){
+  const Na=10**+$('Na').value,Nd=10**+$('Nd').value;
+  const Vbi=kT*Math.log(Na*Nd/ni/ni);
+  let V=+$('V').value; const Vmax=Vbi-0.1; if(V>Vmax)V=Vmax;
+  const W=Math.sqrt(2*eps*(Vbi-V)/q*(1/Na+1/Nd));
+  const xn=W*Na/(Na+Nd),xp=W*Nd/(Na+Nd);
+  const Emax=q*Nd*xn/eps;
+  return {Na,Nd,Vbi,V,W,xn,xp,Emax,C:eps/W,clipped:+$('V').value>Vmax};
+}
+function psi(x,r){ // potensial, p-neytral sohaga nisbatan (V)
+  const Vt=r.Vbi-r.V;
+  if(x<=-r.xp)return 0; if(x>=r.xn)return Vt;
+  if(x<0)return q*r.Na/(2*eps)*(x+r.xp)**2;
+  return Vt-q*r.Nd/(2*eps)*(r.xn-x)**2;
+}
+function draw(){
+  const r=calc();
+  // x oralig'i: kambag'allashgan sohadan har tomonga zaxira
+  const span=Math.max(r.W*2.4,1e-5),xL=-r.xp-(span-r.W)/2,xR=r.xn+(span-r.W)/2;
+  // energiyalar: EFp = 0
+  const Eip=kT*Math.log(r.Na/ni);          // Ei - EFp p-sohada
+  const Ecp=Eip+Eg/2, Evp=Eip-Eg/2;
+  const EFn=r.V;                            // EFn - EFp = qV
+  const Ec=x=>Ecp-psi(x,r), Ev=x=>Evp-psi(x,r);
+  const Ehi=Ecp+0.25, Elo=Evp-(r.Vbi-r.V)-0.25;
+  {
+    const {c,w,h}=fitCanvas($('band'),window.innerWidth<820?0.8:0.58);
+    c.clearRect(0,0,w,h);
+    const L=40,R=w-46,T=16,B=h-28;
+    const X=x=>L+(x-xL)/(xR-xL)*(R-L),Y=E=>T+(Ehi-E)/(Ehi-Elo)*(B-T);
+    c.fillStyle=cssVar('--accent-soft');c.fillRect(X(-r.xp),T,X(r.xn)-X(-r.xp),B-T);
+    c.font='13px system-ui,sans-serif';c.textBaseline='middle';
+    const curve=(f,col,lw)=>{c.strokeStyle=col;c.lineWidth=lw;c.beginPath();for(let i=0;i<=300;i++){const x=xL+(xR-xL)*i/300;i?c.lineTo(X(x),Y(f(x))):c.moveTo(X(x),Y(f(x)));}c.stroke();};
+    curve(Ec,cssVar('--ec'),3);curve(Ev,cssVar('--ev'),3);
+    // Fermi sathlari
+    c.strokeStyle=cssVar('--ef');c.lineWidth=2.5;
+    c.beginPath();c.moveTo(X(xL),Y(0));c.lineTo(X(r.V>0.001?r.xn:0),Y(0));c.stroke();
+    if(Math.abs(r.V)>0.001){c.setLineDash([6,4]);}
+    c.beginPath();c.moveTo(X(r.V>0.001?-r.xp:0),Y(EFn));c.lineTo(X(xR),Y(EFn));c.stroke();c.setLineDash([]);
+    c.fillStyle=cssVar('--muted');c.textAlign='center';
+    c.fillText('p-soha',X(xL+(-r.xp-xL)/2),B+14);c.fillText('n-soha',X(r.xn+(xR-r.xn)/2),B+14);
+    c.fillText('W = '+fmtN(r.W*1e4,3)+' mkm',X((r.xn-r.xp)/2),B+14);
+    c.textAlign='left';c.fillStyle=cssVar('--ec');c.fillText('Ec',R+6,Y(Ec(xR)));
+    c.fillStyle=cssVar('--ev');c.fillText('Ev',R+6,Y(Ev(xR)));
+    c.fillStyle=cssVar('--ef');c.fillText(Math.abs(r.V)>0.001?'EFn':'EF',R+6,Y(EFn));
+    c.textAlign='right';c.fillText(Math.abs(r.V)>0.001?'EFp':'EF',L-6,Y(0));
+    // to'siq balandligi strelkasi
+    const xa=X(xR)-(R-L)*0.08, top=Y(Ecp), bottom=Y(Ec(xR));
+    c.strokeStyle=cssVar('--muted');c.lineWidth=1.2;c.setLineDash([3,3]);
+    c.beginPath();c.moveTo(X(xL),top);c.lineTo(xa+10,top);c.stroke();c.setLineDash([]);
+    c.beginPath();c.moveTo(xa,top);c.lineTo(xa,bottom);c.stroke();
+    [[top,1],[bottom,-1]].forEach(([yy,s])=>{c.beginPath();c.moveTo(xa,yy);c.lineTo(xa-4,yy+6*s);c.lineTo(xa+4,yy+6*s);c.closePath();c.fillStyle=cssVar('--muted');c.fill();});
+    c.fillStyle=cssVar('--text');labelBg(c,'q(Vbi − V) = '+fmtN(r.Vbi-r.V,2)+' eV',xa-8,(top+bottom)/2,'right');
+  }
+  {
+    const {c,w,h}=fitCanvas($('field'),window.innerWidth<820?0.5:0.3);
+    c.clearRect(0,0,w,h);
+    const L=40,R=w-46,T=10,B=h-22,mid=T+(B-T)*0.36;
+    const X=x=>L+(x-xL)/(xR-xL)*(R-L);
+    c.font='12px system-ui,sans-serif';c.textBaseline='middle';
+    // zaryad zichligi (sxematik balandlik)
+    const hmax=(mid-T)*0.9,rmax=Math.max(r.Na,r.Nd),hb=N=>Math.max(4,hmax*Math.sqrt(N/rmax));
+    c.strokeStyle=cssVar('--line');c.beginPath();c.moveTo(L,mid);c.lineTo(R,mid);c.stroke();
+    c.fillStyle=cssVar('--ev');c.globalAlpha=.55;c.fillRect(X(-r.xp),mid,X(0)-X(-r.xp),hb(r.Na));
+    c.fillStyle=cssVar('--ec');c.fillRect(X(0),mid-hb(r.Nd),X(r.xn)-X(0),hb(r.Nd));c.globalAlpha=1;
+    c.fillStyle=cssVar('--muted');c.textAlign='left';c.fillText('ρ(x): −qNa | +qNd',L,T+4);
+    // maydon
+    const y0=mid+(B-mid)*0.25,ys=(B-y0)*0.95;
+    c.strokeStyle=cssVar('--accent');c.lineWidth=2.5;c.beginPath();
+    c.moveTo(X(xL),y0);c.lineTo(X(-r.xp),y0);c.lineTo(X(0),y0+ys);c.lineTo(X(r.xn),y0);c.lineTo(X(xR),y0);c.stroke();
+    c.fillStyle=cssVar('--accent');labelBg(c,'|E|maks = '+fmtE(r.Emax,2)+' V/sm',X(0)+10,y0+ys-2,'left');
+  }
+  $('Vv').textContent=(r.V>=0?'+':'')+fmtN(r.V,2)+' V'+(r.clipped?' (cheklangan)':'');
+  $('Nav').textContent=fmtE(r.Na,1)+' sm⁻³';$('Ndv').textContent=fmtE(r.Nd,1)+' sm⁻³';
+  $('vals').innerHTML=[
+    ['Kontakt potensiallar farqi V<sub>bi</sub>',fmtN(r.Vbi,3)+' V'],
+    ['Potensial toʻsiq q(V<sub>bi</sub> − V)',fmtN(r.Vbi-r.V,3)+' eV'],
+    ['Kambagʻallashgan soha kengligi W',fmtN(r.W*1e4,3)+' mkm'],
+    ['p-sohadagi qismi x<sub>p</sub>',fmtN(r.xp*1e4,3)+' mkm'],
+    ['n-sohadagi qismi x<sub>n</sub>',fmtN(r.xn*1e4,3)+' mkm'],
+    ['Maksimal maydon |E|<sub>max</sub>',fmtE(r.Emax,2)+' V/sm'],
+    ['Toʻsiq sigʻimi C/A',fmtE(r.C*1e9,2)+' nF/sm²'],
+  ].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');
+}
+['V','Na','Nd'].forEach(id=>$(id).addEventListener('input',()=>{document.querySelectorAll('#presets button').forEach(b=>b.setAttribute('aria-pressed','false'));draw();}));
+segGroup($('presets'),v=>{$('V').value=v;draw();});
+window.addEventListener('resize',draw);onTheme(draw);draw();
+</script>
+</body>
+</html>

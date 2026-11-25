@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fermi sathi va harorat</title>
+<meta name="description" content="Legirlangan kremniyda Fermi sathi va tok tashuvchilar konsentratsiyasining haroratga bog'liqligi. 4-bob.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><a class="home" href="../../">← Yarimoʻtkazgichlar fizikasi asoslari</a><span class="chip">4-bob</span></header>
+  <h1>Fermi sathi haroratga qanday bogʻliq?</h1>
+  <p class="lead">Kremniyni legirlang va haroratni oʻzgartiring. Fermi sathi qayerga siljishini, elektronlar qayerdan kelishini va kirishma yarimoʻtkazgich qachon xususiy yarimoʻtkazgichga aylanishini kuzating.</p>
+
+  <div class="grid sim">
+    <div class="card">
+      <canvas id="band" aria-label="Energiya zonalari diagrammasi"></canvas>
+      <div class="legend">
+        <span><i style="background:var(--ec)"></i>E<sub>c</sub> — oʻtkazuvchanlik zonasi tubi</span>
+        <span><i style="background:var(--ev)"></i>E<sub>v</sub> — valent zona shipi</span>
+        <span><i style="background:var(--ef)"></i>E<sub>F</sub> — Fermi sathi</span>
+        <span><i style="background:var(--ei)"></i>E<sub>i</sub> — xususiy Fermi sathi</span>
+      </div>
+    </div>
+    <div class="card controls">
+      <label>Kirishma turi</label>
+      <div class="seg" id="type">
+        <button data-v="n" aria-pressed="true">n-tur (fosfor)</button>
+        <button data-v="p" aria-pressed="false">p-tur (bor)</button>
+      </div>
+      <label for="N">Kirishma konsentratsiyasi <span class="v" id="Nv"></span></label>
+      <input type="range" id="N" min="13" max="19" step="0.05" value="16">
+      <label for="T">Harorat <span class="v" id="Tv"></span></label>
+      <input type="range" id="T" min="30" max="700" step="1" value="300">
+      <table class="vals" id="vals"></table>
+    </div>
+  </div>
+
+  <h2>Konsentratsiyaning haroratga bogʻliqligi</h2>
+  <div class="card">
+    <canvas id="plot" aria-label="Asosiy tok tashuvchilar konsentratsiyasi va harorat grafigi"></canvas>
+    <div class="legend">
+      <span><i style="background:var(--accent)"></i>asosiy tok tashuvchilar konsentratsiyasi</span>
+      <span><i style="background:var(--ei)"></i>xususiy konsentratsiya n<sub>i</sub>(T)</span>
+      <span><i style="background:var(--muted);height:1px"></i>kirishma konsentratsiyasi</span>
+    </div>
+  </div>
+
+  <div class="task">Topshiriqlar: 1) N = 10¹⁵ sm⁻³ boʻlganda yarimoʻtkazgich qaysi haroratda xususiy holatga oʻtadi (n ≈ 2n<sub>i</sub>)? N = 10¹⁷ sm⁻³ da-chi? 2) 50 K da donorlarning qancha qismi ionlangan? Nima uchun? 3) 300 K da E<sub>F</sub> − E<sub>i</sub> ni kalkulyatorda kT·ln(N/n<sub>i</sub>) formulasi bilan hisoblang va shu yerdagi qiymat bilan solishtiring.</div>
+  <p class="note">Model: kremniy; E<sub>g</sub>(T) Varshni formulasi bilan (E<sub>g</sub>(0) = 1,17 eV, α = 4,73 × 10⁻⁴ eV/K, β = 636 K); N<sub>c</sub> = 2,8 × 10¹⁹ (T/300)<sup>3/2</sup> sm⁻³; n<sub>i</sub>(300 K) = 9,65 × 10⁹ sm⁻³; fosfor va bor sathlari zona chetidan 0,045 eV masofada; donor sathining aynish koeffitsienti 2, akseptorniki 4. E<sub>F</sub> elektroneytrallik tenglamasidan son usulida topiladi.</p>
+  <footer>Interaktiv model «Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasining 4-bobiga ilova.</footer>
+</div>
+<script src="../../assets/common.js"></script>
+<script>
+const k=8.617e-5, Ed=0.045, Ea=0.045;
+const Eg=T=>1.17-4.73e-4*T*T/(T+636);
+const Nc=T=>2.8e19*Math.pow(T/300,1.5);
+const ni=T=>9.65e9*Math.pow(T/300,1.5)*Math.exp(-Eg(T)/(2*k*T)+Eg(300)/(2*k*300));
+const Nv=T=>ni(T)*ni(T)*Math.exp(Eg(T)/(k*T))/Nc(T);
+let type='n';
+function solve(T,N){
+  const kT=k*T,Ec=Eg(T),nc=Nc(T),nv=Nv(T);
+  const Nd=type==='n'?N:0,Na=type==='p'?N:0;
+  const f=EF=>{
+    const n=nc*Math.exp((EF-Ec)/kT),p=nv*Math.exp(-EF/kT);
+    const Ndp=Nd/(1+2*Math.exp((EF-(Ec-Ed))/kT)),Nam=Na/(1+4*Math.exp((Ea-EF)/kT));
+    return {r:p+Ndp-n-Nam,n,p,Ndp,Nam};
+  };
+  let lo=-0.3,hi=Ec+0.3;
+  for(let i=0;i<200;i++){const m=(lo+hi)/2;if(f(m).r>0)lo=m;else hi=m;}
+  const EF=(lo+hi)/2,s=f(EF);
+  const Ei=Ec/2+kT/2*Math.log(nv/nc);
+  return {EF,Ec,Ei,n:s.n,p:s.p,ion:type==='n'?s.Ndp/Nd:s.Nam/Na,ni:ni(T)};
+}
+const $=id=>document.getElementById(id);
+function state(){return {T:+$('T').value,N:Math.pow(10,+$('N').value)};}
+
+function drawBand(){
+  const {T,N}=state(),r=solve(T,N);
+  const {c,w,h}=fitCanvas($('band'),window.innerWidth<820?0.85:0.62);
+  c.clearRect(0,0,w,h);
+  const top=24,bot=h-24,Emin=-0.15,Emax=1.32;
+  const y=E=>bot-(E-Emin)/(Emax-Emin)*(bot-top);
+  const x0=16,x1=w-112;
+  const font='13px system-ui,sans-serif';c.font=font;c.textBaseline='middle';
+  // zonalar soyasi
+  c.fillStyle=cssVar('--accent-soft');c.fillRect(x0,top,x1-x0,y(r.Ec)-top);c.fillRect(x0,y(0),x1-x0,bot-y(0));
+  const line=(E,col,dash,lw,label,dy=0)=>{c.strokeStyle=col;c.lineWidth=lw;c.setLineDash(dash);c.beginPath();c.moveTo(x0,y(E));c.lineTo(x1,y(E));c.stroke();c.setLineDash([]);
+    c.fillStyle=col;c.fillText(label,x1+8,y(E)+dy);};
+  // kirishma sathlari
+  const El=type==='n'?r.Ec-Ed:Ea;
+  const nd=24,step=(x1-x0)/nd;
+  for(let i=0;i<nd;i++){const xx=x0+step*(i+.2);
+    const ionized=(i+0.5)/nd<r.ion;
+    c.strokeStyle=cssVar('--muted');c.lineWidth=2;c.beginPath();c.moveTo(xx,y(El));c.lineTo(xx+step*.6,y(El));c.stroke();
+    // ionlanmagan donorda elektron (nuqta), ionlanganda + belgisi
+    c.fillStyle=type==='n'?cssVar('--ec'):cssVar('--ev');
+    if(type==='n'){ if(!ionized){c.beginPath();c.arc(xx+step*.3,y(El)-6,3,0,7);c.fill();} else {c.fillStyle=cssVar('--muted');c.fillText('+',xx+step*.18,y(El)-9);} }
+    else { if(ionized){c.fillStyle=cssVar('--muted');c.fillText('−',xx+step*.18,y(El)-9);} else {c.beginPath();c.arc(xx+step*.3,y(El)+7,3,0,7);c.strokeStyle=cssVar('--ev');c.stroke();} }
+  }
+  line(r.Ec,cssVar('--ec'),[],3,'Ec',type==='n'?-9:0);
+  line(0,cssVar('--ev'),[],3,'Ev',type==='p'?9:0);
+  line(r.Ei,cssVar('--ei'),[6,5],1.5,'Ei');
+  line(r.EF,cssVar('--ef'),[],2.5,'EF');
+  c.fillStyle=cssVar('--muted');
+  c.fillText(type==='n'?'Ed (donor)':'Ea (akseptor)',x1+8,y(El)+(type==='n'?9:-9));
+  c.fillText('Eg = '+fmtN(r.Ec,3)+' eV',x0+6,(y(r.Ec)+y(0))/2+(r.EF>r.Ec/2?40:-40));
+  // jadval
+  const nMaj=type==='n'?r.n:r.p,nMin=type==='n'?r.p:r.n;
+  $('vals').innerHTML=[
+    ['Taqiqlangan zona kengligi E<sub>g</sub>',fmtN(r.Ec,3)+' eV'],
+    ['Xususiy konsentratsiya n<sub>i</sub>',fmtE(r.ni)+' sm⁻³'],
+    [(type==='n'?'Elektronlar n':'Kovaklar p')+' (asosiy)',fmtE(nMaj)+' sm⁻³'],
+    [(type==='n'?'Kovaklar p':'Elektronlar n')+' (asosiy boʻlmagan)',fmtE(nMin)+' sm⁻³'],
+    ['E<sub>F</sub> − E<sub>i</sub>',fmtN(r.EF-r.Ei,3)+' eV'],
+    [type==='n'?'E<sub>c</sub> − E<sub>F</sub>':'E<sub>F</sub> − E<sub>v</sub>',fmtN(type==='n'?r.Ec-r.EF:r.EF,3)+' eV'],
+    ['Ionlangan kirishma ulushi',fmtN(r.ion*100,1)+' %'],
+  ].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');
+  $('Nv').textContent=fmtE(N,1)+' sm⁻³';$('Tv').textContent=T+' K ('+(T-273)+' °C)';
+}
+function drawPlot(){
+  const {T,N}=state();
+  const {c,w,h}=fitCanvas($('plot'),window.innerWidth<820?0.75:0.42);
+  c.clearRect(0,0,w,h);
+  const L=58,R=w-14,Tp=14,B=h-40,Tmin=30,Tmax=700,lmin=8,lmax=20;
+  const X=t=>L+(t-Tmin)/(Tmax-Tmin)*(R-L),Y=v=>B-(Math.log10(Math.max(v,1e-30))-lmin)/(lmax-lmin)*(B-Tp);
+  c.font='12px system-ui,sans-serif';c.fillStyle=cssVar('--muted');c.strokeStyle=cssVar('--line');c.lineWidth=1;
+  c.textBaseline='middle';c.textAlign='right';
+  for(let e=lmin;e<=lmax;e+=2){c.beginPath();c.moveTo(L,Y(10**e));c.lineTo(R,Y(10**e));c.stroke();c.fillText('10'+sup(e),L-6,Y(10**e));}
+  c.textAlign='center';c.textBaseline='top';
+  for(let t=100;t<=700;t+=100){c.beginPath();c.moveTo(X(t),Tp);c.lineTo(X(t),B);c.stroke();c.fillText(t,X(t),B+6);}
+  c.fillText('T, K',(L+R)/2,B+22);
+  c.save();c.translate(14,(Tp+B)/2);c.rotate(-Math.PI/2);c.fillText('konsentratsiya, sm⁻³',0,-6);c.restore();
+  c.save();c.beginPath();c.rect(L,Tp,R-L,B-Tp);c.clip();
+  c.strokeStyle=cssVar('--muted');c.setLineDash([3,4]);c.beginPath();c.moveTo(L,Y(N));c.lineTo(R,Y(N));c.stroke();c.setLineDash([]);
+  const curve=(fn,col,lw)=>{c.strokeStyle=col;c.lineWidth=lw;c.beginPath();for(let t=Tmin;t<=Tmax;t+=2){const v=fn(t);t===Tmin?c.moveTo(X(t),Y(v)):c.lineTo(X(t),Y(v));}c.stroke();};
+  curve(ni,cssVar('--ei'),2);
+  curve(t=>{const r=solve(t,N);return type==='n'?r.n:r.p;},cssVar('--accent'),3);
+  const r=solve(T,N),v=type==='n'?r.n:r.p;
+  c.fillStyle=cssVar('--ef');c.beginPath();c.arc(X(T),Y(v),6,0,7);c.fill();
+  c.restore();
+}
+function all(){drawBand();drawPlot();}
+segGroup($('type'),v=>{type=v;all();});
+$('N').addEventListener('input',all);$('T').addEventListener('input',all);
+window.addEventListener('resize',all);onTheme(all);all();
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kristall panjaralar</title>
+<meta name="description" content="Kubik panjaralar va olmos tuzilishini 3D ko'rinishda aylantirib o'rganish. 1-bob.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top"><a class="home" href="../../">← Yarimoʻtkazgichlar fizikasi asoslari</a><span class="chip">1-bob</span></header>
+  <h1>Kristall panjaralar 3D koʻrinishda</h1>
+  <p class="lead">Barmogʻingiz yoki sichqoncha bilan surib, kristallni istalgan tomonga aylantiring. Tuzilishni tanlang va yacheykadagi atomlar qanday sanalishini kuzating.</p>
+
+  <div class="grid sim">
+    <div class="card">
+      <canvas id="cv" aria-label="Kristall panjaraning uch o'lchamli modeli"></canvas>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="card controls">
+      <label>Tuzilish</label>
+      <div class="seg" id="struct">
+        <button data-v="ok" aria-pressed="false">OK</button>
+        <button data-v="hmk" aria-pressed="false">HMK</button>
+        <button data-v="ymk" aria-pressed="false">YMK</button>
+        <button data-v="olmos" aria-pressed="true">Olmos (Si)</button>
+        <button data-v="sfalerit" aria-pressed="false">Sfalerit (GaAs)</button>
+      </div>
+      <label>Yacheykalar soni</label>
+      <div class="seg" id="cells">
+        <button data-v="1" aria-pressed="true">1 × 1 × 1</button>
+        <button data-v="2" aria-pressed="false">2 × 2 × 2</button>
+      </div>
+      <label>Koʻrinish</label>
+      <div class="seg" id="opts">
+        <button data-v="spin" aria-pressed="true">Oʻzi aylansin</button>
+      </div>
+      <div class="seg" id="opts2" style="margin-top:6px">
+        <button data-v="bonds" aria-pressed="true">Bogʻlar</button>
+      </div>
+      <table class="vals" id="vals"></table>
+      <p class="note" id="count"></p>
+    </div>
+  </div>
+
+  <div class="task" id="task"></div>
+  <footer>Interaktiv model «Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasining 1-bobiga ilova. Atomlar oʻlchami masshtabda emas: aniq koʻrinishi uchun kichraytirilgan.</footer>
+</div>
+<script src="../../assets/common.js"></script>
+<script>
+const S={
+  ok:{name:'Oddiy kubik (OK)',basis:[[0,0,0]],fcc:false,nn:1,Z:6,N:1,f:'π/6 ≈ 0,52',
+      count:'8 ta uchdagi atom × 1/8 = 1 ta atom.',
+      task:'Savol: nima uchun tabiatda oddiy kubik panjarada kristallanadigan element juda kam (deyarli faqat poloniy)? Zichlik ulushiga qarang.'},
+  hmk:{name:'Hajmiy markazlashgan kubik (HMK)',basis:[[0,0,0],[.5,.5,.5]],fcc:false,nn:Math.sqrt(3)/2,Z:8,N:2,f:'√3π/8 ≈ 0,68',
+      count:'8 × 1/8 (uchlar) + 1 (markaz) = 2 ta atom.',
+      task:'Topshiriq: markazdagi atomni toping va uning nechta eng yaqin qoʻshnisi borligini sanang (8 ta boʻlishi kerak).'},
+  ymk:{name:'Yoqlari markazlashgan kubik (YMK)',basis:[[0,0,0],[0,.5,.5],[.5,0,.5],[.5,.5,0]],fcc:false,nn:Math.SQRT1_2,Z:12,N:4,f:'√2π/6 ≈ 0,74',
+      count:'8 × 1/8 (uchlar) + 6 × 1/2 (yoqlar) = 4 ta atom.',
+      task:'Topshiriq: 2 × 2 × 2 rejimiga oʻting va bitta yoqdagi atomning 12 ta eng yaqin qoʻshnisini toping.'},
+  olmos:{name:'Olmos tuzilishi (Si, Ge, C)',basis:'diamond',two:false,nn:Math.sqrt(3)/4,Z:4,N:8,f:'√3π/16 ≈ 0,34',
+      count:'8 × 1/8 (uchlar) + 6 × 1/2 (yoqlar) + 4 (ichki) = 8 ta atom.',
+      task:'Topshiriq: har bir atom 4 ta qoʻshnisi bilan tetraedr hosil qilishini koʻring. Nima uchun olmos tuzilishi bunchalik «boʻsh» (0,34)? Kremniyda a = 0,543 nm boʻlsa, 1 sm³ dagi atomlar sonini hisoblang (javob: 5,0 × 10²² sm⁻³).'},
+  sfalerit:{name:'Sfalerit tuzilishi (GaAs, InP)',basis:'diamond',two:true,nn:Math.sqrt(3)/4,Z:4,N:8,f:'√3π/16 ≈ 0,34',
+      count:'4 ta Ga (uchlar va yoqlar) + 4 ta As (ichki) = 8 ta atom.',
+      task:'Savol: sfalerit olmos tuzilishidan nimasi bilan farq qiladi? Har bir Ga atomining qoʻshnilari qanday atomlar?'},
+};
+let cur='olmos',ncell=1,spin=true,bonds=true,rotX=-0.35,rotY=0.6,drag=null;
+const cv=document.getElementById('cv');
+
+function atoms(){
+  const s=S[cur],pts=[],n=ncell,eps=1e-6;
+  const fccB=[[0,0,0],[0,.5,.5],[.5,0,.5],[.5,.5,0]];
+  let basis;
+  if(s.basis==='diamond'){basis=[];fccB.forEach(p=>{basis.push([...p,0]);basis.push([p[0]+.25,p[1]+.25,p[2]+.25,1]);});}
+  else basis=s.basis.map(p=>[...p,0]);
+  for(let i=-1;i<=n;i++)for(let j=-1;j<=n;j++)for(let k=-1;k<=n;k++)
+    basis.forEach(b=>{const p=[b[0]+i,b[1]+j,b[2]+k];
+      if(p.every(v=>v>-eps&&v<n+eps))pts.push({p,t:s.two?b[3]:0});});
+  return pts;
+}
+function bondList(pts){
+  if(!bonds)return [];
+  const d=S[cur].nn,out=[];
+  for(let a=0;a<pts.length;a++)for(let b=a+1;b<pts.length;b++){
+    const dx=pts[a].p[0]-pts[b].p[0],dy=pts[a].p[1]-pts[b].p[1],dz=pts[a].p[2]-pts[b].p[2];
+    if(Math.abs(Math.hypot(dx,dy,dz)-d)<1e-3)out.push([a,b]);
+  }
+  return out;
+}
+let PTS=[],BONDS=[];
+function rebuild(){PTS=atoms();BONDS=bondList(PTS);info();}
+
+function proj(p,w,h){
+  const n=ncell,c=[p[0]-n/2,p[1]-n/2,p[2]-n/2];
+  const cy=Math.cos(rotY),sy=Math.sin(rotY),cx=Math.cos(rotX),sx=Math.sin(rotX);
+  let x=c[0]*cy+c[2]*sy, z=-c[0]*sy+c[2]*cy, y=c[1];
+  let y2=y*cx-z*sx, z2=y*sx+z*cx;
+  const sc=Math.min(w,h)*0.42/(n*0.9), persp=1/(1+z2*0.12/n);
+  return {x:w/2+x*sc*persp,y:h/2-y2*sc*persp,z:z2,s:persp,sc};
+}
+function draw(){
+  const {c,w,h}=fitCanvas(cv,window.innerWidth<820?0.95:0.78);
+  c.clearRect(0,0,w,h);
+  const n=ncell,line=cssVar('--line'),muted=cssVar('--muted');
+  // yacheyka qirralari
+  c.strokeStyle=muted;c.lineWidth=1;c.setLineDash([4,4]);
+  for(let i=0;i<=n;i++)for(let j=0;j<=n;j++){
+    [[[i,j,0],[i,j,n]],[[i,0,j],[i,n,j]],[[0,i,j],[n,i,j]]].forEach(([a,b])=>{
+      const A=proj(a,w,h),B=proj(b,w,h);c.beginPath();c.moveTo(A.x,A.y);c.lineTo(B.x,B.y);c.stroke();});
+  }
+  c.setLineDash([]);
+  const P=PTS.map(a=>proj(a.p,w,h));
+  // bog'lar
+  c.strokeStyle=cssVar('--bond');c.lineWidth=2.5;
+  BONDS.forEach(([a,b])=>{c.beginPath();c.moveTo(P[a].x,P[a].y);c.lineTo(P[b].x,P[b].y);c.stroke();});
+  // atomlar (orqadan oldinga)
+  const order=P.map((p,i)=>i).sort((a,b)=>P[b].z-P[a].z);
+  const ca=cssVar('--atom-a'),cb=cssVar('--atom-b');
+  order.forEach(i=>{const p=P[i],r=Math.max(4,p.sc*0.085*p.s);
+    const g=c.createRadialGradient(p.x-r*.35,p.y-r*.35,r*.1,p.x,p.y,r);
+    const col=PTS[i].t?cb:ca;g.addColorStop(0,'#ffffff');g.addColorStop(.35,col);g.addColorStop(1,col);
+    c.fillStyle=g;c.beginPath();c.arc(p.x,p.y,r,0,7);c.fill();});
+}
+function info(){
+  const s=S[cur];
+  const rows=[['Tuzilish',s.name],['Bitta yacheykadagi atomlar',s.N],['Koordinatsion son (qoʻshnilar)',s.Z],
+    ['Eng yaqin qoʻshnigacha masofa',s.nn===1?'a':s.nn===Math.SQRT1_2?'a/√2':s.nn===Math.sqrt(3)/2?'√3a/2':'√3a/4'],
+    ['Zich joylashish ulushi',s.f]];
+  if(cur==='olmos')rows.push(['Si: a = 0,543 nm → Si–Si bogʻi','0,235 nm']);
+  if(cur==='sfalerit')rows.push(['GaAs: a = 0,565 nm → Ga–As bogʻi','0,245 nm']);
+  document.getElementById('vals').innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+  document.getElementById('count').textContent='Sanash: '+s.count+' Chegaradagi atomlar qoʻshni yacheykalar bilan boʻlishiladi.';
+  document.getElementById('task').textContent=s.task;
+  document.getElementById('legend').innerHTML=s.two
+    ?`<span><i style="background:var(--atom-a);height:10px;width:10px;border-radius:50%"></i>Ga</span><span><i style="background:var(--atom-b);height:10px;width:10px;border-radius:50%"></i>As</span><span>Uzuq chiziqlar — kubik yacheyka chegarasi</span>`
+    :`<span>Uzuq chiziqlar — kubik yacheyka chegarasi</span>`;
+}
+segGroup(document.getElementById('struct'),v=>{cur=v;rebuild();draw();});
+segGroup(document.getElementById('cells'),v=>{ncell=+v;rebuild();draw();});
+document.getElementById('opts').addEventListener('click',e=>{const b=e.target.closest('button');spin=!spin;b.setAttribute('aria-pressed',spin);});
+document.getElementById('opts2').addEventListener('click',e=>{const b=e.target.closest('button');bonds=!bonds;b.setAttribute('aria-pressed',bonds);rebuild();draw();});
+cv.addEventListener('pointerdown',e=>{drag={x:e.clientX,y:e.clientY};cv.setPointerCapture(e.pointerId);});
+cv.addEventListener('pointermove',e=>{if(!drag)return;rotY+=(e.clientX-drag.x)*0.01;rotX+=(e.clientY-drag.y)*0.01;
+  rotX=Math.max(-1.5,Math.min(1.5,rotX));drag={x:e.clientX,y:e.clientY};draw();});
+cv.addEventListener('pointerup',()=>drag=null);cv.addEventListener('pointercancel',()=>drag=null);
+window.addEventListener('resize',draw);onTheme(draw);
+let last=0;function loop(t){if(spin&&!drag){rotY+=(t-last)*0.0004;draw();}last=t;requestAnimationFrame(loop);}
+rebuild();draw();requestAnimationFrame(loop);
+</script>
+</body>
+</html>
