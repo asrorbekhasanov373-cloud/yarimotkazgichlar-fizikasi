@@ -1,0 +1,16 @@
+{
+  "url": "sim/energiya-zonalari/",
+  "kicker": "3-bob",
+  "title": "Energiya zonalari",
+  "setup": "S.set('r',3);S.set('N',8);S.set('ne',2);S.set('P',0);S.set('view','ext');S.set('W',3);S.set('q',0);S.set('mat','GaAs');S.set('hv',1.6)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 3-bob", "t": "Energiya zonalari", "d": "Atom sathlaridan zonalargacha: Kronig–Penni modeli, effektiv massa, toʻgʻri va bilvosita zonali Si va GaAs"},
+  "segs": [
+    {"fig": "f1", "w": 730, "dur": 8, "act": "S.set('r',__ease(3,1,p))", "cap": "Atomlar yaqinlashganda har bir sath N ta sathga ajraladi va <b>energiya zonasiga</b> aylanadi."},
+    {"fig": "f1", "w": 730, "dur": 6, "act": "S.set('N',Math.round(__ease(8,30,p)))", "cap": "Atomlar koʻpaysa, sathlar zichlashadi, zona kengligi esa deyarli oʻzgarmaydi."},
+    {"fig": "f1", "w": 730, "dur": 9, "start": "S.set('N',8)", "act": "S.set('r',__ease(0.78,1.8,p))", "cap": "Zonalar ustma-ust — <b>metall</b>; tor taqiqlangan zona — <b>yarimoʻtkazgich</b>; keng — <b>izolyator</b>."},
+    {"fig": "f2", "w": 740, "dur": 9, "act": "S.set('P',p<0.6?__ease(0,4,p/0.6):__ease(4,10,(p-0.6)/0.4))", "cap": "Kronig–Penni modeli: toʻsiq kuchi P′ ortsa, k = nπ/a da taqiqlangan zonalar ochiladi."},
+    {"fig": "f3", "w": 770, "dur": 9, "act": "S.set('q',__ease(0,0.95,p))", "cap": "Effektiv massa egrilikdan topiladi: zona tubida m* &gt; 0, tepasida m* &lt; 0."},
+    {"fig": "f4", "w": 750, "dur": 8, "start": "S.set('mat','GaAs')", "cap": "GaAs — <b>toʻgʻri zonali</b>: foton elektronni vertikal koʻtaradi, rekombinatsiyada foton chiqadi."},
+    {"fig": "f4", "w": 750, "dur": 8, "start": "S.set('mat','Si')", "cap": "Kremniy — <b>bilvosita zonali</b>: yetishmayotgan impulsni fonon beradi, yutilish kamroq."}
+  ]
+}
