@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kvant mexanikasi asoslari</title>
+<meta name="description" content="Foton, de Broyl to'lqini, potensial o'radagi elektronning energiya sathlari va tunnel effekti. 2-bob uchun interaktiv maqola.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>2-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 2-bob</p>
+    <h1>Kvant mexanikasi asoslari</h1>
+    <p class="dek">Yorugʻlik nima uchun porsiyalar bilan yutiladi, elektron qanday qilib toʻlqin boʻla oladi va nima uchun u devordan «sizib» oʻtadi.</p>
+  </header>
+
+  <p>Devorga tepilgan koptok qaytib keladi — kundalik tajribamiz shunday deydi. Lekin telefoningizdagi xotira kartasida elektronlar har kuni izolyator «devori» orqali oʻtadi, garchi ularning energiyasi devordan oshib oʻtishga yetmasa ham. LED chiroqning rangi, quyosh panelining ishlashi va tranzistorning kichrayish chegarasi — bularning hammasini kvant mexanikasi tushuntiradi. Bu sahifada kitobning 2-bobidagi toʻrtta asosiy gʻoyani rasmlar orqali koʻramiz.</p>
+
+  <h2>Yorugʻlik porsiyalar bilan keladi</h2>
+  <p>Metall sirtiga yorugʻlik tushirilsa, undan elektronlar uchib chiqishi mumkin — bu <i>fotoeffekt</i>. Klassik toʻlqin nazariyasiga koʻra, kuchliroq yorugʻlik elektronga koʻproq energiya berishi kerak edi. Tajriba esa boshqacha: chastota chegaraviy qiymat <span class="math">ν<sub>0</sub></span> dan kichik boʻlsa, yorugʻlik qanchalik kuchli boʻlmasin, elektron chiqmaydi.</p>
+  <p>Eynshteyn buni shunday tushuntirdi: yorugʻlik energiyasi alohida porsiyalar — <i>fotonlar</i> bilan yutiladi. Fotonning energiyasi <span class="math">E = hν = hc/λ</span>. Foton elektronga oʻz energiyasini toʻliq beradi yoki umuman bermaydi. Elektronni metalldan chiqarish uchun kamida chiqish ishi <span class="math">φ</span> kerak, qolgani kinetik energiyaga aylanadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="Fotoeffekt: fotonlar metall sirtidan elektronlarni urib chiqaradi"></canvas>
+      <div class="ctl c2" id="c1"></div>
+      <div class="readout" id="r1"></div>
+    </div>
+    <figcaption><b>1-rasm.</b> Chapda — metall sirtiga tushayotgan fotonlar (rangi toʻlqin uzunligiga mos), oʻngda — chiqqan elektronlarning eng katta kinetik energiyasi <span class="math">T<sub>max</sub></span> ning chastotaga bogʻliqligi. Chiziq qiyaligi har qanday metall uchun bir xil va <span class="math">h</span> ga teng.</figcaption>
+  </figure>
+
+  <p>Grafik <span class="math">T<sub>max</sub> = hν − φ</span> toʻgʻri chizigʻidir (2.2). Chiqish ishini oʻzgartirsangiz, chiziq qiyaligini saqlagan holda yon tomonga siljiydi. Amalda energiyani elektronvoltlarda hisoblash qulay: <span class="math">E [eV] = 1,240/λ [mkm]</span>.</p>
+  <p>Xuddi shu qoida kremniy uchun ham ishlaydi. Elektronni bogʻdan uzib, tok tashuvchiga aylantirish uchun kamida <span class="math">E<sub>g</sub> = 1,12</span> eV kerak, ya'ni toʻlqin uzunligi 1,11 mkm dan katta infraqizil nurlarni kremniy yutmaydi. Rasm ostidagi oxirgi qiymat shuni koʻrsatadi.</p>
+
+  <h2>Elektron — bu ham toʻlqin</h2>
+  <p>De Broyl teskari savol qoʻydi: agar yorugʻlik toʻlqini zarradek oʻzini tutsa, zarra ham toʻlqindek oʻzini tuta oladimi? U har qanday zarraga toʻlqin uzunligi mos kelishini taklif qildi: <span class="math">λ = h/p</span>, bu yerda <span class="math">p = √(2mT)</span> — impuls. 1927-yilda Devisson va Jermer nikel kristalidan sochilgan elektronlar difraksiya choʻqqisini hosil qilishini topib, buni isbotladilar.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="Elektronning de Broyl to'lqini va kremniy panjarasi masshtabi"></canvas>
+      <div class="ctl" id="c2"></div>
+      <div class="btns" id="b2"></div>
+      <div class="readout" id="r2"></div>
+    </div>
+    <figcaption><b>2-rasm.</b> Elektron toʻlqini (koʻk) va kremniy panjarasining masshtabi: kulrang doiralar orasidagi masofa <span class="math">a = 0,543</span> nm. Qavs bitta toʻlqin uzunligini belgilaydi.</figcaption>
+  </figure>
+
+  <p>100 eV energiyali elektronning toʻlqin uzunligi 0,123 nm — atomlar orasidagi masofa tartibida. Shuning uchun elektron kristall panjarasini xuddi rentgen nuri kabi «sezadi». Xona haroratida esa (<span class="math">T ≈ 0,039</span> eV) toʻlqin uzunligi taxminan 6 nm, GaAs dagi yengil elektron uchun esa 24 nm ga yetadi. Zamonaviy tranzistorda kanal qalinligi bir necha nanometr, demak, u yerda elektronni klassik zarra deb boʻlmaydi.</p>
+
+  <h2>Oʻraga qamalgan elektron</h2>
+  <p>Endi elektronni kengligi <span class="math">a</span> boʻlgan sohaga qamaymiz: ichkarida potensial nolga teng, devorlar esa cheksiz baland. Devorlarda toʻlqin funksiyasi nolga teng boʻlishi kerak, shuning uchun oʻraga faqat butun sondagi yarim toʻlqin sigʻadi — xuddi ikki uchi mahkamlangan torda boʻlgani kabi. Natijada energiya faqat alohida qiymatlarni oladi:</p>
+  <p style="text-align:center"><span class="math">E<sub>n</sub> = ħ²π²n²/(2ma²) = n²E<sub>1</sub>,</span><br><span class="math">ψ<sub>n</sub>(x) = √(2/a)·sin(nπx/a)</span></p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="Cheksiz potensial o'radagi elektronning energiya sathlari va to'lqin funksiyalari"></canvas>
+      <div class="ctl" id="c3"></div>
+      <div class="btns" id="b3"></div>
+      <div class="readout" id="r3"></div>
+    </div>
+    <figcaption><b>3-rasm.</b> Chapda — energiya sathlari (masshtab 0–6 eV), oʻngda — ularga mos toʻlqin funksiyalari <span class="math">ψ<sub>n</sub></span> yoki ehtimollik zichliklari <span class="math">|ψ<sub>n</sub>|²</span>. Strelka — elektron 2-sathdan 1-sathga tushganda chiqadigan foton.</figcaption>
+  </figure>
+
+  <p>Rasmdan uchta muhim xulosa chiqadi. Birinchidan, eng past energiya <span class="math">E<sub>1</sub></span> noldan katta: qamalgan zarra hech qachon tinch turmaydi. Ikkinchidan, sathlar orasidagi masofa oʻra kengligining kvadratiga teskari proporsional: oʻrani ikki marta toraytirsangiz, sathlar toʻrt marta uzoqlashadi. Uchinchidan, asosiy holatda elektronni oʻra oʻrtasida topish ehtimoli katta, devor yonida esa nolga yaqin.</p>
+  <p>1 nm li oʻrada <span class="math">E<sub>1</sub> = 0,376</span> eV, sathlar orasidagi masofa esa issiqlik energiyasi <span class="math">k<sub>B</sub>T ≈ 0,026</span> eV dan oʻnlab marta katta. Oʻra kengligini tanlab, chiqadigan foton energiyasini «loyihalash» mumkin — kvant oʻra lazerlari aynan shunga asoslangan.</p>
+  <aside class="note">Oʻngdagi toʻlqinlar sekin tebranadi: statsionar holatning toʻlqin funksiyasi vaqt boʻyicha <span class="math">e<sup>−iE<sub>n</sub>t/ħ</sup></span> koʻpaytuvchiga ega va rasmda uning haqiqiy qismi chizilgan. Yuqori sathlar tezroq tebranadi. Ehtimollik zichligi <span class="math">|ψ<sub>n</sub>|²</span> esa vaqtga bogʻliq emas — shuning uchun holat «statsionar» deyiladi.</aside>
+
+  <h2>Tunnel effekti</h2>
+  <p>Endi elektron yoʻlida qalinligi <span class="math">a</span> va balandligi <span class="math">V<sub>0</sub></span> boʻlgan toʻsiq turibdi, elektron energiyasi esa <span class="math">E &lt; V<sub>0</sub></span>. Klassik zarra albatta qaytadi. Kvant toʻlqin esa toʻsiq ichida eksponensial soʻnadi, lekin toʻsiq yupqa boʻlsa, narigi chegarada noldan farqli qoladi va yana yugurik toʻlqinga aylanadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="To'siq orqali tunnel o'tish: to'lqin funksiyasi va o'tish koeffitsienti"></canvas>
+      <div class="ctl c2" id="c4"></div>
+      <div class="readout" id="r4"></div>
+    </div>
+    <figcaption><b>4-rasm.</b> Chapda — toʻsiq va toʻlqin funksiyasining haqiqiy qismi (koʻk), nuqtali chiziq — elektron energiyasi <span class="math">E = 1</span> eV. Oʻtgan toʻlqin juda kichik boʻlsa, u kattalashtirib chiziladi. Oʻngda — oʻtish koeffitsientining toʻsiq qalinligiga bogʻliqligi (logarifmik oʻq).</figcaption>
+  </figure>
+
+  <p>Chapdagi sohada tushuvchi va qaytgan toʻlqinlar qoʻshilib, turgʻun toʻlqinga oʻxshash manzara hosil qiladi. Oʻngda esa faqat oʻtgan toʻlqin bor va uning amplitudasi hamma joyda bir xil. Oʻtish koeffitsienti <span class="math">κa ≫ 1</span> boʻlganda taxminan</p>
+  <p style="text-align:center"><span class="math">T ≈ 16(E/V<sub>0</sub>)(1 − E/V<sub>0</sub>)·e<sup>−2κa</sup>,</span><br><span class="math">κ = √(2m(V<sub>0</sub> − E))/ħ</span></p>
+  <p>Asosiysi — eksponenta. Oʻng grafikdagi toʻgʻri chiziq shuni koʻrsatadi: toʻsiq bir necha atom qatlamiga yupqalashsa, oʻtish ehtimoli bir necha tartibga oshadi. Zatvor oksidi 2 nm dan 1 nm ga yupqalashsa, tunnel toki 5 × 10⁷ marta ortadi. Shu sababli zamonaviy tranzistorlarda SiO₂ oʻrniga qalinroq, lekin dielektrik singdiruvchanligi katta materiallar ishlatiladi. Flesh-xotira, tunnel diod va omik kontaktlarda esa aynan shu effekt foydali ishni bajaradi.</p>
+
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>1-rasmda chiqish ishini 4,3 eV qiling. Qaysi toʻlqin uzunligidan boshlab elektronlar chiqa boshlaydi? Javobni <span class="math">λ<sub>0</sub> = 1,240/φ</span> formulasi bilan tekshiring. 250 nm da <span class="math">T<sub>max</sub></span> nechaga teng?</li>
+    <li>3-rasmda oʻra kengligini 1 nm qiling va <span class="math">E<sub>1</sub></span>, <span class="math">E<sub>2</sub></span> ni yozib oling. Kenglikni 2 nm ga oshirsangiz, ular necha marta kamayadi? Foton toʻlqin uzunligi qanday oʻzgaradi?</li>
+    <li>4-rasmda toʻsiq qalinligini 0,5 nm dan 1,0 nm ga oshiring. Oʻtish koeffitsienti taxminan necha marta kamaydi? Uni <span class="math">e<sup>−2κΔa</sup></span> bilan solishtiring.</li>
+  </ol>
+
+  <details><summary>Barcha hisoblangan qiymatlar va model</summary>
+    <table class="vals" id="vals"></table>
+    <p>Doimiylar: h = 6,626 × 10⁻³⁴ J·s, ħ = 1,055 × 10⁻³⁴ J·s, m<sub>0</sub> = 9,11 × 10⁻³¹ kg, 1 eV = 1,602 × 10⁻¹⁹ J, c = 3 × 10⁸ m/s. Fotoeffekt: T<sub>max</sub> = hν − φ, fotonlar soni (intensivlik) oʻzgarmas; chiqqan elektronlar tezligi T<sub>max</sub> ning tasodifiy ulushiga mos. De Broyl: λ = h/√(2mT), GaAs uchun m* = 0,067m<sub>0</sub>. Oʻra: cheksiz chuqur, m = m<sub>0</sub>, E<sub>1</sub> = 0,376 eV/(a [nm])². Toʻsiq: toʻgʻri burchakli, m = m<sub>0</sub>, E = 1 eV; toʻlqin funksiyasi va T uch sohadagi yechimlarni chegaralarda tikib aniq hisoblangan, taxminiy formula (2.30) taqqoslash uchun berilgan.</p>
+  </details>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
+<script src="../../assets/common.js"></script>
+<script>
+const HC=1239.84,K0=5.1231,E1nm=0.376; // HC eV·nm; k[nm⁻¹]=K0·√(E[eV]·m/m0)
+const $=id=>document.getElementById(id);
+const S=makeStore({lam:500,phi:2.3,lt:0,m:1,L:1,mode:'psi',a:0.5,V0:3});
+const mob=()=>window.innerWidth<640;
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif';
+const SUBF='500 9px Inter,system-ui,sans-serif';
+function sym(c,x,y,main,sub,col,align){c.font=SERIF;const w=c.measureText(main).width;c.font=SUBF;const ws=sub?c.measureText(sub).width:0;
+  if(align==='right')x-=w+ws+1;else if(align==='center')x-=(w+ws+1)/2;
+  label(c,main,x,y,{font:SERIF,color:col});if(sub)label(c,sub,x+w+1,y+4,{font:SUBF,color:col});}
+function arrow(c,x0,y0,x1,y1,col,lw=1.5,hs=6){c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw;c.beginPath();c.moveTo(x0,y0);c.lineTo(x1,y1);c.stroke();
+  const an=Math.atan2(y1-y0,x1-x0);c.beginPath();c.moveTo(x1,y1);c.lineTo(x1-hs*Math.cos(an-0.45),y1-hs*Math.sin(an-0.45));c.lineTo(x1-hs*Math.cos(an+0.45),y1-hs*Math.sin(an+0.45));c.fill();}
+function axes(c,l,t,r,b){c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(l,t);c.lineTo(l,b);c.lineTo(r,b);c.stroke();}
+// toʻlqin uzunligi → rang (koʻrinadigan soha), UB va IQ uchun alohida rang
+function wlColor(nm){
+  if(nm<380)return cssVar('--don');if(nm>750)return cssVar('--ev');
+  let r=0,g=0,b=0;
+  if(nm<440){r=(440-nm)/60;b=1;}else if(nm<490){g=(nm-440)/50;b=1;}else if(nm<510){g=1;b=(510-nm)/20;}
+  else if(nm<580){r=(nm-510)/70;g=1;}else if(nm<645){r=1;g=(645-nm)/65;}else r=1;
+  const f=v=>Math.round(255*Math.pow(v*0.82,0.9));return `rgb(${f(r)},${f(g)},${f(b)})`;}
+
+/* ============ 1-rasm: fotoeffekt ============ */
+slider($('c1'),S,{key:'lam',label:'Toʻlqin uzunligi λ',min:200,max:1100,step:5,fmt:v=>v+' nm'});
+slider($('c1'),S,{key:'phi',label:'Chiqish ishi φ',min:2,max:5,step:0.05,fmt:v=>fmtN(v,2)+' eV'});
+let ph=[],el=[],fspawn=0;
+function f1draw(dt){
+  const m=mob(),{c,w,h}=fitCanvas($('f1'),m?1.05:0.42);
+  const lam=S.get('lam'),phi=S.get('phi'),E=HC/lam,Tm=E-phi,col=wlColor(lam);
+  const sw=m?w:w*0.54,sh=m?h*0.52:h,mt=sh-(m?40:52);
+  // metall
+  c.fillStyle=cssVar('--atom');c.globalAlpha=.55;c.fillRect(8,mt,sw-16,sh-mt-6);c.globalAlpha=1;
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1.5;c.beginPath();c.moveTo(8,mt);c.lineTo(sw-8,mt);c.stroke();
+  label(c,'metall, φ = '+fmtN(phi,2)+' eV',sw/2,(mt+sh-6)/2,{align:'center',color:cssVar('--ink')});
+  // fotonlar
+  fspawn+=dt;const per=m?260:200;
+  while(fspawn>per){fspawn-=per;ph.push({x:rnd(-sw*0.25,sw*0.7),y:-30,ph:rnd(0,6)});}
+  const vx=0.11,vy=0.2,len=34,ang=Math.atan2(vy,vx),wl=clamp(lam/42,4,26);
+  ph.forEach(p=>{p.x+=vx*dt;p.y+=vy*dt;p.ph+=dt*0.02;
+    if(p.y>=mt){p.dead=1;if(Tm>0)el.push({x:p.x,y:mt-4,a:rnd(-1.1,1.1),v:0.06+0.22*Math.sqrt(Tm/4.3)*rnd(0.45,1)});else el.push({x:p.x,y:mt,fl:0});}
+    else{c.save();c.translate(p.x,p.y);c.rotate(ang);c.strokeStyle=col;c.lineWidth=2;c.beginPath();
+      for(let s=-len;s<=0;s+=1){const yy=4*Math.sin((s)/wl*6.283+p.ph);s===-len?c.moveTo(s,yy):c.lineTo(s,yy);}c.stroke();
+      c.fillStyle=col;c.beginPath();c.moveTo(6,0);c.lineTo(-1,-4.5);c.lineTo(-1,4.5);c.fill();c.restore();}});
+  ph=ph.filter(p=>!p.dead);
+  el.forEach(e=>{if(e.fl!==undefined){e.fl+=dt;const a=1-e.fl/400;c.fillStyle=col;c.globalAlpha=Math.max(0,a)*.6;c.beginPath();c.arc(e.x,e.y,2+e.fl/60,Math.PI,0);c.fill();c.globalAlpha=1;if(e.fl>400)e.dead=1;}
+    else{e.x+=Math.sin(e.a)*e.v*dt;e.y-=Math.cos(e.a)*e.v*dt;if(e.y<-8||e.x<0||e.x>sw)e.dead=1;else drawElectron(c,e.x,e.y,4.6);}});
+  el=el.filter(e=>!e.dead);
+  label(c,Tm>0?'elektronlar chiqmoqda':'hν < φ: elektron chiqmaydi',12,14,{color:Tm>0?cssVar('--elec'):cssVar('--muted'),font:'600 13px Inter,system-ui,sans-serif',bg:cssVar('--panel')});
+  // grafik T_max(ν)
+  const gl=m?40:sw+46,gt=m?sh+24:22,gr=w-12,gb=m?h-30:h-34;
+  const nuMax=16,yMin=-5.2,yMax=5;
+  const X=nu=>gl+nu/nuMax*(gr-gl),Y=t=>gt+(yMax-t)/(yMax-yMin)*(gb-gt);
+  c.strokeStyle=cssVar('--rule');c.lineWidth=1;for(let t=-4;t<=4;t+=2){c.beginPath();c.moveTo(gl,Y(t));c.lineTo(gr,Y(t));c.stroke();label(c,String(t).replace('-','−'),gl-6,Y(t),{align:'right',font:'500 11px Inter'});}
+  c.strokeStyle=cssVar('--ink2');c.beginPath();c.moveTo(gl,gt);c.lineTo(gl,gb);c.moveTo(gl,Y(0));c.lineTo(gr,Y(0));c.stroke();
+  for(let n=5;n<=15;n+=5)label(c,String(n),X(n),Y(0)+12,{align:'center',font:'500 11px Inter'});
+  label(c,'ν, 10¹⁴ Hz',gr,Y(0)+26,{align:'right',font:'500 11px Inter'});
+  sym(c,gl+6,gt+4,'T','max, eV',cssVar('--ink'));
+  const nu0=phi/0.41357; // 10^14 Hz
+  c.strokeStyle=cssVar('--accent');c.lineWidth=1.3;c.setLineDash([4,4]);c.beginPath();c.moveTo(X(0),Y(-phi));c.lineTo(X(nu0),Y(0));c.stroke();c.setLineDash([]);
+  c.lineWidth=2.5;c.beginPath();c.moveTo(X(0),Y(0));c.lineTo(X(nu0),Y(0));c.lineTo(X(nuMax),Y(0.41357*nuMax-phi));c.stroke();
+  sym(c,X(nu0),Y(0)-12,'ν','0',cssVar('--accent'),'center');
+  label(c,'−φ',X(0)+6,Y(-phi)+2,{color:cssVar('--accent')});
+  const nu=3e17/lam/1e14,tp=Math.max(0,Tm);
+  c.fillStyle=cssVar('--paper');c.strokeStyle=col;c.lineWidth=3;c.beginPath();c.arc(X(nu),Y(tp),6,0,7);c.fill();c.stroke();
+  $('r1').innerHTML=`<span>Foton <b>${fmtN(E,2)} eV</b></span><span>ν <b>${fmtE(3e17/lam,2)} Hz</b></span><span>T<sub>max</sub> <b>${Tm>0?fmtN(Tm,2)+' eV':'0'}</b></span><span>v<sub>max</sub> <b>${Tm>0?fmtE(Math.sqrt(2*Tm*1.602e-19/9.11e-31),1)+' m/s':'—'}</b></span><span>Kremniy yutadimi <b>${E>=1.12?'ha':'yoʻq'}</b></span>`;
+}
+
+/* ============ 2-rasm: de Broyl ============ */
+slider($('c2'),S,{key:'lt',label:'Kinetik energiya T',min:-1.4,max:2,step:0.01,fmt:v=>{const t=10**v;return (t<1?fmtN(t,3):t<10?fmtN(t,2):fmtN(t,0))+' eV';}});
+buttons($('b2'),S,{key:'m',options:[[1,'Erkin elektron, m₀'],[0.067,'GaAs dagi elektron, 0,067m₀']]});
+let f2t=0;
+const lamDB=()=>1.22643/Math.sqrt(10**S.get('lt')*S.get('m'));
+function f2draw(dt){
+  f2t+=dt;const m=mob(),{c,w,h}=fitCanvas($('f2'),m?0.7:0.3);
+  const span=m?6:12,L=14,R=w-14,X=x=>L+x/span*(R-L),lam=lamDB(),a=0.543;
+  const yA=h-34,yW=(h-60)/2+14,amp=Math.min(46,(h-70)/2*0.85);
+  // panjara
+  for(let x=a/2;x<span;x+=a){c.fillStyle=cssVar('--atom');c.beginPath();c.arc(X(x),yA,m?4:5,0,7);c.fill();}
+  // masshtab
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1.2;c.beginPath();c.moveTo(X(0.3),h-12);c.lineTo(X(1.3),h-12);c.moveTo(X(0.3),h-16);c.lineTo(X(0.3),h-8);c.moveTo(X(1.3),h-16);c.lineTo(X(1.3),h-8);c.stroke();
+  label(c,'1 nm',X(1.3)+8,h-12);
+  label(c,'kremniy panjarasi, a = 0,543 nm',R,h-12,{align:'right'});
+  // toʻlqin
+  const kk=6.2832/lam;
+  c.strokeStyle=cssVar('--muted');c.lineWidth=1;c.setLineDash([2,4]);c.beginPath();c.moveTo(L,yW);c.lineTo(R,yW);c.stroke();c.setLineDash([]);
+  c.strokeStyle=cssVar('--elec');c.lineWidth=2.4;c.beginPath();
+  const n=Math.round(clamp(span/lam*24,400,2400)),sh=f2t*0.0006*span/12;
+  for(let i=0;i<=n;i++){const x=span*i/n,y=yW-amp*Math.cos(kk*(x-sh));i?c.lineTo(X(x),y):c.moveTo(X(x),y);}
+  c.stroke();
+  // bitta λ qavsi
+  let x0=sh%lam;while(x0<span*0.15)x0+=lam;
+  if(x0+lam<span){const yb=yW-amp-10;c.strokeStyle=cssVar('--accent');c.lineWidth=1.4;c.beginPath();c.moveTo(X(x0),yb+6);c.lineTo(X(x0),yb);c.lineTo(X(x0+lam),yb);c.lineTo(X(x0+lam),yb+6);c.stroke();
+    label(c,'λ = '+fmtN(lam,lam<1?3:2)+' nm',(X(x0)+X(x0+lam))/2,yb-10,{align:'center',color:cssVar('--accent'),bg:cssVar('--panel')});}
+  else label(c,'λ = '+fmtN(lam,1)+' nm — oynadan uzun',X(span*0.5),yW-amp-14,{align:'center',color:cssVar('--accent'),bg:cssVar('--panel')});
+  const T=10**S.get('lt'),p=Math.sqrt(2*S.get('m')*9.11e-31*T*1.602e-19);
+  $('r2').innerHTML=`<span>Impuls p <b>${fmtE(p,2)} kg·m/s</b></span><span>λ = h/p <b>${fmtN(lam,3)} nm</b></span><span>λ/a <b>${fmtN(lam/a,2)}</b></span>`;
+}
+
+/* ============ 3-rasm: cheksiz oʻra ============ */
+slider($('c3'),S,{key:'L',label:'Oʻra kengligi a',min:0.6,max:3,step:0.01,fmt:v=>fmtN(v,2)+' nm'});
+buttons($('b3'),S,{key:'mode',options:[['psi','Toʻlqin funksiyasi ψ'],['p2','Ehtimollik zichligi |ψ|²']]});
+let f3t=0;
+function f3draw(dt){
+  f3t+=dt;const m=mob(),{c,w,h}=fitCanvas($('f3'),m?0.95:0.44);
+  const L=S.get('L'),E1=E1nm/L/L,Emax=6,col=[cssVar('--elec'),cssVar('--ef'),cssVar('--accent'),cssVar('--don')];
+  // chap: sathlar
+  const ll=m?34:44,lr=m?w*0.42:w*0.36,lt=18,lb=h-22,Y=E=>lb-E/Emax*(lb-lt);
+  axes(c,ll,lt,lr,lb);
+  for(let e=0;e<=6;e+=1){c.strokeStyle=cssVar('--rule');c.beginPath();c.moveTo(ll+1,Y(e));c.lineTo(lr,Y(e));c.stroke();label(c,String(e),ll-6,Y(e),{align:'right',font:'500 11px Inter'});}
+  label(c,'E, eV',ll+4,lt-8,{font:'500 11px Inter'});
+  let off=[];
+  for(let n=1;n<=4;n++){const E=n*n*E1;if(E>Emax){off.push([n,E]);continue;}
+    c.strokeStyle=col[n-1];c.lineWidth=2.5;c.beginPath();c.moveTo(ll+12,Y(E));c.lineTo(lr-(m?44:60),Y(E));c.stroke();
+    const ly=n>1&&(n*n-(n-1)*(n-1))*E1/Emax*(lb-lt)<13?null:Y(E);
+    if(ly!==null)sym(c,lr-(m?40:56),ly,'E',String(n),col[n-1]);}
+  if(off.length)label(c,off.map(([n,E])=>'E'+'₁₂₃₄'[n-1]+' = '+fmtN(E,1)).join(', ')+' eV ↑',lr,lt+2,{align:'right',font:'500 11px Inter',bg:cssVar('--panel')});
+  const dE=3*E1;
+  if(4*E1<=Emax){const xa=ll+(lr-ll)*0.38;arrow(c,xa,Y(4*E1),xa,Y(E1)-2,cssVar('--ink2'),1.4,6);
+    const lp=HC/dE;label(c,(lp>=1000?fmtN(lp/1000,2)+' mkm':fmtN(lp,0)+' nm'),xa+6,(Y(4*E1)+Y(E1))/2,{bg:cssVar('--panel'),font:'500 11px Inter'});}
+  // oʻng: ψ
+  const rl=lr+(m?18:40),rr=w-10,pw=rr-rl,ww=pw*(m?0.92:0.86)*L/3,x0=rl+(pw-ww)/2,x1=x0+ww;
+  const rows=4,rt=14,rb=h-22,dy=(rb-rt)/rows,mode=S.get('mode');
+  c.fillStyle=cssVar('--ink2');c.fillRect(x0-6,rt-4,6,rb-rt+8);c.fillRect(x1,rt-4,6,rb-rt+8);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(x0,rb+8);c.lineTo(x1,rb+8);c.stroke();
+  label(c,'a = '+fmtN(L,2)+' nm',(x0+x1)/2,rb+16,{align:'center',font:'500 11px Inter'});
+  for(let n=1;n<=4;n++){const yb=rb-(n-0.5)*dy,A=dy*0.42;
+    c.strokeStyle=cssVar('--muted');c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(x0,yb);c.lineTo(x1,yb);c.stroke();c.setLineDash([]);
+    const tc=Math.cos(f3t*0.0011*n*n);
+    c.strokeStyle=col[n-1];c.lineWidth=2.4;c.beginPath();
+    if(mode==='p2'){c.fillStyle=col[n-1];c.globalAlpha=.18;c.beginPath();c.moveTo(x0,yb+A*0.9);}
+    for(let i=0;i<=160;i++){const u=i/160,s=Math.sin(n*Math.PI*u),y=mode==='p2'?yb+A*0.9-2*A*0.9*s*s:yb-A*s*tc;
+      if(mode==='p2')c.lineTo(x0+u*ww,y);else i?c.lineTo(x0+u*ww,y):c.moveTo(x0+u*ww,y);}
+    if(mode==='p2'){c.lineTo(x1,yb+A*0.9);c.closePath();c.fill();c.globalAlpha=1;c.beginPath();
+      for(let i=0;i<=160;i++){const u=i/160,s=Math.sin(n*Math.PI*u),y=yb+A*0.9-2*A*0.9*s*s;i?c.lineTo(x0+u*ww,y):c.moveTo(x0+u*ww,y);}}
+    c.stroke();
+    label(c,'n = '+n,x0-12,yb,{align:'right',font:'500 11px Inter',color:col[n-1]});}
+  $('r3').innerHTML=`<span>E<sub>1</sub> <b>${fmtN(E1,3)} eV</b></span><span>E<sub>2</sub> <b>${fmtN(4*E1,3)} eV</b></span><span>E<sub>2</sub> − E<sub>1</sub> <b>${fmtN(dE,3)} eV</b></span><span>Foton λ<sub>21</sub> <b>${HC/dE>=1000?fmtN(HC/dE/1000,2)+' mkm':fmtN(HC/dE,0)+' nm'}</b></span><span>(E<sub>2</sub> − E<sub>1</sub>)/k<sub>B</sub>T <b>${fmtN(dE/0.02585,0)}</b></span>`;
+}
+
+/* ============ 4-rasm: tunnel effekti ============ */
+slider($('c4'),S,{key:'a',label:'Toʻsiq qalinligi a',min:0.1,max:1.5,step:0.01,fmt:v=>fmtN(v,2)+' nm'});
+slider($('c4'),S,{key:'V0',label:'Toʻsiq balandligi V<sub>0</sub>',min:1.2,max:4,step:0.05,fmt:v=>fmtN(v,2)+' eV'});
+const Etun=1;
+// kompleks sonlar
+const cx=(r,i=0)=>({r,i}),cadd=(a,b)=>cx(a.r+b.r,a.i+b.i),csub=(a,b)=>cx(a.r-b.r,a.i-b.i),
+  cmul=(a,b)=>cx(a.r*b.r-a.i*b.i,a.r*b.i+a.i*b.r),cdiv=(a,b)=>{const d=b.r*b.r+b.i*b.i;return cx((a.r*b.r+a.i*b.i)/d,(a.i*b.r-a.r*b.i)/d);},
+  cexpi=t=>cx(Math.cos(t),Math.sin(t)),csc=(a,s)=>cx(a.r*s,a.i*s);
+function tunnel(a,V0){
+  const k=K0*Math.sqrt(Etun),q=K0*Math.sqrt(V0-Etun);
+  // III sohadan orqaga: ψ = t·e^{ikx}, t=1 deb olamiz, keyin A ga boʻlamiz
+  const pa=cexpi(k*a),dpa=cmul(cx(0,k),pa);
+  const C=csc(cadd(pa,csc(dpa,1/q)),0.5*Math.exp(-q*a)),D=csc(csub(pa,csc(dpa,1/q)),0.5*Math.exp(q*a));
+  const p0=cadd(C,D),dp0=csc(csub(C,D),q);
+  const A=csc(cadd(p0,cdiv(dp0,cx(0,k))),0.5),B=csub(p0,A);
+  const iA=cdiv(cx(1),A),Bn=cmul(B,iA),Cn=cmul(C,iA),Dn=cmul(D,iA);
+  const T=1/(A.r*A.r+A.i*A.i);
+  const psi=x=>x<0?cadd(cexpi(k*x),cmul(Bn,cexpi(-k*x))):x<=a?cadd(csc(Cn,Math.exp(q*x)),csc(Dn,Math.exp(-q*x))):cmul(iA,cexpi(k*x));
+  return {k,q,T,psi,Tapp:16*Etun/V0*(1-Etun/V0)*Math.exp(-2*q*a)};
+}
+let f4t=0;
+function f4draw(dt){
+  f4t+=dt;const m=mob(),{c,w,h}=fitCanvas($('f4'),m?1.2:0.44);
+  const a=S.get('a'),V0=S.get('V0'),tn=tunnel(a,V0);
+  const wl=8,wr=m?w-8:w*0.64,wt=24,wb=m?h*0.56:h-24;
+  const pad=m?1.6:2.4,xL=-pad,xR=a+pad,X=x=>wl+(x-xL)/(xR-xL)*(wr-wl);
+  const Emx=4.4,Y=E=>wb-E/Emx*(wb-wt);
+  // toʻsiq
+  c.fillStyle=cssVar('--dep-tint');c.fillRect(X(0),Y(V0),X(a)-X(0),wb-Y(V0));
+  c.strokeStyle=cssVar('--ink');c.lineWidth=2;c.beginPath();c.moveTo(wl,wb);c.lineTo(X(0),wb);c.lineTo(X(0),Y(V0));c.lineTo(X(a),Y(V0));c.lineTo(X(a),wb);c.lineTo(wr,wb);c.stroke();
+  sym(c,X(a)+6,Y(V0)+2,'V','0',cssVar('--ink'));
+  c.strokeStyle=cssVar('--muted');c.lineWidth=1.2;c.setLineDash([2,4]);c.beginPath();c.moveTo(wl,Y(Etun));c.lineTo(wr,Y(Etun));c.stroke();c.setLineDash([]);
+  c.setLineDash([2,4]);c.beginPath();c.moveTo(wl+2,wt);c.lineTo(wl+22,wt);c.stroke();c.setLineDash([]);label(c,'E = 1 eV',wl+28,wt,{color:cssVar('--muted')});
+  // toʻlqin
+  const amp=Math.min((Y(Etun)-wt)*0.42,(wb-Y(Etun))*0.9,m?44:56),yb=Y(Etun),ph=cexpi(-f4t*0.0045);
+  const tA=Math.sqrt(tn.T);let mag=1;if(tA<0.1){mag=10**Math.ceil(Math.log10(0.3/tA));}
+  const re=x=>{let v=cmul(tn.psi(x),ph).r;if(x>a)v*=mag;return v;};
+  const env=x=>{const p=tn.psi(x);let v=Math.hypot(p.r,p.i);if(x>a)v*=mag;return v;};
+  c.save();c.beginPath();c.rect(wl,wt-6,wr-wl,wb-wt+6);c.clip();
+  c.strokeStyle=cssVar('--elec');c.globalAlpha=.3;c.lineWidth=1.2;c.beginPath();
+  for(let i=0;i<=400;i++){const x=xL+(xR-xL)*i/400,y=yb-amp*0.5*env(x);i?c.lineTo(X(x),y):c.moveTo(X(x),y);}c.stroke();c.globalAlpha=1;
+  c.lineWidth=2.4;c.beginPath();let first=true;
+  for(let i=0;i<=600;i++){const x=xL+(xR-xL)*i/600;if(mag>1&&x>a&&x-(xR-xL)/600<=a){c.stroke();c.beginPath();first=true;}
+    const y=yb-amp*0.5*re(x);if(first){c.moveTo(X(x),y);first=false;}else c.lineTo(X(x),y);}c.stroke();c.restore();
+  if(mag>1){c.strokeStyle=cssVar('--elec');c.setLineDash([3,3]);c.lineWidth=1;c.beginPath();c.moveTo(X(a)+2,wt);c.lineTo(X(a)+2,wb);c.stroke();c.setLineDash([]);
+    label(c,'×'+(mag>=1e4?'10'+sup(Math.round(Math.log10(mag))):fmtN(mag,0).replace(/\B(?=(\d{3})+(?!\d))/g,' ')),(X(a)+wr)/2,wt+2,{align:'center',color:cssVar('--elec'),bg:cssVar('--panel'),font:'600 12px Inter'});}
+  label(c,'I',(wl+X(0))/2,wb+12,{align:'center'});label(c,'II',(X(0)+X(a))/2,wb+12,{align:'center'});label(c,'III',(X(a)+wr)/2,wb+12,{align:'center'});
+  // grafik log T(a)
+  const gl=m?40:wr+52,gr=w-12,gt=m?wb+44:28,gbb=h-34,amax=1.5,lmin=-12;
+  const GX=x=>gl+x/amax*(gr-gl),GY=l=>gt+(0-l)/(0-lmin)*(gbb-gt);
+  for(let l=0;l>=lmin;l-=3){c.strokeStyle=cssVar('--rule');c.lineWidth=1;c.beginPath();c.moveTo(gl,GY(l));c.lineTo(gr,GY(l));c.stroke();label(c,l?'10'+sup(l):'1',gl-6,GY(l),{align:'right',font:'500 11px Inter'});}
+  axes(c,gl,gt,gr,gbb);
+  [0.5,1,1.5].forEach(x=>label(c,fmtN(x,1),GX(x),gbb+12,{align:'center',font:'500 11px Inter'}));
+  label(c,'a, nm',gr,gbb+26,{align:'right',font:'500 11px Inter'});
+  label(c,'T',gl+6,gt-10,{font:SERIF,color:cssVar('--ink')});
+  c.save();c.beginPath();c.rect(gl,gt-2,gr-gl,gbb-gt+4);c.clip();
+  c.strokeStyle=cssVar('--accent');c.lineWidth=2.4;c.beginPath();
+  for(let i=0;i<=150;i++){const x=amax*i/150,t=tunnel(Math.max(x,1e-4),V0).T,y=GY(Math.log10(t));i?c.lineTo(GX(x),y):c.moveTo(GX(x),y);}c.stroke();c.restore();
+  const ly=Math.log10(tn.T);
+  if(ly>=lmin){c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar('--ink');c.lineWidth=2;c.beginPath();c.arc(GX(a),GY(ly),6,0,7);c.fill();c.stroke();}
+  $('r4').innerHTML=`<span>κ <b>${fmtN(tn.q,2)} nm⁻¹</b></span><span>Kirish chuqurligi 1/κ <b>${fmtN(1/tn.q,3)} nm</b></span><span>Oʻtish koeffitsienti T <b>${fmtE(tn.T,2)}</b></span><span>(2.30) boʻyicha <b>${fmtE(tn.Tapp,2)}</b></span>`;
+}
+
+/* ============ jadval ============ */
+function vals(){const lam=S.get('lam'),E=HC/lam,L=S.get('L'),E1=E1nm/L/L,tn=tunnel(S.get('a'),S.get('V0'));
+  $('vals').innerHTML=[
+  ['Foton energiyasi (λ = '+lam+' nm)',fmtN(E,3)+' eV'],['T<sub>max</sub> = hν − φ',fmtN(Math.max(0,E-S.get('phi')),3)+' eV'],
+  ['Chegaraviy toʻlqin uzunligi λ<sub>0</sub> = hc/φ',fmtN(HC/S.get('phi'),0)+' nm'],
+  ['De Broyl toʻlqin uzunligi',fmtN(lamDB(),3)+' nm'],
+  ['Oʻrada E<sub>1</sub> / E<sub>2</sub> / E<sub>3</sub>',fmtN(E1,3)+' / '+fmtN(4*E1,3)+' / '+fmtN(9*E1,3)+' eV'],
+  ['Toʻsiq: κ',fmtN(tn.q,3)+' nm⁻¹'],['Oʻtish koeffitsienti (aniq / 2.30)',fmtE(tn.T,2)+' / '+fmtE(tn.Tapp,2)]
+  ].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');}
+S.sub(vals);vals();
+animate([{el:$('f1'),draw:f1draw},{el:$('f2'),draw:f2draw},{el:$('f3'),draw:f3draw},{el:$('f4'),draw:f4draw}]);
+</script>
+</body>
+</html>

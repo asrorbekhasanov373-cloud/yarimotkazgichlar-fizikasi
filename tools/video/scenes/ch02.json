@@ -1,0 +1,16 @@
+{
+  "url": "sim/kvant/",
+  "kicker": "2-bob",
+  "title": "Kvant mexanikasi asoslari",
+  "setup": "S.set('lam',650);S.set('phi',2.3);S.set('lt',0);S.set('m',1);S.set('L',1);S.set('mode','psi');S.set('a',0.3);S.set('V0',3)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 2-bob", "t": "Kvant mexanikasi asoslari", "d": "Foton, de Broyl toʻlqini, potensial oʻra va tunnel effekti"},
+  "segs": [
+    {"fig": "f1", "w": 900, "dur": 8, "start": "S.set('lam',650);S.set('phi',2.3)", "cap": "Qizil foton energiyasi 1,91 eV — chiqish ishidan kichik. Elektron chiqmaydi."},
+    {"fig": "f1", "w": 900, "dur": 9, "act": "S.set('lam',Math.round(__ease(650,300,p)))", "cap": "Toʻlqin uzunligi qisqarsa, foton energiyasi <i>E = hc/λ</i> ortadi va elektronlar uchib chiqa boshlaydi."},
+    {"fig": "f2", "w": 1100, "dur": 8, "start": "S.set('m',1)", "act": "S.set('lt',__ease(-1.4,2,p))", "cap": "Elektron ham toʻlqin: <i>λ = h/p</i>. Energiya ortgan sari toʻlqin uzunligi qisqaradi."},
+    {"fig": "f3", "w": 880, "dur": 9, "start": "S.set('L',1);S.set('mode','psi')", "cap": "Oʻraga faqat butun sondagi yarim toʻlqin sigʻadi, shuning uchun energiya sathlari alohida."},
+    {"fig": "f3", "w": 880, "dur": 8, "start": "S.set('mode','p2')", "act": "S.set('L',__ease(1,2,p))", "cap": "Oʻra kengaysa, sathlar pasayadi va bir-biriga yaqinlashadi: <i>E<sub>n</sub> ∝ n²/a²</i>."},
+    {"fig": "f4", "w": 890, "dur": 8, "start": "S.set('a',0.3);S.set('V0',3)", "cap": "Energiyasi toʻsiqdan past elektron toʻlqini toʻsiq ichida soʻnadi, lekin narigi tomonda davom etadi."},
+    {"fig": "f4", "w": 890, "dur": 8, "act": "S.set('a',__ease(0.3,1.2,p))", "cap": "Toʻsiq qalinlashsa, oʻtish ehtimoli eksponensial kamayadi: <i>T ∝ e<sup>−2κa</sup></i>."}
+  ]
+}
