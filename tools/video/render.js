@@ -4,7 +4,8 @@ const {spawn}=require('child_process');
 const FPS=30,BASE='http://localhost:8765/';
 const SITE='asrorbekhasanov373-cloud.github.io/yarimotkazgichlar-fizikasi';
 
-const INIT=`(()=>{window.__vt=0;window.__cbs=[];
+const INIT=`(()=>{const P=CanvasRenderingContext2D.prototype,_a=P.arc,_e=P.ellipse;P.arc=function(x,y,r,...q){return _a.call(this,x,y,Math.max(0,r||0),...q)};P.ellipse=function(x,y,rx,ry,...q){return _e.call(this,x,y,Math.max(0,rx||0),Math.max(0,ry||0),...q)};
+  window.__vt=0;window.__cbs=[];
   window.requestAnimationFrame=cb=>{window.__cbs.push(cb);return window.__cbs.length;};
   performance.now=()=>window.__vt;
   window.__step=ms=>{window.__vt+=ms;const c=window.__cbs;window.__cbs=[];c.forEach(f=>{try{f(window.__vt)}catch(e){console.error(e)}});};
@@ -49,7 +50,7 @@ async function render(video,outFile){
     const k=document.createElement('div');k.id='vcard';document.body.appendChild(k);
     for(const id of ['vfade','vprog']){const d=document.createElement('div');d.id=id;document.body.appendChild(d);}
   },[CSS,video.kicker,video.title]);
-  if(video.setup)await pg.evaluate(video.setup);
+  if(video.setup)await pg.evaluate(`try{${video.setup}}catch(e){console.error("setup",e)}`);
   for(let i=0;i<10;i++)await pg.evaluate('__step(33.33)');
   const ff=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-framerate',String(FPS),'-c:v','mjpeg','-i','-',
     '-c:v','libx264','-preset','slow','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart','-r',String(FPS),outFile]);
@@ -75,7 +76,7 @@ async function render(video,outFile){
       const cap=document.getElementById('vcap');if(cap.dataset.t!==(seg.cap||'')){cap.dataset.t=seg.cap||'';cap.innerHTML=seg.cap||'';cap.dataset.fresh='1';}else cap.dataset.fresh='0';
       window.dispatchEvent(new Event('resize'));
     },[{card:seg.card,fig:seg.fig,w:seg.w||900,cap:seg.cap}]);
-    if(seg.start)await pg.evaluate(seg.start);
+    if(seg.start)await pg.evaluate(`try{${seg.start}}catch(e){console.error('start',e)}`);
     for(let i=0;i<n;i++){
       const p=n>1?i/(n-1):1,tt=i/FPS,rt=runOff+tt;
       const eo=x=>1-Math.pow(1-Math.max(0,Math.min(1,x)),3);
@@ -85,7 +86,7 @@ async function render(video,outFile){
       const dx=VAR==='slide'?70*(1-ein):0,dy=VAR==='rise'?40*(1-ein):0;
       const fx={fade:Math.max(fadeIn,fadeOut)*(VAR==='fade'?1:0.75),sc,dx,dy,cap:eo(tt/0.5),prog:(frames+1)/total,
         k:eo((rt-0.15)/0.6),t:eo((rt-0.35)/0.7),d:eo((rt-0.8)/0.7),r:eo((rt-1.1)/0.8)};
-      await pg.evaluate(`(()=>{const p=${p};${seg.act||''};__step(${1000/FPS});const fx=${JSON.stringify(fx)};
+      await pg.evaluate(`(()=>{const p=${p};try{${seg.act||''}}catch(e){};__step(${1000/FPS});const fx=${JSON.stringify(fx)};
         const cap=document.getElementById('vcap');const fr=cap.dataset.fresh==='1';
         cap.style.opacity=fr?fx.cap:1;cap.style.transform='translateX(-50%) translateY('+(fr?16*(1-fx.cap):0)+'px)';
         const f=document.querySelector('figure.vshow');if(f)f.style.transform='translateX(calc(-50% + '+fx.dx+'px)) translateY('+fx.dy+'px) scale('+fx.sc+')';
