@@ -32,7 +32,7 @@ for name, lines in data.items():
             elif emph: rate, pitch, vol = '-10%', '+4Hz', '+8%'
             else: rate, pitch, vol = '-5%', ('+2Hz' if k % 2 else '+0Hz'), '+0%'
             if k: parts.append(np.zeros(int(0.36 * SR)))
-            parts.append(synth(txt, rate, pitch, vol, 'tmp.mp3'))
+            parts.append(synth(txt, rate, pitch, vol, f'tmp_{os.getpid()}.mp3'))
         y = np.concatenate(parts); y = y / (np.max(np.abs(y)) + 1e-9) * 0.95
         f = os.path.abspath(f'expr_{name}_{i:02d}.wav')
         subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-f', 'f64le', '-ar', str(SR), '-ac', '1', '-i', '-', f], input=y.tobytes())

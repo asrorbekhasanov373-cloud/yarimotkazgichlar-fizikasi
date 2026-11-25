@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Yangi yoʻnalishlar</title>
+<meta name="description" content="Keng zonali yarimoʻtkazgichlar, kvant oʻra va kvant nuqtalar, grafen va MoS₂, Mur qonuni. 13-bob uchun interaktiv maqola.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>13-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 13-bob</p>
+    <h1>Yangi yoʻnalishlar</h1>
+    <p class="dek">Kremniydan keyin nima? Keng zonali kristallar, nanometrli kvant tuzilmalar va atom qalinligidagi materiallar — barchasi oldingi boblardagi fizikaga tayanadi.</p>
+  </header>
+
+  <p>Kremniy texnologiyasi 60 yildan ortiq vaqt davomida tranzistorlarni kichraytirish hisobiga rivojlandi. Endi bu yoʻl fizik chegaralarga yaqinlashdi. Bu sahifada kitobning 13-bobidagi toʻrt yoʻnalishni koʻramiz: quvvat asboblari uchun keng zonali materiallar, kvant oʻra va kvant nuqtalar, ikki oʻlchamli kristallar va mikroelektronika rivojining umumiy manzarasi — Mur qonuni.</p>
+
+  <h2>Keng zonali materiallar: yupqaroq va kuchliroq</h2>
+  <p>Elektromobil yoki quyosh stansiyasi invertoridagi tranzistor yuzlab, hatto minglab voltni berkitishi kerak. Buning uchun asbobda qalin va kuchsiz legirlangan <i>dreyf sohasi</i> boʻladi. Berk holatda u toʻliq kambagʻallashadi va kuchlanishni ushlab turadi, ochiq holatda esa tok shu soha orqali oʻtadi va uning qarshiligi isrofni belgilaydi.</p>
+  <p>Teshilish paytida sohadagi maksimal maydon <i>kritik maydon</i> <span class="math">ℰ<sub>c</sub></span> ga teng, maydon esa uchburchak shaklida. Uchburchak yuzasi teshilish kuchlanishi <span class="math">V<sub>B</sub></span> ni beradi, shuning uchun <span class="math">W = 2V<sub>B</sub>/ℰ<sub>c</sub></span>. Taqiqlangan zonasi keng materialda elektron zarbli ionlanish uchun koʻproq energiya olishi kerak, shuning uchun 4H-SiC va GaN da kritik maydon kremniydagidan qariyb 13 marta katta.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="Turli materiallarda dreyf sohasidagi maydon taqsimoti va solishtirma qarshilikning teshilish kuchlanishiga bog'liqligi"></canvas>
+      <div class="ctl" id="c1"></div>
+      <div class="readout" id="r1"></div>
+    </div>
+    <figcaption><b>1-rasm.</b> Chapda — teshilish paytida dreyf sohasidagi maydon: uchburchaklar yuzasi bir xil (<span class="math">V<sub>B</sub></span>), lekin SiC da soha ancha yupqa. Oʻngda — ideal dreyf sohasining solishtirma qarshiligi (13.2), ikkala oʻq logarifmik.</figcaption>
+  </figure>
+
+  <p>Yupqa soha kuchliroq legirlanishi mumkin: <span class="math">N<sub>D</sub> = ε<sub>s</sub>ℰ<sub>c</sub><sup>2</sup>/(2eV<sub>B</sub>)</span>. Ikkalasi birgalikda ideal dreyf sohasining qarshiligini beradi:</p>
+  <p style="text-align:center"><span class="math">R<sub>on,sp</sub> = 4V<sub>B</sub><sup>2</sup> / (ε<sub>s</sub>μ<sub>n</sub>ℰ<sub>c</sub><sup>3</sup>)</span></p>
+  <p>Qarshilik kritik maydonning <em>kubiga</em> teskari proporsional. Shuning uchun bir xil kuchlanishda SiC va GaN dreyf sohasining qarshiligi kremniynikidan qariyb ming marta kichik. Kitobdagi 13.1-misolni surgich bilan tekshirib koʻring: 1000 V da kremniyda W = 66,7 mkm va R ≈ 104 mΩ·sm², 4H-SiC da esa 5 mkm va 0,088 mΩ·sm².</p>
+  <aside class="note">Shu sababli 600 V dan yuqori kuchlanishlarda SiC MOSFET lar kremniy IGBT lari oʻrnini egallamoqda. Taqiqlangan zonasi yanada keng (≈ 4,8 eV) boʻlgan galliy oksidi Ga₂O₃ ham shu yoʻnalishda oʻrganilmoqda, lekin u kitob jadvaliga kiritilmagan va rasmda koʻrsatilmagan.</aside>
+
+  <h2>Kvant oʻra: qatlam yupqalashsa, sathlar koʻtariladi</h2>
+  <p>Yarimoʻtkazgich qatlamining qalinligi elektronning de Broyl toʻlqin uzunligiga — oʻnlab nanometrga — yaqinlashganda, elektron harakati shu yoʻnalishda kvantlanadi. GaAs qatlami ikki tomondan keng zonali AlGaAs bilan oʻralgan boʻlsa, u <i>kvant oʻra</i> deyiladi. Toʻsiqlarni cheksiz baland deb olsak, sathlar 2-bobdagi potensial oʻra masalasidan topiladi:</p>
+  <p style="text-align:center"><span class="math">E<sub>n</sub> = ħ<sup>2</sup>π<sup>2</sup>n<sup>2</sup> / (2m<sup>*</sup>L<sup>2</sup>)</span></p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="GaAs kvant o'rasidagi elektron va kovak sathlari hamda nurlanish to'lqin uzunligi"></canvas>
+      <div class="ctl" id="c2"></div>
+      <div class="readout" id="r2"></div>
+    </div>
+    <figcaption><b>2-rasm.</b> Chapda — kvant oʻraning zona diagrammasi: <span style="color:var(--elec)">elektron</span> va <span style="color:var(--hole)">kovak</span> sathlari va ularning toʻlqin funksiyalari (taqiqlangan zona qisqartirib chizilgan). Oʻngda — birinchi optik oʻtish toʻlqin uzunligi (kitobdagi 13.3-rasm).</figcaption>
+  </figure>
+
+  <p>Oʻtkazuvchanlik zonasining tubi <span class="math">E<sub>1e</sub></span> ga yuqoriga, valent zonaning shifti <span class="math">E<sub>1h</sub></span> ga pastga siljiydi. Elektronning effektiv massasi kichik (0,067m₀), shuning uchun uning sathi kovaknikidan ancha baland. Optik oʻtish energiyasi <span class="math">E<sub>g</sub> + E<sub>1e</sub> + E<sub>1h</sub></span> ga teng. Oʻra kengligi ikki marta kamaysa, <span class="math">E<sub>1</sub></span> toʻrt marta ortadi va nurlanish qisqa toʻlqinlar tomon siljiydi. Kvant oʻralar zamonaviy lazer diodlari va LED larning faol qatlamida ishlatiladi.</p>
+
+  <h2>Kvant nuqtalar: oʻlcham — bu rang</h2>
+  <p>Kvant nuqtada elektron uchala yoʻnalishda ham qamalgan va uning sathlari atomdagidek diskret. Shuning uchun kvant nuqtalar baʼzan «sunʼiy atomlar» deb ataladi. Nuqta qanchalik kichik boʻlsa, sathlar shunchalik baland va nurlanish shunchalik koʻk tomonga siljigan. Bitta materialdan faqat oʻlchamini oʻzgartirib, turli rangda nurlanuvchi nuqtalar olish mumkin.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="Kolloid CdSe kvant nuqtasining o'lchami va nurlanish rangi"></canvas>
+      <div class="ctl" id="c3"></div>
+      <div class="readout" id="r3"></div>
+    </div>
+    <figcaption><b>3-rasm.</b> Kolloid CdSe kvant nuqtasi: chapda — nuqta (nuqtachalar — atomlar, masshtab saqlangan) va undan tarqalayotgan yorugʻlik toʻlqinlari, oʻngda — spektrdagi oʻrni va turli oʻlchamdagi nuqtalar eritmalari.</figcaption>
+  </figure>
+
+  <p>Diametri 2 nm boʻlgan nuqtada atigi bir necha yuz atom bor, lekin u hajmiy CdSe (713 nm, koʻzga deyarli koʻrinmaydigan qizil) oʻrniga koʻk-yashil nur chiqaradi. Bunday nuqtalar displeylarda, lazerlarda va quyosh elementlarida ishlatiladi. Ular kimyoviy sintez bilan olinadi yoki geteroepitaksiyada oʻz-oʻzidan hosil boʻladi (Stranski–Krastanov rejimi).</p>
+  <aside class="note">Kvant nuqta uchun 2-rasmdagi oddiy formula (cheksiz chuqur oʻra) energiyani ancha oshirib koʻrsatadi. Shuning uchun bu rasmda CdSe nuqtalarining oʻlchami va birinchi yutilish choʻqqisini bogʻlovchi tajribaviy bogʻlanish ishlatilgan. Nurlanish bu choʻqqidan bir necha nanometr uzunroq toʻlqinda boʻladi.</aside>
+
+  <h2>Atom qalinligidagi kristallar: grafen va MoS₂</h2>
+  <p>2004 yilda grafitdan bir atom qalinligidagi uglerod qatlami — grafen — ajratib olindi. Uning zonaviy tuzilishi oddiy yarimoʻtkazgichlarnikidan tubdan farq qiladi: valent zona va oʻtkazuvchanlik zonasi K nuqtalarda bir-biriga tegadi va energiya toʻlqin vektoriga chiziqli bogʻliq, <span class="math">E = ±ħv<sub>F</sub>|k|</span>. Bu <i>Dirak konusi</i>: elektronlar massasiz zarralar kabi doimiy tezlik <span class="math">v<sub>F</sub> ≈ 10<sup>6</sup></span> m/s bilan harakatlanadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="Grafen va MoS2 monoqatlamining zona tuzilishi va Fermi sathi"></canvas>
+      <div class="ctl" id="c4"></div>
+      <div class="readout" id="r4"></div>
+    </div>
+    <figcaption><b>4-rasm.</b> K nuqta yaqinidagi zonalar. Koʻk soya — elektronlar bilan band holatlar, toʻq sariq — boʻshab qolgan holatlar (kovaklar). Zatvor kuchlanishi Fermi sathini <span style="color:var(--ef)">E<sub>F</sub></span> siljitadi. MoS₂ zonalari sxematik.</figcaption>
+  </figure>
+
+  <p>Fermi sathini pastga tushirib koʻring. Grafenda tashuvchilar konsentratsiyasi faqat bitta nuqtada — Dirak nuqtasida — minimumga tushadi, lekin hech qachon nolga yaqinlashmaydi: taqiqlangan zona yoʻq. Shuning uchun grafen kanalli tranzistorni toʻliq berkitib boʻlmaydi va u raqamli mantiq uchun yaroqsiz. MoS₂ monoqatlami ham olti burchakli qatlamli kristall, lekin uning ≈ 1,8 eV toʻgʻri taqiqlangan zonasi bor. Fermi sathi zona ichida boʻlganda tashuvchilar deyarli yoʻq va kanal berk. Atom qalinligidagi kanal zatvor bilan juda yaxshi boshqariladi, shuning uchun bunday materiallar keyingi avlod tranzistorlari uchun oʻrganilmoqda.</p>
+
+  <h2>Mur qonuni</h2>
+  <p>1965 yilda G. Mur bitta kristalldagi tranzistorlar soni har yili–ikki yilda ikki baravar ortishini bashorat qilgan. Bu qonuniyat yarim asr davomida bajarildi: 1971 yildagi birinchi mikroprotsessorda ≈ 2300 ta tranzistor boʻlgan boʻlsa, bugungi protsessorlarda oʻn milliardlab tranzistor bor.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f5" aria-label="Kristalldagi tranzistorlar sonining yillar bo'yicha o'sishi, logarifmik shkala"></canvas>
+      <div class="ctl c2" id="c5"></div>
+      <div class="readout" id="r5"></div>
+    </div>
+    <figcaption><b>5-rasm.</b> Nuqtalar — turli yillardagi protsessorlar va grafik protsessorlardagi tranzistorlar soni (taxminiy), chiziq — 1971 yildan boshlab har <span class="math">T</span> yilda ikki baravar ortish. Vertikal oʻq logarifmik: har bir boʻlinma — ming marta.</figcaption>
+  </figure>
+
+  <p>Logarifmik shkalada eksponensial oʻsish toʻgʻri chiziqqa aylanadi. Ikki baravar ortish davrini oʻzgartirib koʻring: davr bir yilga oʻzgarsa ham, 50 yilda farq millionlab marta boʻladi. Kichraytirish chegaralariga yaqinlashilgani sari rivojlanish yangi tuzilmalar (GAA tranzistorlar), yangi kanal materiallari, kristallarni ustma-ust birlashtirish va keng zonali quvvat asboblari hisobiga davom etmoqda.</p>
+
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>1-rasmda <span class="math">V<sub>B</sub></span> ni 1000 V dan 2000 V ga oshiring. Kremniyda dreyf sohasi qarshiligi necha marta ortdi? Javobni <span class="math">R ∝ V<sub>B</sub><sup>2</sup></span> bilan tekshiring.</li>
+    <li>2-rasmda oʻra kengligini 10 nm dan 5 nm ga kamaytiring. <span class="math">E<sub>1e</sub></span> necha marta ortdi? Nurlanish toʻlqin uzunligi qancha qisqardi?</li>
+    <li>4-rasmda grafen uchun <span class="math">E<sub>F</sub></span> = 0,117 eV qiling. Konsentratsiya kitobdagi 13.4-misol javobi (10¹² sm⁻²) bilan mos keladimi? Shu sathda MoS₂ da tashuvchilar qancha?</li>
+  </ol>
+
+  <details><summary>Model va qiymatlar</summary>
+    <table class="vals" id="vals"></table>
+    <p>1-rasm: 13.1-jadval qiymatlari (Si: ε<sub>r</sub> = 11,9, ℰ<sub>c</sub> = 3 × 10⁵ V/sm, μ<sub>n</sub> = 1350; GaAs: 12,9, 4 × 10⁵, 6000; 4H-SiC: 10, 4 × 10⁶, 800; GaN: 10,4, 4 × 10⁶, 1000 sm²/(V·s)). Bir tomonlama keskin oʻtish, ℰ<sub>c</sub> kuchlanishga bogʻliq emas deb olingan. 2-rasm: GaAs, E<sub>g</sub> = 1,424 eV, m<sub>e</sub><sup>*</sup> = 0,067m₀, m<sub>h</sub><sup>*</sup> = 0,5m₀, cheksiz toʻsiqlar (real chekli toʻsiqlarda kvantlash energiyasi kichikroq). 3-rasm: CdSe uchun diametr va birinchi eksiton yutilish choʻqqisi orasidagi tajribaviy bogʻlanish (W. W. Yu va boshq., 2003), hajmiy E<sub>g</sub> = 1,74 eV, atomlar soni ≈ 35,6 nm⁻³ × hajm. 4-rasm: grafen v<sub>F</sub> = 10⁶ m/s, n = E<sub>F</sub><sup>2</sup>/[π(ħv<sub>F</sub>)<sup>2</sup>] + n<sub>i</sub>; MoS₂ E<sub>g</sub> = 1,8 eV, m<sup>*</sup> = 0,5m₀ (sxematik), 2D holatlar zichligi ikki vodiy bilan, T = 300 K. 5-rasm: tranzistorlar soni ochiq manbalardan olingan taxminiy qiymatlar.</p>
+  </details>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
+<script src="../../assets/common.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const hbar=1.0546e-34,m0=9.109e-31,qe=1.602e-19,eps0=8.854e-14,kT=0.025852;
+const S=makeStore({VB:3,L:10,d:3.5,EF:0.3,Y:2025,T:2});
+const mob=()=>window.innerWidth<640;
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif';
+const SANS=(w,s)=>`${w} ${s}px Inter,system-ui,sans-serif`;
+function line(c,pts,col,lw=2,dash){c.save();c.strokeStyle=col;c.lineWidth=lw;c.lineJoin='round';if(dash)c.setLineDash(dash);c.beginPath();pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.stroke();c.restore();}
+function hexA(col,a){c0.fillStyle=col;const s=c0.fillStyle;if(s[0]==='#'){const n=parseInt(s.slice(1),16);return `rgba(${n>>16},${(n>>8)&255},${n&255},${a})`;}return s.replace('rgb(','rgba(').replace(')',','+a+')');}
+const c0=document.createElement('canvas').getContext('2d');
+function sub2(t){return t;}
+// toʻlqin uzunligi -> rang
+function wl2rgb(l,dim){let r=0,g=0,b=0;
+  if(l<440){r=-(l-440)/60;b=1;}else if(l<490){g=(l-440)/50;b=1;}else if(l<510){g=1;b=-(l-510)/20;}
+  else if(l<580){r=(l-510)/70;g=1;}else if(l<645){r=1;g=-(l-645)/65;}else r=1;
+  let f=l<420?0.3+0.7*(l-380)/40:l>700?Math.max(0.25,0.3+0.7*(780-l)/80):1;f=clamp(f,0.25,1);
+  const k=v=>Math.round(255*Math.pow(clamp(v*f,0,1),0.8));return `rgb(${k(r)},${k(g)},${k(b)})`;}
+
+/* ============ 1-rasm: dreyf sohasi ============ */
+const MATS=[
+  {n:'Si',er:11.9,Ec:3e5,mu:1350,col:'--ink',dash:null},
+  {n:'GaAs',er:12.9,Ec:4e5,mu:6000,col:'--muted',dash:[6,4]},
+  {n:'4H-SiC',er:10,Ec:4e6,mu:800,col:'--elec',dash:null},
+  {n:'GaN',er:10.4,Ec:4e6,mu:1000,col:'--elec',dash:[6,4]}];
+function drift(m,VB){const es=m.er*eps0,W=2*VB/m.Ec,ND=es*m.Ec*m.Ec/(2*qe*VB),R=4*VB*VB/(es*m.mu*m.Ec**3);return {W,ND,R};}
+slider($('c1'),S,{key:'VB',label:'Teshilish kuchlanishi V<sub>B</sub>',min:2,max:4,step:0.01,fmt:v=>{const V=10**v;return V>=1000?fmtN(V/1000,V<1e4?2:1)+' kV':Math.round(V)+' V';}});
+function f1draw(){
+  const m=mob(),{c,w,h}=fitCanvas($('f1'),m?1.3:0.4),VB=10**S.get('VB');
+  if(w<60)return;
+  const ink=cssVar('--ink'),ink2=cssVar('--ink2'),mut=cssVar('--muted'),rule=cssVar('--rule');
+  const A=m?{x0:44,x1:w-10,y0:26,y1:h*0.44}:{x0:56,x1:w*0.45,y0:26,y1:h-36};
+  const B=m?{x0:44,x1:w-34,y0:h*0.56,y1:h-40}:{x0:w*0.55+18,x1:w-48,y0:26,y1:h-36};
+  // --- A: maydon uchburchaklari
+  const si=drift(MATS[0],VB),xmax=si.W*1e4*1.08,ymax=4.4e6;
+  const X=x=>A.x0+x/xmax*(A.x1-A.x0),Y=e=>A.y1-e/ymax*(A.y1-A.y0);
+  c.strokeStyle=rule;c.lineWidth=1;
+  for(let e=1e6;e<ymax;e+=1e6){c.beginPath();c.moveTo(A.x0,Y(e));c.lineTo(A.x1,Y(e));c.stroke();label(c,fmtN(e/1e6,0),A.x0-6,Y(e),{align:'right'});}
+  label(c,'ℰ, 10⁶ V/sm',A.x0-6,A.y0-14,{color:ink2});
+  line(c,[[A.x0,A.y0],[A.x0,A.y1],[A.x1,A.y1]],ink2,1);
+  const step=[1,2,5,10,20,50,100,200,500].find(s=>xmax/s<=5)||100;
+  for(let x=step;x<xmax;x+=step){line(c,[[X(x),A.y1],[X(x),A.y1+4]],ink2,1);label(c,String(x),X(x),A.y1+14,{align:'center'});}
+  label(c,'0',A.x0,A.y1+14,{align:'center'});label(c,'x, mkm',A.x1,A.y1+28,{align:'right',color:ink2});
+  [MATS[0],MATS[1],MATS[2],MATS[3]].forEach(mt=>{const d=drift(mt,VB),W=d.W*1e4,col=cssVar(mt.col);
+    if(mt.n!=='GaN'){c.fillStyle=hexA(col,mt.n==='GaAs'?0.08:0.16);c.beginPath();c.moveTo(X(0),Y(mt.Ec));c.lineTo(X(W),Y(0));c.lineTo(X(0),Y(0));c.fill();}
+    line(c,[[X(0),Y(mt.Ec)],[X(W),Y(0)]],col,mt.n==='GaN'?1.6:2.4,mt.dash);});
+  const sic=drift(MATS[2],VB);
+  label(c,'4H-SiC, GaN',X(sic.W*1e4)+8,Y(3.3e6),{color:cssVar('--elec'),font:SANS(600,12),bg:cssVar('--panel')});
+  label(c,'W = '+fmtN(sic.W*1e4,sic.W*1e4<10?1:0)+' mkm',X(sic.W*1e4)+8,Y(2.7e6),{color:cssVar('--elec'),bg:cssVar('--panel')});
+  label(c,'Si',X(si.W*1e4*0.55),Y(3e5*0.45)-16,{color:ink,font:SANS(600,12)});
+  label(c,'GaAs',X(si.W*1e4*0.75*0.25),Y(4e5*0.75)-14,{color:mut,font:SANS(600,12)});
+  label(c,'W = '+fmtN(si.W*1e4,si.W*1e4<10?1:0)+' mkm',X(si.W*1e4),Y(0)-12,{align:'right',color:ink,bg:cssVar('--panel')});
+  label(c,'uchburchaklar yuzasi bir xil = VB',A.x1,A.y0+4,{align:'right',color:mut});
+  // --- B: log-log qarshilik
+  const lx0=2,lx1=4,ly0=-7,ly1=2,XB=v=>B.x0+(Math.log10(v)-lx0)/(lx1-lx0)*(B.x1-B.x0),YB=r=>B.y1-(Math.log10(r)-ly0)/(ly1-ly0)*(B.y1-B.y0);
+  c.strokeStyle=rule;c.lineWidth=1;
+  for(let e=ly0;e<=ly1;e++){c.beginPath();c.moveTo(B.x0,YB(10**e));c.lineTo(B.x1,YB(10**e));c.stroke();
+    if(!m||e%2===0)label(c,'10'+sup(e),B.x0-6,YB(10**e),{align:'right'});}
+  [[100,'100 V'],[1000,'1 kV'],[1e4,'10 kV']].forEach(([v,t])=>{c.beginPath();c.moveTo(XB(v),B.y0);c.lineTo(XB(v),B.y1);c.stroke();label(c,t,XB(v),B.y1+14,{align:v===100?'left':v===1e4?'right':'center'});});
+  label(c,'Ron,sp, Ω·sm²',B.x0-6,B.y0-14,{color:ink2});
+  label(c,'VB',B.x1,B.y1+28,{align:'right',color:ink2});
+  c.save();c.beginPath();c.rect(B.x0,B.y0-2,B.x1-B.x0,B.y1-B.y0+4);c.clip();
+  MATS.forEach(mt=>{const col=cssVar(mt.col);line(c,[[XB(100),YB(drift(mt,100).R)],[XB(1e4),YB(drift(mt,1e4).R)]],col,2.2,mt.dash);});
+  c.restore();
+  const xe=B.x1+9;
+  label(c,'Si',xe,YB(drift(MATS[0],1e4).R),{color:ink,font:SANS(600,12)});
+  label(c,'GaAs',xe,YB(drift(MATS[1],1e4).R),{color:mut,font:SANS(600,12)});
+  label(c,'GaN',xe,YB(drift(MATS[3],1e4).R)-8,{color:cssVar('--elec'),font:SANS(600,12)});
+  label(c,'SiC',xe,YB(drift(MATS[2],1e4).R)+8,{color:cssVar('--elec'),font:SANS(600,12)});
+  line(c,[[XB(VB),B.y0],[XB(VB),B.y1]],cssVar('--accent'),1.2,[4,3]);
+  MATS.forEach(mt=>{const r=drift(mt,VB).R;c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar(mt.col);c.lineWidth=2;c.beginPath();c.arc(XB(VB),YB(r),4.5,0,7);c.fill();c.stroke();});
+  const yS=YB(si.R),yC=YB(sic.R),xa=XB(VB)+(XB(VB)>B.x0+(B.x1-B.x0)*0.6?-14:14);
+  line(c,[[xa,yS+6],[xa,yC-6]],cssVar('--accent'),1.2);
+  label(c,'×'+Math.round(si.R/sic.R),xa+(xa<XB(VB)?-6:6),(yS+yC)/2,{align:xa<XB(VB)?'right':'left',color:cssVar('--accent'),font:SANS(600,13),bg:cssVar('--panel')});
+  $('r1').innerHTML=`<span>Si: W <b>${fmtN(si.W*1e4,1)} mkm</b>, N<sub>D</sub> <b>${fmtE(si.ND,1)}</b>, R <b>${fmtE(si.R*1e3,2)} mΩ·sm²</b></span><span>4H-SiC: W <b>${fmtN(sic.W*1e4,2)} mkm</b>, N<sub>D</sub> <b>${fmtE(sic.ND,1)}</b>, R <b>${fmtE(sic.R*1e3,2)} mΩ·sm²</b></span>`;
+}
+
+/* ============ 2-rasm: kvant oʻra ============ */
+const GA={Eg:1.424,me:0.067,mh:0.5};
+const En=(L,m,n)=>hbar*hbar*Math.PI*Math.PI*n*n/(2*m*m0*(L*1e-9)**2)/qe;
+const qw=L=>{const e1=En(L,GA.me,1),h1=En(L,GA.mh,1),E=GA.Eg+e1+h1;return {e1,h1,E,lam:1239.84/E};};
+slider($('c2'),S,{key:'L',label:'Oʻra kengligi L',min:3,max:20,step:0.1,fmt:v=>fmtN(v,1)+' nm'});
+function f2draw(){
+  const m=mob(),{c,w,h}=fitCanvas($('f2'),m?1.35:0.5),L=S.get('L'),r=qw(L);
+  if(w<60)return;
+  const ink=cssVar('--ink'),ink2=cssVar('--ink2'),mut=cssVar('--muted'),rule=cssVar('--rule');
+  const A=m?{x0:8,x1:w-8,y0:8,y1:h*0.6}:{x0:8,x1:w*0.6,y0:10,y1:h-10};
+  const B=m?{x0:46,x1:w-14,y0:h*0.68,y1:h-40}:{x0:w*0.68,x1:w-14,y0:24,y1:h-36};
+  // energiya shkalasi: oʻtkazuvchanlik 0..0.95 eV, valent 0..0.3 eV, oraliq — qisqartirilgan
+  const gapPx=58,s=(A.y1-A.y0-gapPx-22)/1.25,yc=A.y0+0.95*s,yv=yc+gapPx;
+  const cx=(A.x0+A.x1)/2,wellMax=(A.x1-A.x0)*0.56,ww=L/20*wellMax,xl=cx-ww/2,xr=cx+ww/2;
+  c.fillStyle=cssVar('--dep-tint');c.fillRect(A.x0,A.y0,xl-A.x0,A.y1-22-A.y0);c.fillRect(xr,A.y0,A.x1-xr,A.y1-22-A.y0);
+  const ec=cssVar('--ec'),ev=cssVar('--ev');
+  line(c,[[A.x0,A.y0+2],[xl,A.y0+2],[xl,yc],[xr,yc],[xr,A.y0+2],[A.x1,A.y0+2]],ec,2.6);
+  const vb=A.y1-24;line(c,[[A.x0,vb],[xl,vb],[xl,yv],[xr,yv],[xr,vb],[A.x1,vb]],ev,2.6);
+  label(c,'AlGaAs',A.x0+8,yv-12,{color:mut});label(c,'AlGaAs',A.x1-8,yv-12,{align:'right',color:mut});label(c,'GaAs',cx,vb-12,{align:'center',color:mut});
+  // qisqartirish belgisi
+  c.strokeStyle=mut;c.lineWidth=1;[yc+gapPx*0.42,yc+gapPx*0.58].forEach(y=>{c.beginPath();for(let x=xl+4,i=0;x<=xr-4;x+=6,i++)i?c.lineTo(x,y+(i%2?-3:3)):c.moveTo(x,y);c.stroke();});
+  line(c,[[xl,A.y1-16],[xl,A.y1],[xl,A.y1-8],[xr,A.y1-8],[xr,A.y1-16],[xr,A.y1]],ink2,1);label(c,'L = '+fmtN(L,1)+' nm',cx,A.y1-8,{align:'center',color:ink2,bg:cssVar('--panel')});
+  // sathlar va toʻlqin funksiyalari
+  const lev=(E,y,col,sign,n)=>{line(c,[[xl,y],[xr,y]],col,1.6);const amp=Math.min(16,ww*0.12+6);
+    c.save();c.globalAlpha=.85;c.strokeStyle=col;c.lineWidth=1.4;c.beginPath();for(let i=0;i<=60;i++){const u=i/60,x=xl+u*ww,yy=y-sign*amp*Math.sin(n*Math.PI*u);i?c.lineTo(x,yy):c.moveTo(x,yy);}c.stroke();c.restore();};
+  for(let n=1;n<=4;n++){const E=n*n*r.e1;if(E>0.93)break;const y=yc-E*s;lev(E,y,cssVar('--elec'),1,n);
+    label(c,'E'+['₁','₂','₃','₄'][n-1]+'ₑ = '+Math.round(E*1000)+' meV',xr+6,y,{color:cssVar('--elec'),bg:cssVar('--dep-tint')});}
+  {const n=1,E=r.h1,y=yv+E*s;lev(E,y,cssVar('--hole'),-1,n);
+    label(c,'E₁ₕ = '+fmtN(E*1000,1)+' meV',xl-6,y+10,{align:'right',color:cssVar('--hole'),bg:cssVar('--dep-tint')});}
+  // oʻtish strelkasi
+  const col=r.lam>760?'#8a2b22':wl2rgb(r.lam),ax=cx+Math.min(ww*0.3,26),ya=yv+r.h1*s,yb=yc-r.e1*s;
+  line(c,[[ax,ya-2],[ax,yb+6]],col,2.4);c.fillStyle=col;c.beginPath();c.moveTo(ax,ya-2);c.lineTo(ax-5,ya-11);c.lineTo(ax+5,ya-11);c.fill();
+  c.beginPath();c.moveTo(ax-5,ya-2);c.stroke();
+  // foton
+  c.strokeStyle=col;c.lineWidth=2;c.beginPath();const px0=ax+10,py=(ya+yb)/2;for(let i=0;i<=50;i++){const x=px0+i*1.4;const y=py+5*Math.sin(i/50*Math.PI*6);i?c.lineTo(x,y):c.moveTo(x,y);}c.stroke();
+  label(c,Math.round(r.lam)+' nm',px0+74,py,{color:ink,font:SANS(600,12),bg:cssVar('--panel')});
+  // --- B: λ(L)
+  const l0=3,l1=20,y0=560,y1=890,XB=x=>B.x0+(x-l0)/(l1-l0)*(B.x1-B.x0),YB=v=>B.y1-(v-y0)/(y1-y0)*(B.y1-B.y0);
+  for(let v=y0;v<y1;v+=2){c.fillStyle=v>780?cssVar('--rule'):wl2rgb(v);c.fillRect(B.x0-9,YB(v+2),6,YB(v)-YB(v+2)+0.5);}
+  c.strokeStyle=rule;c.lineWidth=1;
+  [600,700,800].forEach(v=>{c.beginPath();c.moveTo(B.x0,YB(v));c.lineTo(B.x1,YB(v));c.stroke();label(c,String(v),B.x0-12,YB(v),{align:'right'});});
+  [5,10,15,20].forEach(x=>{label(c,String(x),XB(x),B.y1+14,{align:'center'});});
+  line(c,[[B.x0,B.y0],[B.x0,B.y1],[B.x1,B.y1]],ink2,1);
+  label(c,'λ, nm',B.x0-12,B.y0-14,{color:ink2});label(c,'L, nm',B.x1,B.y1+28,{align:'right',color:ink2});
+  line(c,[[B.x0,YB(871)],[B.x1,YB(871)]],mut,1,[4,3]);label(c,'hajmiy GaAs, 871 nm',B.x1,YB(871)-10,{align:'right',color:mut});
+  label(c,'infraqizil',B.x0+4,YB(830),{color:mut});
+  const pts=[];for(let i=0;i<=120;i++){const x=l0+(l1-l0)*i/120;pts.push([XB(x),YB(qw(x).lam)]);}line(c,pts,cssVar('--accent'),2.4);
+  c.fillStyle=cssVar('--paper');c.strokeStyle=ink;c.lineWidth=2;c.beginPath();c.arc(XB(L),YB(r.lam),5.5,0,7);c.fill();c.stroke();
+  $('r2').innerHTML=`<span>E<sub>1e</sub> <b>${Math.round(r.e1*1000)} meV</b></span><span>E<sub>2e</sub> <b>${Math.round(4*r.e1*1000)} meV</b></span><span>E<sub>1h</sub> <b>${fmtN(r.h1*1000,1)} meV</b></span><span>Oʻtish <b>${fmtN(r.E,3)} eV</b></span><span>λ <b>${Math.round(r.lam)} nm</b></span>`;
+}
+
+/* ============ 3-rasm: kvant nuqtalar ============ */
+const Dfit=l=>1.6122e-9*l**4-2.6575e-6*l**3+1.6242e-3*l*l-0.4277*l+41.57;
+function lamOf(d){let a=440,b=690;for(let i=0;i<40;i++){const mm=(a+b)/2;Dfit(mm)<d?a=mm:b=mm;}return (a+b)/2;}
+slider($('c3'),S,{key:'d',label:'Nuqta diametri d',min:2,max:7.5,step:0.05,fmt:v=>fmtN(v,2)+' nm'});
+const F3={ph:0,atoms:[]};
+for(let i=-14;i<=14;i++)for(let j=-14;j<=14;j++){const x=(i+(j%2?0.5:0))*0.43,y=j*0.37;F3.atoms.push([x,y,(i+j)&1]);}
+function f3draw(dt){
+  const m=mob(),{c,w,h}=fitCanvas($('f3'),m?1.15:0.42),d=S.get('d'),lam=lamOf(d),col=wl2rgb(lam);
+  if(w<60)return;
+  const ink=cssVar('--ink'),ink2=cssVar('--ink2'),mut=cssVar('--muted');
+  F3.ph+=(dt||0)*0.05;
+  const D=m?{cx:w/2,cy:h*0.27,R:Math.min(w*0.48,h*0.26)}:{cx:h*0.52,cy:h/2,R:h*0.48};
+  const pxnm=D.R*0.62/3.75,r=d/2*pxnm;
+  // toʻlqinlar
+  const sp=Math.max(8,lam/650*26),Rmax=D.R;
+  c.save();c.beginPath();c.arc(D.cx,D.cy,Rmax,0,7);c.clip();
+  for(let k=0;k<20;k++){const rr=r+6+((F3.ph%sp)+k*sp);if(rr>Rmax)break;const a=(1-(rr-r)/(Rmax-r))*0.75;
+    c.strokeStyle=col;c.globalAlpha=a;c.lineWidth=2;c.beginPath();c.arc(D.cx,D.cy,rr,0,7);c.stroke();}
+  c.restore();c.globalAlpha=1;
+  c.fillStyle=hexA(col,0.28);c.beginPath();c.arc(D.cx,D.cy,r+5,0,7);c.fill();
+  c.fillStyle=cssVar('--paper');c.beginPath();c.arc(D.cx,D.cy,r,0,7);c.fill();
+  c.strokeStyle=col;c.lineWidth=2.5;c.stroke();
+  const ar=Math.max(1.2,pxnm*0.1);
+  F3.atoms.forEach(([x,y,t])=>{if(x*x+y*y<(d/2-0.15)**2){c.fillStyle=cssVar(t?'--atom-a':'--atom-b');c.beginPath();c.arc(D.cx+x*pxnm,D.cy+y*pxnm,ar,0,7);c.fill();}});
+  // 1 nm masshtab
+  const sx=m?D.cx-D.R:12,sy=m?D.cy+D.R-4:h-14;line(c,[[sx,sy],[sx+pxnm,sy]],ink2,2);label(c,'1 nm',sx+pxnm+6,sy,{color:ink2});
+  // spektr
+  const P=m?{x0:16,x1:w-16,y0:h*0.6,yh:22}:{x0:h*1.08,x1:w-16,y0:h*0.16,yh:26};
+  const XS=l=>P.x0+(l-400)/300*(P.x1-P.x0);
+  for(let l=400;l<700;l++){c.fillStyle=wl2rgb(l);c.fillRect(XS(l),P.y0,XS(l+1)-XS(l)+0.6,P.yh);}
+  [400,500,600,700].forEach(l=>label(c,String(l),XS(l),P.y0+P.yh+13,{align:l===400?'left':l===700?'right':'center'}));
+  if(!m)label(c,'Toʻlqin uzunligi, nm',P.x1,P.y0-30,{align:'right',color:mut});
+  const xm=XS(lam);c.fillStyle=ink;c.beginPath();c.moveTo(xm,P.y0-2);c.lineTo(xm-6,P.y0-12);c.lineTo(xm+6,P.y0-12);c.fill();
+  line(c,[[xm,P.y0],[xm,P.y0+P.yh]],ink,2);
+  label(c,'λ ≈ '+Math.round(lam)+' nm',clamp(xm,P.x0+40,P.x1-40),P.y0-30,{align:'center',color:ink,font:SANS(600,13),bg:cssVar('--panel')});
+  // eritmalar qatori
+  const DS=[2.2,2.8,3.4,4.2,5.2,6.5],n=DS.length,y0=m?h*0.86:h*0.68,gx=(P.x1-P.x0)/n;
+  label(c,'Turli oʻlchamdagi nuqtalar eritmasi:',P.x0,y0-(m?40:52),{color:mut});
+  const best=DS.reduce((a,b)=>Math.abs(b-d)<Math.abs(a-d)?b:a);
+  DS.forEach((dd,i)=>{const x=P.x0+gx*(i+.5),l=lamOf(dd),rr=Math.min(gx*0.34,m?16:22);
+    c.fillStyle=wl2rgb(l);c.globalAlpha=0.9;c.beginPath();c.arc(x,y0,rr,0,7);c.fill();c.globalAlpha=1;
+    if(dd===best){c.strokeStyle=ink;c.lineWidth=2;c.beginPath();c.arc(x,y0,rr+4,0,7);c.stroke();}
+    label(c,fmtN(dd,1)+' nm',x,y0+rr+14,{align:'center',color:ink2});});
+  const E=1239.84/lam,V=Math.PI/6*d**3;
+  $('r3').innerHTML=`<span>λ <b>${Math.round(lam)} nm</b></span><span>Foton energiyasi <b>${fmtN(E,2)} eV</b></span><span>Kvant qoʻshimchasi <b>${fmtN(E-1.74,2)} eV</b></span><span>Atomlar soni <b>≈ ${Math.round(V*35.6/10)*10}</b></span>`;
+}
+
+/* ============ 4-rasm: grafen va MoS₂ ============ */
+const hvF=6.582e-16*1e6; // eV·m
+const ni_g=Math.PI/6*(kT/hvF)**2*1e-4; // sm⁻²
+const gMo=2*0.5*m0/(Math.PI*hbar*hbar)*qe*1e-4; // eV⁻¹sm⁻², 2 vodiy
+function nGraph(EF){return EF*EF/(Math.PI*hvF*hvF)*1e-4+ni_g;}
+function nMoS2(EF){const f=x=>gMo*kT*Math.log(1+Math.exp(x/kT));return f(EF-0.9)+f(-0.9-EF);}
+slider($('c4'),S,{key:'EF',label:'Fermi sathi E<sub>F</sub>',min:-1.3,max:1.3,step:0.005,fmt:v=>(v>0?'+':'')+fmtN(v,3)+' eV'});
+function f4draw(){
+  const m=mob(),{c,w,h}=fitCanvas($('f4'),m?1.4:0.46),EF=S.get('EF');
+  if(w<60)return;
+  const ink=cssVar('--ink'),ink2=cssVar('--ink2'),mut=cssVar('--muted'),elec=cssVar('--elec'),hole=cssVar('--hole');
+  const P=m?[{x0:30,x1:w-10,y0:30,y1:h/2-24},{x0:30,x1:w-10,y0:h/2+22,y1:h-30}]:[{x0:40,x1:w/2-20,y0:30,y1:h-28},{x0:w/2+30,x1:w-10,y0:30,y1:h-28}];
+  const Em=1.6,kmax=2.4e9;
+  const panel=(p,type)=>{
+    const cx=(p.x0+p.x1)/2,hw=Math.min((p.x1-p.x0)/2-12,(p.y1-p.y0)*0.55),ry=hw*0.15,Y=E=>p.y0+ry+(Em-E)/(2*Em)*(p.y1-p.y0-2*ry),X=k=>cx+k/kmax*hw;
+    const Ec=type?k=>0.9+(hbar*k)**2/(2*0.5*m0)/qe:k=>hvF*k,Ev=k=>-Ec(k);
+    const kOf=(f,E)=>{let a=0,b=kmax;for(let i=0;i<40;i++){const mm=(a+b)/2;f(mm)<E?a=mm:b=mm;}return (a+b)/2;};
+    const prof=(f,E0,E1,sgn)=>{ // f: Ec (sgn=1) or |Ev|; region between energies E0<E1 inside band
+      const pts=[],N=60;for(let i=0;i<=N;i++){const E=E0+(E1-E0)*i/N,k=sgn>0?kOf(Ec,E):kOf(Ec,-E);pts.push([k,E]);}return pts;};
+    const fillBand=(E0,E1,sgn,col,a)=>{if(E1<=E0)return;const pts=prof(null,E0,E1,sgn);c.fillStyle=hexA(col,a);c.beginPath();
+      pts.forEach(([k,E],i)=>i?c.lineTo(X(k),Y(E)):c.moveTo(X(k),Y(E)));for(let i=pts.length-1;i>=0;i--)c.lineTo(X(-pts[i][0]),Y(pts[i][1]));c.fill();
+      const kt=sgn>0?kOf(Ec,E1):kOf(Ec,-E1),kb=sgn>0?kOf(Ec,E0):kOf(Ec,-E0);
+      [[kt,E1],[kb,E0]].forEach(([k,E])=>{if(k<kmax*0.01)return;c.beginPath();c.ellipse(cx,Y(E),X(k)-cx,ry*k/kmax,0,0,7);c.fill();});};
+    const cmin=type?0.9:0,vmax=type?-0.9:0;
+    // band (vakuum) chegaralari
+    const Etop=Math.min(Em,Ec(kmax)),Ebot=-Etop;
+    // band ichidagi toʻldirish: valent zona
+    fillBand(Ebot,Math.min(EF,vmax),-1,elec,0.22);
+    if(EF<vmax)fillBand(EF,vmax,-1,hole,0.35);
+    if(EF>cmin)fillBand(cmin,Math.min(EF,Etop),1,elec,0.45);
+    if(type){c.fillStyle=hexA(cssVar('--acc'),0.10);c.fillRect(p.x0,Y(0.9),p.x1-p.x0,Y(-0.9)-Y(0.9));
+      line(c,[[p.x0+8,Y(0.9)],[p.x0+8,Y(-0.9)]],mut,1);label(c,'Eg ≈ 1,8 eV',p.x0+14,Y(0.5),{color:ink2});}
+    // silueti
+    const sil=(f)=>{const a=[];for(let i=-60;i<=60;i++){const k=kmax*i/60;const E=f(k);if(Math.abs(E)<=Em+0.01)a.push([X(k),Y(E)]);}return a;};
+    line(c,sil(Ec),cssVar('--ec'),2.4);line(c,sil(Ev),cssVar('--ev'),2.4);
+    const kc=kOf(Ec,Etop-0.001);c.strokeStyle=cssVar('--ec');c.lineWidth=1.4;c.beginPath();c.ellipse(cx,Y(Etop),X(kc)-cx,ry*kc/kmax,0,0,7);c.stroke();
+    c.strokeStyle=cssVar('--ev');c.beginPath();c.ellipse(cx,Y(-Etop),X(kc)-cx,ry*kc/kmax,0,0,7);c.stroke();
+    // oʻqlar
+    line(c,[[cx,p.y0-6],[cx,p.y1]],ink2,1,[2,3]);line(c,[[p.x0,Y(0)],[p.x1,Y(0)]],cssVar('--rule'),1);
+    label(c,'E',cx+6,Y(1.15),{font:SERIF,color:ink});label(c,'k',p.x1-4,Y(0)+12,{font:SERIF,color:ink,align:'right'});
+    // Fermi sathi
+    line(c,[[p.x0,Y(EF)],[p.x1,Y(EF)]],cssVar('--ef'),1.8,[6,4]);label(c,'EF',p.x1,Y(EF)-10,{align:'right',color:cssVar('--ef'),font:SANS(600,12),bg:cssVar('--panel')});
+    label(c,type?'MoS₂ monoqatlami':'Grafen: E = ±ħvF|k|',p.x0,p.y0-18,{color:ink,font:SANS(600,13)});
+    const n=type?nMoS2(EF):nGraph(EF),on=n>1e9;
+    label(c,(on?'kanal oʻtkazadi':'kanal berk'),p.x1,p.y0-18,{align:'right',color:on?cssVar('--ef'):cssVar('--accent'),font:SANS(600,12)});
+    [-1,1].forEach(E=>label(c,(E>0?'+':'−')+'1 eV',p.x0-4,Y(E),{align:'right',color:mut,font:SANS(400,10)}));
+  };
+  panel(P[0],0);panel(P[1],1);
+  $('r4').innerHTML=`<span>Grafen: n + p <b>${fmtE(nGraph(EF),1)} sm⁻²</b></span><span>MoS₂: n + p <b>${fmtE(nMoS2(EF),1)} sm⁻²</b></span><span>Nisbat <b>${fmtE(nGraph(EF)/nMoS2(EF),1)}</b></span>`;
+}
+
+/* ============ 5-rasm: Mur qonuni ============ */
+const CHIPS=[[1971,2300],[1974,4500],[1976,6500],[1978,29000],[1979,68000],[1982,134000],[1985,275000],[1989,1.18e6],[1993,3.1e6],[1995,5.5e6],[1997,7.5e6],[1999,9.5e6],[2000,4.2e7],[2002,5.5e7],[2004,1.25e8],[2006,2.91e8],[2008,7.31e8],[2010,1.17e9],[2012,1.4e9],[2014,2.6e9],[2016,7.2e9],[2017,1.92e10],[2019,3.95e10],[2020,5.42e10],[2021,5.7e10],[2022,1.14e11],[2023,1.34e11],[2024,2.08e11]];
+slider($('c5'),S,{key:'Y',label:'Yil',min:1971,max:2025,step:1,fmt:v=>String(Math.round(v))});
+slider($('c5'),S,{key:'T',label:'Ikki baravar ortish davri T',min:1,max:3,step:0.1,fmt:v=>fmtN(v,1)+' yil'});
+const moore=(y,T)=>2300*2**((y-1971)/T);
+function f5draw(){
+  const m=mob(),{c,w,h}=fitCanvas($('f5'),m?0.95:0.48),Yr=Math.round(S.get('Y')),T=S.get('T');
+  if(w<60)return;
+  const ink=cssVar('--ink'),ink2=cssVar('--ink2'),mut=cssVar('--muted'),rule=cssVar('--rule'),acc=cssVar('--accent');
+  const B={x0:m?40:60,x1:w-14,y0:34,y1:h-30},X=y=>B.x0+(y-1969)/(2027-1969)*(B.x1-B.x0),Y=n=>B.y1-(Math.log10(n)-3)/9*(B.y1-B.y0);
+  c.strokeStyle=rule;c.lineWidth=1;
+  const words={3:'ming',6:'million',9:'milliard',12:'trillion'};
+  for(let e=3;e<=12;e++){c.globalAlpha=e%3?0.45:1;c.beginPath();c.moveTo(B.x0,Y(10**e));c.lineTo(B.x1,Y(10**e));c.stroke();c.globalAlpha=1;
+    if(e%3===0){label(c,'10'+sup(e),B.x0-6,Y(10**e),{align:'right'});if(!m&&e<12)label(c,words[e],B.x0+4,Y(10**e)-9,{color:mut,font:SANS(400,11)});}}
+  for(let y=1970;y<=2020;y+=10){c.beginPath();c.moveTo(X(y),B.y0);c.lineTo(X(y),B.y1);c.stroke();label(c,String(y),X(y),B.y1+14,{align:'center'});}
+  // Mur chizigʻi
+  const pts=[],pts2=[];for(let y=1971;y<=2026;y+=0.25){const n=moore(y,T);if(n>1e12||n<1e3)continue;(y<=Yr?pts:pts2).push([X(y),Y(n)]);}
+  if(pts.length&&pts2.length)pts2.unshift(pts[pts.length-1]);
+  line(c,pts2,mut,1.4,[5,4]);line(c,pts,acc,2.4);
+  // nuqtalar
+  let best=CHIPS[0];
+  CHIPS.forEach(([y,n])=>{if(y>Yr)return;if(n>best[1])best=[y,n];c.fillStyle=cssVar('--elec');c.globalAlpha=0.85;c.beginPath();c.arc(X(y),Y(n),m?3.2:4,0,7);c.fill();c.globalAlpha=1;});
+  label(c,'1971: ≈ 2300',X(1971)+8,Y(2300)+12,{color:ink2,bg:cssVar('--panel')});
+  line(c,[[X(Yr),B.y0],[X(Yr),B.y1]],ink,1,[3,3]);
+  const nm=moore(Yr,T),ym=nm>1e12?B.y0:Y(nm);
+  c.fillStyle=cssVar('--paper');c.strokeStyle=acc;c.lineWidth=2;c.beginPath();c.arc(X(Yr),ym,5.5,0,7);c.fill();c.stroke();
+  label(c,String(Yr),X(Yr)+(X(Yr)>B.x1-60?-6:6),B.y0+6,{align:X(Yr)>B.x1-60?'right':'left',color:ink,font:SANS(600,12),bg:cssVar('--panel')});
+  label(c,'Tranzistorlar soni',B.x0-6,12,{color:ink2});
+  const big=n=>n>=1e9?fmtN(n/1e9,n<1e10?1:0)+' mlrd':n>=1e6?fmtN(n/1e6,n<1e7?1:0)+' mln':Math.round(n).toLocaleString('uz').replace(/,/g,' ');
+  $('r5').innerHTML=`<span>Mur boʻyicha <b>${nm>=1e13?fmtE(nm,1):big(nm)}</b></span><span>Ikki baravar ortishlar <b>${fmtN((Yr-1971)/T,1)} marta</b></span><span>Eng katta kristall (≤ ${Yr}) <b>${big(best[1])}</b></span>`;
+}
+
+/* ============ yangilash ============ */
+function vals(){const VB=10**S.get('VB'),si=drift(MATS[0],VB),sc=drift(MATS[2],VB),gn=drift(MATS[3],VB),r=qw(S.get('L'));
+  $('vals').innerHTML=[
+  ['V<sub>B</sub>',Math.round(VB)+' V'],['Si: W / N<sub>D</sub> / R<sub>on,sp</sub>',fmtN(si.W*1e4,1)+' mkm / '+fmtE(si.ND,1)+' sm⁻³ / '+fmtE(si.R*1e3,2)+' mΩ·sm²'],
+  ['4H-SiC: W / N<sub>D</sub> / R<sub>on,sp</sub>',fmtN(sc.W*1e4,2)+' mkm / '+fmtE(sc.ND,1)+' sm⁻³ / '+fmtE(sc.R*1e3,2)+' mΩ·sm²'],
+  ['GaN: R<sub>on,sp</sub>',fmtE(gn.R*1e3,2)+' mΩ·sm²'],['R(Si) / R(SiC)',Math.round(si.R/sc.R)],
+  ['Kvant oʻra L',fmtN(S.get('L'),1)+' nm'],['E<sub>1e</sub> / E<sub>2e</sub> / E<sub>1h</sub>',fmtN(r.e1*1e3,1)+' / '+fmtN(4*r.e1*1e3,0)+' / '+fmtN(r.h1*1e3,1)+' meV'],
+  ['Oʻtish energiyasi / λ',fmtN(r.E,3)+' eV / '+Math.round(r.lam)+' nm'],
+  ['Kvant nuqta d / λ',fmtN(S.get('d'),2)+' nm / '+Math.round(lamOf(S.get('d')))+' nm'],
+  ['Grafen: E<sub>F</sub> / n',fmtN(S.get('EF'),3)+' eV / '+fmtE(nGraph(S.get('EF')),2)+' sm⁻²'],
+  ['MoS₂: n + p',fmtE(nMoS2(S.get('EF')),2)+' sm⁻²']].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');}
+const statics=()=>{vals();f1draw();f2draw();f4draw();f5draw();};
+S.sub(statics);statics();
+window.addEventListener('resize',statics);onTheme(statics);
+document.fonts&&document.fonts.ready.then(statics);
+animate([{el:$('f3'),draw:f3draw}]);
+</script>
+</body>
+</html>

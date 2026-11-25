@@ -1,0 +1,16 @@
+{
+  "url": "sim/yangi-yonalishlar/",
+  "kicker": "13-bob",
+  "title": "Yangi yoʻnalishlar",
+  "setup": "S.set('VB',3);S.set('L',10);S.set('d',3.5);S.set('EF',0.3);S.set('T',2);S.set('Y',2025)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 13-bob", "t": "Yangi yoʻnalishlar", "d": "Keng zonali materiallar, kvant oʻra va kvant nuqtalar, grafen va Mur qonuni"},
+  "segs": [
+    {"fig": "f1", "w": 980, "dur": 8, "start": "S.set('VB',3)", "cap": "1000 V uchun kremniyda dreyf sohasi 67 mkm, 4H-SiC da esa atigi 5 mkm. Uchburchaklar yuzasi bir xil."},
+    {"fig": "f1", "w": 980, "dur": 9, "act": "S.set('VB',__ease(3,4,p))", "cap": "R ∝ V<sub>B</sub>²/ℰ<sub>c</sub>³: kritik maydon 13 marta katta, shuning uchun SiC ≈ 1000 marta yutadi."},
+    {"fig": "f2", "w": 790, "dur": 8, "start": "S.set('L',10)", "cap": "10 nm li GaAs kvant oʻrasi: birinchi elektron sathi 56 meV, nurlanish ≈ 833 nm."},
+    {"fig": "f2", "w": 790, "dur": 8, "act": "S.set('L',__ease(10,3.5,p))", "cap": "Oʻra torayganda sathlar <i>E</i> ∝ 1/<i>L</i>² bilan koʻtariladi, nurlanish qisqa toʻlqinlarga siljiydi."},
+    {"fig": "f3", "w": 940, "dur": 8, "start": "S.set('d',7)", "act": "S.set('d',__ease(7,2.2,p))", "cap": "Kvant nuqta kichraygan sari rangi qizildan koʻkka oʻtadi: bitta material, turli oʻlcham."},
+    {"fig": "f4", "w": 860, "dur": 9, "act": "S.set('EF',__ease(0.6,-0.6,p))", "cap": "Grafenda taqiqlangan zona yoʻq — tashuvchilar doim bor. MoS₂ da kanal toʻliq berkiladi."},
+    {"fig": "f5", "w": 820, "dur": 8, "start": "S.set('T',2);S.set('Y',1971)", "act": "S.set('Y',Math.round(__ease(1971,2025,p)))", "cap": "1971 yilda ≈ 2300 ta tranzistor, bugun — yuz milliardlab: har ikki yilda ikki baravar."}
+  ]
+}
