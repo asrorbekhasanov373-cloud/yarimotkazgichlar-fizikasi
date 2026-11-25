@@ -7,7 +7,7 @@ function fmtE(x,d=2){
   if(!isFinite(x))return '—';
   if(x===0)return '0';
   const e=Math.floor(Math.log10(Math.abs(x)));
-  if(e>=-2&&e<=2)return fmtN(x,d);
+  if(e>=-1&&e<=2)return fmtN(x,d);
   let ee=e,m=x/Math.pow(10,e);
   if(Math.abs(+m.toFixed(d))>=10){m/=10;ee++;}
   return fmtN(m,d)+' × 10'+sup(ee);
