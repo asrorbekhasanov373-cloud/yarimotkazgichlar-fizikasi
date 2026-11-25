@@ -4,94 +4,93 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fermi sathi va harorat</title>
-<meta name="description" content="Kremniyni qizdiring yoki sovuting: donorlar ionlanishi, elektron-kovak juftlari va Fermi sathi siljishini ko'ring. 4-bob.">
+<meta name="description" content="Kremniyda elektronlar qayerdan paydo bo'ladi: xususiy generatsiya, donorlar ionlanishi va Fermi sathining haroratga bog'liqligi. 4-bob uchun interaktiv maqola.">
 <link rel="stylesheet" href="../../assets/style.css">
 </head>
-<body style="--c1:#0d9488;--c2:#2563eb">
-<div class="wrap">
-  <header class="hero">
-    <div class="top"><a class="back" href="../../">← Barcha boblar</a><span class="badge">4-bob</span></div>
-    <h1>Kremniyni qizdiramiz: Fermi sathi qayerga ketadi?</h1>
-    <p>Chapda kristall ichini, oʻngda energiya zonalarini koʻrasiz. Haroratni oʻzgartiring va elektronlar qayerdan paydo boʻlishini kuzating.</p>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>4-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 4-bob</p>
+    <h1>Fermi sathi va harorat</h1>
+    <p class="dek">Kremniyda erkin elektronlar qayerdan paydo boʻladi, ularning soni haroratga qanday bogʻliq va bularning hammasi zona diagrammasida qanday koʻrinadi.</p>
   </header>
 
-  <h2><span class="dot"></span>Tajribani tanlang</h2>
-  <div class="exps" id="exps">
-    <button class="exp" data-e="0" style="background:linear-gradient(135deg,#0ea5e9,#2563eb)"><b>❄️ Juda sovuq</b><span>50 K (−223 °C)</span></button>
-    <button class="exp" data-e="1" style="background:linear-gradient(135deg,#22c55e,#0d9488)"><b>🏠 Xona harorati</b><span>300 K (27 °C)</span></button>
-    <button class="exp" data-e="2" style="background:linear-gradient(135deg,#f97316,#dc2626)"><b>🔥 Kuchli qizdirish</b><span>650 K (377 °C)</span></button>
-    <button class="exp" data-e="3" style="background:linear-gradient(135deg,#a855f7,#6366f1)"><b>🧪 p-tur kremniy</b><span>bor bilan legirlangan</span></button>
-  </div>
+  <p>Kremniyning elektr oʻtkazuvchanligi undagi erkin elektronlar va kovaklar soniga bogʻliq. Bu son kirishmalarga va haroratga qarab milliardlab marta oʻzgarishi mumkin. Avval toza kremniydan boshlaymiz.</p>
 
-  <div class="status info" id="status"><span class="ic">🏠</span><div></div></div>
+  <h2>Toza kremniy</h2>
+  <p>Kremniy atomining toʻrtta valent elektroni bor. Kristallda har bir atom toʻrtta qoʻshnisi bilan kovalent bogʻ hosil qiladi: har bir bogʻda ikkita elektron. Rasmda har bir bogʻ qoʻsh chiziq bilan koʻrsatilgan.</p>
+  <p>Past haroratda barcha elektronlar bogʻlarda band, erkin elektron yoʻq — kristall izolyatordek oʻzini tutadi. Harorat oshgan sari atomlar kuchliroq tebranadi va baʼzan bogʻ uziladi. Natijada erkin <em class="e">elektron</em> va bogʻda boʻsh joy — <em class="h">kovak</em> hosil boʻladi.</p>
 
-  <div class="grid two">
-    <div class="card">
-      <h3>Kristall ichida</h3>
-      <canvas id="lat" aria-label="Kremniy kristali ichidagi atomlar, elektronlar va kovaklar"></canvas>
-      <div class="legend">
-        <span><i class="sq" style="background:#94a3b8;border-radius:50%"></i>Si atomi</span>
-        <span id="lgDop"></span>
-        <span><i class="dotE"></i>erkin elektron</span>
-        <span><i class="dotH"></i>kovak</span>
-      </div>
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="Toza kremniy kristali: harorat oshganda elektron-kovak juftlari hosil bo'lishi"></canvas>
+      <div class="ctl" id="c1"></div>
+      <div class="readout" id="r1"></div>
     </div>
-    <div class="card">
-      <h3>Energiya zonalari</h3>
-      <canvas id="band" aria-label="Energiya zonalari va Fermi sathi"></canvas>
-      <div class="legend">
-        <span><i class="sq" style="background:var(--cb-bg)"></i>oʻtkazuvchanlik zonasi</span>
-        <span><i class="sq" style="background:var(--vb-bg)"></i>valent zona</span>
-        <span><i style="background:var(--ef)"></i>Fermi sathi E<sub>F</sub></span>
-        <span><i style="background:var(--ei)"></i>zona oʻrtasi E<sub>i</sub></span>
-      </div>
+    <figcaption><b>1-rasm.</b> Toza kremniy. Zarrachalar soni logarifmik masshtabda koʻrsatilgan: har bir qoʻshimcha juft konsentratsiyaning taxminan 8 marta ortishini bildiradi.</figcaption>
+  </figure>
+
+  <p>Bunday kremniy <i>xususiy</i> yarimoʻtkazgich deyiladi. Unda elektronlar va kovaklar soni teng: <span class="math">n = p = n<sub>i</sub></span>. Xona haroratida <span class="math">n<sub>i</sub> ≈ 10<sup>10</sup></span> sm⁻³, ya'ni har 5 × 10¹² atomga bitta juft toʻgʻri keladi. Bu juda kam, shuning uchun toza kremniy yomon oʻtkazgich.</p>
+
+  <h2>Kirishma qoʻshamiz</h2>
+  <p>Endi baʼzi kremniy atomlari oʻrniga fosfor atomlarini joylashtiramiz. Fosforning beshta valent elektroni bor: toʻrttasi bogʻlarga ketadi, beshinchisi esa ortiqcha qoladi. U fosfor ioniga juda kuchsiz — atigi 0,045 eV energiya bilan bogʻlangan va atrofida katta orbita boʻylab aylanadi.</p>
+  <p>Bu energiya bogʻni uzish uchun kerak boʻladigan 1,12 eV dan 25 marta kichik. Shuning uchun past haroratda ham bu elektronlar osongina erkin boʻlib ketadi. Fosfor elektron <i>beradi</i>, shuning uchun u <i>donor</i> deyiladi. Bor esa bitta elektron kam boʻlgani uchun kovak beradi va <i>akseptor</i> deyiladi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="Legirlangan kremniy kristali: donorlar ionlanishi"></canvas>
+      <div class="btns" id="b2"></div>
+      <div class="ctl c2" id="c2"></div>
+      <div class="readout" id="r2"></div>
     </div>
-  </div>
+    <figcaption><b>2-rasm.</b> Legirlangan kremniy. Ionlanmagan kirishma atrofida aylanayotgan zarracha unga bogʻlangan. Ionlangan atom yonida esa uning zaryad belgisi koʻrsatilgan.</figcaption>
+  </figure>
 
-  <div class="card controls" style="margin-top:16px">
-    <div class="grid two" style="gap:8px 24px">
-      <div>
-        <label for="T">🌡️ Harorat <span class="v" id="Tv"></span></label>
-        <input type="range" class="fancy thermo" id="T" min="30" max="700" step="1" value="300">
-        <div class="scale"><span>30 K</span><span>300 K</span><span>700 K</span></div>
-      </div>
-      <div>
-        <label for="N">Kirishma konsentratsiyasi <span class="v" id="Nv"></span></label>
-        <input type="range" class="fancy dopeN" id="N" min="13" max="19" step="0.05" value="16">
-        <div class="scale"><span>10¹³</span><span>10¹⁶</span><span>10¹⁹ sm⁻³</span></div>
-        <div class="seg" id="type" style="margin-top:10px">
-          <button data-v="n" aria-pressed="true">n-tur (fosfor P)</button>
-          <button data-v="p" aria-pressed="false">p-tur (bor B)</button>
-        </div>
-      </div>
+  <p>Haroratni 30 K dan oshirib boring. Avval faqat donorlar ionlanadi va erkin elektronlar soni tez ortadi. Taxminan 100–150 K dan keyin deyarli barcha donorlar ionlangan boʻladi, shundan soʻng elektronlar soni oʻzgarmay qoladi. Faqat juda yuqori haroratda bogʻlar ommaviy ravishda uzila boshlaydi va kirishma ahamiyatini yoʻqotadi.</p>
+
+  <h2>Zona diagrammasida</h2>
+  <p>Xuddi shu jarayonni energiya zonalari tilida ham koʻrish mumkin. Bogʻdagi elektronlar <i>valent zonada</i>, erkin elektronlar esa <i>oʻtkazuvchanlik zonasida</i> joylashgan. Ular orasida <i>taqiqlangan zona</i> bor. Donor sathi oʻtkazuvchanlik zonasi tubidan atigi 0,045 eV pastda joylashadi.</p>
+  <p><i>Fermi sathi</i> <span class="math">E<sub>F</sub></span> elektronlar qayerda koʻp ekanini koʻrsatadi: u oʻtkazuvchanlik zonasiga qanchalik yaqin boʻlsa, erkin elektronlar shunchalik koʻp. Toza kremniyda u zona oʻrtasida, <span class="math">E<sub>i</sub></span> yaqinida joylashadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="Energiya zonalari va Fermi sathi"></canvas>
+      <div class="ctl c2" id="c3"></div>
+      <div class="readout" id="r3"></div>
     </div>
-    <div class="big" id="big"></div>
-  </div>
+    <figcaption><b>3-rasm.</b> Oʻtkazuvchanlik zonasi tubi <span style="color:var(--ec)">E<sub>c</sub></span>, valent zona shipi <span style="color:var(--ev)">E<sub>v</sub></span>, Fermi sathi <span style="color:var(--ef)">E<sub>F</sub></span> va zona oʻrtasi E<sub>i</sub>. Harorat oshganda taqiqlangan zona biroz torayadi.</figcaption>
+  </figure>
 
-  <h2><span class="dot"></span>Uchta soha: muzlash, kirishma va xususiy</h2>
-  <div class="card">
-    <canvas id="plot" aria-label="Asosiy tok tashuvchilar konsentratsiyasining haroratga bog'liqligi"></canvas>
-    <div class="legend">
-      <span><i style="background:#f59e0b;height:4px"></i>asosiy tok tashuvchilar konsentratsiyasi</span>
-      <span><i style="background:var(--ei)"></i>xususiy konsentratsiya n<sub>i</sub>(T)</span>
-      <span><i style="background:var(--muted);height:1px"></i>kirishma konsentratsiyasi</span>
+  <h2>Uchta soha</h2>
+  <p>Erkin elektronlar sonining haroratga bogʻliqligini bitta grafikda yigʻamiz. Unda uchta soha aniq koʻrinadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="Asosiy tok tashuvchilar konsentratsiyasining haroratga bog'liqligi"></canvas>
+      <div class="ctl c2" id="c4"></div>
     </div>
-  </div>
+    <figcaption><b>4-rasm.</b> Konsentratsiya (sm⁻³) va harorat. Asosiy tok tashuvchilar konsentratsiyasi (qalin chiziq), xususiy konsentratsiya n<sub>i</sub> (ingichka chiziq) va kirishma konsentratsiyasi (uzuq chiziq).</figcaption>
+  </figure>
 
-  <div class="task"><b>Oʻzingiz sinab koʻring</b>
-    <ol>
-      <li>N = 10¹⁵ sm⁻³ da xususiy soha qaysi haroratdan boshlanadi? N = 10¹⁷ sm⁻³ da-chi? Nega kuchli legirlangan kremniy yuqoriroq haroratga chidaydi?</li>
-      <li>50 K da donorlarning necha foizi ionlangan? Bu E<sub>c</sub> − E<sub>d</sub> = 0,045 eV va kT qiymatlari bilan qanday bogʻliq?</li>
-      <li>300 K da E<sub>F</sub> − E<sub>i</sub> ni kT·ln(N/n<sub>i</sub>) formulasi bilan hisoblang va shu yerdagi qiymat bilan solishtiring.</li>
-    </ol>
-  </div>
+  <p><b>Muzlash sohasi.</b> Issiqlik energiyasi <span class="math">kT</span> donorlarni toʻliq ionlashga yetmaydi. Elektronlarning bir qismi hali donorlarga bogʻlangan.</p>
+  <p><b>Kirishma sohasi.</b> Barcha donorlar ionlangan va <span class="math">n ≈ N<sub>d</sub></span>. Bu son haroratga deyarli bogʻliq emas, shuning uchun yarimoʻtkazgich asboblar aynan shu sohada ishlaydi.</p>
+  <p><b>Xususiy soha.</b> Bogʻlarning uzilishidan hosil boʻlgan juftlar kirishmadan kelgan elektronlardan koʻpayib ketadi va yarimoʻtkazgich yana toza kremniydek oʻzini tutadi. Kremniyli asboblarning ishlash harorati shu bilan cheklangan. Taqiqlangan zonasi kengroq SiC va GaN materiallari ancha yuqori haroratda ham ishlay oladi (13-bob).</p>
 
-  <details class="card"><summary>Barcha hisoblangan qiymatlar va model haqida</summary>
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>N = 10¹⁵ sm⁻³ boʻlganda xususiy soha taxminan qaysi haroratdan boshlanadi? N = 10¹⁷ sm⁻³ da-chi? Nega kuchli legirlangan kremniy yuqoriroq haroratga chidaydi?</li>
+    <li>50 K da donorlarning necha foizi ionlangan? Javobni kT va donorning ionlanish energiyasi 0,045 eV ni solishtirib tushuntiring.</li>
+    <li>300 K da <span class="math">E<sub>F</sub> − E<sub>i</sub> = kT·ln(N<sub>d</sub>/n<sub>i</sub>)</span> formulasi bilan hisoblang va 3-rasmdagi qiymat bilan solishtiring.</li>
+  </ol>
+
+  <details><summary>Barcha hisoblangan qiymatlar va model</summary>
     <table class="vals" id="vals"></table>
-    <p class="note">Model: kremniy; E<sub>g</sub>(T) Varshni formulasi bilan (E<sub>g</sub>(0) = 1,17 eV, α = 4,73 × 10⁻⁴ eV/K, β = 636 K); N<sub>c</sub> = 2,8 × 10¹⁹ (T/300)<sup>3/2</sup> sm⁻³; n<sub>i</sub>(300 K) = 9,65 × 10⁹ sm⁻³; fosfor va bor sathlari zona chetidan 0,045 eV masofada; aynish koeffitsientlari 2 (donor) va 4 (akseptor). E<sub>F</sub> elektroneytrallik tenglamasidan son usulida topiladi. Rasmlardagi zarrachalar soni sxematik: ular haqiqiy konsentratsiyani emas, uning qanday oʻzgarishini koʻrsatadi.</p>
+    <p>Model: kremniy; E<sub>g</sub>(T) Varshni formulasi bilan (E<sub>g</sub>(0) = 1,17 eV, α = 4,73 × 10⁻⁴ eV/K, β = 636 K); N<sub>c</sub> = 2,8 × 10¹⁹ (T/300)<sup>3/2</sup> sm⁻³; n<sub>i</sub>(300 K) = 9,65 × 10⁹ sm⁻³; fosfor va bor sathlari zona chetidan 0,045 eV masofada; aynish koeffitsientlari 2 (donor) va 4 (akseptor). E<sub>F</sub> elektroneytrallik tenglamasidan son usulida topiladi. Rasmlardagi zarrachalar soni sxematik.</p>
   </details>
-  <footer>Interaktiv model «Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasining 4-bobiga ilova.</footer>
-</div>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
 <script src="../../assets/common.js"></script>
 <script>
 const k=8.617e-5,Ed=0.045,Ea=0.045;
@@ -99,204 +98,151 @@ const Eg=T=>1.17-4.73e-4*T*T/(T+636);
 const Nc=T=>2.8e19*Math.pow(T/300,1.5);
 const ni=T=>9.65e9*Math.pow(T/300,1.5)*Math.exp(-Eg(T)/(2*k*T)+Eg(300)/(2*k*300));
 const Nv=T=>ni(T)*ni(T)*Math.exp(Eg(T)/(k*T))/Nc(T);
-const $=id=>document.getElementById(id),rnd=(a,b)=>a+Math.random()*(b-a);
-let type='n';
-function solve(T,N){
+const $=id=>document.getElementById(id);
+const S=makeStore({T0:300,T:300,N:16,type:'n'});
+const mob=()=>window.innerWidth<640;
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif',SUBF='500 9px Inter,system-ui,sans-serif';
+function solve(T,N,type){
   const kT=k*T,Ec=Eg(T),nc=Nc(T),nv=Nv(T),Nd=type==='n'?N:0,Na=type==='p'?N:0;
   const f=EF=>{const n=nc*Math.exp((EF-Ec)/kT),p=nv*Math.exp(-EF/kT);
     const Ndp=Nd/(1+2*Math.exp((EF-(Ec-Ed))/kT)),Nam=Na/(1+4*Math.exp((Ea-EF)/kT));return {r:p+Ndp-n-Nam,n,p,Ndp,Nam};};
-  let lo=-0.3,hi=Ec+0.3;for(let i=0;i<120;i++){const m=(lo+hi)/2;if(f(m).r>0)lo=m;else hi=m;}
+  let lo=-0.3,hi=Ec+0.3;for(let i=0;i<100;i++){const m=(lo+hi)/2;if(f(m).r>0)lo=m;else hi=m;}
   const EF=(lo+hi)/2,s=f(EF);
-  return {T,N,EF,Ec,Ei:Ec/2+kT/2*Math.log(nv/nc),n:s.n,p:s.p,ion:type==='n'?s.Ndp/Nd:s.Nam/Na,ni:ni(T),
-    maj:type==='n'?s.n:s.p,min:type==='n'?s.p:s.n};
+  return {T,N,type,EF,Ec,Ei:Ec/2+kT/2*Math.log(nv/nc),n:s.n,p:s.p,ion:type==='n'?s.Ndp/Nd:s.Nam/Na,ni:ni(T),maj:type==='n'?s.n:s.p};
 }
-function regime(r){ if(r.ion<0.9)return 'cold'; if(r.ni>0.5*r.N)return 'hot'; return 'ok'; }
-function bounds(N){ let T1=30,T2=700;
-  for(let t=30;t<=700;t+=2){if(solve(t,N).ion>=0.9){T1=t;break;}}
-  for(let t=30;t<=700;t+=2){if(ni(t)>0.5*N){T2=t;break;}}
-  return {T1,T2}; }
-let S=null;
-function st(){return solve(+$('T').value,10**+$('N').value);}
+const cur=()=>solve(S.get('T'),10**S.get('N'),S.get('type'));
+const tfmt=v=>v+' K ('+(v-273)+' °C)';
 
-/* ---------- Kristall ---------- */
-const COLS=8,ROWS=6,DOP=[[1,1],[5,1],[3,3],[6,4],[1,4],[3,0]]; // kirishma atomlari joylari
-let free=[],flashes=[],ph=0;
-function target(){
-  const D=DOP.length,ionN=Math.round(S.ion*D);
-  const pairs=Math.round(Math.min(2.2,S.ni/S.N)*D*0.9);
-  return {ionN,pairs};
-}
-function syncFree(){
-  const {ionN,pairs}=target();
-  const wantE=(type==='n'?ionN:0)+pairs,wantH=(type==='p'?ionN:0)+pairs;
-  const add=(t,src)=>{free.push({t,u:src[0],v:src[1],a:rnd(0,6.28)});flashes.push({u:src[0],v:src[1],t:0,col:t==='e'?'e':'h'});};
-  const bondSpot=()=>{const i=Math.floor(rnd(0,COLS-1)),j=Math.floor(rnd(0,ROWS));return [i+0.5+0.5,j+0.5];};
-  // kirishmadan chiqqanlar
-  const fromDop=type==='n'?free.filter(p=>p.t==='e'&&p.d!==undefined):free.filter(p=>p.t==='h'&&p.d!==undefined);
-  while(fromDop.length<ionN){const d=fromDop.length;const pos=[DOP[d][0]+0.5,DOP[d][1]+0.5];const o={t:type==='n'?'e':'h',u:pos[0],v:pos[1],d,a:rnd(0,6.28)};free.push(o);fromDop.push(o);flashes.push({u:pos[0],v:pos[1],t:0});}
-  while(fromDop.length>ionN){const o=fromDop.pop();flashes.push({u:o.u,v:o.v,t:0});free.splice(free.indexOf(o),1);}
-  // juftlar
-  let pe=free.filter(p=>p.pair&&p.t==='e'),phs=free.filter(p=>p.pair&&p.t==='h');
-  while(pe.length<pairs){const s=bondSpot();const e={t:'e',u:s[0],v:s[1],pair:1,a:rnd(0,6.28)},h={t:'h',u:s[0],v:s[1],pair:1,a:rnd(0,6.28)};free.push(e,h);pe.push(e);phs.push(h);flashes.push({u:s[0],v:s[1],t:0,g:1});}
-  while(pe.length>pairs){const e=pe.pop(),h=phs.pop();flashes.push({u:e.u,v:e.v,t:0});free.splice(free.indexOf(e),1);free.splice(free.indexOf(h),1);}
-}
-function drawLat(dt){
-  const {c,w,h}=fitCanvas($('lat'),0.8);
-  c.clearRect(0,0,w,h);
-  // harorat foni: sovuq — ko'k, issiq — qizil
-  const f=(S.T-30)/670;
-  const g=c.createLinearGradient(0,0,w,h);
-  g.addColorStop(0,`hsla(${210-200*f},85%,60%,.20)`);g.addColorStop(1,`hsla(${200-190*f},90%,55%,.32)`);
-  c.fillStyle=g;c.fillRect(0,0,w,h);
-  const cw=w/COLS,chh=h/ROWS,X=u=>u*cw,Y=v=>v*chh;
-  const amp=0.6+2.6*f;ph+=dt*0.02;
-  const jit=(i,j)=>[Math.sin(ph+i*1.7+j*2.3)*amp,Math.cos(ph*1.1+i*2.1+j*1.3)*amp];
+/* ============ Kristall (1- va 2-rasm) ============ */
+const COLS=9,ROWS=6,DOP=[[1,1],[6,1],[4,3],[7,4],[1,4],[3,0]];
+function Lattice(id,doped){this.cv=$(id);this.doped=doped;this.free=[];this.fl=[];this.ph=0;}
+Lattice.prototype.targets=function(){
+  if(!this.doped){const T=S.get('T0'),v=ni(T);return {ionN:0,pairs:clamp(Math.round((Math.log10(Math.max(v,1))-5)/(16-5)*12),0,12),type:'n',T};}
+  const r=cur(),D=DOP.length;return {ionN:Math.round(r.ion*D),pairs:Math.round(Math.min(2.2,r.ni/r.N)*D*0.9),type:r.type,T:r.T};
+};
+Lattice.prototype.draw=function(dt){
+  const tg=this.targets(),{c,w,h}=fitCanvas(this.cv,mob()?0.78:0.5);
+  const cw=w/COLS,ch=h/ROWS,X=u=>u*cw,Y=v=>v*ch,r=Math.min(cw,ch)*0.17;
+  this.ph+=dt*0.02;const amp=0.4+2.4*(tg.T-30)/670;
+  const jit=(i,j)=>[Math.sin(this.ph+i*1.7+j*2.3)*amp,Math.cos(this.ph*1.13+i*2.1+j*1.3)*amp];
+  // bog'larni sinxronlash: juftlar uchun uzilgan bog'lar
+  const fe=this.free;
+  // kirishmadan chiqqan zarrachalar
+  const fromD=fe.filter(p=>p.d!==undefined);
+  while(fromD.length<tg.ionN){const d=fromD.length,o={t:tg.type==='n'?'e':'h',u:DOP[d][0]+.5,v:DOP[d][1]+.5,d,a:rnd(0,6.28)};fe.push(o);fromD.push(o);}
+  while(fromD.length>tg.ionN){const o=fromD.pop();fe.splice(fe.indexOf(o),1);}
+  let pe=fe.filter(p=>p.pair&&p.t==='e'),pp=fe.filter(p=>p.pair&&p.t==='h');
+  while(pe.length<tg.pairs){const i=Math.floor(rnd(0,COLS-1)),j=Math.floor(rnd(0,ROWS)),u=i+1,v=j+.5;
+    const e={t:'e',u,v,pair:1,a:rnd(0,6.28)},hh={t:'h',u,v,pair:1,a:rnd(0,6.28)};fe.push(e,hh);pe.push(e);pp.push(hh);this.fl.push({u,v,t:0,g:1});}
+  while(pe.length>tg.pairs){const e=pe.pop(),hh=pp.pop();this.fl.push({u:e.u,v:e.v,t:0});fe.splice(fe.indexOf(e),1);fe.splice(fe.indexOf(hh),1);}
   // bog'lar
-  c.strokeStyle=cssVar('--bond');c.lineWidth=2;c.globalAlpha=.6;
-  for(let i=0;i<COLS;i++)for(let j=0;j<ROWS;j++){const x=X(i+.5),y=Y(j+.5);
-    [[1,0],[0,1]].forEach(([a,b])=>{if(i+a<COLS&&j+b<ROWS){const x2=X(i+a+.5),y2=Y(j+b+.5);
-      const ox=b?3:0,oy=a?3:0;c.beginPath();c.moveTo(x-ox,y-oy);c.lineTo(x2-ox,y2-oy);c.moveTo(x+ox,y+oy);c.lineTo(x2+ox,y2+oy);c.stroke();}});}
-  c.globalAlpha=1;
+  c.strokeStyle=cssVar('--bond');c.lineWidth=1.6;
+  for(let i=0;i<COLS;i++)for(let j=0;j<ROWS;j++){const [ax,ay]=jit(i,j),x=X(i+.5)+ax,y=Y(j+.5)+ay;
+    if(i+1<COLS){const [bx,by]=jit(i+1,j),x2=X(i+1.5)+bx,y2=Y(j+.5)+by;c.beginPath();c.moveTo(x,y-3);c.lineTo(x2,y2-3);c.moveTo(x,y+3);c.lineTo(x2,y2+3);c.stroke();}
+    if(j+1<ROWS){const [bx,by]=jit(i,j+1),x2=X(i+.5)+bx,y2=Y(j+1.5)+by;c.beginPath();c.moveTo(x-3,y);c.lineTo(x2-3,y2);c.moveTo(x+3,y);c.lineTo(x2+3,y2);c.stroke();}}
   // atomlar
-  const isDop=(i,j)=>DOP.findIndex(d=>d[0]===i&&d[1]===j);
-  const r=Math.min(cw,chh)*0.2;c.textAlign='center';c.textBaseline='middle';
-  const {ionN}=target();
+  c.textAlign='center';c.textBaseline='middle';
   for(let i=0;i<COLS;i++)for(let j=0;j<ROWS;j++){
-    const [dx,dy]=jit(i,j),x=X(i+.5)+dx,y=Y(j+.5)+dy,di=isDop(i,j);
-    const col=di<0?'#94a3b8':(type==='n'?cssVar('--don'):cssVar('--acc'));
-    c.fillStyle=col;c.beginPath();c.arc(x,y,di<0?r:r*1.15,0,7);c.fill();
-    c.fillStyle='#fff';c.font='700 '+Math.round(r*0.85)+'px system-ui,sans-serif';
-    c.fillText(di<0?'Si':(type==='n'?'P':'B'),x,y+0.5);
+    const [dx,dy]=jit(i,j),x=X(i+.5)+dx,y=Y(j+.5)+dy,di=this.doped?DOP.findIndex(d=>d[0]===i&&d[1]===j):-1;
+    const col=di<0?cssVar('--atom'):cssVar(tg.type==='n'?'--don':'--acc');
+    c.fillStyle=col;c.beginPath();c.arc(x,y,r,0,7);c.fill();
+    c.fillStyle=di<0?cssVar('--paper'):'#fff';c.font='600 '+Math.round(r*0.8)+'px Inter,system-ui,sans-serif';
+    c.fillText(di<0?'Si':(tg.type==='n'?'P':'B'),x,y+0.5);
     if(di>=0){
-      if(di<ionN){ // ionlangan
-        c.fillStyle=type==='n'?cssVar('--ion-n'):cssVar('--ion-p');c.font='700 13px system-ui,sans-serif';c.fillText(type==='n'?'+':'−',x+r*1.25,y-r*1.1);
-      }else{ // bog'langan zarracha orbitada aylanadi
-        const a=ph*0.18+di,ox=Math.cos(a)*r*2.1,oy=Math.sin(a)*r*1.6;
-        if(type==='n'){c.fillStyle=cssVar('--elec');c.beginPath();c.arc(x+ox,y+oy,4.5,0,7);c.fill();}
-        else{c.strokeStyle=cssVar('--hole');c.lineWidth=2.4;c.beginPath();c.arc(x+ox,y+oy,4.2,0,7);c.stroke();}
-        c.strokeStyle=c.fillStyle;c.globalAlpha=.25;c.lineWidth=1;c.beginPath();c.ellipse(x,y,r*2.1,r*1.6,0,0,7);c.stroke();c.globalAlpha=1;
-      }
+      if(di<tg.ionN){label(c,tg.type==='n'?'+':'−',x+r*1.3,y-r*1.1,{font:'600 13px Inter',color:cssVar(tg.type==='n'?'--ion-n':'--ion-p'),align:'center'});}
+      else{const a=this.ph*0.2+di,R1=r*2.3,R2=r*1.7;
+        c.strokeStyle=cssVar(tg.type==='n'?'--elec':'--hole');c.globalAlpha=.3;c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.ellipse(x,y,R1,R2,0,0,7);c.stroke();c.setLineDash([]);c.globalAlpha=1;
+        tg.type==='n'?drawElectron(c,x+Math.cos(a)*R1,y+Math.sin(a)*R2,4.6):drawHole(c,x+Math.cos(a)*R1,y+Math.sin(a)*R2,4.3);}
     }
   }
   // erkin zarrachalar
-  const sp=0.0009*Math.sqrt(S.T)*dt/16;
-  free.forEach(p=>{p.a+=rnd(-0.5,0.5);p.u+=Math.cos(p.a)*sp*3;p.v+=Math.sin(p.a)*sp*3;
-    if(p.u<0.1||p.u>COLS-0.1)p.a=Math.PI-p.a;if(p.v<0.1||p.v>ROWS-0.1)p.a=-p.a;
-    p.u=Math.max(0.1,Math.min(COLS-0.1,p.u));p.v=Math.max(0.1,Math.min(ROWS-0.1,p.v));
-    if(p.t==='e'){c.fillStyle=cssVar('--elec');c.beginPath();c.arc(X(p.u),Y(p.v),5,0,7);c.fill();c.fillStyle='rgba(255,255,255,.75)';c.beginPath();c.arc(X(p.u)-1.5,Y(p.v)-1.5,1.5,0,7);c.fill();}
-    else{c.strokeStyle=cssVar('--hole');c.lineWidth=2.6;c.beginPath();c.arc(X(p.u),Y(p.v),4.6,0,7);c.stroke();}});
-  flashes.forEach(f=>{f.t+=dt;const a=1-f.t/600;c.fillStyle=f.g?`rgba(250,204,21,${a*.8})`:`rgba(168,85,247,${a*.6})`;c.beginPath();c.arc(X(f.u),Y(f.v),5+f.t/35,0,7);c.fill();});
-  flashes=flashes.filter(f=>f.t<600);
+  const sp=0.0028*Math.sqrt(tg.T)*dt/16;
+  fe.forEach(p=>{p.a+=rnd(-.5,.5);p.u+=Math.cos(p.a)*sp;p.v+=Math.sin(p.a)*sp;
+    if(p.u<.15||p.u>COLS-.15)p.a=Math.PI-p.a;if(p.v<.15||p.v>ROWS-.15)p.a=-p.a;
+    p.u=clamp(p.u,.15,COLS-.15);p.v=clamp(p.v,.15,ROWS-.15);
+    p.t==='e'?drawElectron(c,X(p.u),Y(p.v),5):drawHole(c,X(p.u),Y(p.v),4.6);});
+  this.fl.forEach(f=>{f.t+=dt;const a=1-f.t/600;c.fillStyle=f.g?`rgba(124,77,214,${a*.5})`:`rgba(232,179,32,${a*.7})`;c.beginPath();c.arc(X(f.u),Y(f.v),4+f.t/40,0,7);c.fill();});
+  this.fl=this.fl.filter(f=>f.t<600);
+};
+const L1=new Lattice('f1',false),L2=new Lattice('f2',true);
+slider($('c1'),S,{key:'T0',label:'Harorat',min:30,max:700,step:1,fmt:tfmt});
+buttons($('b2'),S,{key:'type',options:[['n','n-tur: fosfor'],['p','p-tur: bor']]});
+slider($('c2'),S,{key:'T',label:'Harorat',min:30,max:700,step:1,fmt:tfmt});
+slider($('c2'),S,{key:'N',label:'Kirishma',min:13,max:19,step:0.05,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+
+/* ============ 3-rasm: zonalar ============ */
+slider($('c3'),S,{key:'T',label:'Harorat',min:30,max:700,step:1,fmt:tfmt});
+slider($('c3'),S,{key:'N',label:'Kirishma',min:13,max:19,step:0.05,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+let cb=[],vb=[];
+const cnt=v=>clamp(Math.round(14*(Math.log10(Math.max(v,1))-7)/12),0,14);
+function sym(c,x,y,m,s,col){label(c,m,x,y,{font:SERIF,color:col});c.font=SERIF;label(c,s,x+c.measureText(m).width+1,y+4,{font:SUBF,color:col});}
+function f3draw(dt){
+  const r=cur(),{c,w,h}=fitCanvas($('f3'),mob()?0.85:0.45);
+  const top=6,bot=h-6,Emin=-0.3,Emax=Eg(30)+0.3,y=E=>bot-(E-Emin)/(Emax-Emin)*(bot-top),x0=6,x1=w-(mob()?40:52);
+  c.fillStyle=cssVar('--cb-tint');c.fillRect(x0,top,x1-x0,y(r.Ec)-top);
+  c.fillStyle=cssVar('--vb-tint');c.fillRect(x0,y(0),x1-x0,bot-y(0));
+  label(c,'oʻtkazuvchanlik zonasi',x0+10,top+14);label(c,'valent zona',x0+10,bot-14);
+  label(c,'taqiqlangan zona, Eg = '+fmtN(r.Ec,2)+' eV',(x0+x1)/2,(y(r.Ec)+y(0))/2+(r.EF>r.Ei?34:-34),{align:'center',color:cssVar('--muted')});
+  const El=r.type==='n'?r.Ec-Ed:Ea,D=12,st=(x1-x0)/D,ionN=Math.round(r.ion*D);
+  for(let i=0;i<D;i++){const xx=x0+st*(i+.25);c.strokeStyle=cssVar(r.type==='n'?'--don':'--acc');c.lineWidth=2.5;
+    c.beginPath();c.moveTo(xx,y(El));c.lineTo(xx+st*.5,y(El));c.stroke();
+    if(i>=ionN){r.type==='n'?drawElectron(c,xx+st*.25,y(El)+7,3.8):drawHole(c,xx+st*.25,y(El)-7,3.6);}
+    else label(c,r.type==='n'?'+':'−',xx+st*.25,y(El)+(r.type==='n'?9:-9),{align:'center',font:'600 12px Inter',color:cssVar(r.type==='n'?'--ion-n':'--ion-p')});}
+  const ne=cnt(r.n),nh=cnt(r.p);
+  while(cb.length<ne)cb.push({u:Math.random(),d:Math.random(),a:rnd(0,6)});cb.length=ne;
+  while(vb.length<nh)vb.push({u:Math.random(),d:Math.random(),a:rnd(0,6)});vb.length=nh;
+  const mv=p=>{p.a+=rnd(-.4,.4);p.u=clamp(p.u+Math.cos(p.a)*0.003*dt/16,0,1);p.d=clamp(p.d+Math.sin(p.a)*0.01*dt/16,0,1);if(p.u<=0||p.u>=1)p.a=Math.PI-p.a;if(p.d<=0||p.d>=1)p.a=-p.a;};
+  cb.forEach(p=>{mv(p);drawElectron(c,x0+14+p.u*(x1-x0-28),y(r.Ec)-7-p.d*18,4.6);});
+  vb.forEach(p=>{mv(p);drawHole(c,x0+14+p.u*(x1-x0-28),y(0)+7+p.d*18,4.3);});
+  const line=(E,col,lw,dash)=>{c.strokeStyle=col;c.lineWidth=lw;c.setLineDash(dash);c.beginPath();c.moveTo(x0,y(E));c.lineTo(x1,y(E));c.stroke();c.setLineDash([]);};
+  line(r.Ec,cssVar('--ec'),2.5,[]);line(0,cssVar('--ev'),2.5,[]);line(r.Ei,cssVar('--ei'),1.2,[5,4]);line(r.EF,cssVar('--ef'),2.5,[]);
+  const near=Math.abs(r.EF-r.Ei)<0.05;
+  sym(c,x1+6,y(r.Ec)-(r.type==='n'&&r.Ec-r.EF<0.07?8:0),'E','c',cssVar('--ec'));
+  sym(c,x1+6,y(0)+(r.type==='p'&&r.EF<0.07?8:0),'E','v',cssVar('--ev'));
+  sym(c,x1+6,y(r.Ei)+(near?9:0),'E','i',cssVar('--ei'));
+  sym(c,x1+6,y(r.EF)-(near?9:0)+(r.type==='n'&&r.Ec-r.EF<0.07?8:0)-(r.type==='p'&&r.EF<0.07?8:0),'E','F',cssVar('--ef'));
+  $('r3').innerHTML=`<span>E<sub>F</sub> − E<sub>i</sub> <b>${fmtN(r.EF-r.Ei,3)} eV</b></span><span>${r.type==='n'?'E<sub>c</sub> − E<sub>F</sub>':'E<sub>F</sub> − E<sub>v</sub>'} <b>${fmtN(r.type==='n'?r.Ec-r.EF:r.EF,3)} eV</b></span><span>kT <b>${fmtN(k*r.T*1000,1)} meV</b></span>`;
 }
 
-/* ---------- Zonalar ---------- */
-let cbP=[],vbP=[];
-function count(v){return Math.max(0,Math.min(14,Math.round(14*(Math.log10(Math.max(v,1))-7)/(19-7))));}
-function drawBand(dt){
-  const {c,w,h}=fitCanvas($('band'),0.8);
-  c.clearRect(0,0,w,h);
-  const top=10,bot=h-10,Emin=-0.34,Emax=Eg(30)+0.34;
-  const y=E=>bot-(E-Emin)/(Emax-Emin)*(bot-top);
-  const x0=10,x1=w-62;
-  // zonalar
-  let g=c.createLinearGradient(0,top,0,y(S.Ec));g.addColorStop(0,cssVar('--cb-bg'));g.addColorStop(1,cssVar('--cb-bg'));
-  c.fillStyle=cssVar('--cb-bg');c.fillRect(x0,top,x1-x0,y(S.Ec)-top);
-  c.fillStyle=cssVar('--vb-bg');c.fillRect(x0,y(0),x1-x0,bot-y(0));
-  c.fillStyle=cssVar('--gap-bg');c.fillRect(x0,y(S.Ec),x1-x0,y(0)-y(S.Ec));
-  c.font='600 12px system-ui,sans-serif';c.textAlign='left';c.textBaseline='middle';c.fillStyle=cssVar('--muted');
-  c.fillText('oʻtkazuvchanlik zonasi',x0+8,top+12);c.fillText('valent zona',x0+8,bot-12);
-  c.textAlign='center';c.fillText('taqiqlangan zona  Eg = '+fmtN(S.Ec,2)+' eV',(x0+x1)/2,(y(S.Ec)+y(0))/2+(S.EF>S.Ec/2?28:-28));
-  // kirishma sathi
-  const El=type==='n'?S.Ec-Ed:Ea,D=10,stp=(x1-x0)/D,ionN=Math.round(S.ion*D);
-  for(let i=0;i<D;i++){const xx=x0+stp*(i+.25);c.strokeStyle=type==='n'?cssVar('--don'):cssVar('--acc');c.lineWidth=3;
-    c.beginPath();c.moveTo(xx,y(El));c.lineTo(xx+stp*.5,y(El));c.stroke();
-    const ionz=i<ionN;
-    if(type==='n'){if(!ionz){c.fillStyle=cssVar('--elec');c.beginPath();c.arc(xx+stp*.25,y(El)+7,4,0,7);c.fill();}
-      else{c.fillStyle=cssVar('--ion-n');c.font='700 13px system-ui';c.fillText('+',xx+stp*.25,y(El)+9);}}
-    else{if(!ionz){c.strokeStyle=cssVar('--hole');c.lineWidth=2.2;c.beginPath();c.arc(xx+stp*.25,y(El)-7,3.8,0,7);c.stroke();}
-      else{c.fillStyle=cssVar('--ion-p');c.font='700 14px system-ui';c.fillText('−',xx+stp*.25,y(El)-9);}}
-  }
-  // zarrachalar zonalarda
-  const ne=count(S.n),nh=count(S.p);
-  while(cbP.length<ne)cbP.push({u:Math.random(),d:Math.random(),a:rnd(0,6)});cbP.length=ne;
-  while(vbP.length<nh)vbP.push({u:Math.random(),d:Math.random(),a:rnd(0,6)});vbP.length=nh;
-  const mv=p=>{p.a+=rnd(-.4,.4);p.u+=Math.cos(p.a)*0.003*dt/16;p.d+=Math.sin(p.a)*0.01*dt/16;if(p.u<0||p.u>1)p.a=Math.PI-p.a;if(p.d<0||p.d>1)p.a=-p.a;p.u=Math.max(0,Math.min(1,p.u));p.d=Math.max(0,Math.min(1,p.d));};
-  cbP.forEach(p=>{mv(p);const X=x0+12+p.u*(x1-x0-24),Y=y(S.Ec)-6-p.d*16;c.fillStyle=cssVar('--elec');c.beginPath();c.arc(X,Y,4.6,0,7);c.fill();});
-  vbP.forEach(p=>{mv(p);const X=x0+12+p.u*(x1-x0-24),Y=y(0)+6+p.d*16;c.strokeStyle=cssVar('--hole');c.lineWidth=2.4;c.beginPath();c.arc(X,Y,4.2,0,7);c.stroke();});
-  // chiziqlar
-  const line=(E,col,lw,dash,lab,dy=0)=>{c.strokeStyle=col;c.lineWidth=lw;c.setLineDash(dash);c.beginPath();c.moveTo(x0,y(E));c.lineTo(x1,y(E));c.stroke();c.setLineDash([]);
-    c.font='700 13px system-ui,sans-serif';c.textAlign='left';c.fillStyle=col;c.fillText(lab,x1+6,y(E)+dy);};
-  line(S.Ec,cssVar('--ec'),3,[],'Ec',type==='n'?-8:0);
-  line(0,cssVar('--ev'),3,[],'Ev',type==='p'?8:0);
-  line(S.Ei,cssVar('--ei'),1.5,[6,5],'Ei',Math.abs(S.EF-S.Ei)<0.04?12:0);
-  // Fermi sathi — yorliq bilan
-  c.strokeStyle=cssVar('--ef');c.lineWidth=3.5;c.beginPath();c.moveTo(x0,y(S.EF));c.lineTo(x1,y(S.EF));c.stroke();
-  c.fillStyle=cssVar('--ef');const ty=y(S.EF)+(type==='n'&&S.Ec-S.EF<0.06?8:type==='p'&&S.EF<0.06?-8:0)-(Math.abs(S.EF-S.Ei)<0.04?6:0);
-  c.beginPath();c.roundRect?c.roundRect(x1+2,ty-10,40,20,6):c.rect(x1+2,ty-10,40,20);c.fill();
-  c.fillStyle='#fff';c.font='700 12px system-ui,sans-serif';c.textAlign='center';c.fillText('EF',x1+22,ty+0.5);
-}
-
-/* ---------- Grafik ---------- */
-function drawPlot(){
-  const {T,N}=S;const {c,w,h}=fitCanvas($('plot'),window.innerWidth<860?0.78:0.4);
-  c.clearRect(0,0,w,h);
-  const L=52,R=w-12,Tp=12,B=h-38,Tmin=30,Tmax=700,lmin=8,lmax=20;
+/* ============ 4-rasm: grafik ============ */
+slider($('c4'),S,{key:'T',label:'Harorat',min:30,max:700,step:1,fmt:tfmt});
+slider($('c4'),S,{key:'N',label:'Kirishma',min:13,max:19,step:0.05,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+function f4draw(){
+  const r=cur(),N=r.N,{c,w,h}=fitCanvas($('f4'),mob()?0.8:0.42);
+  const L=50,R=w-12,Tp=24,B=h-36,Tmin=30,Tmax=700,lmin=8,lmax=20;
   const X=t=>L+(t-Tmin)/(Tmax-Tmin)*(R-L),Y=v=>B-(Math.log10(Math.max(v,1e-30))-lmin)/(lmax-lmin)*(B-Tp);
-  const {T1,T2}=bounds(N);
-  const zone=(a,b,col,lab)=>{if(b<=a)return;c.fillStyle=cssVar(col);c.fillRect(X(a),Tp,X(b)-X(a),B-Tp);
-    c.fillStyle=cssVar('--text');c.font='700 13px system-ui,sans-serif';c.textAlign='center';c.textBaseline='top';
-    if(X(b)-X(a)>50)c.fillText(lab,(X(a)+X(b))/2,Tp+6);};
-  zone(Tmin,T1,'--cold-bg','❄️ Muzlash');zone(T1,T2,'--ok-bg','✅ Kirishma sohasi');zone(T2,Tmax,'--hot-bg','🔥 Xususiy');
-  c.font='12px system-ui,sans-serif';c.fillStyle=cssVar('--muted');c.strokeStyle=cssVar('--line');c.lineWidth=1;
-  c.textBaseline='middle';c.textAlign='right';
-  for(let e=lmin;e<=lmax;e+=2){c.beginPath();c.moveTo(L,Y(10**e));c.lineTo(R,Y(10**e));c.stroke();c.fillText('10'+sup(e),L-6,Y(10**e));}
-  c.textAlign='center';c.textBaseline='top';
-  for(let t=100;t<=700;t+=100){c.fillText(t,X(t),B+6);}
-  c.fillText('Harorat T, K',(L+R)/2,B+22);
+  let T1=Tmax,T2=Tmax;for(let t=30;t<=700;t+=2){if(solve(t,N,r.type).ion>=0.9){T1=t;break;}}
+  for(let t=30;t<=700;t+=2){if(ni(t)>0.5*N){T2=t;break;}}
+  const zone=(a,b,col,lab)=>{if(b<=a)return;c.fillStyle=cssVar(col);c.globalAlpha=.55;c.fillRect(X(a),Tp,X(b)-X(a),B-Tp);c.globalAlpha=1;
+    if(X(b)-X(a)>56)label(c,lab,(X(a)+X(b))/2,Tp-10,{align:'center',font:'600 11px Inter,system-ui,sans-serif',color:cssVar('--ink2')});};
+  zone(Tmin,T1,'--n-tint','MUZLASH');zone(T1,T2,'--panel','KIRISHMA SOHASI');zone(T2,Tmax,'--p-tint','XUSUSIY');
+  c.strokeStyle=cssVar('--rule');c.lineWidth=1;
+  for(let e=lmin;e<=lmax;e+=2){c.beginPath();c.moveTo(L,Y(10**e));c.lineTo(R,Y(10**e));c.stroke();label(c,'10'+sup(e),L-6,Y(10**e),{align:'right'});}
+  for(let t=100;t<=700;t+=100)label(c,String(t),X(t),B+12,{align:'center'});
+  label(c,'T, K',R,B+28,{align:'right'});
   c.save();c.beginPath();c.rect(L,Tp,R-L,B-Tp);c.clip();
   c.strokeStyle=cssVar('--muted');c.setLineDash([3,4]);c.beginPath();c.moveTo(L,Y(N));c.lineTo(R,Y(N));c.stroke();c.setLineDash([]);
   const curve=(fn,col,lw)=>{c.strokeStyle=col;c.lineWidth=lw;c.beginPath();for(let t=Tmin;t<=Tmax;t+=3){const v=fn(t);t===Tmin?c.moveTo(X(t),Y(v)):c.lineTo(X(t),Y(v));}c.stroke();};
-  curve(ni,cssVar('--ei'),2);
-  curve(t=>solve(t,N).maj,'#f59e0b',4);
-  c.strokeStyle=cssVar('--text');c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(X(T),Tp);c.lineTo(X(T),B);c.stroke();c.setLineDash([]);
-  c.fillStyle=cssVar('--text');c.beginPath();c.arc(X(T),Y(S.maj),8,0,7);c.fill();c.fillStyle='#f59e0b';c.beginPath();c.arc(X(T),Y(S.maj),5,0,7);c.fill();
+  curve(ni,cssVar('--ei'),1.5);curve(t=>solve(t,N,r.type).maj,cssVar('--accent'),3);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(X(r.T),Tp);c.lineTo(X(r.T),B);c.stroke();c.setLineDash([]);
+  c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar('--ink');c.lineWidth=2;c.beginPath();c.arc(X(r.T),Y(r.maj),6,0,7);c.fill();c.stroke();
   c.restore();
+  label(c,'nᵢ',X(560),Y(ni(560))+14,{font:SERIF,color:cssVar('--ei')});
 }
 
-/* ---------- Matnlar ---------- */
+/* ============ matnlar ============ */
 function texts(){
-  $('Tv').textContent=S.T+' K ('+(S.T-273)+' °C)';$('Nv').textContent=fmtE(S.N,1)+' sm⁻³';
-  const kTm=fmtN(k*S.T*1000,1),ion=fmtN(S.ion*100,1),N=type==='n';
-  const reg=regime(S);let ic,head,body;
-  if(reg==='cold'){ic='❄️';head='Muzlash sohasi';
-    body=`Harorat past: issiqlik energiyasi kT = ${kTm} meV, kirishma sathining chuqurligi esa 45 meV. ${N?'Donorlarning':'Akseptorlarning'} faqat ${ion} % ionlangan, qolganlarida ${N?'elektron':'kovak'} atomga bogʻlanib qolgan (aylanib yurgan zarrachalar). Fermi sathi ${N?'donor':'akseptor'} sathiga yaqin.`;}
-  else if(reg==='ok'){ic='✅';head='Kirishma sohasi: asboblar shu yerda ishlaydi';
-    body=`Deyarli barcha ${N?'donorlar':'akseptorlar'} ionlangan (${ion} %), shuning uchun ${N?'elektronlar':'kovaklar'} soni ≈ N va haroratga deyarli bogʻliq emas. Valent bogʻlarning uzilishidan hosil boʻladigan juftlar hali juda kam (n<sub>i</sub> = ${fmtE(S.ni,1)} sm⁻³). Fermi sathi ${N?'E<sub>c</sub> ga':'E<sub>v</sub> ga'} yaqin.`;}
-  else{ic='🔥';head='Xususiy soha: legirlash ahamiyatini yoʻqotdi';
-    body=`Harorat shunchalik yuqoriki, valent bogʻlar uzilib hosil boʻlgan elektron–kovak juftlari (sariq chaqnashlar) kirishmadan kelgan zarrachalardan koʻp: n<sub>i</sub> = ${fmtE(S.ni,1)} sm⁻³. Fermi sathi zona oʻrtasi E<sub>i</sub> ga qaytdi — yarimoʻtkazgich xuddi toza kremniydek oʻzini tutmoqda.`;}
-  const s=$('status');s.className='status '+reg;s.querySelector('.ic').textContent=ic;s.querySelector('div').innerHTML=`<b>${head}</b>${body}`;
-  $('big').innerHTML=[[N?'Elektronlar n':'Kovaklar p',fmtE(S.maj,1)+' sm⁻³'],['Ionlangan kirishma',ion+' %'],['E<sub>F</sub> − E<sub>i</sub>',fmtN(S.EF-S.Ei,2)+' eV'],['kT',kTm+' meV']]
-    .map(x=>`<div><small>${x[0]}</small><strong>${x[1]}</strong></div>`).join('');
-  $('lgDop').innerHTML=N?'<i class="sq" style="background:var(--don);border-radius:50%"></i>fosfor (donor)':'<i class="sq" style="background:var(--acc);border-radius:50%"></i>bor (akseptor)';
-  $('N').className='fancy '+(N?'dopeN':'dopeP');
-  $('vals').innerHTML=[['Taqiqlangan zona kengligi E<sub>g</sub>',fmtN(S.Ec,3)+' eV'],['Xususiy konsentratsiya n<sub>i</sub>',fmtE(S.ni)+' sm⁻³'],
-    ['Elektronlar n',fmtE(S.n)+' sm⁻³'],['Kovaklar p',fmtE(S.p)+' sm⁻³'],['E<sub>F</sub> − E<sub>i</sub>',fmtN(S.EF-S.Ei,3)+' eV'],
-    [N?'E<sub>c</sub> − E<sub>F</sub>':'E<sub>F</sub> − E<sub>v</sub>',fmtN(N?S.Ec-S.EF:S.EF,3)+' eV'],['Ionlangan kirishma ulushi',ion+' %']]
+  const T0=S.get('T0'),v=ni(T0);
+  $('r1').innerHTML=`<span>n = p = n<sub>i</sub> <b>${fmtE(v,1)} sm⁻³</b></span><span>kT <b>${fmtN(k*T0*1000,1)} meV</b></span>`;
+  const r=cur(),N=r.type==='n';
+  $('r2').innerHTML=`<span>Ionlangan ${N?'donorlar':'akseptorlar'} <b>${fmtN(r.ion*100,1)} %</b></span><span>${N?'Elektronlar n':'Kovaklar p'} <b>${fmtE(r.maj,1)} sm⁻³</b></span><span>n<sub>i</sub> <b>${fmtE(r.ni,1)} sm⁻³</b></span>`;
+  $('vals').innerHTML=[['Taqiqlangan zona kengligi E<sub>g</sub>',fmtN(r.Ec,3)+' eV'],['Xususiy konsentratsiya n<sub>i</sub>',fmtE(r.ni)+' sm⁻³'],
+    ['Elektronlar n',fmtE(r.n)+' sm⁻³'],['Kovaklar p',fmtE(r.p)+' sm⁻³'],['E<sub>F</sub> − E<sub>i</sub>',fmtN(r.EF-r.Ei,3)+' eV'],['Ionlangan kirishma ulushi',fmtN(r.ion*100,1)+' %']]
     .map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');
 }
-function update(){S=st();syncFree();texts();drawPlot();}
-function setType(v){type=v;document.querySelectorAll('#type button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));free=[];cbP=[];vbP=[];}
-const EXP=[{T:50,N:16,t:'n'},{T:300,N:16,t:'n'},{T:650,N:15,t:'n'},{T:300,N:16,t:'p'}];
-$('exps').addEventListener('click',e=>{const b=e.target.closest('.exp');if(!b)return;const x=EXP[+b.dataset.e];
-  $('T').value=x.T;$('N').value=x.N;setType(x.t);document.querySelectorAll('.exp').forEach(y=>y.setAttribute('aria-pressed',y===b));update();});
-segGroup($('type'),v=>{setType(v);update();});
-['T','N'].forEach(id=>$(id).addEventListener('input',()=>{document.querySelectorAll('.exp').forEach(y=>y.setAttribute('aria-pressed','false'));update();}));
-window.addEventListener('resize',()=>drawPlot());onTheme(()=>drawPlot());
-document.querySelectorAll('.exp')[1].setAttribute('aria-pressed','true');
-update();
-let last=performance.now();
-function loop(t){const dt=Math.min(50,t-last);last=t;drawLat(dt);drawBand(dt);requestAnimationFrame(loop);}
-requestAnimationFrame(loop);
+S.sub(k=>{if(k==='type'){L2.free=[];cb=[];vb=[];}texts();f4draw();});
+texts();f4draw();window.addEventListener('resize',f4draw);onTheme(f4draw);document.fonts&&document.fonts.ready.then(f4draw);
+animate([{el:$('f1'),draw:dt=>L1.draw(dt)},{el:$('f2'),draw:dt=>L2.draw(dt)},{el:$('f3'),draw:f3draw}]);
 </script>
 </body>
 </html>

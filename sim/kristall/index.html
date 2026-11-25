@@ -7,48 +7,48 @@
 <meta name="description" content="Kubik panjaralar va olmos tuzilishini 3D ko'rinishda aylantirib o'rganish. 1-bob.">
 <link rel="stylesheet" href="../../assets/style.css">
 </head>
-<body style="--c1:#6366f1;--c2:#06b6d4">
-<div class="wrap">
-  <header class="hero">
-    <div class="top"><a class="back" href="../../">← Barcha boblar</a><span class="badge">1-bob</span></div>
-    <h1>Kristall panjaralar 3D koʻrinishda</h1>
-    <p>Barmogʻingiz yoki sichqoncha bilan surib, kristallni istalgan tomonga aylantiring. Tuzilishni tanlang va yacheykadagi atomlar qanday sanalishini kuzating.</p>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>1-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv model · 1-bob</p>
+    <h1>Kristall panjaralar</h1>
+    <p class="dek">Kubik panjaralar, olmos va sfalerit tuzilishlari uch oʻlchamda: atomlar qanday joylashgan, nechta qoʻshnisi bor va yacheykada nechta atom bor.</p>
   </header>
 
-  <div class="grid sim">
-    <div class="card">
-      <canvas id="cv" aria-label="Kristall panjaraning uch o'lchamli modeli"></canvas>
-      <div class="legend" id="legend"></div>
-    </div>
-    <div class="card controls">
-      <label>Tuzilish</label>
-      <div class="seg" id="struct">
-        <button data-v="ok" aria-pressed="false">OK</button>
+  <p>Kristallda atomlar davriy tartibda joylashadi. Bu tartibni bitta kichik qism — <i>yacheyka</i> bilan tasvirlash mumkin: butun kristall shu yacheykani uch yoʻnalishda takrorlashdan hosil boʻladi. Quyidagi modelni barmoq yoki sichqoncha bilan surib, istalgan tomonga aylantiring.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="cv" class="grab" aria-label="Kristall panjaraning uch o'lchamli modeli"></canvas>
+      <div class="btns" id="struct">
+        <button data-v="ok" aria-pressed="false">Oddiy kubik</button>
         <button data-v="hmk" aria-pressed="false">HMK</button>
         <button data-v="ymk" aria-pressed="false">YMK</button>
         <button data-v="olmos" aria-pressed="true">Olmos (Si)</button>
         <button data-v="sfalerit" aria-pressed="false">Sfalerit (GaAs)</button>
       </div>
-      <label>Yacheykalar soni</label>
-      <div class="seg" id="cells">
-        <button data-v="1" aria-pressed="true">1 × 1 × 1</button>
-        <button data-v="2" aria-pressed="false">2 × 2 × 2</button>
+      <div class="btns">
+        <span id="cells" style="display:contents">
+          <button data-v="1" aria-pressed="true">1 yacheyka</button>
+          <button data-v="2" aria-pressed="false">2 × 2 × 2</button>
+        </span>
+        <span id="opts" style="display:contents"><button data-v="spin" aria-pressed="true">Aylanish</button></span>
+        <span id="opts2" style="display:contents"><button data-v="bonds" aria-pressed="true">Bogʻlar</button></span>
       </div>
-      <label>Koʻrinish</label>
-      <div class="seg" id="opts">
-        <button data-v="spin" aria-pressed="true">Oʻzi aylansin</button>
-      </div>
-      <div class="seg" id="opts2" style="margin-top:6px">
-        <button data-v="bonds" aria-pressed="true">Bogʻlar</button>
-      </div>
-      <table class="vals" id="vals"></table>
-      <p class="note" id="count"></p>
+      <div class="readout" id="legend"></div>
     </div>
-  </div>
+    <figcaption><b>1-rasm.</b> Uzuq chiziqlar — kubik yacheyka chegarasi. Atomlar aniq koʻrinishi uchun kichraytirib chizilgan.</figcaption>
+  </figure>
 
-  <div class="task" id="task"></div>
-  <footer>Interaktiv model «Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasining 1-bobiga ilova. Atomlar oʻlchami masshtabda emas: aniq koʻrinishi uchun kichraytirilgan.</footer>
-</div>
+  <h2>Tanlangan tuzilish</h2>
+  <table class="vals" id="vals"></table>
+  <p id="count"></p>
+  <aside class="note" id="task"></aside>
+
+  <p>Kremniy, germaniy va olmos <i>olmos tuzilishida</i> kristallanadi. Uni ikkita bir-biriga nisbatan diagonalning choragiga siljigan YMK panjarasi deb tasavvur qilish mumkin. Har bir atom toʻrtta qoʻshnisi bilan tetraedr hosil qiladi — bu kremniyning toʻrtta valent elektroni toʻrtta kovalent bogʻ hosil qilishining bevosita natijasi. GaAs kabi birikmalarda ikki xil atom navbatlashib joylashadi: bu <i>sfalerit</i> tuzilishi.</p>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
 <script src="../../assets/common.js"></script>
 <script>
 const S={
@@ -103,8 +103,7 @@ function proj(p,w,h){
   return {x:w/2+x*sc*persp,y:h/2-y2*sc*persp,z:z2,s:persp,sc};
 }
 function draw(){
-  const {c,w,h}=fitCanvas(cv,window.innerWidth<820?0.95:0.78);
-  c.clearRect(0,0,w,h);
+  const {c,w,h}=fitCanvas(cv,window.innerWidth<640?0.95:0.6);
   const n=ncell,line=cssVar('--line'),muted=cssVar('--muted');
   // yacheyka qirralari
   c.strokeStyle=muted;c.lineWidth=1;c.setLineDash([4,4]);
@@ -136,8 +135,8 @@ function info(){
   document.getElementById('count').textContent='Sanash: '+s.count+' Chegaradagi atomlar qoʻshni yacheykalar bilan boʻlishiladi.';
   document.getElementById('task').textContent=s.task;
   document.getElementById('legend').innerHTML=s.two
-    ?`<span><i style="background:var(--atom-a);height:10px;width:10px;border-radius:50%"></i>Ga</span><span><i style="background:var(--atom-b);height:10px;width:10px;border-radius:50%"></i>As</span><span>Uzuq chiziqlar — kubik yacheyka chegarasi</span>`
-    :`<span>Uzuq chiziqlar — kubik yacheyka chegarasi</span>`;
+    ?`<span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;background:var(--atom-a)"></i>Ga</span><span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;background:var(--atom-b)"></i>As</span>`
+    :`<span><i style="display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px;background:var(--atom-a)"></i>${s.name}</span>`;
 }
 segGroup(document.getElementById('struct'),v=>{cur=v;rebuild();draw();});
 segGroup(document.getElementById('cells'),v=>{ncell=+v;rebuild();draw();});
