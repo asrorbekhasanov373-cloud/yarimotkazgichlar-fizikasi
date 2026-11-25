@@ -1,0 +1,11 @@
+[
+  "pe-en diod",
+  "Bu diodning volt-amper xarakteristikasi. Chapdagi chiziqli grafikda tok taxminan nol butun olti voltda birdan «ochilgandek» koʻrinadi. Oʻngdagi logarifmik grafikda esa bu — *oddiy toʻgʻri chiziq*: kuchlanish har oltmish millivoltga ortganda tok oʻn marta oshadi.",
+  "Endi diodni qizdiramiz. Toʻyinish toki xususiy konsentratsiyaning kvadratiga proporsional, shuning uchun harorat har oʻn kelvinga ortganda u taxminan toʻrt yarim marta oshadi. Egri chiziq chapga suriladi.",
+  "Toʻgʻri kuchlanishda chegaradagi noasosiy tashuvchilar soni eksponensial koʻpayadi. Ular neytral sohaga diffuziyalanadi va yoʻl-yoʻlakay rekombinatsiyalanadi. Ularning konsentratsiyasi — *diffuziya uzunligi* masshtabida soʻnadi.",
+  "Teskari kuchlanishda injeksiya yoʻq, lekin diod kondensator kabi ishlaydi. Kuchlanish ortgan sari kambagʻallashgan soha kengayadi va sigʻim kamayadi. Bir taqsim sigʻim kvadrati esa kuchlanishga chiziqli bogʻliq — qiyaligidan legirlash topiladi.",
+  "Teskari kuchlanish yanada oshsa, elektron maydonda shunchalik tezlashadiki, atomga urilib yangi elektron-kovak juftini hosil qiladi. Yangi zarralar ham shunday qiladi. Bu — *koʻchkisimon teshilish*.",
+  "Ikkala tomoni kuchli legirlangan tor oʻtishda boshqa mexanizm ishlaydi. Elektronlar valent zonadan oʻtkazuvchanlik zonasiga tunnel orqali oʻtadi — bu *Zener teshilishi*.",
+  "Nihoyat, diodni kalit sifatida oʻchiramiz. Neytral sohada toʻplangan kovaklar chiqarib yuborilguncha teskari tok oqib turadi. Bu vaqt — *saqlanish vaqti* deb ataladi.",
+  "Eʼtiboringiz uchun rahmat!"
+]

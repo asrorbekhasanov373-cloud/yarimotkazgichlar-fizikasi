@@ -1,0 +1,16 @@
+{
+  "url": "sim/pn-diod/",
+  "kicker": "8-bob",
+  "title": "p-n diod",
+  "setup": "S.set('T',300);S.set('V1',-0.2);S.set('V2',0.3);S.set('tau',-6.7);S.set('VR3',0);S.set('Nd3',15.3);S.set('mode','av');S.set('Nb4',16);S.set('u4',0.3);S.set('r5',1)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 8-bob", "t": "p-n diod", "d": "Diod tenglamasi, injeksiya, toʻsiq sigʻimi, teshilish va diodning oʻchishi"},
+  "segs": [
+    {"fig": "f1", "w": 930, "dur": 8, "act": "S.set('V1',__ease(-0.2,0.7,p))", "cap": "Chiziqli masshtabda diod 0,6 V atrofida «ochiladi». Logarifmik masshtabda esa VAX — toʻgʻri chiziq."},
+    {"fig": "f1", "w": 930, "dur": 8, "start": "S.set('V1',0.6)", "act": "S.set('T',Math.round(__ease(300,380,p)))", "cap": "Qizdirilganda toʻyinish toki I<sub>s</sub> keskin ortadi: har 10 K da taxminan 4,5 marta."},
+    {"fig": "f2", "w": 640, "dur": 9, "act": "S.set('V2',__ease(0.3,0.65,p))", "cap": "Toʻgʻri kuchlanishda chegarada noasosiy tashuvchilar exp(eV/kT) marta koʻpayadi va ichkariga diffuziyalanadi."},
+    {"fig": "f3", "w": 930, "dur": 8, "act": "S.set('VR3',__ease(0,10,p))", "cap": "Teskari kuchlanishda soha kengayadi va sigʻim kamayadi. 1/C² esa kuchlanishga chiziqli bogʻliq."},
+    {"fig": "f4", "w": 820, "dur": 9, "act": "S.set('u4',__ease(0.3,1.02,p))", "cap": "Kuchli maydonda elektron yangi juftlarni urib chiqaradi — <i>koʻchkisimon teshilish</i>."},
+    {"fig": "f4", "w": 820, "dur": 7, "start": "S.set('mode','zn');S.set('u4',0.5)", "act": "S.set('u4',__ease(0.5,1,p))", "cap": "Kuchli legirlangan tor oʻtishda elektronlar zonadan zonaga tunnel orqali oʻtadi — Zener teshilishi."},
+    {"fig": "f5", "w": 880, "dur": 8, "start": "f5restart()", "cap": "Toʻplangan kovaklar chiqarib yuborilguncha diod oʻchmaydi: tok saqlanish vaqti t<sub>s</sub> davomida teskari."}
+  ]
+}
