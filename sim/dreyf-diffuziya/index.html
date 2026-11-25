@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dreyf va diffuziya</title>
+<meta name="description" content="Kremniyda elektronlar va kovaklar qanday harakatlanadi: issiqlik harakati, dreyf, harakatchanlik, diffuziya, Eynshteyn munosabati va Hall effekti. 5-bob uchun interaktiv maqola.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>5-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 5-bob</p>
+    <h1>Dreyf va diffuziya</h1>
+    <p class="dek">Elektronlar kristall ichida qanday harakatlanadi, nima ularni bir tomonga suradi va Hall effekti yordamida ularni qanday sanash mumkin.</p>
+  </header>
+
+  <p>4-bobda yarimoʻtkazgichda nechta elektron va kovak borligini hisobladik. Ammo asbob uchun ularning soni emas, ular hosil qiladigan tok muhim. Tok zaryad tashuvchilar tartibli harakat qilganda paydo boʻladi va yarimoʻtkazgichda buning ikki sababi bor: elektr maydon (<i>dreyf</i>) va konsentratsiya farqi (<i>diffuziya</i>). Bu sahifada ikkalasini ham koʻz bilan koʻramiz.</p>
+
+  <h2>Tartibsiz harakat va dreyf</h2>
+  <p>Tashqi maydon boʻlmaganda ham oʻtkazuvchanlik zonasidagi elektronlar tinch turmaydi. Ular gaz molekulalari kabi tartibsiz harakatlanadi. Oʻrtacha kinetik energiya <span class="math">(3/2)k<sub>B</sub>T</span> ga teng, bundan issiqlik tezligi <span class="math">v<sub>th</sub> = √(3k<sub>B</sub>T/m*)</span>. Kremniyda xona haroratida bu <b>2,3 × 10⁷ sm/s</b> — tovush tezligidan taxminan 25 baravar koʻp.</p>
+  <p>Shunday tez harakat qilsa ham, elektron uzoqqa ketmaydi. Panjara atomlarining tebranishlari va kirishma ionlari uni har <span class="math">τ ≈ 0,1–0,2</span> ps da tasodifiy yoʻnalishga burib yuboradi — <i>sochadi</i>. Natijada elektron siniq chiziq boʻylab harakatlanadi va uning oʻrtacha siljishi nolga teng. Quyidagi rasmda bitta elektronning yoʻli chizib borilmoqda; nuqtalar — toʻqnashuvlar.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="Elektronlar va kovaklarning tartibsiz harakati va elektr maydondagi dreyfi"></canvas>
+      <div class="ctl" id="c1"></div>
+      <div class="readout" id="r1"></div>
+    </div>
+    <figcaption><b>1-rasm.</b> Maydonni oshiring: har bir erkin yugurishga kichik yoʻnaltirilgan siljish qoʻshiladi. <span style="color:var(--elec)">Elektronlar</span> maydonga teskari, <span style="color:var(--hole)">kovaklar</span> maydon yoʻnalishida suriladi. Yuqoridagi strelkalar — oʻrtacha dreyf tezligi.</figcaption>
+  </figure>
+
+  <p>Maydon <span class="math">ℰ</span> taʼsirida zarra ikki toʻqnashuv orasida <span class="math">eℰ/m*</span> tezlanish bilan harakatlanadi. Har toʻqnashuvda u yoʻnaltirilgan tezligini yoʻqotadi va yana noldan boshlaydi. Oʻrtacha yoʻnaltirilgan tezlik — <i>dreyf tezligi</i>:</p>
+  <p style="text-align:center"><span class="math">v<sub>d</sub> = μℰ,&nbsp;&nbsp;&nbsp; μ = eτ/m*</span></p>
+  <p>Koeffitsient <span class="math">μ</span> — <i>harakatchanlik</i>. Kremniyda elektronlar uchun <span class="math">μ<sub>n</sub> ≈ 1350</span>, kovaklar uchun <span class="math">μ<sub>p</sub> ≈ 480</span> sm²/(V·s). Elektronlar va kovaklar qarama-qarshi tomonga harakatlansa ham, zaryadlari ham qarama-qarshi, shuning uchun ikkala tok maydon yoʻnalishida qoʻshiladi: <span class="math">J = e(nμ<sub>n</sub> + pμ<sub>p</sub>)ℰ</span>.</p>
+  <aside class="note">Rasmda dreyf koʻzga tashlanishi uchun haqiqatdagidan 3 marta kuchaytirilgan. Haqiqatda 1000 V/sm maydonda ham elektronning dreyf tezligi (1,35 × 10⁶ sm/s) issiqlik tezligidan 17 marta kichik — dreyf tez tartibsiz harakatga qoʻshilgan juda sekin «oqim».</aside>
+
+  <h2>Harakatchanlikni nima cheklaydi</h2>
+  <p>Harakatchanlik toʻqnashuvlar orasidagi vaqt <span class="math">τ</span> bilan belgilanadi, ikki asosiy sochilish mexanizmi esa uni qisqartiradi. <i>Panjara sochilishi</i>: harorat ortgan sari atomlar kuchliroq tebranadi, shuning uchun <span class="math">μ<sub>L</sub> ∝ T<sup>−3/2</sup></span>. <i>Ionlangan kirishmalar sochilishi</i>: zaryadlangan donor yoki akseptor yonidan oʻtgan elektron Kulon kuchi taʼsirida buriladi. Sekin elektron koʻproq buriladi, shuning uchun bu mexanizm past haroratda kuchli: <span class="math">μ<sub>I</sub> ∝ T<sup>3/2</sup>/N<sub>I</sub></span>.</p>
+  <p>Mexanizmlar mustaqil boʻlsa, ularning ehtimolliklari qoʻshiladi — bu <i>Matthissen qoidasi</i>: <span class="math">1/μ = 1/μ<sub>L</sub> + 1/μ<sub>I</sub></span>. Natijaviy harakatchanlik har ikkalasidan kichik va asosan kichigi bilan belgilanadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="Kremniyda harakatchanlikning kirishmalar konsentratsiyasi va haroratga bog'liqligi"></canvas>
+      <div class="ctl c2" id="c2"></div>
+      <div class="readout" id="r2"></div>
+    </div>
+    <figcaption><b>2-rasm.</b> Chapda — harakatchanlikning kirishmalar konsentratsiyasiga, oʻngda — haroratga bogʻliqligi (Arora–Hauzer–Roulston modeli). Punktir — faqat panjara sochilishi boʻlganda elektronlar harakatchanligi.</figcaption>
+  </figure>
+
+  <p>10¹⁵ sm⁻³ gacha harakatchanlik deyarli oʻzgarmaydi — bu panjara bilan cheklangan qiymat. 10¹⁶–10¹⁹ sm⁻³ oraligʻida u 10 martadan koʻproq kamayadi. Oʻng grafikda kam legirlangan kremniyda harakatchanlik harorat ortishi bilan tez kamayishini koʻrasiz. Kuchli legirlangan kremniyda esa kirishmalar sochilishi ustun va harakatchanlik haroratga kam bogʻliq: past haroratda u hatto panjara chizigʻidan keskin pastga tushadi.</p>
+
+  <h2>Diffuziya</h2>
+  <p>Zarralar konsentratsiyasi bir joyda koʻp, boshqa joyda kam boʻlsa, tartibsiz issiqlik harakati natijasida ular koʻp joydan kam joyga tarqaladi — xuddi xonada ochilgan atir hidi kabi. Har bir zarra hech qayerga «intilmaydi»: shunchaki chap tomonda zarralar koʻproq boʻlgani uchun chapdan oʻngga oʻtganlar oʻngdan chapga oʻtganlardan koʻp boʻladi. Oqim konsentratsiya gradientiga proporsional — bu <i>Fik qonuni</i>: <span class="math">F = −D·dn/dx</span>.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="Zarralarning konsentratsiya gradienti bo'ylab diffuziyasi"></canvas>
+      <div id="b3"></div>
+      <div class="ctl" id="c3"></div>
+      <div class="readout" id="r3"></div>
+    </div>
+    <figcaption><b>3-rasm.</b> Boshida barcha zarralar chap chetdagi 3 mkm qatlamda. Pastdagi ustunlar — oʻlchangan konsentratsiya, chiziq — diffuziya tenglamasining yechimi. Strelkalar — zarralar oqimi <i>F</i> va tok <i>J</i>.</figcaption>
+  </figure>
+
+  <p>Zarra oqimini zaryadga koʻpaytirib, diffuziya tokini olamiz: <span class="math">J<sub>n</sub> = eD<sub>n</sub>·dn/dx</span>, <span class="math">J<sub>p</sub> = −eD<sub>p</sub>·dp/dx</span>. Elektronlar ham, kovaklar ham konsentratsiya kamayadigan tomonga oqadi, ammo elektronlar zaryadi manfiy boʻlgani uchun ularning toki teskari yoʻnalgan.</p>
+  <p>Diffuziya va dreyf — bitta hodisaning ikki koʻrinishi: ikkalasi ham tartibsiz issiqlik harakati va toʻqnashuvlardan kelib chiqadi. Kam sochiladigan zarra maydonda ham tez harakatlanadi, ham tez diffuziyalanadi. Bu bogʻlanish — <i>Eynshteyn munosabati</i>:</p>
+  <p style="text-align:center"><span class="math">D/μ = k<sub>B</sub>T/e</span></p>
+  <p>Xona haroratida <span class="math">k<sub>B</sub>T/e = 0,0259</span> V, shuning uchun kremniyda <span class="math">D<sub>n</sub> = 35</span> sm²/s, <span class="math">D<sub>p</sub> = 12,4</span> sm²/s. Rasmda kovaklarni tanlang: ular uch baravar sekinroq tarqaladi. Haroratni oshirsangiz, <span class="math">k<sub>B</sub>T/e</span> ortadi, ammo harakatchanlik undan tezroq kamayadi — natijada <span class="math">D</span> ham kamayadi.</p>
+  <aside class="note">Diffuziya kichik masofalarda juda kuchli. 2 mkm masofada konsentratsiya atigi ikki marta oʻzgarsa ham (10¹⁷ dan 5 × 10¹⁶ sm⁻³ gacha), diffuziya toki 1,4 × 10³ A/sm² ga yetadi. Bipolyar tranzistor aynan shu tok bilan ishlaydi (11-bob).</aside>
+
+  <h2>Hall effekti: zaryad tashuvchilarni sanash</h2>
+  <p>Oʻtkazuvchanlikni oʻlchash faqat <span class="math">nμ</span> koʻpaytmasini beradi. Tok tashuvchilar turi, soni va harakatchanligini alohida bilish uchun Hall effekti ishlatiladi. Namunadan <span class="math">x</span> boʻylab tok oqmoqda, rasm tekisligiga perpendikulyar esa magnit maydon <span class="math">B</span> qoʻyilgan.</p>
+  <p>Harakatlanayotgan zaryadga Lorents kuchi <span class="math">F = qv × B</span> taʼsir qiladi. Kovaklar (<span class="math">+e</span>, oʻngga) ham, elektronlar (<span class="math">−e</span>, chapga) ham bir xil tomonga — pastga ogʻadi. Pastki yuzada zaryad toʻplanadi va koʻndalang <i>Hall maydoni</i> paydo boʻladi. Bu maydon Lorents kuchini kompensatsiyalagach, zarralar yana toʻgʻri harakatlanadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="Hall effekti: magnit maydonda tok tashuvchilarning og'ishi va Hall kuchlanishi"></canvas>
+      <div id="b4"></div>
+      <div class="ctl c2" id="c4"></div>
+      <div class="readout" id="r4"></div>
+    </div>
+    <figcaption><b>4-rasm.</b> Namuna yuqoridan koʻrinishda: <span class="math">B</span> &gt; 0 — oʻquvchiga qarab (⊙), <span class="math">B</span> &lt; 0 — oʻquvchidan (⊗). Magnit maydonni oʻzgartiring va namuna turini almashtiring: Hall kuchlanishining ishorasi tok tashuvchi zaryadining ishorasini koʻrsatadi.</figcaption>
+  </figure>
+
+  <p>Muvozanatda <span class="math">eℰ<sub>H</sub> = ev<sub>x</sub>B</span>. Tezlikni tok orqali ifodalasak, konsentratsiya Hall kuchlanishidan bevosita topiladi:</p>
+  <p style="text-align:center"><span class="math">p = I<sub>x</sub>B / (e·d·V<sub>H</sub>)</span></p>
+  <p>bu yerda <span class="math">d</span> — namuna qalinligi. p-tur namunada <span class="math">V<sub>H</sub> &gt; 0</span>, n-tur namunada <span class="math">V<sub>H</sub> &lt; 0</span>. Qarshilik ham oʻlchansa, <span class="math">μ = 1/(epρ)</span> dan harakatchanlik topiladi. Hall kuchlanishi kichik — millivoltlar, chunki tok tashuvchilar juda koʻp va sekin harakatlanadi. Smartfondagi kompas va avtomobil sensorlari shu hodisaga asoslangan.</p>
+
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>1-rasmda maydonni 1000 V/sm qiling. Elektronlar va kovaklarning dreyf tezliklari nisbati nechaga teng? Bu nisbatni <span class="math">μ<sub>n</sub>/μ<sub>p</sub></span> bilan solishtiring.</li>
+    <li>2-rasmda N = 10¹⁵ sm⁻³ da haroratni 300 K dan 400 K ga oshiring. Harakatchanlik necha marta kamaydi? <span class="math">T<sup>−3/2</sup></span> qonuni qancha beradi?</li>
+    <li>4-rasmda B = 0,2 T va p = 4 × 10¹⁵ sm⁻³ qiling (kitobdagi 5.10-misol). Hall kuchlanishi qancha? Konsentratsiyani 10 marta oshirsangiz-chi?</li>
+  </ol>
+
+  <details><summary>Barcha hisoblangan qiymatlar va model</summary>
+    <table class="vals" id="vals"></table>
+    <p>Model: kremniy. Issiqlik tezligi v<sub>th</sub> = √(3k<sub>B</sub>T/m*), m* = 0,26m₀. Harakatchanlik — Arora–Hauzer–Roulston empirik modeli: μ = μ<sub>min</sub>T<sub>n</sub><sup>−0,57</sup> + μ<sub>0</sub>T<sup>−β</sup>/[1 + (N/N<sub>ref</sub>T<sub>n</sub><sup>2,4</sup>)·0,88T<sub>n</sub><sup>−0,146</sup>], T<sub>n</sub> = T/300; elektronlar uchun μ<sub>min</sub> = 88, μ<sub>0</sub> = 7,4 × 10⁸, β = 2,33, N<sub>ref</sub> = 1,26 × 10¹⁷ sm⁻³; kovaklar uchun 54,3; 1,36 × 10⁸; 2,23; 2,35 × 10¹⁷ sm⁻³ (200–500 K oraligʻida yaroqli). Diffuziya: D = (k<sub>B</sub>T/e)μ, aks ettiruvchi devorlar, analitik egri — tasvirlar usuli bilan erf yechim. Hall: I<sub>x</sub> = 2 mA, d = 0,05 sm, W = 0,2 sm; V<sub>H</sub> = I<sub>x</sub>B/(e·c·d). Kuchli maydondagi tezlik toʻyinishi (5.5-boʻlim) hisobga olinmagan: 2 kV/sm gacha xato 3 % dan kam.</p>
+  </details>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
+<script src="../../assets/common.js"></script>
+<script>
+const qe=1.602e-19,kB=8.617e-5,VTH=2.3e7;
+const $=id=>document.getElementById(id);
+const S=makeStore({E:0,N:15,T:300,T3:300,car3:'n',B:0,c4:15.6,car4:'p'});
+const mob=()=>window.innerWidth<640;
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif';
+const SANS='500 12px Inter,system-ui,sans-serif';
+// Arora–Hauzer–Roulston
+function mu(N,T,t){const Tn=T/300;
+  const P=t==='n'?[88,7.4e8,2.33,1.26e17]:[54.3,1.36e8,2.23,2.35e17];
+  return P[0]*Tn**-0.57+P[1]*T**-P[2]/(1+N/(P[3]*Tn**2.4)*0.88*Tn**-0.146);}
+const MUN=mu(1e10,300,'n'),MUP=mu(1e10,300,'p');
+function arrow(c,x0,y0,x1,y1,col,lw=2){
+  const L=Math.hypot(x1-x0,y1-y0);if(L<2)return;const ux=(x1-x0)/L,uy=(y1-y0)/L,hs=Math.min(9,L*.6);
+  c.strokeStyle=col;c.fillStyle=col;c.lineWidth=lw;c.beginPath();c.moveTo(x0,y0);c.lineTo(x1-ux*hs*.8,y1-uy*hs*.8);c.stroke();
+  c.beginPath();c.moveTo(x1,y1);c.lineTo(x1-ux*hs-uy*hs*.5,y1-uy*hs+ux*hs*.5);c.lineTo(x1-ux*hs+uy*hs*.5,y1-uy*hs-ux*hs*.5);c.fill();}
+
+/* ============ 1-rasm: tasodifiy yurish va dreyf ============ */
+slider($('c1'),S,{key:'E',label:'Elektr maydon ℰ',min:0,max:2000,step:10,fmt:v=>v.toFixed(0)+' V/sm'});
+const F1={ps:[],tr:null,W:0,H:0};
+const TAU1=320,EXAG=3;
+function f1spawn(p){const a=rnd(0,6.283);p.vx=Math.cos(a);p.vy=Math.sin(a);}
+function f1init(w,h){F1.ps=[];const n=mob()?44:80;
+  for(let i=0;i<n;i++){const p={x:rnd(0,w),y:rnd(0,h),t:i%2?'p':'n',hit:0};f1spawn(p);F1.ps.push(p);}
+  F1.tr=F1.ps[0];F1.tr.x=w*.5;F1.tr.y=h*.5;F1.path=[[F1.tr.x,F1.tr.y]];F1.W=w;F1.H=h;}
+function f1draw(dt){
+  const {c,w,h}=fitCanvas($('f1'),mob()?0.8:0.42);
+  const top=40,P=8,bw=w-2*P,bh=h-top-P;
+  if(!F1.ps.length||Math.abs(F1.W-bw)>1||Math.abs(F1.H-bh)>1)f1init(bw,bh);
+  const E=S.get('E'),v0=Math.max(.05,bw/9000)*(mob()?1.3:1); // px/ms
+  c.fillStyle=cssVar('--paper');c.fillRect(P,top,bw,bh);
+  // maydon strelkasi
+  const col=cssVar('--ink2');
+  if(E>0){c.globalAlpha=.12+.25*E/2000;for(let y=top+bh*.2;y<top+bh;y+=bh*.3)arrow(c,P+14,y,P+bw-14,y,col,1);c.globalAlpha=1;}
+  label(c,E>0?'ℰ →':'ℰ = 0',P,14,{font:SERIF,color:cssVar('--ink')});
+  const k=dt/16;
+  // dreyf: a·τ = v_d (vizual), v_d/v_th = EXAG·μE/VTH
+  F1.ps.forEach(p=>{
+    const m=p.t==='n'?MUN:MUP,sgn=p.t==='n'?-1:1;
+    const a=sgn*EXAG*m*E/VTH/TAU1; // birlik: v0/ms
+    p.vx+=a*dt;
+    p.x+=p.vx*v0*dt;p.y+=p.vy*v0*dt;
+    let wrap=false;
+    if(p.x<0){p.x+=bw;wrap=true;}if(p.x>bw){p.x-=bw;wrap=true;}
+    if(p.y<0){p.y+=bh;wrap=true;}if(p.y>bh){p.y-=bh;wrap=true;}
+    if(p===F1.tr){if(wrap)F1.path=[[p.x,p.y]];}
+    if(Math.random()<dt/TAU1){f1spawn(p);if(p===F1.tr){F1.path.push([p.x,p.y]);if(F1.path.length>60)F1.path.shift();}}
+  });
+  // iz
+  const tr=F1.tr;c.strokeStyle=cssVar('--elec');c.globalAlpha=.55;c.lineWidth=1.3;c.beginPath();
+  F1.path.forEach(([x,y],i)=>i?c.lineTo(P+x,top+y):c.moveTo(P+x,top+y));c.lineTo(P+tr.x,top+tr.y);c.stroke();c.globalAlpha=1;
+  c.fillStyle=cssVar('--ink');F1.path.forEach(([x,y],i)=>{if(i){c.beginPath();c.arc(P+x,top+y,2,0,7);c.fill();}});
+  F1.ps.forEach(p=>{if(p===tr)return;p.t==='n'?drawElectron(c,P+p.x,top+p.y,3.6,.75):drawHole(c,P+p.x,top+p.y,3.4,.75);});
+  drawElectron(c,P+tr.x,top+tr.y,5.5);c.strokeStyle=cssVar('--ink');c.lineWidth=1.2;c.beginPath();c.arc(P+tr.x,top+tr.y,8,0,7);c.stroke();
+  // o'rtacha dreyf strelkalari
+  const vdn=MUN*E,vdp=MUP*E,sc=(w*.22)/(EXAG*MUN*2000/VTH);
+  const cx=w*.62,ay=16;
+  const ln=EXAG*vdn/VTH*sc,lp=EXAG*vdp/VTH*sc;
+  if(E>0){arrow(c,cx,ay-5,cx-ln,ay-5,cssVar('--elec'),2.4);arrow(c,cx,ay+6,cx+lp,ay+6,cssVar('--hole'),2.4);}
+  else label(c,'oʻrtacha siljish nolga teng',cx,ay,{align:'center',color:cssVar('--muted')});
+  c.fillStyle=cssVar('--ink2');c.fillRect(cx-1,ay-11,2,22);
+  $('r1').innerHTML=`<span>v<sub>th</sub> = <b>2,3 × 10⁷ sm/s</b></span><span>v<sub>d</sub> elektron <b>${fmtE(vdn,2)} sm/s</b></span><span>v<sub>d</sub> kovak <b>${fmtE(vdp,2)} sm/s</b></span><span>v<sub>d</sub>/v<sub>th</sub> <b>${fmtE(vdn/VTH,2)}</b></span>`;
+}
+
+/* ============ 2-rasm: harakatchanlik ============ */
+slider($('c2'),S,{key:'N',label:'Kirishmalar N',min:14,max:19,step:0.05,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+slider($('c2'),S,{key:'T',label:'Harorat T',min:200,max:500,step:1,fmt:v=>v.toFixed(0)+' K'});
+function f2draw(){
+  const {c,w,h}=fitCanvas($('f2'),mob()?1.25:0.46);
+  const N=10**S.get('N'),T=S.get('T');
+  const m0=Math.log10(30),m1=Math.log10(4000);
+  const panels=mob()?[[44,w-12,10,h*.47-26],[44,w-12,h*.53,h-26]]:[[54,w*.5-14,10,h-34],[w*.5+40,w-12,10,h-34]];
+  const ink=cssVar('--ink'),ink2=cssVar('--ink2'),rule=cssVar('--rule'),ce=cssVar('--elec'),ch=cssVar('--hole');
+  const frame=(pn,xt,xl)=>{const [l,r,t,b]=pn,Y=m=>b-(Math.log10(m)-m0)/(m1-m0)*(b-t);
+    c.strokeStyle=rule;c.lineWidth=1;
+    [30,100,300,1000,3000].forEach(m=>{c.beginPath();c.moveTo(l,Y(m));c.lineTo(r,Y(m));c.stroke();label(c,String(m),l-6,Y(m),{align:'right',font:'400 11px Inter'});});
+    xt.forEach(([x,s],i)=>{c.beginPath();c.moveTo(x,t);c.lineTo(x,b);c.stroke();label(c,s,x,b+12,{align:i===xt.length-1?'right':i?'center':'left',font:'400 11px Inter'});});
+    c.strokeStyle=ink2;c.beginPath();c.moveTo(l,t);c.lineTo(l,b);c.lineTo(r,b);c.stroke();
+    label(c,xl,r-2,b-12,{align:'right',font:'italic 600 13px "Source Serif 4",serif',color:ink,bg:cssVar('--panel')});
+    return Y;};
+  const curve=(f,x0,x1,X,Y,col,dash)=>{c.strokeStyle=col;c.lineWidth=2.3;c.setLineDash(dash||[]);c.beginPath();
+    for(let i=0;i<=160;i++){const u=x0+(x1-x0)*i/160,y=Y(f(u));i?c.lineTo(X(u),y):c.moveTo(X(u),y);}c.stroke();c.setLineDash([]);};
+  const dot=(x,y,col)=>{c.fillStyle=cssVar('--paper');c.strokeStyle=col;c.lineWidth=2;c.beginPath();c.arc(x,y,5.5,0,7);c.fill();c.stroke();};
+  // chap: μ(N)
+  let [l,r]=panels[0];const XN=u=>l+(u-14)/5*(r-l);
+  let Y=frame(panels[0],[14,15,16,17,18,19].map(e=>[XN(e),'10'+sup(e)]),'N, sm⁻³');
+  label(c,'μ, sm²/(V·s)',l+6,panels[0][2]+8,{font:'500 11px Inter',color:ink2,bg:cssVar('--panel')});
+  curve(u=>mu(10**u,T,'n'),14,19,XN,Y,ce);curve(u=>mu(10**u,T,'p'),14,19,XN,Y,ch);
+  const lu=S.get('N');c.strokeStyle=cssVar('--muted');c.setLineDash([3,3]);c.lineWidth=1;c.beginPath();c.moveTo(XN(lu),panels[0][2]);c.lineTo(XN(lu),panels[0][3]);c.stroke();c.setLineDash([]);
+  dot(XN(lu),Y(mu(N,T,'n')),ce);dot(XN(lu),Y(mu(N,T,'p')),ch);
+  label(c,'elektronlar',XN(14.15),Y(mu(1e14,T,'n'))-12,{color:ce,font:'600 12px Inter'});
+  label(c,'kovaklar',XN(14.15),Y(mu(1e14,T,'p'))-12,{color:ch,font:'600 12px Inter'});
+  // o'ng: μ(T)
+  [l,r]=panels[1];const XT=u=>l+(u-200)/300*(r-l);
+  Y=frame(panels[1],[200,300,400,500].map(t=>[XT(t),t+' K']),'T');
+  curve(t=>mu(1e10,t,'n'),200,500,XT,Y,ce,[5,4]);
+  label(c,'faqat panjara',XT(330),Y(mu(1e10,330,'n'))-14,{color:cssVar('--muted'),font:'500 11px Inter'});
+  curve(t=>mu(N,t,'n'),200,500,XT,Y,ce);curve(t=>mu(N,t,'p'),200,500,XT,Y,ch);
+  c.strokeStyle=cssVar('--muted');c.setLineDash([3,3]);c.lineWidth=1;c.beginPath();c.moveTo(XT(T),panels[1][2]);c.lineTo(XT(T),panels[1][3]);c.stroke();c.setLineDash([]);
+  dot(XT(T),Y(mu(N,T,'n')),ce);dot(XT(T),Y(mu(N,T,'p')),ch);
+  label(c,'N = '+fmtE(N,1)+' sm⁻³',r-4,panels[1][2]+8,{align:'right',font:'500 11px Inter',color:ink2,bg:cssVar('--panel')});
+  const mn=mu(N,T,'n'),mp=mu(N,T,'p');
+  $('r2').innerHTML=`<span>μ<sub>n</sub> <b>${mn.toFixed(0)}</b></span><span>μ<sub>p</sub> <b>${mp.toFixed(0)}</b> sm²/(V·s)</span><span>D<sub>n</sub> = (kT/e)μ<sub>n</sub> <b>${fmtN(kB*T*mn,1)} sm²/s</b></span><span>ρ (n-tur) <b>${fmtE(1/(qe*N*mn),2)} Om·sm</b></span>`;
+}
+
+/* ============ 3-rasm: diffuziya ============ */
+(()=>{const box=buttons($('b3'),S,{key:'car3',options:[['n','Elektronlar'],['p','Kovaklar']]});const b=document.createElement('button');b.type='button';b.textContent='Qaytadan';b.addEventListener('click',()=>f3reset());box.appendChild(b);})();
+slider($('c3'),S,{key:'T3',label:'Harorat T',min:200,max:500,step:1,fmt:v=>v.toFixed(0)+' K'});
+const LW=10,A0=3,SIM=0.0025,TAU3=60; // mkm, mkm, ns/ms, ms
+const F3={ps:[],t:0};
+function f3D(){const T=S.get('T3'),m=mu(1e14,T,S.get('car3'));return {m,kt:kB*T,D:kB*T*m};}
+function f3reset(){const n=mob()?320:600;F3.ps=[];F3.t=0;
+  for(let i=0;i<n;i++){const a=rnd(0,6.283);F3.ps.push({x:rnd(0,A0),y:Math.random(),vx:Math.cos(a),vy:Math.sin(a)});}}
+function erf(x){const s=Math.sign(x);x=Math.abs(x);const t=1/(1+0.3275911*x);
+  return s*(1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x));}
+function f3theory(x,Dum,t){ // ulush: n/n0
+  if(t<=0)return x<A0?1:0;const s=2*Math.sqrt(Dum*t);let f=0;
+  for(let k=-2;k<=2;k++){const c0=2*k*LW;f+=0.5*(erf((x-c0+A0)/s)-erf((x-c0-A0)/s));}return f;}
+function f3draw(dt){
+  const {c,w,h}=fitCanvas($('f3'),mob()?0.95:0.44);
+  const {D,m,kt}=f3D(),Dum=D*0.1; // mkm²/ns
+  const L=12,R=w-12,top=34,bh=h*(mob()?.42:.44),hy0=top+bh+16,hy1=h-20;
+  const X=x=>L+x/LW*(R-L);
+  // harakat: ballistik qadam + tasodifiy burilish, D = v²τ/2 (2D)
+  const tauS=TAU3*SIM,v=Math.sqrt(2*Dum/tauS); // mkm/ns
+  const steps=Math.max(1,Math.ceil(dt/8)),h1=dt/steps;
+  if(F3.t<60)for(let s=0;s<steps;s++){
+    F3.ps.forEach(p=>{const d=v*h1*SIM;p.x+=p.vx*d;p.y+=p.vy*d/LW*(R-L)/bh;
+      if(p.x<0){p.x=-p.x;p.vx=-p.vx;}if(p.x>LW){p.x=2*LW-p.x;p.vx=-p.vx;}
+      if(p.y<0){p.y=-p.y;p.vy=-p.vy;}if(p.y>1){p.y=2-p.y;p.vy=-p.vy;}
+      if(Math.random()<h1/TAU3){const a=rnd(0,6.283);p.vx=Math.cos(a);p.vy=Math.sin(a);}});
+    F3.t+=h1*SIM;}
+  const isN=S.get('car3')==='n';
+  c.fillStyle=cssVar('--paper');c.fillRect(L,top,R-L,bh);
+  F3.ps.forEach(p=>isN?drawElectron(c,X(p.x),top+4+p.y*(bh-8),2.9):drawHole(c,X(p.x),top+4+p.y*(bh-8),2.7));
+  // gistogramma
+  const nb=mob()?16:25,bins=new Array(nb).fill(0);F3.ps.forEach(p=>bins[Math.min(nb-1,Math.floor(p.x/LW*nb))]++);
+  const exp1=F3.ps.length*(LW/nb)/A0; // f=1 dagi kutilgan son
+  const HY=f=>hy1-f/(1.05)*(hy1-hy0);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(L,hy0);c.lineTo(L,hy1);c.lineTo(R,hy1);c.stroke();
+  c.fillStyle=cssVar(isN?'--n-tint':'--p-tint');c.strokeStyle=cssVar(isN?'--elec':'--hole');c.globalAlpha=1;
+  bins.forEach((b,i)=>{const x0=X(i*LW/nb),x1=X((i+1)*LW/nb),y=HY(Math.min(1.05,b/exp1));c.fillRect(x0+1,y,x1-x0-2,hy1-y);});
+  c.strokeStyle=cssVar('--ink');c.lineWidth=2;c.beginPath();
+  for(let i=0;i<=200;i++){const x=LW*i/200,y=HY(Math.min(1.05,f3theory(x,Dum,F3.t)));i?c.lineTo(X(x),y):c.moveTo(X(x),y);}c.stroke();
+  label(c,'n(x)',L+6,hy0+4,{font:SERIF,color:cssVar('--ink'),bg:cssVar('--panel')});
+  [0,2,4,6,8,10].forEach(x=>label(c,x+(x===10?' mkm':''),X(x),hy1+11,{align:x===10?'right':'center',font:'400 11px Inter'}));
+  // gradient -> oqim va tok strelkalari
+  const xm=LW*.5,dx=0.3,g=(f3theory(xm-dx,Dum,F3.t)-f3theory(xm+dx,Dum,F3.t))/(2*dx); // -dn/dx (nisbiy)
+  const s=clamp(g*4,0,1),cx=X(xm),lenA=(R-L)*.16*Math.sqrt(s);
+  if(lenA>3){arrow(c,cx,16,cx+lenA,16,cssVar('--ink'),2.2);label(c,'F',cx-10,16,{font:SERIF,color:cssVar('--ink'),align:'right'});
+    const jc=cssVar('--accent'),jx=cx+(R-L)*.24;
+    isN?arrow(c,jx+lenA,16,jx,16,jc,2.2):arrow(c,jx,16,jx+lenA,16,jc,2.2);label(c,'J',jx-8,16,{font:SERIF,color:jc,align:'right'});}
+  else label(c,'muvozanat: gradient yoʻq, oqim yoʻq',X(xm),16,{align:'center',color:cssVar('--muted')});
+  $('r3').innerHTML=`<span>μ <b>${m.toFixed(0)} sm²/(V·s)</b></span><span>k<sub>B</sub>T/e <b>${fmtN(kt,4)} V</b></span><span>D = (k<sub>B</sub>T/e)μ <b>${fmtN(D,1)} sm²/s</b></span><span>t <b>${fmtN(F3.t,1)} ns</b></span><span>√(Dt) <b>${fmtN(Math.sqrt(Dum*F3.t),1)} mkm</b></span>`;
+}
+S.sub(k=>{if(k==='car3')f3reset();});
+f3reset();
+
+/* ============ 4-rasm: Hall effekti ============ */
+buttons($('b4'),S,{key:'car4',options:[['p','p-tur namuna'],['n','n-tur namuna']]});
+slider($('c4'),S,{key:'B',label:'Magnit maydon B',min:-0.5,max:0.5,step:0.01,fmt:v=>fmtN(v,2)+' T'});
+slider($('c4'),S,{key:'c4',label:'Konsentratsiya',min:14,max:17,step:0.05,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+const F4={ps:[],acc:0};
+const I4=2e-3,D4=5e-4,W4=0.2; // A, m, sm
+function f4init(){F4.ps=[];F4.acc=0;const n=mob()?40:70;for(let i=0;i<n;i++){const y=rnd(.08,.92);F4.ps.push({x:Math.random(),y,y0:y,j:rnd(0,6.28)});}}
+function f4VH(){const c=10**S.get('c4')*1e6,s=S.get('car4')==='p'?1:-1;return s*I4*S.get('B')/(qe*c*D4);}
+function f4draw(dt){
+  const {c,w,h}=fitCanvas($('f4'),mob()?0.8:0.42);
+  const isP=S.get('car4')==='p',B=S.get('B');
+  const bl=mob()?30:70,br=w-(mob()?30:70),bt=h*.2,bb=h*.78,bwid=br-bl,bhh=bb-bt;
+  F4.acc+=(B-F4.acc)*clamp(dt/1200,0,1);
+  // fon: B belgilari
+  const a=Math.abs(B)/0.5;
+  if(a>0.02){c.strokeStyle=cssVar('--elec');c.fillStyle=cssVar('--elec');c.globalAlpha=.15+.35*a;c.lineWidth=1.2;
+    const st=mob()?34:44;
+    for(let y=st/2;y<h;y+=st)for(let x=st/2;x<w;x+=st){if(x>bl-8&&x<br+8&&y>bt-8&&y<bb+8)continue;
+      c.beginPath();c.arc(x,y,6,0,7);c.stroke();
+      if(B>0){c.beginPath();c.arc(x,y,1.8,0,7);c.fill();}else{c.beginPath();c.moveTo(x-4,y-4);c.lineTo(x+4,y+4);c.moveTo(x+4,y-4);c.lineTo(x-4,y+4);c.stroke();}}
+    c.globalAlpha=1;}
+  // namuna
+  c.fillStyle=cssVar(isP?'--p-tint':'--n-tint');c.fillRect(bl,bt,bwid,bhh);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1.2;c.strokeRect(bl,bt,bwid,bhh);
+  c.fillStyle=cssVar('--ink2');c.fillRect(bl-8,bt,8,bhh);c.fillRect(br,bt,8,bhh);
+  // yon yuzlardagi zaryadlar: pastki yuzda tashuvchi ishorasi
+  const nq=Math.round(Math.abs(F4.acc)/0.5*(mob()?9:16));
+  const sBot=(isP?1:-1)*Math.sign(F4.acc);
+  for(let i=0;i<nq;i++){const x=bl+bwid*(i+.5)/nq;
+    const pm=(y,sg)=>{c.strokeStyle=cssVar(sg>0?'--hole':'--elec');c.lineWidth=1.8;c.beginPath();c.moveTo(x-4,y);c.lineTo(x+4,y);if(sg>0){c.moveTo(x,y-4);c.lineTo(x,y+4);}c.stroke();};
+    pm(bb-7,sBot);pm(bt+7,-sBot);}
+  // Hall maydoni strelkasi (+ dan − ga)
+  if(nq>1){const up=sBot>0,ax=bl+bwid*.5;arrow(c,ax+0,up?bb-16:bt+16,ax,up?bt+18:bb-18,cssVar('--accent'),1.6);
+    label(c,'ℰ',ax+8,(bt+bb)/2,{font:SERIF,color:cssVar('--accent')});label(c,'H',ax+18,(bt+bb)/2+5,{font:'600 9px Inter,system-ui,sans-serif',color:cssVar('--accent')});}
+  // zarralar
+  const vx=(isP?1:-1)*bwid/2600,k=bhh/1300;
+  F4.ps.forEach(p=>{p.j+=rnd(-.6,.6);
+    p.x+=vx*dt/bwid+Math.cos(p.j)*.0004*dt/16;
+    p.y+=(B-F4.acc)*k*dt*2.2/bhh+Math.sin(p.j)*.003*dt/16+(p.y0-p.y)*dt/2500;
+    if(p.x<0)p.x+=1;if(p.x>1)p.x-=1;p.y=clamp(p.y,.07,.93);
+    const x=bl+p.x*bwid,y=bt+p.y*bhh;isP?drawHole(c,x,y,4):drawElectron(c,x,y,4.3);});
+  // tok strelkasi
+  arrow(c,bl+bwid*.45,bt-14,bl+bwid*.75,bt-14,cssVar('--ink'),2);label(c,'I',bl+bwid*.45-8,bt-14,{font:SERIF,color:cssVar('--ink'),align:'right'});
+  label(c,isP?'kovaklar oʻngga →':'← elektronlar chapga',bl,bt-14,{color:cssVar('--muted')});
+  // voltmetr
+  const VH=Math.abs(B)<0.005?0:f4VH()*(F4.acc/B),cxv=bl+bwid*.85;
+  const txt='V = '+(Math.abs(VH)<5e-7?'0':(VH>0?'+':'−')+fmtN(Math.abs(VH)*1e3,2)+' mV');
+  c.save();c.font='600 13px Inter,system-ui,sans-serif';const tw=c.measureText(txt).width+16;c.restore();
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1.2;c.beginPath();
+  c.moveTo(cxv,bb);c.lineTo(cxv,h-24);c.moveTo(cxv,bt);c.lineTo(cxv,bt-6);c.lineTo(br+(mob()?18:30),bt-6);c.lineTo(br+(mob()?18:30),h-12);c.lineTo(cxv+tw/2,h-12);c.stroke();
+  c.fillStyle=cssVar('--ink');[bt,bb].forEach(y=>{c.beginPath();c.arc(cxv,y,3,0,7);c.fill();});
+  c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar('--ink');c.lineWidth=1.4;c.fillRect(cxv-tw/2,h-24,tw,23);c.strokeRect(cxv-tw/2,h-24,tw,23);
+  label(c,txt,cxv,h-12.5,{font:'600 13px Inter,system-ui,sans-serif',color:cssVar('--ink'),align:'center'});
+  label(c,'pastki yuz y = 0',bl,bb+12,{color:cssVar('--muted'),font:'400 11px Inter'});
+  const VHf=f4VH(),cc=10**S.get('c4');
+  $('r4').innerHTML=`<span>Hall kuchlanishi V<sub>H</sub> <b>${Math.abs(B)<0.005?'0':(VHf>0?'+':'')+fmtN(VHf*1e3,3)} mV</b></span><span>Hall maydoni <b>${fmtN(Math.abs(VHf)*1e3/W4,2)} mV/sm</b></span><span>v<sub>x</sub> <b>${fmtE(I4/(qe*cc*W4*0.05),1).replace(/,\d+$/,'')} sm/s</b></span><span>I<sub>x</sub> = 2 mA, d = 0,05 sm</span>`;
+}
+S.sub(k=>{if(k==='car4')f4init();});
+f4init();
+
+/* ============ yangilash ============ */
+function vals(){const T=S.get('T'),N=10**S.get('N');$('vals').innerHTML=[
+  ['Issiqlik tezligi v<sub>th</sub> (300 K)','2,3 × 10⁷ sm/s'],
+  ['μ<sub>n</sub>, μ<sub>p</sub> (kam legirlangan, 300 K)',MUN.toFixed(0)+' / '+MUP.toFixed(0)+' sm²/(V·s)'],
+  ['μ<sub>n</sub>, μ<sub>p</sub> (2-rasm: N, T)',mu(N,T,'n').toFixed(0)+' / '+mu(N,T,'p').toFixed(0)+' sm²/(V·s)'],
+  ['D<sub>n</sub>, D<sub>p</sub> (300 K, Eynshteyn)',fmtN(kB*300*MUN,1)+' / '+fmtN(kB*300*MUP,1)+' sm²/s'],
+  ['Dreyf tezligi (1-rasm, elektron)',fmtE(MUN*S.get('E'),2)+' sm/s'],
+  ['Hall kuchlanishi (4-rasm)',fmtN(f4VH()*1e3,3)+' mV']].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');}
+S.sub(()=>{vals();f2draw();});
+vals();f2draw();
+window.addEventListener('resize',f2draw);onTheme(f2draw);
+document.fonts&&document.fonts.ready.then(f2draw);
+animate([{el:$('f1'),draw:f1draw},{el:$('f3'),draw:f3draw},{el:$('f4'),draw:f4draw}]);
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "url": "sim/dreyf-diffuziya/",
+  "kicker": "5-bob",
+  "title": "Dreyf va diffuziya",
+  "setup": "S.set('E',0);S.set('N',15);S.set('T',300);S.set('T3',300);S.set('car3','n');S.set('car4','p');S.set('B',0);S.set('c4',15.6)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 5-bob", "t": "Dreyf va diffuziya", "d": "Elektronlar kristallda qanday harakatlanadi va ularni Hall effekti bilan qanday sanash mumkin"},
+  "segs": [
+    {"fig": "f1", "w": 940, "dur": 7, "start": "S.set('E',0)", "cap": "Maydon yoʻq: elektronlar tartibsiz harakatlanadi, har toʻqnashuvda yoʻnalish oʻzgaradi."},
+    {"fig": "f1", "w": 940, "dur": 8, "act": "S.set('E',Math.round(__ease(0,1500,p)/10)*10)", "cap": "Maydon qoʻyilganda <b style=\"color:var(--elec)\">elektronlar</b> chapga, <b style=\"color:var(--hole)\">kovaklar</b> oʻngga suriladi: <i>v</i><sub>d</sub> = μℰ."},
+    {"fig": "f2", "w": 860, "dur": 8, "start": "S.set('T',300)", "act": "S.set('N',__ease(14,19,p))", "cap": "Kirishmalar koʻpaysa, ionlar sochilishi kuchayadi va harakatchanlik 10 martadan koʻproq kamayadi."},
+    {"fig": "f2", "w": 860, "dur": 8, "start": "S.set('N',15)", "act": "S.set('T',__ease(200,500,p))", "cap": "Qizdirilganda panjara kuchliroq tebranadi: harakatchanlik harorat bilan kamayadi."},
+    {"fig": "f3", "w": 900, "dur": 9, "start": "S.set('car3','n');f3reset()", "cap": "Diffuziya: zarralar koʻp joydan kam joyga tarqaladi. Eynshteyn munosabati: <i>D</i> = (<i>k</i><sub>B</sub><i>T</i>/<i>e</i>)μ."},
+    {"fig": "f4", "w": 940, "dur": 8, "start": "S.set('car4','p');S.set('B',0)", "act": "S.set('B',Math.round(__ease(0,0.3,p*1.6)*100)/100)", "cap": "Magnit maydon kovaklarni pastga ogʻdiradi, yon yuzlarda zaryad toʻplanib, Hall kuchlanishi paydo boʻladi."},
+    {"fig": "f4", "w": 940, "dur": 7, "start": "S.set('car4','n')", "cap": "n-tur namunada elektronlar ham pastga ogʻadi, lekin Hall kuchlanishi manfiy boʻladi."}
+  ]
+}
