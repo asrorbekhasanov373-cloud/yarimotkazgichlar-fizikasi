@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Generatsiya va rekombinatsiya</title>
+<meta name="description" content="Yorugʻlik elektron–kovak juftlarini qanday hosil qiladi, ular qancha yashaydi, qanday yoʻqoladi va qancha masofaga tarqaladi. 6-bob uchun interaktiv maqola.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>6-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 6-bob</p>
+    <h1>Generatsiya va rekombinatsiya</h1>
+    <p class="dek">Yorugʻlik yarimoʻtkazgichda qoʻshimcha elektron va kovaklar hosil qiladi. Ular qancha yashaydi, qanday yoʻqoladi va qancha masofaga yetib boradi?</p>
+  </header>
+
+  <p>Quyosh elementi, fotodiod, yorugʻlik diodi va tranzistor ishlayotganda yarimoʻtkazgich muvozanatda boʻlmaydi: unda muvozanatdagidan koʻproq elektron va kovak bor. Bu qoʻshimcha zarralar <i>ortiqcha tok tashuvchilar</i> deyiladi. Ular abadiy yashamaydi: tashqi taʼsir toʻxtasa, elektron va kovaklar uchrashib yoʻqoladi va kristall muvozanatga qaytadi. Kitobning 6-bobida bu jarayonlar tenglamalar bilan tavsiflangan. Bu sahifada ularni koʻz oldimizda kuzatamiz.</p>
+
+  <h2>Yorugʻlik juftlar hosil qiladi</h2>
+  <p>Energiyasi taqiqlangan zona kengligi <span class="math">E<sub>g</sub></span> dan katta foton valent zonadagi elektronni oʻtkazuvchanlik zonasiga koʻtaradi. Natijada bir vaqtda ikkita zarra paydo boʻladi: yuqorida <em class="e">elektron</em>, pastda <em class="h">kovak</em>. Bu — <i>generatsiya</i>. Juftlar birga tugʻilgani uchun ortiqcha elektronlar va kovaklar soni teng: <span class="math">δn = δp</span>.</p>
+  <p>Quyidagi rasmda n-tur yarimoʻtkazgich koʻrsatilgan: oʻtkazuvchanlik zonasida doim bir nechta asosiy elektron bor, kovaklar esa faqat yorugʻlik tushganda paydo boʻladi. Yorugʻlikni kuchaytirib koʻring, soʻng rekombinatsiya turini almashtiring.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="Zona diagrammasida elektron-kovak juftlarining generatsiyasi va rekombinatsiyasi"></canvas>
+      <div class="ctl" id="c1"></div>
+      <div id="b1"></div>
+      <div class="readout" id="r1"></div>
+    </div>
+    <figcaption><b>1-rasm.</b> Binafsha toʻlqinlar — tushayotgan fotonlar. Toʻgʻridan-toʻgʻri rekombinatsiyada elektron bir sakrashda kovakka tushadi va foton chiqadi. SRH rejimida u taqiqlangan zona oʻrtasidagi tuzoq orqali ikki qadamda tushadi va energiya issiqlikka aylanadi.</figcaption>
+  </figure>
+
+  <p>Elektron va kovak uchrashganda ikkalasi ham yoʻqoladi — bu <i>rekombinatsiya</i>. Toʻgʻridan-toʻgʻri (zonalararo) rekombinatsiya tezligi ikkala konsentratsiyaga proporsional: <span class="math">R = α<sub>r</sub>np</span>. Toʻgʻri zonali GaAs da bu jarayon kuchli va yorugʻlik chiqaradi — LED va lazerlar shunga asoslangan. Bilvosita zonali kremniyda esa elektron kovakka toʻgʻridan-toʻgʻri tushishi uchun fonon ham kerak, shuning uchun bu yoʻl juda zaif. Kremniyda rekombinatsiya asosan aralashma va nuqsonlar hosil qilgan <i>tuzoqlar</i> orqali boʻladi.</p>
+  <p>Muvozanatda ham generatsiya va rekombinatsiya toʻxtamaydi: issiqlik juftlar hosil qilib turadi, ular esa rekombinatsiyalanib turadi. Muvozanatda bu ikki tezlik teng, <span class="math">G<sub>0</sub> = R<sub>0</sub> = α<sub>r</sub>n<sub>i</sub>²</span>. Yorugʻlik qoʻshimcha <span class="math">g′</span> tezlik bilan juft hosil qilganda <span class="math">np &gt; n<sub>i</sub>²</span> boʻladi va rekombinatsiya ustun kela boshlaydi.</p>
+
+  <h2>Ortiqcha kovaklar qancha yashaydi?</h2>
+  <p>n-tur yarimoʻtkazgichda ortiqcha kovaklar asosiy elektronlardan ancha kam boʻlsa (<span class="math">δp ≪ n<sub>0</sub></span>), bu <i>past injeksiya</i> deyiladi. Bunda har bir kovak atrofidagi elektronlar soni amalda oʻzgarmaydi va ortiqcha rekombinatsiya tezligi oddiy koʻrinish oladi: <span class="math">R′ = δp/τ<sub>p0</sub></span>. Bu yerda <span class="math">τ<sub>p0</sub></span> — noasosiy tok tashuvchilar (kovaklar) <i>yashash vaqti</i>.</p>
+  <p>Yorugʻlik yoqilganda <span class="math">δp</span> statsionar qiymat <span class="math">g′τ<sub>p0</sub></span> ga intiladi, oʻchirilganda esa eksponensial kamayadi: <span class="math">δp(t) = δp(0)·exp(−t/τ<sub>p0</sub>)</span>. Ikkala holatda ham vaqt masshtabi bitta — <span class="math">τ<sub>p0</sub></span>.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="Ortiqcha kovaklar konsentratsiyasining vaqtga bog'liqligi va kvazi-Fermi sathlari"></canvas>
+      <div class="ctl c2" id="c2"></div>
+      <div class="readout" id="r2"></div>
+    </div>
+    <figcaption><b>2-rasm.</b> Chapda — 0 dan 8 mks gacha yoritilgan namunadagi <span style="color:var(--hole)">δp(t)</span>. t = τ da δp statsionar qiymatning 63 % iga yetadi; oʻchirilgandan τ vaqt oʻtgach 37 % i qoladi. Oʻngda — shu ondagi kvazi-Fermi sathlari.</figcaption>
+  </figure>
+
+  <p>Rasmdagi qiymatlar kitobdagi 6.1-misolga mos: <span class="math">n<sub>0</sub> = 10¹⁶</span> sm⁻³, <span class="math">g′ = 10²¹</span> sm⁻³·s⁻¹, <span class="math">τ<sub>p0</sub> = 1</span> mks boʻlganda <span class="math">δp = 10¹⁵</span> sm⁻³. Kovaklar soni 10⁴ dan 10¹⁵ sm⁻³ gacha — 10¹¹ marta oshdi, elektronlar esa atigi 10 % ga. Shuning uchun asbob nazariyasida doimo noasosiy tok tashuvchilar kuzatiladi: aynan ular eng koʻp oʻzgaradi.</p>
+
+  <h3>Kvazi-Fermi sathlari</h3>
+  <p>Muvozanatda elektronlar va kovaklar bitta Fermi sathi bilan tavsiflanadi. Yoritilganda bu imkonsiz, chunki <span class="math">np &gt; n<sub>i</sub>²</span>. Lekin har bir zona ichida zarralar bir-biri bilan juda tez (≈ 0,1 ps da) muvozanatga keladi, yashash vaqti esa mikrosekundlar. Shuning uchun elektronlarga ham, kovaklarga ham alohida «oʻz» Fermi sathini berish mumkin: <span class="math">E<sub>Fn</sub></span> va <span class="math">E<sub>Fp</sub></span>. Ular orasidagi farq muvozanatdan qanchalik uzoqlashganimizni koʻrsatadi: <span class="math">np = n<sub>i</sub>²·exp[(E<sub>Fn</sub> − E<sub>Fp</sub>)/k<sub>B</sub>T]</span>.</p>
+  <p>2-rasmning oʻng qismiga qarang: yorugʻlik yoqilganda <span class="math">E<sub>Fn</sub></span> deyarli joyidan qimirlamaydi, <span class="math">E<sub>Fp</sub></span> esa keskin pastga, hatto <span class="math">E<sub>Fi</sub></span> dan ham pastga tushadi. Yorugʻlik oʻchirilgach, ikkala sath yana bitta <span class="math">E<sub>F</sub></span> ga qoʻshiladi. Quyosh elementi bera oladigan eng katta kuchlanish ham aynan shu farq bilan chegaralangan: <span class="math">eV ≤ E<sub>Fn</sub> − E<sub>Fp</sub></span>.</p>
+
+  <h2>Tuzoqlar: Shokli–Rid–Hall nazariyasi</h2>
+  <p>Energiyasi <span class="math">E<sub>t</sub></span> boʻlgan tuzoq bilan toʻrtta jarayon boʻlishi mumkin: (1) oʻtkazuvchanlik zonasidan elektron tutilishi, (2) tuzoqdagi elektronning qayta chiqarilishi, (3) kovak tutilishi — tuzoqdagi elektron valent zonaga tushadi, (4) kovak chiqarilishi — valent zonadagi elektron boʻsh tuzoqqa koʻtariladi. 1-jarayondan keyin 3-jarayon boʻlsa, bitta elektron va bitta kovak yoʻqoladi. Tuzoq goʻyo zinapoya: elektron taqiqlangan zonani ikki qisqa qadamda oʻtadi va har qadamdagi energiyani fononlarga oson beradi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="Tuzoq orqali to'rt jarayon va SRH rekombinatsiya tezligining tuzoq sathiga bog'liqligi"></canvas>
+      <div class="ctl c2" id="c3"></div>
+      <div class="readout" id="r3"></div>
+    </div>
+    <figcaption><b>3-rasm.</b> Chapda — n-tur kremniydagi uchta tuzoq (n<sub>0</sub> = 10¹⁶ sm⁻³, δp = 10¹⁴ sm⁻³); har bir jarayon tasodifan, uning tezligiga mos ehtimollik bilan tanlanadi. Oʻngda — SRH formulasidan hisoblangan rekombinatsiya tezligi, maksimumga normallangan.</figcaption>
+  </figure>
+
+  <p>Toʻrt jarayon tezliklarini birlashtirib, Shokli–Rid–Hall (SRH) formulasi olinadi:</p>
+  <p class="math" style="text-align:center;white-space:normal">R = (np − n<sub>i</sub>²) / [τ<sub>p0</sub>(n + n<sub>1</sub>) + τ<sub>n0</sub>(p + p<sub>1</sub>)],</p>
+  <p>bu yerda <span class="math">n<sub>1</sub> = n<sub>i</sub>exp[(E<sub>t</sub> − E<sub>Fi</sub>)/k<sub>B</sub>T]</span> va <span class="math">p<sub>1</sub> = n<sub>i</sub>exp[−(E<sub>t</sub> − E<sub>Fi</sub>)/k<sub>B</sub>T]</span>. Tuzoq oʻtkazuvchanlik zonasiga yaqin boʻlsa, <span class="math">n<sub>1</sub></span> juda katta: tutilgan elektron kovak kelguncha qaytib chiqib ketadi (rasmda 1 va 2 jarayonlar navbatlashadi). Valent zonaga yaqin tuzoq esa kovaklarni tutib, qaytarib chiqaradi. Faqat zona oʻrtasiga yaqin tuzoqlar zarrani «ushlab turadi» — shuning uchun ular eng xavfli. Kremniyda oltin va temir aynan shunday sath beradi.</p>
+  <p>Yashash vaqti tuzoqlar konsentratsiyasiga teskari proporsional: <span class="math">τ<sub>p0</sub> = 1/(σ<sub>p</sub>v<sub>th</sub>N<sub>t</sub>)</span>. Atigi 10¹³ sm⁻³ tuzoq — har 5 milliard kremniy atomiga bittasi — yashash vaqtini 10 mks bilan chegaralaydi. Agar <span class="math">np &lt; n<sub>i</sub>²</span> boʻlsa (masalan, p-n oʻtishning kambagʻallashgan sohasida), <span class="math">R &lt; 0</span> boʻladi va xuddi shu tuzoqlar juftlarni <i>generatsiya</i> qila boshlaydi.</p>
+
+  <h2>Diffuziya uzunligi va ambipolyar harakat</h2>
+  <p>Endi namunani faqat bir tomondan yoritamiz. Sirtda hosil boʻlgan juftlar ichkariga diffuziyalanadi va yoʻlda rekombinatsiyalanadi. Statsionar holatda ortiqcha konsentratsiya sirtdan uzoqlashgan sari eksponensial kamayadi:</p>
+  <p class="math" style="text-align:center;white-space:normal">δp(x) = δp(0)·exp(−x/L),&nbsp;&nbsp;&nbsp; L = √(Dτ).</p>
+  <p><span class="math">L</span> — <i>diffuziya uzunligi</i>: zarra rekombinatsiyalanguncha oʻrtacha shuncha masofaga yetib boradi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="Bir tomondan yoritilgan namunada juftlarning diffuziyasi va rekombinatsiyasi"></canvas>
+      <div class="ctl" id="c4"></div>
+      <div id="b4"></div>
+      <div class="readout" id="r4"></div>
+    </div>
+    <figcaption><b>4-rasm.</b> Yuqorida — chapdan yoritilgan kremniy namuna: har bir juft (elektron va kovak) birga diffuziyalanadi va tasodifiy vaqtda yoʻqoladi. Pastda — zarralar taqsimoti (ustunlar) va nazariy egri chiziq exp(−x/L).</figcaption>
+  </figure>
+
+  <p>Rasmda elektron va kovak bir juft boʻlib harakatlanayotganiga eʼtibor bering. Elektronlar tezroq diffuziyalanadi (<span class="math">D<sub>n</sub> &gt; D<sub>p</sub></span>) va oldinga «qochib» ketishga intiladi. Lekin shunda zaryadlar ajraladi va ichki elektr maydon paydo boʻladi: u elektronlarni sekinlashtiradi, kovaklarni tezlashtiradi. Natijada ortiqcha elektronlar va kovaklar bitta neytral bulut boʻlib harakatlanadi — bu <i>ambipolyar harakat</i>.</p>
+  <p>Past injeksiyada bu bulutning harakatini <i>noasosiy</i> tok tashuvchilar belgilaydi: n-tur namunada <span class="math">D′ = D<sub>p</sub></span>, p-tur namunada <span class="math">D′ = D<sub>n</sub></span>. Rasmda namuna turini almashtirib koʻring: p-tur kremniyda diffuziya uzunligi <span class="math">√(D<sub>n</sub>/D<sub>p</sub>) ≈ 1,7</span> marta katta boʻladi.</p>
+  <aside class="note">Zaryadlar ajralishi juda tez yoʻqoladi. Buning vaqt doimiysi — dielektrik relaksatsiya vaqti <span class="math">τ<sub>d</sub> = ε/σ</span>. 10¹⁵–10¹⁶ sm⁻³ legirlangan kremniyda u 0,5–15 ps — yashash vaqtidan oʻn minglab, hatto million marta kichik. Shuning uchun ortiqcha tok tashuvchilar bulutini doim deyarli neytral (<span class="math">δn ≈ δp</span>) deb hisoblash mumkin.</aside>
+  <p>Agar namuna qalinligi <span class="math">L</span> dan ancha kichik boʻlsa, tok tashuvchilar qarama-qarshi kontaktga deyarli rekombinatsiyasiz yetib boradi va taqsimot chiziqli boʻladi. «Qisqa» va «uzun» diodlar (8-bob) hamda bipolyar tranzistor bazasi (11-bob) nazariyasi ana shu farqqa asoslangan.</p>
+
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>2-rasmda τ = 1 mks va g′ = 10²¹ sm⁻³·s⁻¹ qiling. Statsionar δp va E<sub>Fn</sub> − E<sub>Fp</sub> qanchaga teng? Javobni <span class="math">np = n<sub>i</sub>²exp[(E<sub>Fn</sub> − E<sub>Fp</sub>)/k<sub>B</sub>T]</span> formulasi bilan tekshiring (kitobdagi 6.4-misol: 0,660 eV).</li>
+    <li>3-rasmda tuzoq sathini E<sub>Fi</sub> dan +0,4 eV ga koʻtaring. Tutilgan elektronlarning qancha qismi rekombinatsiyaga olib keladi? Nima uchun bunday tuzoq «samarasiz»?</li>
+    <li>4-rasmda n-tur namuna va τ = 10 mks oling. Diffuziya uzunligi qancha? p-turga oʻtganda L necha marta ortadi? Javobni <span class="math">D = (k<sub>B</sub>T/e)·μ</span> va μ<sub>n</sub> = 1220, μ<sub>p</sub> = 437 sm²/(V·s) qiymatlaridan hisoblang.</li>
+  </ol>
+
+  <details><summary>Model va ishlatilgan qiymatlar</summary>
+    <table class="vals">
+      <tr><td>Material, harorat</td><td>kremniy, T = 300 K, k<sub>B</sub>T = 0,0259 eV</td></tr>
+      <tr><td>Xususiy konsentratsiya n<sub>i</sub></td><td>9,65 × 10⁹ sm⁻³</td></tr>
+      <tr><td>Taqiqlangan zona E<sub>g</sub></td><td>1,12 eV (E<sub>Fi</sub> zona oʻrtasida deb olingan)</td></tr>
+      <tr><td>2-rasm: n<sub>0</sub></td><td>10¹⁶ sm⁻³, yorugʻlik 0–8 mks</td></tr>
+      <tr><td>3-rasm: σ, v<sub>th</sub></td><td>10⁻¹⁵ sm², 10⁷ sm/s; τ<sub>n0</sub> = τ<sub>p0</sub></td></tr>
+      <tr><td>4-rasm: μ<sub>n</sub>, μ<sub>p</sub></td><td>1220 va 437 sm²/(V·s) (10¹⁶ sm⁻³ legirlash)</td></tr>
+    </table>
+    <p>1-rasm sxematik: zarralar soni va vaqt masshtabi koʻrgazmalilik uchun tanlangan, haqiqiy konsentratsiyaga mos emas. 2-rasmda past injeksiya formulalari ishlatilgan: δp(t) = g′τ(1 − e<sup>−t/τ</sup>), keyin eksponensial soʻnish; E<sub>Fn</sub>, E<sub>Fp</sub> (6.6) formuladan, n = n<sub>0</sub> + δp, p = n<sub>i</sub>²/n<sub>0</sub> + δp. δp n<sub>0</sub> ning 10 % idan oshganda τ ni oʻzgarmas deb olish aniqligini yoʻqotadi. 3-rasmda SRH formulasi (6.4), δp = 0,01n<sub>0</sub>; jarayon ehtimolliklari tuzoq holatiga qarab c·n, c·n<sub>1</sub>, c·p, c·p<sub>1</sub> tezliklardan olingan (σ<sub>n</sub> = σ<sub>p</sub>). 4-rasmda har bir juft bir oʻlchovli tasodifiy yurish qiladi (qadam D′ ga mos), sirtda qaytadi va oʻrtacha τ vaqtdan keyin yoʻqoladi; vaqt shunday sekinlashtirilganki, τ ekranda taxminan 2 s ga teng.</p>
+  </details>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
+<script src="../../assets/common.js"></script>
+<script>
+const kT=0.0259,ni=9.65e9,Eg=1.12,EH=Eg/2;
+const $=id=>document.getElementById(id);
+const mob=()=>window.innerWidth<640;
+const S=makeStore({I:0.55,mode:'dir',tau:1,g:21,Et:0,Nt:13,tl:1,typ:'n'});
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif';
+const SUBF='500 9px Inter,system-ui,sans-serif';
+const SMALL='500 11px Inter,system-ui,sans-serif';
+function sym(c,x,y,main,sub,col,align){c.font=SERIF;const w=c.measureText(main).width;c.font=SUBF;const ws=c.measureText(sub).width;
+  if(align==='right')x-=w+ws+1;label(c,main,x,y,{font:SERIF,color:col});label(c,sub,x+w+1,y+4,{font:SUBF,color:col});}
+const ease=s=>s<0?0:s>1?1:s*s*(3-2*s);
+const lerp=(a,b,s)=>a+(b-a)*s;
+function gauss(){return Math.sqrt(-2*Math.log(1-Math.random()))*Math.cos(6.2832*Math.random());}
+// to'lqin chiziq (foton): (x0,y0) dan (x1,y1) gacha
+function wave(c,x0,y0,x1,y1,col,a=1,head=true){
+  const dx=x1-x0,dy=y1-y0,d=Math.hypot(dx,dy);if(d<2)return;const ux=dx/d,uy=dy/d,px=-uy,py=ux;
+  c.save();c.globalAlpha=a;c.strokeStyle=col;c.lineWidth=1.6;c.beginPath();
+  for(let s=0;s<=d;s+=1.5){const o=3*Math.sin(s/3.2);const x=x0+ux*s+px*o,y=y0+uy*s+py*o;s?c.lineTo(x,y):c.moveTo(x,y);}c.stroke();
+  if(head){c.fillStyle=col;c.beginPath();c.moveTo(x1+ux*2,y1+uy*2);c.lineTo(x1-ux*7+px*4,y1-uy*7+py*4);c.lineTo(x1-ux*7-px*4,y1-uy*7-py*4);c.fill();}
+  c.restore();}
+function heat(c,x,y,t,col){// fononlar: kichik zigzaglar
+  const a=1-t;c.save();c.globalAlpha=a*.9;c.strokeStyle=col;c.lineWidth=1.3;
+  for(let k=0;k<4;k++){const an=k*1.571+0.785,r0=5+t*6,r1=r0+8;c.beginPath();
+    for(let s=0;s<=1;s+=0.25){const r=lerp(r0,r1,s),o=(s*4%2?2:-2);c.lineTo(x+Math.cos(an)*r-Math.sin(an)*o,y+Math.sin(an)*r+Math.cos(an)*o);}c.stroke();}
+  c.restore();}
+function flash(c,x,y,t,rgb){c.fillStyle=`rgba(${rgb},${(1-t)*.75})`;c.beginPath();c.arc(x,y,3+t*12,0,7);c.fill();}
+const YEL='232,179,32';
+
+/* ============ 1-rasm: generatsiya va rekombinatsiya ============ */
+slider($('c1'),S,{key:'I',label:'Yorugʻlik intensivligi',min:0,max:1,step:0.01,fmt:v=>Math.round(v*100)+' %'});
+buttons($('b1'),S,{key:'mode',options:[['dir','Toʻgʻridan-toʻgʻri'],['srh','Tuzoq orqali (SRH)']]});
+const N0=10,TAU1=2600;
+const F1={el:[],ho:[],ev:[],ph:[],fl:[],acc:0,traps:[0.1,0.3,0.5,0.7,0.9].map(x=>({x,busy:false}))};
+for(let i=0;i<N0;i++)F1.el.push({x:rnd(.03,.97),y:rnd(.1,.9),st:'free'});
+function f1geom(w,h){const L=12,R=w-(mob()?32:42),T=34,B=h-8,H=B-T;
+  return {L,R,T,B,Ec:T+H*0.3,Ev:T+H*0.72,X:u=>L+u*(R-L)};}
+function f1step(dt){
+  const k=dt/16;
+  F1.acc+=dt*S.get('I')*3.4/1000;
+  while(F1.acc>=1){F1.acc-=1;F1.ph.push({x:rnd(.06,.94),t:0});}
+  F1.ph.forEach(p=>{p.t+=dt;if(p.t>=340&&!p.done){p.done=1;
+    F1.el.push({x:p.x,y:0.95,st:'free'});
+    F1.ho.push({x:p.x,y:0.05,st:'free',age:0,life:-TAU1*Math.log(1-Math.random())});}});
+  F1.ph=F1.ph.filter(p=>p.t<560);
+  const walk=(p,sx)=>{p.x=clamp(p.x+rnd(-1,1)*sx*k,.02,.98);p.y=clamp(p.y+rnd(-1,1)*0.03*k,.06,.94);};
+  F1.el.forEach(e=>{if(e.st==='free')walk(e,0.006);});
+  F1.ho.forEach(h=>{if(h.st!=='free')return;walk(h,0.003);h.age+=dt;
+    if(h.age>h.life){
+      const free=F1.el.filter(e=>e.st==='free');if(!free.length)return;
+      if(S.get('mode')==='dir'){
+        const e=free.sort((a,b)=>Math.abs(a.x-h.x)-Math.abs(b.x-h.x))[0];
+        e.st=h.st='ev';F1.ev.push({type:'dir',e,h,t:0,ex:e.x,ey:e.y,hy:h.y});
+      }else{
+        const tr=F1.traps.filter(t=>!t.busy).sort((a,b)=>Math.abs(a.x-h.x)-Math.abs(b.x-h.x))[0];if(!tr)return;
+        const e=free.sort((a,b)=>Math.abs(a.x-tr.x)-Math.abs(b.x-tr.x))[0];
+        tr.busy=true;e.st=h.st='ev';F1.ev.push({type:'srh',e,h,tr,t:0,ex:e.x,ey:e.y,hx:h.x,hy:h.y});
+      }}});
+  F1.ev.forEach(v=>{v.t+=dt;const s=ease(v.t/450);
+    if(v.type==='dir'){v.e.x=lerp(v.ex,v.h.x,s);v.e.y=lerp(v.ey,1,s);v.h.y=lerp(v.hy,0,s);
+      if(v.t>=800&&!v.done){v.done=1;v.e.dead=v.h.dead=1;F1.fl.push({x:v.h.x,lv:'v',t:0,k:'ph'});}}
+    else{v.e.x=lerp(v.ex,v.tr.x,s);v.e.y=lerp(v.ey,1,s);v.h.x=lerp(v.hx,v.tr.x,s);v.h.y=lerp(v.hy,0,s);
+      if(v.t>=750&&!v.h1){v.h1=1;F1.fl.push({x:v.tr.x,lv:'t',t:0,k:'heat'});}
+      if(v.t>=1350&&!v.done){v.done=1;v.e.dead=v.h.dead=1;v.tr.busy=false;F1.fl.push({x:v.tr.x,lv:'v',t:0,k:'heat'});}}});
+  F1.ev=F1.ev.filter(v=>!v.done);F1.el=F1.el.filter(e=>!e.dead);F1.ho=F1.ho.filter(h=>!h.dead);
+  F1.fl.forEach(f=>f.t+=dt);F1.fl=F1.fl.filter(f=>f.t<700);
+}
+let r1prev='';
+function f1draw(dt){
+  f1step(dt);
+  const {c,w,h}=fitCanvas($('f1'),mob()?0.82:0.42),g=f1geom(w,h),srh=S.get('mode')==='srh';
+  const Et=(g.Ec+g.Ev)/2,eY=e=>g.T+6+e.y*(g.Ec-g.T-13),hY=p=>g.Ev+7+p.y*(g.B-g.Ev-13);
+  c.fillStyle=cssVar('--cb-tint');c.fillRect(g.L,g.T,g.R-g.L,g.Ec-g.T);
+  c.fillStyle=cssVar('--gap-tint');c.fillRect(g.L,g.Ec,g.R-g.L,g.Ev-g.Ec);
+  c.fillStyle=cssVar('--vb-tint');c.fillRect(g.L,g.Ev,g.R-g.L,g.B-g.Ev);
+  c.lineWidth=2.5;c.strokeStyle=cssVar('--ec');c.beginPath();c.moveTo(g.L,g.Ec);c.lineTo(g.R,g.Ec);c.stroke();
+  c.strokeStyle=cssVar('--ev');c.beginPath();c.moveTo(g.L,g.Ev);c.lineTo(g.R,g.Ev);c.stroke();
+  sym(c,g.R+5,g.Ec,'E','c',cssVar('--ec'));sym(c,g.R+5,g.Ev,'E','v',cssVar('--ev'));
+  label(c,'oʻtkazuvchanlik zonasi',g.L+6,g.T+9,{font:SMALL,color:cssVar('--muted')});
+  label(c,'valent zona',g.L+6,g.B-9,{font:SMALL,color:cssVar('--muted')});
+  label(c,'taqiqlangan zona',g.L+6,g.Ec+12,{font:SMALL,color:cssVar('--muted')});
+  label(c,'yorugʻlik hν > Eg',g.L,12,{font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--don')});
+  if(srh){c.strokeStyle=cssVar('--don');c.lineWidth=3;F1.traps.forEach(t=>{c.beginPath();c.moveTo(g.X(t.x)-12,Et);c.lineTo(g.X(t.x)+12,Et);c.stroke();});
+    sym(c,g.R+5,Et,'E','t',cssVar('--don'));}
+  // fotonlar
+  const pc=cssVar('--don');
+  F1.ph.forEach(p=>{const x=g.X(p.x);
+    if(p.t<340){const s=p.t/340;wave(c,x-22,2,lerp(x-22,x,s),lerp(2,g.Ev,s),pc,1);}
+    else{const a=1-(p.t-340)/220;c.save();c.globalAlpha=a;c.strokeStyle=pc;c.lineWidth=1.5;c.setLineDash([3,3]);
+      c.beginPath();c.moveTo(x,g.Ev+4);c.lineTo(x,g.Ec-4);c.stroke();c.restore();}});
+  F1.el.forEach(e=>{if(e.st==='free')drawElectron(c,g.X(e.x),eY(e),5);});
+  F1.ho.forEach(p=>{if(p.st==='free')drawHole(c,g.X(p.x),hY(p),4.7);});
+  F1.ev.forEach(v=>{
+    const hx=g.X(v.h.x),hy=hY(v.h);drawHole(c,hx,hy,4.7);
+    let ex=g.X(v.e.x),ey=eY(v.e);
+    if(v.type==='dir'){if(v.t>450)ey=lerp(ey,hy,ease((v.t-450)/350));}
+    else{if(v.t>450)ey=lerp(ey,Et-6,ease((v.t-450)/300));if(v.t>1050)ey=lerp(Et-6,hy,ease((v.t-1050)/300));}
+    drawElectron(c,ex,ey,5);});
+  F1.fl.forEach(f=>{const x=g.X(f.x),y=f.lv==='v'?g.Ev+8:Et,s=f.t/700;
+    if(f.k==='ph'){flash(c,x,y,s,YEL);wave(c,x+6,y-6,x+6+60*s+10,y-30-90*s,`rgba(${YEL},1)`,1-s);}
+    else heat(c,x,y,s,cssVar('--hole'));});
+  const dp=F1.ho.length,txt=`<span>Ortiqcha kovaklar δp <b>${dp}</b></span><span>Elektronlar <b>${N0} + ${F1.el.length-N0}</b> (asosiy + ortiqcha)</span><span>Energiya ajraladi: <b>${srh?'fononlar (issiqlik)':'foton (yorugʻlik)'}</b></span>`;
+  if(txt!==r1prev){$('r1').innerHTML=txt;r1prev=txt;}
+}
+S.sub(k=>{if(k==='mode'&&S.get(k)==='dir')F1.traps.forEach(t=>t.busy=false);});
+
+/* ============ 2-rasm: δp(t) va kvazi-Fermi sathlari ============ */
+slider($('c2'),S,{key:'tau',label:'Yashash vaqti τ<sub>p0</sub>',min:0.2,max:3,step:0.1,fmt:v=>fmtN(v,1)+' mks'});
+slider($('c2'),S,{key:'g',label:'Generatsiya g′',min:18,max:22,step:0.1,fmt:v=>fmtE(10**v,1)+' sm⁻³s⁻¹'});
+const T1=8,TM=16,n0=1e16;
+let t2=0;
+function dp2(t){const tau=S.get('tau'),G=10**S.get('g')*tau*1e-6;
+  return t<=T1?G*(1-Math.exp(-t/tau)):G*(1-Math.exp(-T1/tau))*Math.exp(-(t-T1)/tau);}
+function f2draw(dt){
+  t2+=dt*0.002;if(t2>TM+2.5)t2=0;const tc=Math.min(t2,TM),m=mob();
+  const {c,w,h}=fitCanvas($('f2'),m?1.2:0.46);
+  const tau=S.get('tau'),gp=10**S.get('g'),G=gp*tau*1e-6,ymax=gp*3e-6*1.12;
+  const gx0=m?46:58,gx1=m?w-12:w*0.66,gy0=18,gy1=m?h*0.52:h-30;
+  const X=t=>gx0+t/TM*(gx1-gx0),Y=v=>gy1-v/ymax*(gy1-gy0);
+  c.fillStyle=`rgba(${YEL},.12)`;c.fillRect(X(0),gy0,X(T1)-X(0),gy1-gy0);
+  label(c,'yorugʻlik yoqilgan',X(T1/2),gy0+8,{align:'center',font:SMALL,color:cssVar('--acc')});
+  label(c,'yorugʻlik oʻchirilgan',X((T1+TM)/2),gy0+8,{align:'center',font:SMALL,color:cssVar('--muted')});
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(gx0,gy0);c.lineTo(gx0,gy1);c.lineTo(gx1,gy1);c.stroke();
+  for(let t=0;t<=TM;t+=4){c.beginPath();c.moveTo(X(t),gy1);c.lineTo(X(t),gy1+4);c.stroke();label(c,String(t),X(t),gy1+12,{align:'center',font:SMALL});}
+  label(c,'t, mks',gx1,gy1-10,{align:'right',font:SMALL});
+  label(c,'δp',gx0-8,gy0+6,{font:SERIF,color:cssVar('--hole'),align:'right'});
+  // g'τ darajasi
+  c.setLineDash([4,4]);c.strokeStyle=cssVar('--muted');c.beginPath();c.moveTo(gx0,Y(G));c.lineTo(gx1,Y(G));c.stroke();c.setLineDash([]);
+  label(c,'g′τ',gx0-6,Y(G),{align:'right',font:'italic 600 13px "Source Serif 4",Georgia,serif',color:cssVar('--ink2')});
+  // to'liq egri chiziq (xira) va o'tgan qismi
+  const curve=(t1,col,lw)=>{c.strokeStyle=col;c.lineWidth=lw;c.beginPath();for(let i=0;i<=300;i++){const t=t1*i/300;i?c.lineTo(X(t),Y(dp2(t))):c.moveTo(X(t),Y(dp2(t)));}c.stroke();};
+  c.globalAlpha=.3;curve(TM,cssVar('--hole'),2);c.globalAlpha=1;curve(tc,cssVar('--hole'),3);
+  // τ belgilari
+  const mk=(t,txt)=>{const y=Y(dp2(t));c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.setLineDash([2,3]);
+    c.beginPath();c.moveTo(X(t),gy1);c.lineTo(X(t),y);c.stroke();c.setLineDash([]);
+    c.fillStyle=cssVar('--ink');c.beginPath();c.arc(X(t),y,3.5,0,7);c.fill();label(c,txt,X(t)+6,y-10,{font:SMALL,color:cssVar('--ink'),bg:cssVar('--panel')});};
+  mk(tau,'t = τ: 63 %');mk(T1+tau,'37 %');
+  const dpc=dp2(tc);c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar('--hole');c.lineWidth=2.5;c.beginPath();c.arc(X(tc),Y(dpc),6,0,7);c.fill();c.stroke();
+  // zona diagrammasi
+  const bx0=m?40:w*0.73,bx1=m?w-44:w-44,by0=m?h*0.6:gy0,by1=m?h-8:gy1+8,EY=E=>by0+(0.62-E)/1.24*(by1-by0);
+  c.fillStyle=cssVar('--cb-tint');c.fillRect(bx0,by0,bx1-bx0,EY(EH)-by0);
+  c.fillStyle=cssVar('--vb-tint');c.fillRect(bx0,EY(-EH),bx1-bx0,by1-EY(-EH));
+  c.lineWidth=2.5;c.strokeStyle=cssVar('--ec');c.beginPath();c.moveTo(bx0,EY(EH));c.lineTo(bx1,EY(EH));c.stroke();
+  c.strokeStyle=cssVar('--ev');c.beginPath();c.moveTo(bx0,EY(-EH));c.lineTo(bx1,EY(-EH));c.stroke();
+  c.strokeStyle=cssVar('--ei');c.lineWidth=1.2;c.setLineDash([3,4]);c.beginPath();c.moveTo(bx0,EY(0));c.lineTo(bx1,EY(0));c.stroke();c.setLineDash([]);
+  sym(c,bx1+5,EY(EH),'E','c',cssVar('--ec'));sym(c,bx1+5,EY(-EH),'E','v',cssVar('--ev'));sym(c,bx0-5,EY(0),'E','Fi',cssVar('--ei'),'right');
+  const n=n0+dpc,p=ni*ni/n0+dpc,EFn=kT*Math.log(n/ni),EFp=-kT*Math.log(p/ni),split=EFn-EFp>0.02;
+  if(split){
+    c.lineWidth=2.2;c.setLineDash([6,4]);c.strokeStyle=cssVar('--elec');c.beginPath();c.moveTo(bx0,EY(EFn));c.lineTo(bx1,EY(EFn));c.stroke();
+    c.strokeStyle=cssVar('--hole');c.beginPath();c.moveTo(bx0,EY(EFp));c.lineTo(bx1,EY(EFp));c.stroke();c.setLineDash([]);
+    sym(c,bx1+5,EY(EFn),'E','Fn',cssVar('--elec'));sym(c,bx1+5,EY(EFp)+(Math.abs(EFp)<0.04?10:0),'E','Fp',cssVar('--hole'));
+    const xa=(bx0+bx1)/2;c.strokeStyle=cssVar('--ink2');c.lineWidth=1;const ya=EY(EFn),yb=EY(EFp);
+    if(yb-ya>16){c.beginPath();c.moveTo(xa,ya+2);c.lineTo(xa,yb-2);c.moveTo(xa-4,ya+8);c.lineTo(xa,ya+2);c.lineTo(xa+4,ya+8);c.moveTo(xa-4,yb-8);c.lineTo(xa,yb-2);c.lineTo(xa+4,yb-8);c.stroke();
+      label(c,fmtN(EFn-EFp,3)+' eV',xa+6,(ya+yb)/2,{font:SMALL,color:cssVar('--ink'),bg:cssVar('--panel')});}
+  }else{c.lineWidth=2.2;c.strokeStyle=cssVar('--ef');c.beginPath();c.moveTo(bx0,EY(EFn));c.lineTo(bx1,EY(EFn));c.stroke();sym(c,bx1+5,EY(EFn),'E','F',cssVar('--ef'));}
+  label(c,'t = '+fmtN(tc,1)+' mks',(bx0+bx1)/2,by0-(m?10:-8),{align:'center',font:SMALL,color:cssVar('--ink2')});
+  const inj=G/n0;
+  $('r2').innerHTML=`<span>δp(t) <b>${fmtE(dpc,2)} sm⁻³</b></span><span>Statsionar g′τ <b>${fmtE(G,2)} sm⁻³</b></span><span>E<sub>Fn</sub> − E<sub>Fp</sub> <b>${fmtN(EFn-EFp,3)} eV</b></span><span>100 marta kamayish vaqti τ·ln100 <b>${fmtN(tau*Math.log(100),1)} mks</b></span>`+
+    (inj>0.1?`<span>δp/n<sub>0</sub> = <b>${fmtN(inj,2)}</b> — past injeksiya buzila boshlaydi</span>`:'');
+}
+
+/* ============ 3-rasm: SRH ============ */
+slider($('c3'),S,{key:'Et',label:'Tuzoq sathi E<sub>t</sub> − E<sub>Fi</sub>',min:-0.5,max:0.5,step:0.01,fmt:v=>(v>0?'+':'')+fmtN(v,2)+' eV'});
+slider($('c3'),S,{key:'Nt',label:'Tuzoqlar N<sub>t</sub>',min:12,max:16,step:0.1,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+function srh(Et,N0){const dp=N0*0.01,n=N0+dp,p=ni*ni/N0+dp,n1=ni*Math.exp(Et/kT),p1=ni*Math.exp(-Et/kT);
+  const f=(n+p1)/(n+n1+p+p1);return {n,p,n1,p1,f,U:(n*p-ni*ni)/(n+n1+p+p1)};}
+const curves=[1e16,1e14].map(N=>{const pts=[];for(let i=0;i<=200;i++){const E=-EH+Eg*i/200;pts.push([E,srh(E,N).U]);}
+  const mx=Math.max(...pts.map(q=>q[1]));return {N,pts:pts.map(([E,U])=>[E,U/mx]),mx};});
+const TR=[0.22,0.5,0.78].map(u=>({u,full:Math.random()<srh(0,1e16).f,wait:rnd(200,900),ev:null}));
+let cnt=[0,0,0,0,0];
+S.sub(k=>{if(k==='Et'){cnt=[0,0,0,0,0];}});
+function f3step(dt){const s=srh(S.get('Et'),1e16);
+  TR.forEach(t=>{if(t.ev){t.ev.t+=dt;if(t.ev.t>=750){const k=t.ev.k;t.full=(k===1||k===4);cnt[k]++;t.ev=null;t.wait=rnd(150,650);}return;}
+    t.wait-=dt;if(t.wait>0)return;
+    let k;if(!t.full)k=Math.random()<s.n/(s.n+s.p1)?1:4;else k=Math.random()<s.p/(s.p+s.n1)?3:2;
+    t.ev={k,t:0};});}
+function f3draw(dt){
+  f3step(dt);const m=mob();
+  const {c,w,h}=fitCanvas($('f3'),m?0.95:0.46);
+  const Et=S.get('Et'),T=26,B=h-30,EY=E=>T+(0.62-E)/1.24*(B-T);
+  const bx0=10,bx1=w*(m?0.5:0.48),px0=w*(m?0.62:0.6),px1=w-14;
+  c.fillStyle=cssVar('--cb-tint');c.fillRect(bx0,T,bx1-bx0,EY(EH)-T);
+  c.fillStyle=cssVar('--gap-tint');c.fillRect(bx0,EY(EH),bx1-bx0,EY(-EH)-EY(EH));
+  c.fillStyle=cssVar('--vb-tint');c.fillRect(bx0,EY(-EH),bx1-bx0,B-EY(-EH));
+  c.lineWidth=2.5;c.strokeStyle=cssVar('--ec');c.beginPath();c.moveTo(bx0,EY(EH));c.lineTo(bx1,EY(EH));c.stroke();
+  c.strokeStyle=cssVar('--ev');c.beginPath();c.moveTo(bx0,EY(-EH));c.lineTo(bx1,EY(-EH));c.stroke();
+  c.strokeStyle=cssVar('--ei');c.lineWidth=1.2;c.setLineDash([3,4]);c.beginPath();c.moveTo(bx0,EY(0));c.lineTo(px1,EY(0));c.stroke();c.setLineDash([]);
+  sym(c,bx1+5,EY(EH),'E','c',cssVar('--ec'));sym(c,bx1+5,EY(-EH),'E','v',cssVar('--ev'));
+  sym(c,bx1+5,EY(Et)+(Math.abs(Et)<0.05?(Et>=0?-12:12):0),'E','t',cssVar('--don'));
+  label(c,'1: '+cnt[1]+'   2: '+cnt[2]+'   3: '+cnt[3]+'   4: '+cnt[4],bx0,10,{font:SMALL,color:cssVar('--ink2')});
+  const X=u=>bx0+u*(bx1-bx0),yT=EY(Et),yC=EY(EH)-8,yV=EY(-EH)+8,yVe=EY(-EH)+3;
+  TR.forEach(t=>{const x=X(t.u);c.strokeStyle=cssVar('--don');c.lineWidth=3.5;c.beginPath();c.moveTo(x-14,yT);c.lineTo(x+14,yT);c.stroke();
+    const ev=t.ev;if(!ev){if(t.full)drawElectron(c,x,yT-6,5);return;}
+    const s=ev.t/750,ex=x-(ev.k===1||ev.k===2?0:0);let ey,a=1;
+    const num=(y)=>label(c,String(ev.k),x+12,y,{font:'700 12px Inter,system-ui,sans-serif',color:cssVar('--accent'),bg:cssVar('--panel')});
+    if(ev.k===1){ey=lerp(yC,yT-6,ease((s-0.2)/0.7));a=clamp(s/0.2,0,1);drawElectron(c,ex,ey,5,a);num((yC+yT)/2);}
+    else if(ev.k===2){ey=lerp(yT-6,yC,ease(s/0.7));a=clamp((1-s)/0.25,0,1);drawElectron(c,ex,ey,5,a);num((yC+yT)/2);}
+    else if(ev.k===3){if(s<0.9)drawHole(c,x,yV,4.7,clamp(s/0.25,0,1));ey=lerp(yT-6,yV,ease((s-0.3)/0.6));if(s<0.9)drawElectron(c,ex,ey,5);else flash(c,x,yV,(s-0.9)/0.1,YEL);
+      if(s>0.85)heat(c,x,yV,(s-0.85)/0.15,cssVar('--hole'));num((yT+yV)/2);}
+    else{ey=lerp(yVe,yT-6,ease(s/0.7));drawElectron(c,ex,ey,5);drawHole(c,x+lerp(0,18,s),yV+lerp(0,4,s),4.7,clamp(s*3,0,1)*(1-s*0.6));num((yT+yV)/2);}
+  });
+  // R(Et) grafigi: vertikal o'q - energiya (zona diagrammasi bilan bir xil)
+  const RX=r=>px0+r*(px1-px0);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(px0,EY(EH));c.lineTo(px0,EY(-EH));c.moveTo(px0,EY(-EH));c.lineTo(px1,EY(-EH));c.stroke();
+  [0,0.5,1].forEach(r=>{c.beginPath();c.moveTo(RX(r),EY(-EH));c.lineTo(RX(r),EY(-EH)+4);c.stroke();label(c,fmtN(r,r===0.5?1:0),RX(r),EY(-EH)+13,{align:'center',font:SMALL});});
+  label(c,'R / Rmax',px1,B+18,{align:'right',font:SMALL,color:cssVar('--ink2')});
+  label(c,'Rekombinatsiya tezligi',px0,10,{font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  curves.forEach((cv,i)=>{c.strokeStyle=cssVar('--accent');c.lineWidth=i?1.6:2.6;c.setLineDash(i?[5,4]:[]);c.beginPath();
+    cv.pts.forEach(([E,r],j)=>j?c.lineTo(RX(r),EY(E)):c.moveTo(RX(r),EY(E)));c.stroke();c.setLineDash([]);});
+  label(c,'— n₀ = 10¹⁶',px1,T+6,{align:'right',font:SMALL,color:cssVar('--accent')});
+  label(c,'- - n₀ = 10¹⁴',px1,T+21,{align:'right',font:SMALL,color:cssVar('--accent')});
+  const s=srh(Et,1e16),rr=s.U/curves[0].mx;
+  c.strokeStyle=cssVar('--don');c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(bx1,yT);c.lineTo(RX(rr),yT);c.stroke();c.setLineDash([]);
+  c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar('--ink');c.lineWidth=2;c.beginPath();c.arc(RX(rr),yT,5.5,0,7);c.fill();c.stroke();
+  const tau=1/(1e-15*1e7*10**S.get('Nt')),r1=s.n*(1-s.f),r2=s.n1*s.f,share=(r1-r2)/r1;
+  $('r3').innerHTML=`<span>Yashash vaqti τ<sub>p0</sub> <b>${tau>=1e-3?fmtN(tau*1e3,2)+' ms':tau>=1e-6?fmtN(tau*1e6,tau>=1e-5?0:1)+' mks':fmtN(tau*1e9,tau>=1e-8?0:1)+' ns'}</b></span><span>n<sub>1</sub> <b>${fmtE(s.n1,1)}</b>, p<sub>1</sub> <b>${fmtE(s.p1,1)} sm⁻³</b></span><span>Rekombinatsiyaga olib kelgan tutilishlar <b>${share>0.995?'≈ 100':fmtN(share*100,share<0.01?3:1)} %</b></span><span>R <b>${fmtE(s.U/tau,1)} sm⁻³s⁻¹</b></span>`;
+}
+
+/* ============ 4-rasm: diffuziya uzunligi ============ */
+slider($('c4'),S,{key:'tl',label:'Yashash vaqti τ',min:-0.5,max:1.5,step:0.05,fmt:v=>fmtN(10**v,10**v<1?2:1)+' mks'});
+buttons($('b4'),S,{key:'typ',options:[['n','n-tur: noasosiylar — kovaklar'],['p','p-tur: noasosiylar — elektronlar']]});
+const XM=600,Dp=kT*437,Dn=kT*1220,TV=2000,NB=40;
+let P4=[],acc4=0,hist=new Array(NB).fill(0),fl4=[];
+const Dpr=()=>S.get('typ')==='n'?Dp:Dn;
+const Lmk=()=>Math.sqrt(Dpr()*10**S.get('tl')*1e-6)*1e4;
+function f4step(dt){
+  const L=Lmk(),sg=L*Math.sqrt(2*dt/TV);
+  acc4+=dt*0.13;while(acc4>=1){acc4-=1;P4.push({x:rnd(0,3),y:rnd(.06,.94),age:0,life:-TV*Math.log(1-Math.random())});}
+  P4.forEach(p=>{p.age+=dt;p.x+=sg*gauss();if(p.x<0)p.x=-p.x;p.y=clamp(p.y+rnd(-1,1)*0.015*dt/16,.05,.95);
+    if(p.age>p.life){p.dead=1;if(p.x<XM&&Math.random()<0.5)fl4.push({x:p.x,y:p.y,t:0});}});
+  P4=P4.filter(p=>!p.dead&&p.x<XM*1.3);
+  const cnt=new Array(NB).fill(0);P4.forEach(p=>{const i=Math.floor(p.x/XM*NB);if(i<NB)cnt[i]++;});
+  const a=Math.min(1,dt/500);for(let i=0;i<NB;i++)hist[i]+=(cnt[i]-hist[i])*a;
+  fl4.forEach(f=>f.t+=dt);fl4=fl4.filter(f=>f.t<400);
+}
+function f4draw(dt){
+  f4step(dt);const m=mob(),L=Lmk(),nt=S.get('typ')==='n';
+  const {c,w,h}=fitCanvas($('f4'),m?1.0:0.5);
+  const x0=m?34:46,x1=w-14,X=x=>x0+x/XM*(x1-x0);
+  const sy0=24,sy1=h*0.42,gy0=h*0.52,gy1=h-26;
+  // namuna
+  c.fillStyle=cssVar(nt?'--n-tint':'--p-tint');c.fillRect(x0,sy0,x1-x0,sy1-sy0);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=2;c.beginPath();c.moveTo(x0,sy0);c.lineTo(x0,sy1);c.stroke();
+  label(c,(nt?'n-tur':'p-tur')+' kremniy',x1,12,{align:'right',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  label(c,'yorugʻlik',2,12,{font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--don')});
+  for(let i=0;i<3;i++){const y=sy0+(sy1-sy0)*(i+1)/4;wave(c,2,y,x0-3,y,cssVar('--don'),1);}
+  P4.forEach(p=>{if(p.x>XM)return;const x=X(p.x),y=sy0+p.y*(sy1-sy0),a=p.age>p.life-200?clamp((p.life-p.age)/200,0.2,1):1;
+    drawElectron(c,x-2.6,y,3.2,a);drawHole(c,x+2.6,y,2.9,a);});
+  fl4.forEach(f=>{c.fillStyle=`rgba(${YEL},${(1-f.t/400)*.8})`;c.beginPath();c.arc(X(f.x),sy0+f.y*(sy1-sy0),2+f.t/90,0,7);c.fill();});
+  // grafik
+  const N=P4.length||1,ref=N/L*(XM/NB),Y=v=>gy1-v/1.15*(gy1-gy0),bw=(x1-x0)/NB;
+  c.fillStyle=cssVar(nt?'--hole':'--elec');c.globalAlpha=.28;
+  hist.forEach((v,i)=>{const hh=Math.min(1.15,v/ref);c.fillRect(x0+i*bw+1,Y(hh),bw-2,gy1-Y(hh));});c.globalAlpha=1;
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(x0,gy0);c.lineTo(x0,gy1);c.lineTo(x1,gy1);c.stroke();
+  for(let x=0;x<=XM;x+=100){c.beginPath();c.moveTo(X(x),gy1);c.lineTo(X(x),gy1+4);c.stroke();label(c,String(x),X(x),gy1+12,{align:'center',font:SMALL});}
+  label(c,'x, mkm',x1,gy1-10,{align:'right',font:SMALL});
+  label(c,'1',x0-6,Y(1),{align:'right',font:SMALL});label(c,'1/e',x0-6,Y(1/Math.E),{align:'right',font:SMALL});
+  c.setLineDash([2,3]);c.strokeStyle=cssVar('--muted');c.beginPath();c.moveTo(x0,Y(1/Math.E));c.lineTo(x1,Y(1/Math.E));c.stroke();
+  c.strokeStyle=cssVar('--ink2');c.beginPath();c.moveTo(X(L),gy0);c.lineTo(X(L),gy1);c.stroke();c.setLineDash([]);
+  c.strokeStyle=cssVar('--ink');c.lineWidth=2.5;c.beginPath();for(let i=0;i<=300;i++){const x=XM*i/300;i?c.lineTo(X(x),Y(Math.exp(-x/L))):c.moveTo(X(x),Y(Math.exp(-x/L)));}c.stroke();
+  label(c,'L = '+Math.round(L)+' mkm',X(L)+6,gy0+8,{font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink'),bg:cssVar('--panel')});
+  label(c,'δp / δp(0)',x0+6,gy0-6,{font:SMALL,color:cssVar('--ink2')});
+  $('r4').innerHTML=`<span>Bulutni boshqaradi: <b>${nt?'kovaklar':'elektronlar'}</b></span><span>D′ = ${nt?'D<sub>p</sub>':'D<sub>n</sub>'} <b>${fmtN(Dpr(),1)} sm²/s</b></span><span>L = √(D′τ) <b>${Math.round(L)} mkm</b></span><span>100 marta kamayish <b>${Math.round(L*Math.log(100))} mkm</b></span>`;
+}
+
+animate([{el:$('f1'),draw:f1draw},{el:$('f2'),draw:f2draw},{el:$('f3'),draw:f3draw},{el:$('f4'),draw:f4draw}]);
+</script>
+</body>
+</html>

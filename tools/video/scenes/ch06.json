@@ -1,0 +1,16 @@
+{
+  "url": "sim/rekombinatsiya/",
+  "kicker": "6-bob",
+  "title": "Generatsiya va rekombinatsiya",
+  "setup": "S.set('I',0);S.set('mode','dir');S.set('tau',1);S.set('g',21);S.set('Et',0);S.set('typ','n');S.set('tl',1)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 6-bob", "t": "Generatsiya va rekombinatsiya", "d": "Ortiqcha tok tashuvchilar qanday tugʻiladi, qancha yashaydi va qancha masofaga yetadi"},
+  "segs": [
+    {"fig": "f1", "w": 900, "dur": 8, "act": "S.set('I',__ease(0,0.8,p))", "cap": "Fotonlar <b style=\"color:var(--elec)\">elektron</b>–<b style=\"color:var(--hole)\">kovak</b> juftlarini hosil qiladi; elektron kovakka qaytib tushib, foton chiqaradi."},
+    {"fig": "f1", "w": 900, "dur": 8, "start": "S.set('mode','srh')", "cap": "Kremniyda rekombinatsiya tuzoq orqali boradi: ikki qadam, energiya issiqlikka aylanadi."},
+    {"fig": "f2", "w": 800, "dur": 8, "start": "t2=0;S.set('tau',1)", "cap": "Yorugʻlik yoqilganda δp g′τ ga intiladi, oʻchirilganda τ vaqt bilan eksponensial soʻnadi."},
+    {"fig": "f2", "w": 800, "dur": 8, "start": "t2=0", "act": "S.set('tau',Math.round(__ease(1,2.5,p)*10)/10)", "cap": "τ uzaysa δp ortadi va sekinroq soʻnadi. Oʻngda: kvazi-Fermi sathlari E<sub>Fn</sub> va E<sub>Fp</sub>."},
+    {"fig": "f3", "w": 800, "dur": 9, "act": "S.set('Et',Math.round(__ease(0,0.42,p)*100)/100)", "cap": "Tuzoq zona chetiga yaqinlashsa, tutilgan elektron qaytib chiqadi va rekombinatsiya kamayadi."},
+    {"fig": "f4", "w": 740, "dur": 8, "start": "S.set('typ','n');S.set('tl',1)", "cap": "Bir tomondan yoritilgan namuna: juftlar diffuziyalanadi, δp sirtdan exp(−x/L) boʻyicha kamayadi."},
+    {"fig": "f4", "w": 740, "dur": 8, "start": "S.set('typ','p')", "cap": "p-tur namunada bulutni tezroq elektronlar boshqaradi: L = √(D<sub>n</sub>τ) qariyb 1,7 marta katta."}
+  ]
+}
