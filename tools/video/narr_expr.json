@@ -1,0 +1,46 @@
+{
+"kristall":[
+ "Kristall panjaralar.",
+ "Bu — oddiy kubik panjara. Atomlar faqat kubning uchlarida joylashgan. Bitta yacheykaga — *bitta atom* toʻgʻri keladi. Har bir atomning esa — *oltita* eng yaqin qoʻshnisi bor.",
+ "Endi kubning markaziga yana bitta atom qoʻyamiz. Bu — *hajmiy markazlashgan* kubik panjara. Endi yacheykada ikkita atom bor, qoʻshnilar soni esa — sakkizta.",
+ "Atomlar kubning yoqlari markazida ham joylashsa — *yoqlari markazlashgan* kubik panjara hosil boʻladi. Yacheykada toʻrtta atom bor, qoʻshnilar soni esa — oʻn ikkita. Bu — eng zich joylashish.",
+ "Endi eng muhim tuzilish — *olmos tuzilishi*. Kremniy va germaniy aynan shunday kristallanadi. Yacheykada sakkizta atom bor. Har bir atom toʻrtta qoʻshnisi bilan — *tetraedr* hosil qiladi.",
+ "Yacheykani uch yoʻnalishda takrorlasak — butun kristall hosil boʻladi. Kremniy plastinasi ana shunday milliardlab yacheykalardan iborat.",
+ "Galliy arsenid ham xuddi shu tuzilishga ega. Faqat bu yerda ikki xil atom — galliy va mishyak — navbatma-navbat joylashadi. Bu — *sfalerit* tuzilishi.",
+ "Eʼtiboringiz uchun rahmat!"
+],
+"fermi":[
+ "Fermi sathi va harorat.",
+ "Bu — toza kremniy kristali. Har bir atom toʻrtta qoʻshnisi bilan kovalent bogʻ hosil qilgan. Past haroratda barcha elektronlar shu bogʻlarda band. Shuning uchun — *erkin elektron yoʻq*.",
+ "Endi kristallni qizdiramiz. Atomlar kuchliroq tebranadi, va baʼzi bogʻlar uziladi. Natijada erkin elektron paydo boʻladi, uning oʻrnida esa — boʻsh joy, yaʼni *kovak*.",
+ "Endi kremniyga fosfor qoʻshamiz. Fosforning beshinchi elektroni bogʻga sigʻmaydi. U atom atrofida aylanib yuradi — past haroratda u hali *bogʻlangan*.",
+ "Harorat oshgani sari, bu elektronlar osongina ajralib chiqadi. Xona haroratida esa deyarli har bir fosfor atomi — *bittadan erkin elektron* beradi.",
+ "Zona diagrammasida bu shunday koʻrinadi. Erkin elektronlar — *oʻtkazuvchanlik zonasida*. Fermi sathi esa — shu zonaga yaqin joylashgan.",
+ "Harorat juda yuqori boʻlsa, bogʻlar ommaviy ravishda uzila boshlaydi. Fermi sathi esa yana — *zona oʻrtasiga* qaytadi.",
+ "Natijada uchta soha hosil boʻladi. Past haroratda — *muzlash sohasi*. Oʻrtada — asboblar ishlaydigan *kirishma sohasi*. Yuqori haroratda esa — *xususiy soha*.",
+ "Eʼtiboringiz uchun rahmat!"
+],
+"pn1":[
+ "Pe-en oʻtish qanday hosil boʻladi?",
+ "Chap tomonda — *pe-tur* kremniy. Unda harakatchan kovaklar va qoʻzgʻalmas manfiy ionlar bor.",
+ "Oʻng tomonda esa — *en-tur* kremniy. Unda harakatchan elektronlar va qoʻzgʻalmas musbat ionlar bor.",
+ "Endi ikkala boʻlakni bir-biriga tekkizamiz. Elektronlar va kovaklar chegarada uchrashadi, va bir-birini yoʻqotadi. Bu jarayon — *rekombinatsiya* deb ataladi.",
+ "Ular ketgan joyda faqat qoʻzgʻalmas ionlar qoladi. Harakatchan zaryadlardan xoli bu qatlam — *kambagʻallashgan soha* deb ataladi.",
+ "Ochilib qolgan ionlar kuchli elektr maydon hosil qiladi. Aynan shu maydon — elektron va kovaklarning keyingi oʻtishini *toʻxtatib turadi*.",
+ "Agar en-sohani kuchsizroq legirlasak — kambagʻallashgan soha asosan *shu tomonga* yoyiladi.",
+ "Sababi oddiy. Musbat va manfiy zaryadlar miqdori — doim *teng* boʻlishi kerak.",
+ "Eʼtiboringiz uchun rahmat!"
+],
+"pn2":[
+ "Diod: toʻgʻri va teskari ulanish.",
+ "Bu — pe-en oʻtishning zona diagrammasi. Elektronlar oldida — taxminan nol butun sakkiz elektronvolt balandlikdagi *toʻsiq* bor. Ularning koʻpchiligi bu toʻsiqdan oshib oʻta olmaydi.",
+ "Endi diodga — *toʻgʻri kuchlanish* beramiz. Qarang, toʻsiq pasaya boshladi.",
+ "Endi elektronlar va kovaklar toʻsiqdan — *bemalol* oshib oʻtmoqda.",
+ "*Teskari kuchlanishda* esa toʻsiq koʻtariladi, kambagʻallashgan soha kengayadi. Oʻtish — deyarli toʻxtaydi.",
+ "Endi diodni batareyaga ulaymiz. Oʻng tomonda — uning *volt-amper xarakteristikasi*.",
+ "Toʻgʻri ulanishda zarrachalar toʻsiqdan oʻtib, rekombinatsiyalanadi. Batareya ularning oʻrnini toʻldirib turadi — va zanjirda *tok oqadi*.",
+ "Sariq chaqnashlar — bu elektron va kovakning uchrashishi.",
+ "Teskari ulanishda esa — tok deyarli *oqmaydi*. Shuning uchun diod tokni faqat bir yoʻnalishda oʻtkazadi.",
+ "Eʼtiboringiz uchun rahmat!"
+]
+}
