@@ -1,0 +1,16 @@
+{
+  "url": "sim/bipolyar-tranzistor/",
+  "kicker": "11-bob",
+  "title": "Bipolyar tranzistor qanday kuchaytiradi",
+  "setup": "S.set('VBE',0);S.set('VCB',2);S.set('xB',0.6);S.set('rat',1.8);S.set('VA',20);S.set('IB',30)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 11-bob", "t": "Bipolyar tranzistor qanday kuchaytiradi", "d": "Injeksiya, baza orqali oʻtish, γ, α, β va Early effekti"},
+  "segs": [
+    {"fig": "f1", "w": 790, "dur": 7, "start": "S.set('VBE',0);S.set('VCB',2)", "cap": "npn: n⁺⁺ emitter, yupqa p baza, n kollektor. V<sub>BE</sub> = 0 da elektronlar oldida baland toʻsiq."},
+    {"fig": "f1", "w": 790, "dur": 8, "act": "S.set('VBE',__ease(0,0.72,p*1.4))", "cap": "E–B oʻtish toʻgʻri siljitilganda toʻsiq pasayadi: elektronlar bazaga oʻtib, kollektorga «tushadi»."},
+    {"fig": "f2", "w": 980, "dur": 7, "start": "S.set('xB',0.6)", "cap": "Yupqa bazada deyarli barcha elektronlar kollektorga yetib boradi: α<sub>T</sub> ≈ 0,998."},
+    {"fig": "f2", "w": 980, "dur": 9, "act": "S.set('xB',__ease(0.6,6,p*1.8))", "cap": "Baza qalinlashsa, elektronlar yoʻlda kovaklar bilan <b>rekombinatsiyalanadi</b> va β keskin kamayadi."},
+    {"fig": "f3", "w": 820, "dur": 8, "start": "S.set('xB',0.6);S.set('rat',1.6)", "act": "S.set('rat',__ease(1.6,2.7,p*1.3))", "cap": "Emitter qanchalik kuchli legirlansa, γ shunchalik birga yaqin va β shunchalik katta: β = α/(1 − α)."},
+    {"fig": "f4", "w": 790, "dur": 7, "start": "S.set('VA',20);S.set('IB',30)", "cap": "Aktiv rejimda I<sub>C</sub> ≈ βI<sub>B</sub>, lekin chiziqlar biroz qiya — bu Early effekti."},
+    {"fig": "f4", "w": 790, "dur": 8, "act": "S.set('VA',__ease(20,120,p*1.3))", "cap": "Chiziqlar davomi −V<sub>A</sub> da uchrashadi. V<sub>A</sub> katta boʻlsa — ideal tok manbaiga yaqin."}
+  ]
+}

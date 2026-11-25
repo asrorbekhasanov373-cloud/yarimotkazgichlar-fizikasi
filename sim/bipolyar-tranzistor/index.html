@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bipolyar tranzistor</title>
+<meta name="description" content="npn tranzistor qanday kuchaytiradi: emitterdan injeksiya, baza orqali o'tish, kollektorga yig'ilish, γ, α va β koeffitsientlari, Early effekti. 11-bob uchun interaktiv maqola.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>11-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 11-bob</p>
+    <h1>Bipolyar tranzistor</h1>
+    <p class="dek">Bir-biriga juda yaqin turgan ikkita p-n oʻtish qanday qilib kichik baza toki bilan katta kollektor tokini boshqaradi.</p>
+  </header>
+
+  <p>Bipolyar tranzistor 1947–1948 yillarda Bell laboratoriyasida yaratilgan va elektronikada inqilob qilgan. «Bipolyar» soʻzi tokni ikki xil tashuvchi — <em class="e">elektronlar</em> va <em class="h">kovaklar</em> — birgalikda tashishini bildiradi. Kitobning 11-bobida tranzistorni tenglamalar orqali oʻrgandik. Bu sahifada uning ichida nima boʻlayotganini koʻramiz.</p>
+
+  <h2>Uch qatlam, ikki oʻtish</h2>
+  <p>npn tranzistor uchta sohadan iborat: kuchli legirlangan n⁺⁺ <i>emitter</i>, yupqa p-tur <i>baza</i> va kuchsizroq legirlangan n-tur <i>kollektor</i>. Ular orasida ikkita p-n oʻtish bor: emitter–baza (E–B) va baza–kollektor (B–C).</p>
+  <p>Kuchaytirgichlarda tranzistor <i>aktiv (normal) rejimda</i> ishlaydi: E–B oʻtish toʻgʻri, B–C oʻtish teskari siljitiladi. Quyidagi rasmda tepada tuzilma, pastda zona diagrammasi. V<sub>BE</sub> ni oshirib koʻring.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="npn tranzistor tuzilishi va aktiv rejimdagi zona diagrammasi"></canvas>
+      <div class="ctl c2" id="c1"></div>
+      <div class="readout" id="r1"></div>
+    </div>
+    <figcaption><b>1-rasm.</b> E–B toʻgʻri siljitilganda toʻsiq <span class="math">eV<sub>BE</sub></span> ga pasayadi va emitterdan bazaga elektronlar oqib oʻtadi. Ular bazani kesib oʻtib, B–C oʻtishdagi «jarlik»dan kollektorga tushadi.</figcaption>
+  </figure>
+
+  <p>E–B toʻsigʻi pasayganda bazaning emitter tomonidagi chegarasida elektronlar konsentratsiyasi eksponensial ortadi: <span class="math">n<sub>B</sub>(0) = n<sub>B0</sub> exp(eV<sub>BE</sub>/k<sub>B</sub>T)</span>. B–C chegarasida esa teskari siljish tufayli <span class="math">n<sub>B</sub> ≈ 0</span>. Elektronlar shu gradiyent boʻylab diffuziyalanadi va kollektor toki</p>
+  <p style="text-align:center"><span class="math">i<sub>C</sub> = I<sub>S</sub> exp(eV<sub>BE</sub>/k<sub>B</sub>T),&nbsp;&nbsp; I<sub>S</sub> = eA<sub>BE</sub>D<sub>B</sub>n<sub>B0</sub>/x<sub>B</sub></span></p>
+  <p>ga teng boʻladi. Kollektor toki V<sub>BE</sub> ga eksponensial bogʻliq, B–C kuchlanishiga esa deyarli bogʻliq emas — bu tranzistorning eng muhim xossasi. V<sub>BE</sub> ni 60 mV ga oshirish tokni taxminan 10 marta oshiradi.</p>
+
+  <h2>Baza orqali sayohat</h2>
+  <p>Bazaga kirgan elektron u yerda <i>noasosiy</i> tok tashuvchi: atrofida kovaklar juda koʻp. Agar u bazani kesib oʻtguncha kovak bilan uchrashsa, rekombinatsiyalanadi va kollektorga yetmaydi. Yoʻqolgan kovak oʻrnini baza kontaktidan kelgan yangi kovak toʻldiradi — bu baza tokining bir qismi.</p>
+  <p>Shuning uchun baza kengligi <span class="math">x<sub>B</sub></span> elektronlarning diffuziya uzunligi <span class="math">L<sub>B</sub></span> dan ancha kichik boʻlishi kerak. Bazani qalinlashtirib koʻring.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="Elektronlarning baza orqali o'tishi va rekombinatsiyasi"></canvas>
+      <div class="ctl" id="c2"></div>
+      <div class="readout" id="r2"></div>
+    </div>
+    <figcaption><b>2-rasm.</b> Sariq chaqnash — elektron bazada kovak bilan rekombinatsiyalandi. Bazadagi och koʻk soha — elektronlar konsentratsiyasi <span class="math">n<sub>B</sub>(x)</span>: yupqa bazada u deyarli chiziqli kamayadi.</figcaption>
+  </figure>
+
+  <p>Kollektorga yetib boruvchi elektronlar ulushi — <i>baza orqali uzatish koeffitsienti</i>:</p>
+  <p style="text-align:center"><span class="math">α<sub>T</sub> = 1/cosh(x<sub>B</sub>/L<sub>B</sub>) ≈ 1 − x<sub>B</sub>²/2L<sub>B</sub>²</span></p>
+  <p>Baza ikki marta yupqalashsa, yoʻqotish <span class="math">1 − α<sub>T</sub></span> toʻrt marta kamayadi. Zamonaviy tranzistorlarda <span class="math">x<sub>B</sub> ≈ 0,02–0,1</span> mkm, shuning uchun bazadagi rekombinatsiya juda kam va α<sub>T</sub> amalda 1 ga teng.</p>
+  <aside class="note">Animatsiyada elektronlar bazani taxminan bir xil tezlikda kesib oʻtadi. Aslida diffuziya vaqti <span class="math">τ<sub>b</sub> = x<sub>B</sub>²/2D<sub>B</sub></span> — kenglikning kvadratiga proporsional; uning qiymati rasm ostida berilgan.</aside>
+
+  <h2>γ, α va β</h2>
+  <p>Emitter tokining hammasi ham foydali emas. Toʻgʻri siljigan E–B oʻtish orqali kovaklar ham bazadan emitterga injeksiya qilinadi; ular kollektorga hech qachon yetmaydi. Emitter tokidagi elektronlar ulushi — <i>emitter injeksiya samaradorligi</i> γ. Yupqa emitter va baza uchun:</p>
+  <p style="text-align:center"><span class="math">γ ≈ 1 / (1 + N<sub>B</sub>D<sub>E</sub>x<sub>B</sub> / N<sub>E</sub>D<sub>B</sub>x<sub>E</sub>)</span></p>
+  <p>γ ni birga yaqinlashtirish uchun emitter bazadan ancha kuchli legirlanadi. Umumiy baza koeffitsienti <span class="math">α = i<sub>C</sub>/i<sub>E</sub> = γα<sub>T</sub>δ</span>, umumiy emitter koeffitsienti esa</p>
+  <p style="text-align:center"><span class="math">β = i<sub>C</sub>/i<sub>B</sub> = α/(1 − α)</span></p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="Injeksiya samaradorligi, uzatish koeffitsienti va tok kuchaytirish koeffitsienti"></canvas>
+      <div class="ctl c2" id="c3"></div>
+      <div class="readout" id="r3"></div>
+    </div>
+    <figcaption><b>3-rasm.</b> Chapda (telefonda — tepada) — koeffitsientlar (shkala 0,90 dan boshlanadi) va baza toki tarkibi. Oʻngda (pastda) — <span class="math">β = α/(1 − α)</span> egri chizigʻi: α birga yaqinlashganda β keskin oʻsadi.</figcaption>
+  </figure>
+
+  <p>Baza toki ikki qismdan iborat: emitterga oʻtgan kovaklar <span class="math">(1 − γ)</span> va bazada rekombinatsiyalangan elektronlar oʻrnini toʻldiruvchi kovaklar <span class="math">γ(1 − α<sub>T</sub>)</span>. Ular qanchalik kichik boʻlsa, β shunchalik katta. α 0,99 dan 0,995 ga oʻzgarsa, β 99 dan 199 ga oshadi: β α ning birga qanchalik yaqinligiga juda sezgir. Odatda β ni injeksiya samaradorligi cheklaydi.</p>
+  <aside class="note">Rasmda rekombinatsiya koeffitsienti δ = 1 deb olingan. Haqiqatda E–B kambagʻallashgan sohasidagi rekombinatsiya past toklarda β ni kamaytiradi (Gummel grafigi, 11.4-boʻlim). Emitter juda kuchli legirlanganda taqiqlangan zona torayishi ham γ ni pasaytiradi.</aside>
+
+  <h2>Chiqish xarakteristikalari va Early effekti</h2>
+  <p>Umumiy emitter sxemasida kollektor toki <span class="math">I<sub>C</sub></span> ning <span class="math">V<sub>CE</sub></span> ga bogʻliqligi har xil baza toklari uchun chiziladi. Kichik V<sub>CE</sub> da (0,1–0,2 V) tranzistor <i>toʻyinish</i> rejimida: B–C oʻtish ham toʻgʻri siljigan. Undan yuqorida aktiv rejim boshlanadi va <span class="math">I<sub>C</sub> ≈ βI<sub>B</sub></span>.</p>
+  <p>Ideal tranzistorda aktiv rejimdagi chiziqlar gorizontal boʻlar edi. Lekin V<sub>CE</sub> ortganda B–C kambagʻallashgan sohasi bazaga ham kiradi, neytral baza torayadi, gradiyent oshadi va tok biroz ortadi. Bu — <i>baza kengligi modulyatsiyasi</i> yoki <i>Early effekti</i>. Chiziqlarning davomi V<sub>CE</sub> oʻqini taxminan bitta nuqtada, <span class="math">−V<sub>A</sub></span> da kesadi:</p>
+  <p style="text-align:center"><span class="math">i<sub>C</sub> = I<sub>C0</sub>(1 + V<sub>CE</sub>/V<sub>A</sub>),&nbsp;&nbsp; r<sub>o</sub> = V<sub>A</sub>/I<sub>C</sub></span></p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="Chiqish xarakteristikalari va Early kuchlanishi"></canvas>
+      <div class="ctl c2" id="c4"></div>
+      <div class="readout" id="r4"></div>
+    </div>
+    <figcaption><b>4-rasm.</b> Chapda (telefonda — tepada) — chiqish xarakteristikalari (β = 100). Oʻngda (pastda) — xuddi shu chiziqlar kengroq masshtabda: ularning punktir davomi <span class="math">−V<sub>A</sub></span> nuqtada uchrashadi.</figcaption>
+  </figure>
+
+  <p>Early kuchlanishi V<sub>A</sub> qanchalik katta boʻlsa, chiziqlar shunchalik gorizontal va tranzistor ideal tok manbaiga shunchalik yaqin. Buning uchun baza kuchliroq, kollektor esa kuchsizroq legirlanadi — shunda B–C kambagʻallashgan sohasi asosan kollektorga yoyiladi va bazani kam toraytiradi. 1-rasmda V<sub>CB</sub> ni oshirib, neytral baza kengligi qanday kamayishini kuzating.</p>
+
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>1-rasmda V<sub>BE</sub> ni 0,60 V dan 0,66 V ga oshiring. Kollektor toki necha marta ortdi? <span class="math">exp(ΔV/k<sub>B</sub>T)</span> bilan solishtiring (k<sub>B</sub>T = 0,0259 eV).</li>
+    <li>2-rasmda x<sub>B</sub> = 1 mkm va 2 mkm boʻlganda 1 − α<sub>T</sub> ni yozib oling. Nisbati nechaga teng? Javobni <span class="math">1 − α<sub>T</sub> ≈ x<sub>B</sub>²/2L<sub>B</sub>²</span> bilan tekshiring.</li>
+    <li>3-rasmda N<sub>E</sub>/N<sub>B</sub> ≈ 67 va x<sub>B</sub> = 0,6 mkm qiling. γ ni kitobdagi 11.2-misol javobi (0,9926) bilan solishtiring. β ni asosan qaysi omil cheklayapti?</li>
+  </ol>
+
+  <details><summary>Barcha hisoblangan qiymatlar va model</summary>
+    <table class="vals" id="vals"></table>
+    <p>Model: kremniy, T = 300 K, n<sub>i</sub> = 9,65 × 10⁹ sm⁻³, ε<sub>r</sub> = 11,7, E<sub>g</sub> = 1,12 eV, N<sub>c</sub> = 2,8 × 10¹⁹ sm⁻³. 1-rasm: N<sub>E</sub> = 10¹⁹, N<sub>B</sub> = 10¹⁷, N<sub>C</sub> = 10¹⁶ sm⁻³, metallurgik baza kengligi 0,5 mkm, A<sub>BE</sub> = 10⁻⁵ sm², D<sub>B</sub> = 20 sm²/s; keskin oʻtishlar, kambagʻallashish yaqinlashuvi, x<sub>B</sub> − neytral baza kengligi. 2–3-rasmlar: L<sub>B</sub> = 10 mkm, D<sub>E</sub> = 6, D<sub>B</sub> = 18 sm²/s, x<sub>E</sub> = 0,4 mkm, δ = 1; 2-rasmda α<sub>T</sub> = 1/cosh(x<sub>B</sub>/L<sub>B</sub>). 4-rasm: I<sub>C</sub> = βI<sub>B</sub>(1 + V<sub>CE</sub>/V<sub>A</sub>)(1 − e<sup>−V<sub>CE</sub>/0,1 V</sup>), β = 100 — toʻyinish sohasi sxematik. Zarrachalar soni va harakat tezligi sxematik; 1-rasmda toʻsiqdan oshib oʻtish koʻrinarli boʻlishi uchun elektronlarga haqiqatdagidan koʻproq energiya berilgan.</p>
+  </details>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
+<script src="../../assets/common.js"></script>
+<script>
+const q=1.602e-19,kT=0.025852,ni=9.65e9,eps=11.7*8.854e-14,Eg=1.12,Nc=2.8e19;
+const NE=1e19,NB=1e17,NC=1e16,XB0=0.5e-4,ABE=1e-5,DB1=20;
+const LB=10,DE=6,DB=18,XE=0.4; // 2-3-rasm (mkm, sm²/s)
+const $=id=>document.getElementById(id);
+const S=makeStore({VBE:0.65,VCB:2,xB:0.6,rat:1.8,VA:40,IB:30});
+const mob=()=>window.innerWidth<640;
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif';
+const SUBF='500 9px Inter,system-ui,sans-serif';
+const FS='600 13px Inter,system-ui,sans-serif';
+function sym(c,x,y,main,sub,col,align){c.font=SERIF;const mw=c.measureText(main).width;c.font=SUBF;const sw=sub?c.measureText(sub).width+1:0;
+  const x0=align==='right'?x-mw-sw:x;label(c,main,x0,y,{font:SERIF,color:col});if(sub)label(c,sub,x0+mw+1,y+4,{font:SUBF,color:col});}
+// "I_C, mA" kabi matnni pastki indeks bilan chizish
+function tl(c,text,x,y,o={}){const f=o.font||'500 12px Inter,system-ui,sans-serif',sz=parseFloat(f.match(/(\d+)px/)[1]),fs=f.replace(/\d+px/,Math.round(sz*0.75)+'px');
+  const parts=text.split(/_([A-Za-z]+)/);c.save();let W=0;parts.forEach((t,i)=>{c.font=i%2?fs:f;W+=c.measureText(t).width;});
+  let x0=o.align==='right'?x-W:o.align==='center'?x-W/2:x;
+  if(o.bg){c.fillStyle=o.bg;c.fillRect(x0-3,y-8,W+6,17);}
+  parts.forEach((t,i)=>{label(c,t,x0,y+(i%2?3:0),{font:i%2?fs:f,color:o.color||cssVar('--ink2')});c.font=i%2?fs:f;x0+=c.measureText(t).width;});c.restore();}
+function fmtI(I){const a=Math.abs(I);return a>=1e-3?fmtN(I*1e3,a>=1e-2?1:2)+' mA':a>=1e-6?fmtN(I*1e6,a>=1e-5?1:2)+' mkA':a>=1e-9?fmtN(I*1e9,1)+' nA':fmtE(I,1)+' A';}
+
+/* ============ 1-rasm: tuzilma va zonalar ============ */
+function bjt(){
+  const VBE=S.get('VBE'),VCB=S.get('VCB');
+  const Vbe1=kT*Math.log(NE*NB/ni/ni),Vbc1=kT*Math.log(NB*NC/ni/ni);
+  const Wf=(V,a,b)=>Math.sqrt(2*eps*Math.max(V,0.02)/q*(1/a+1/b));
+  const We=Wf(Vbe1-VBE,NE,NB),Wc=Wf(Vbc1+VCB,NB,NC);
+  const eB=We*NB/(NE+NB),eB2=We*NE/(NE+NB),cB=Wc*NC/(NB+NC),cC=Wc*NB/(NB+NC);
+  const xB=XB0-eB2-cB,nB0=ni*ni/NB,n0=nB0*Math.exp(VBE/kT);
+  const IC=q*ABE*DB1*nB0*(Math.exp(VBE/kT)-1)/xB;
+  const EcE=kT*Math.log(Nc/NE),EcB=EcE+Vbe1-VBE,EcC=EcB-(Vbc1+VCB);
+  return {VBE,VCB,Vbe1,Vbc1,We,Wc,eB,eB2,cB,cC,xB,nB0,n0,IC,EcE,EcB,EcC};
+}
+let B=bjt();
+const XL=0.6e-4,XR=XB0+1.5e-4; // koordinata: emitter [-0,6;0], baza [0;0,5], kollektor [0,5;2,0] mkm
+function EcAt(x){
+  if(x<-B.eB)return B.EcE;
+  if(x<0)return B.EcE+(B.EcB-B.EcE)*(NB/(NE+NB))*((x+B.eB)/B.eB)**2;
+  if(x<B.eB2)return B.EcB-(B.EcB-B.EcE)*(NE/(NE+NB))*((B.eB2-x)/B.eB2)**2;
+  if(x<XB0-B.cB)return B.EcB;
+  if(x<XB0)return B.EcB+(B.EcC-B.EcB)*(NC/(NB+NC))*((x-XB0+B.cB)/B.cB)**2;
+  if(x<XB0+B.cC)return B.EcC-(B.EcC-B.EcB)*(NB/(NB+NC))*((XB0+B.cC-x)/B.cC)**2;
+  return B.EcC;
+}
+slider($('c1'),S,{key:'VBE',label:'V<sub>BE</sub>',min:0,max:0.8,step:0.005,fmt:v=>fmtN(v,3)+' V'});
+slider($('c1'),S,{key:'VCB',label:'V<sub>CB</sub>',min:0,max:5,step:0.05,fmt:v=>fmtN(v,2)+' V'});
+const Evis=0.1;
+const F1={el:[],ho:[],fl:[]};
+for(let i=0;i<16;i++)F1.el.push({f:Math.random(),s:'idle',ph:rnd(0,6.3)});
+for(let i=0;i<9;i++)F1.ho.push({f:Math.random(),s:'idle',ph:rnd(0,6.3)});
+function f1step(dt){
+  const k=dt/16,sp=(XR+XL)*0.0042*k;
+  const xEh=i=>-XL+(-B.eB+XL)*(0.08+0.84*i);
+  F1.el.forEach(p=>{
+    if(p.s==='idle'){if(Math.random()<0.04*k){p.s='go';p.x=xEh(p.f);p.Ea=B.EcE-Evis*Math.log(Math.random());}}
+    else if(p.s==='go'){p.x+=sp;if(p.x>=B.eB2){p.s='base';p.x=B.eB2;}else if(EcAt(p.x)>p.Ea)p.s='back';}
+    else if(p.s==='back'){p.x-=sp;if(p.x<=xEh(p.f))p.s='idle';}
+    else if(p.s==='base'){p.x+=sp*0.55*(1+rnd(-1,1));if(p.x>=XB0-B.cB)p.s='fall';}
+    else if(p.s==='fall'){p.x+=sp*2.2;if(p.x>XR*0.97){p.s='idle';p.f=Math.random();}}
+  });
+  F1.ho.forEach(p=>{
+    const xh=i=>B.eB2+(XB0-B.cB-B.eB2)*(0.1+0.8*i);
+    if(p.s==='idle'){if(Math.random()<0.012*k){p.s='go';p.x=xh(p.f);p.Ea=(B.EcB-Eg)+Evis*Math.log(Math.random());}}
+    else if(p.s==='go'){p.x-=sp;if(p.x<=-B.eB){p.s='over';}else if(EcAt(p.x)-Eg<p.Ea)p.s='back';}
+    else if(p.s==='back'){p.x+=sp;if(p.x>=xh(p.f))p.s='idle';}
+    else if(p.s==='over'){p.x-=sp*0.7;if(p.x<-XL*0.55){p.s='idle';p.f=Math.random();F1.fl.push({x:p.x,t:0});}}
+  });
+  F1.fl.forEach(f=>f.t+=dt);F1.fl=F1.fl.filter(f=>f.t<600);
+}
+function f1draw(dt){
+  f1step(dt);
+  const m=mob(),{c,w,h}=fitCanvas($('f1'),m?1.05:0.5);
+  const L=m?30:44,Rr=w-(m?34:44),X=x=>L+(x+XL)/(XR+XL)*(Rr-L);
+  // tuzilma chizig'i
+  const sT=22,sB=sT+(m?30:34);
+  c.fillStyle=cssVar('--n-tint');c.fillRect(X(-XL),sT,X(0)-X(-XL),sB-sT);c.fillRect(X(XB0),sT,X(XR)-X(XB0),sB-sT);
+  c.fillStyle=cssVar('--p-tint');c.fillRect(X(0),sT,X(XB0)-X(0),sB-sT);
+  c.fillStyle=cssVar('--dep-tint');c.fillRect(X(-B.eB),sT,X(B.eB2)-X(-B.eB),sB-sT);c.fillRect(X(XB0-B.cB),sT,X(XB0+B.cC)-X(XB0-B.cB),sB-sT);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.strokeRect(X(-XL)+.5,sT+.5,X(XR)-X(-XL)-1,sB-sT-1);
+  const ym=(sT+sB)/2,tf=m?'600 11px Inter,system-ui,sans-serif':FS;
+  label(c,m?'n⁺⁺ E':'Emitter n⁺⁺',X(-XL)+6,ym,{font:tf,color:cssVar('--ion-n')});
+  label(c,m?'p B':'Baza p',(X(B.eB2)+X(XB0-B.cB))/2,ym,{font:tf,color:cssVar('--ion-p'),align:'center'});
+  label(c,m?'n C':'Kollektor n',X(XR)-6,ym,{font:tf,color:cssVar('--ion-n'),align:'right'});
+  label(c,'E–B',X(0),sT-10,{align:'center'});label(c,'B–C',X(XB0),sT-10,{align:'center'});
+  // neytral baza kengligi
+  const by=sB+9;c.strokeStyle=cssVar('--ink2');c.beginPath();c.moveTo(X(B.eB2),by-4);c.lineTo(X(B.eB2),by);c.lineTo(X(XB0-B.cB),by);c.lineTo(X(XB0-B.cB),by-4);c.stroke();
+  tl(c,'x_B = '+fmtN(B.xB*1e4,3)+' mkm',(X(B.eB2)+X(XB0-B.cB))/2,by+10,{align:'center',font:'500 11px Inter,system-ui,sans-serif'});
+  // zonalar
+  const T=by+28,Bt=h-22,Ehi=B.EcB+0.22,Elo=B.EcC-Eg-0.15,Y=E=>T+(Ehi-E)/(Ehi-Elo)*(Bt-T);
+  c.fillStyle=cssVar('--n-tint');c.globalAlpha=.55;c.fillRect(X(-XL),T,X(-B.eB)-X(-XL),Bt-T);c.fillRect(X(XB0+B.cC),T,X(XR)-X(XB0+B.cC),Bt-T);
+  c.fillStyle=cssVar('--p-tint');c.fillRect(X(B.eB2),T,X(XB0-B.cB)-X(B.eB2),Bt-T);
+  c.fillStyle=cssVar('--dep-tint');c.fillRect(X(-B.eB),T,X(B.eB2)-X(-B.eB),Bt-T);c.fillRect(X(XB0-B.cB),T,X(XB0+B.cC)-X(XB0-B.cB),Bt-T);c.globalAlpha=1;
+  const curve=(f,col)=>{c.strokeStyle=col;c.lineWidth=3;c.lineJoin='round';c.beginPath();for(let i=0;i<=300;i++){const x=-XL+(XR+XL)*i/300;i?c.lineTo(X(x),Y(f(x))):c.moveTo(X(x),Y(f(x)));}c.stroke();};
+  curve(EcAt,cssVar('--ec'));curve(x=>EcAt(x)-Eg,cssVar('--ev'));
+  c.strokeStyle=cssVar('--ef');c.lineWidth=1.8;c.setLineDash([6,4]);
+  [[-XL,-B.eB,0],[B.eB2,XB0-B.cB,-B.VBE],[XB0+B.cC,XR,-B.VBE-B.VCB]].forEach(([a,b,E])=>{c.beginPath();c.moveTo(X(a),Y(E));c.lineTo(X(b),Y(E));c.stroke();});c.setLineDash([]);
+  sym(c,Rr+5,Y(B.EcC),'E','c',cssVar('--ec'));sym(c,Rr+5,Y(B.EcC-Eg),'E','v',cssVar('--ev'));sym(c,Rr+5,Y(-B.VBE-B.VCB)+(m?0:0),'E','F',cssVar('--ef'));
+  sym(c,L-5,Y(0)+ (Math.abs(Y(0)-Y(B.EcE))<14?10:0),'E','F',cssVar('--ef'),'right');
+  // to'siq balandligi
+  const bar=B.EcB-B.EcE,xa=X(-XL)+(X(-B.eB)-X(-XL))*0.72,t=Y(B.EcB),b=Y(B.EcE);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(xa-6,t);c.lineTo(X(B.eB2),t);c.stroke();c.setLineDash([]);
+  if(b-t>14){c.beginPath();c.moveTo(xa,t);c.lineTo(xa,b);c.moveTo(xa-4,t+6);c.lineTo(xa,t);c.lineTo(xa+4,t+6);c.moveTo(xa-4,b-6);c.lineTo(xa,b);c.lineTo(xa+4,b-6);c.stroke();}
+  if(m||b-t<34)label(c,fmtN(bar,2)+' eV',(X(B.eB2)+X(XB0-B.cB))/2,t-14,{align:'center',bg:cssVar('--panel'),color:cssVar('--ink')});
+  else label(c,fmtN(bar,2)+' eV',xa-7,(t+b)/2,{align:'right',bg:cssVar('--panel'),color:cssVar('--ink')});
+  // zarrachalar
+  const xEh=i=>-XL+(-B.eB+XL)*(0.08+0.84*i);
+  F1.el.forEach(p=>{const x=p.s==='idle'?xEh(p.f):p.x;let y=Y(EcAt(x))-6;if(p.s==='idle'){p.ph+=dt*0.004;y-=2+2*Math.sin(p.ph);}drawElectron(c,X(x),y,m?4:5);});
+  const xh=i=>B.eB2+(XB0-B.cB-B.eB2)*(0.1+0.8*i);
+  F1.ho.forEach(p=>{const x=p.s==='idle'?xh(p.f):p.x;drawHole(c,X(x),Y(EcAt(x)-Eg)+6,m?3.8:4.6,p.s==='over'?clamp(1-(-XL*0.55-p.x)/1e-5,0.3,1):1);});
+  label(c,'emitter',(X(-XL)+X(-B.eB))/2,h-9,{align:'center'});label(c,'baza',(X(B.eB2)+X(XB0-B.cB))/2,h-9,{align:'center'});label(c,'kollektor',(X(XB0+B.cC)+X(XR))/2,h-9,{align:'center'});
+  $('r1').innerHTML=`<span>E–B toʻsigʻi <b>${fmtN(bar,2)} eV</b></span><span>n<sub>B</sub>(0) <b>${fmtE(B.n0,1)} sm⁻³</b></span><span>I<sub>C</sub> <b>${B.VBE<0.2?'≈ 0':fmtI(B.IC)}</b></span>`;
+}
+
+/* ============ 2-rasm: baza orqali o'tish ============ */
+slider($('c2'),S,{key:'xB',label:'Baza kengligi x<sub>B</sub>',min:0.2,max:8,step:0.05,fmt:v=>fmtN(v,2)+' mkm'});
+const aT=()=>1/Math.cosh(S.get('xB')/LB);
+const F2={el:[],ho:[],nw:[],fl:[],acc:0,nIn:0,nOut:0,nRec:0,sea:[]};
+for(let i=0;i<26;i++)F2.sea.push({u:Math.random(),v:Math.random(),ph:rnd(0,6.3)});
+function f2geo(w,h){const m=mob(),L=10,Rr=w-10,full=Rr-L;
+  const bw=full*0.58*(0.1+0.9*S.get('xB')/8),ew=m?full*0.18:Math.min(full*0.2,170),cw=ew;
+  const x0=L+(full-bw-ew-cw)/2;return {xE:x0,xB:x0+ew,xC:x0+ew+bw,xR:x0+ew+bw+cw,bw,top:46,bot:h-28};}
+function f2holes(){const want=Math.round(5+40*S.get('xB')/8);
+  while(F2.ho.length<want)F2.ho.push({u:rnd(.04,.96),v:rnd(.08,.92)});while(F2.ho.length>want)F2.ho.pop();}
+f2holes();
+function f2step(dt,g){
+  const k=dt/16,a=aT();
+  F2.acc+=dt;if(F2.acc>110){F2.acc=0;F2.nIn++;const rec=Math.random()>a;
+    F2.el.push({x:0,v:rnd(.1,.9),rec,stop:rec?1-Math.sqrt(Math.random()):2,s:'b'});}
+  F2.el.forEach(p=>{
+    if(p.s==='b'){p.x+=(0.16+rnd(-0.16,0.16))*dt+rnd(-1.5,1.5)*k;p.x=Math.max(0,p.x);p.v=clamp(p.v+rnd(-1,1)*0.012*k,.06,.94);
+      if(p.rec&&p.x>=p.stop*g.bw){p.s='dead';F2.nRec++;
+        let bi=-1,bd=1e9;F2.ho.forEach((o,i)=>{const d=Math.abs(o.u*g.bw-p.x)+Math.abs(o.v-p.v)*(g.bot-g.top);if(d<bd){bd=d;bi=i;}});
+        const hv=bi>=0?F2.ho.splice(bi,1)[0]:null;
+        F2.fl.push({x:g.xB+p.x,y:g.top+p.v*(g.bot-g.top),t:0});
+        const tu=rnd(.1,.9);F2.nw.push({u:tu,v:-0.12,tv:hv?hv.v:rnd(.1,.9),tu2:hv?hv.u:tu});}
+      else if(p.x>=g.bw){p.s='c';p.x=g.bw;F2.nOut++;}}
+    else if(p.s==='c'){p.x+=0.5*dt;if(p.x>g.bw+(g.xR-g.xC)-6)p.s='dead';}
+  });
+  F2.el=F2.el.filter(p=>p.s!=='dead');
+  F2.nw.forEach(n=>{n.v+=0.0011*dt;n.u+=(n.tu2-n.u)*0.04*k;if(n.v>=n.tv){n.done=1;F2.ho.push({u:n.tu2,v:n.tv});}});
+  F2.nw=F2.nw.filter(n=>!n.done);
+  F2.ho.forEach(o=>{o.u=clamp(o.u+rnd(-1,1)*0.002*k,.03,.97);o.v=clamp(o.v+rnd(-1,1)*0.01*k,.06,.94);});
+  F2.fl.forEach(f=>f.t+=dt);F2.fl=F2.fl.filter(f=>f.t<700);
+}
+function f2draw(dt){
+  const {c,w,h}=fitCanvas($('f2'),mob()?0.8:0.4),g=f2geo(w,h);f2step(dt,g);
+  const H=g.bot-g.top,Y=v=>g.top+v*H;
+  c.fillStyle=cssVar('--n-tint');c.fillRect(g.xE,g.top,g.xB-g.xE,H);c.fillRect(g.xC,g.top,g.xR-g.xC,H);
+  c.fillStyle=cssVar('--p-tint');c.fillRect(g.xB,g.top,g.bw,H);
+  // n_B(x) profili
+  const xb=S.get('xB');c.fillStyle=cssVar('--elec');c.globalAlpha=.13;c.beginPath();c.moveTo(g.xB,g.bot);
+  for(let i=0;i<=60;i++){const s=i/60,n=Math.sinh((1-s)*xb/LB)/Math.sinh(xb/LB);c.lineTo(g.xB+s*g.bw,g.bot-n*H*0.9);}c.lineTo(g.xC,g.bot);c.fill();c.globalAlpha=1;
+  // kontaktlar
+  c.fillStyle=cssVar('--ink2');c.fillRect(g.xE-6,g.top,6,H);c.fillRect(g.xR,g.top,6,H);
+  const bc0=g.xB+g.bw*0.15,bc1=g.xC-g.bw*0.15;c.fillRect(bc0,g.top-6,Math.max(6,bc1-bc0),6);
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1.4;c.beginPath();c.moveTo((bc0+bc1)/2,g.top-6);c.lineTo((bc0+bc1)/2,g.top-20);c.stroke();
+  label(c,'B',(bc0+bc1)/2+6,g.top-22,{font:FS,color:cssVar('--ink')});
+  label(c,'E',g.xE+6,g.top-12,{font:FS,color:cssVar('--ink')});label(c,'C',g.xR-6,g.top-12,{font:FS,color:cssVar('--ink'),align:'right'});
+  F2.sea.forEach(s=>{s.ph+=dt*0.003;drawElectron(c,g.xE+6+s.u*(g.xB-g.xE-12)+Math.sin(s.ph)*2,Y(.06+s.v*.88),4.2,.55);});
+  F2.ho.forEach(o=>drawHole(c,g.xB+o.u*g.bw,Y(o.v),4.2));
+  F2.nw.forEach(n=>drawHole(c,g.xB+n.u*g.bw,Y(n.v),4.2));
+  F2.el.forEach(p=>drawElectron(c,g.xB+p.x,Y(p.v),4.6));
+  F2.fl.forEach(f=>{const a=1-f.t/700;c.fillStyle=`rgba(232,179,32,${a*.8})`;c.beginPath();c.arc(f.x,f.y,3+f.t/40,0,7);c.fill();});
+  c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(g.xB,g.bot+6);c.lineTo(g.xB,g.bot+10);c.lineTo(g.xC,g.bot+10);c.lineTo(g.xC,g.bot+6);c.stroke();
+  tl(c,'x_B',(g.xB+g.xC)/2,g.bot+20,{align:'center',font:'500 11px Inter,system-ui,sans-serif'});
+  label(c,'emitter',(g.xE+g.xB)/2,g.bot+20,{align:'center'});label(c,'kollektor',(g.xC+g.xR)/2,g.bot+20,{align:'center'});
+  const a=aT(),fr=F2.nIn>20?F2.nOut/(F2.nOut+F2.nRec||1):null,tb=(xb*1e-4)**2/(2*DB);
+  $('r2').innerHTML=`<span>α<sub>T</sub> <b>${fmtN(a,4)}</b></span><span>β (faqat α<sub>T</sub> bilan) <b>${a>0.99995?'> 20000':Math.round(a/(1-a))}</b></span><span>τ<sub>b</sub> <b>${tb<1e-9?fmtN(tb*1e12,1)+' ps':fmtN(tb*1e9,2)+' ns'}</b></span><span>Kollektorga yetdi <b>${F2.nOut}</b> / rekombinatsiya <b>${F2.nRec}</b></span>`;
+}
+S.sub(k=>{if(k==='xB'){F2.nIn=F2.nOut=F2.nRec=0;f2holes();}});
+
+/* ============ 3-rasm: γ, α_T, β ============ */
+slider($('c3'),S,{key:'rat',label:'N<sub>E</sub>/N<sub>B</sub>',min:1.5,max:3,step:0.01,fmt:v=>fmtN(10**v,0)});
+slider($('c3'),S,{key:'xB',label:'x<sub>B</sub>',min:0.2,max:8,step:0.05,fmt:v=>fmtN(v,2)+' mkm'});
+function coef(){const xb=S.get('xB'),r=10**S.get('rat');const g=1/(1+(1/r)*(DE/DB)*(xb/XE)),t=1/Math.cosh(xb/LB),a=g*t;return {g,t,a,b:a/(1-a)};}
+function f3draw(){
+  const m=mob(),{c,w,h}=fitCanvas($('f3'),m?1.25:0.48),K=coef();
+  const lw=m?w:w*0.48,ink=cssVar('--ink'),ink2=cssVar('--ink2'),mut=cssVar('--muted');
+  // chap: koeffitsientlar
+  const lx=m?62:70,rx=lw-(m?58:66),A=v=>lx+clamp((v-0.9)/0.1,0,1)*(rx-lx);
+  const rows=[['γ',K.g,cssVar('--elec')],['α_T',K.t,cssVar('--ec')],['α',K.a,cssVar('--accent')]];
+  const rh=m?30:34,y0=m?18:Math.max(18,(h-190)/2);
+  label(c,'0,90',lx,y0-6,{align:'center',color:mut,font:'500 10px Inter,system-ui,sans-serif'});label(c,'1',rx,y0-6,{align:'center',color:mut,font:'500 10px Inter,system-ui,sans-serif'});
+  rows.forEach(([n,v,col],i)=>{const y=y0+8+i*rh;
+    c.fillStyle=cssVar('--rule');c.fillRect(lx,y,rx-lx,rh-14);
+    c.fillStyle=col;c.fillRect(lx,y,A(v)-lx,rh-14);
+    const nm=n.split('_');sym(c,lx-10,y+(rh-14)/2,nm[0],nm[1]||'',ink,'right');
+    label(c,v<0.9?'< 0,9':fmtN(v,4),rx+6,y+(rh-14)/2,{color:ink,font:'600 12px Inter,system-ui,sans-serif'});});
+  c.strokeStyle=ink2;c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(rx,y0);c.lineTo(rx,y0+3*rh);c.stroke();c.setLineDash([]);
+  // baza toki tarkibi
+  const yb=y0+3*rh+(m?26:30),ib1=1-K.g,ib2=K.g*(1-K.t),ib=ib1+ib2;
+  tl(c,'Baza toki tarkibi:  I_B / I_E = '+fmtN(ib,4),lx-50<10?10:lx-50,yb-10,{color:ink,font:'600 12px Inter,system-ui,sans-serif'});
+  const bx0=m?10:20,bx1=lw-(m?10:20),bh=m?20:22,sx=bx0+(bx1-bx0)*ib1/ib;
+  c.fillStyle=cssVar('--hole');c.fillRect(bx0,yb,sx-bx0,bh);c.fillStyle=cssVar('--acc');c.fillRect(sx,yb,bx1-sx,bh);
+  const pct=x=>Math.round(100*x/ib)+' %';
+  label(c,'emitterga kovaklar '+pct(ib1),bx0,yb+bh+12,{color:cssVar('--hole'),font:'500 11px Inter,system-ui,sans-serif'});
+  label(c,'bazada rekombinatsiya '+pct(ib2),bx1,yb+bh+(m?26:12),{color:cssVar('--acc'),align:'right',font:'500 11px Inter,system-ui,sans-serif'});
+  // o'ng: beta(alpha)
+  const px0=m?46:lw+56,px1=w-14,py0=m?yb+bh+50:16,py1=h-30,a0=0.95,a1=1,bmax=500;
+  const PX=a=>px0+(a-a0)/(a1-a0)*(px1-px0),PY=b=>py1-Math.min(b,bmax)/bmax*(py1-py0);
+  c.strokeStyle=cssVar('--rule');c.lineWidth=1;
+  for(let b=100;b<=bmax;b+=100){c.beginPath();c.moveTo(px0,PY(b));c.lineTo(px1,PY(b));c.stroke();label(c,String(b),px0-6,PY(b),{align:'right',color:mut,font:'500 10px Inter,system-ui,sans-serif'});}
+  for(let a=0.96;a<0.999;a+=0.01){c.beginPath();c.moveTo(PX(a),py0);c.lineTo(PX(a),py1);c.stroke();label(c,fmtN(a,2),PX(a),py1+12,{align:'center',color:mut,font:'500 10px Inter,system-ui,sans-serif'});}
+  c.strokeStyle=ink2;c.beginPath();c.moveTo(px0,py0);c.lineTo(px0,py1);c.lineTo(px1,py1);c.stroke();
+  label(c,'1',PX(1),py1+12,{align:'center',color:mut,font:'500 10px Inter,system-ui,sans-serif'});
+  c.save();c.beginPath();c.rect(px0,py0-2,px1-px0,py1-py0+2);c.clip();
+  c.strokeStyle=cssVar('--accent');c.lineWidth=2.5;c.beginPath();for(let i=0;i<=300;i++){const a=a0+(0.9985-a0)*i/300;i?c.lineTo(PX(a),PY(a/(1-a))):c.moveTo(PX(a),PY(a/(1-a)));}c.stroke();c.restore();
+  sym(c,px0+8,py0+8,'β','',ink);sym(c,px1,py1-12,'α','',ink,'right');
+  const ax=clamp(K.a,a0,a1),bx=PX(ax),by=PY(K.b);
+  c.strokeStyle=ink2;c.lineWidth=1;c.setLineDash([3,3]);c.beginPath();c.moveTo(bx,py1);c.lineTo(bx,by);c.lineTo(px0,by);c.stroke();c.setLineDash([]);
+  c.fillStyle=cssVar('--paper');c.strokeStyle=ink;c.lineWidth=2;c.beginPath();c.arc(bx,by,6,0,7);c.fill();c.stroke();
+  label(c,'β = '+(K.b>999?'> 999':Math.round(K.b)),bx+(bx>px1-90?-10:10),by+(by<py0+20?14:-12),{align:bx>px1-90?'right':'left',color:ink,font:'600 13px Inter,system-ui,sans-serif',bg:cssVar('--panel')});
+  if(K.a<a0)label(c,'α < 0,95 — grafikdan chapda',px0+8,py1-14,{color:mut});
+  $('r3').innerHTML=`<span>γ <b>${fmtN(K.g,4)}</b></span><span>α<sub>T</sub> <b>${fmtN(K.t,4)}</b></span><span>α = γα<sub>T</sub> <b>${fmtN(K.a,4)}</b></span><span>β = α/(1 − α) <b>${Math.round(K.b)}</b></span>`;
+}
+
+/* ============ 4-rasm: chiqish xarakteristikalari ============ */
+slider($('c4'),S,{key:'VA',label:'Early kuchlanishi V<sub>A</sub>',min:10,max:150,step:1,fmt:v=>v+' V'});
+slider($('c4'),S,{key:'IB',label:'Baza toki I<sub>B</sub>',min:5,max:50,step:1,fmt:v=>v+' mkA'});
+const BETA=100,VCEmax=10;
+const Ic=(ib,v,VA)=>v<=0?0:BETA*ib*1e-6*(1+v/VA)*(1-Math.exp(-v/0.1));
+function f4draw(){
+  const m=mob(),{c,w,h}=fitCanvas($('f4'),m?1.25:0.5),VA=S.get('VA'),IBs=S.get('IB');
+  const fam=[10,20,30,40];const ink=cssVar('--ink'),ink2=cssVar('--ink2'),mut=cssVar('--muted'),acc=cssVar('--accent');
+  const Imax=1.08*Math.max(Ic(50,VCEmax,10)*0.75,Ic(Math.max(40,IBs),VCEmax,VA));
+  const panel=(x0,x1,y0,y1,v0,v1,ext)=>{
+    const X=v=>x0+(v-v0)/(v1-v0)*(x1-x0),Y=I=>y1-I/Imax*(y1-y0);
+    c.strokeStyle=cssVar('--rule');c.lineWidth=1;
+    const st=ext?(v1-v0>80?40:20):2;
+    for(let v=Math.ceil(v0/st)*st;v<=v1;v+=st){c.beginPath();c.moveTo(X(v),y0);c.lineTo(X(v),y1);c.stroke();label(c,String(v).replace('-','−'),X(v),y1+12,{align:'center',color:mut,font:'500 10px Inter,system-ui,sans-serif'});}
+    const ist=Imax>8e-3?2e-3:1e-3;
+    for(let I=ist;I<Imax;I+=ist){c.beginPath();c.moveTo(x0,Y(I));c.lineTo(x1,Y(I));c.stroke();if(!ext||m)label(c,fmtN(I*1e3,0),x0-5,Y(I),{align:'right',color:mut,font:'500 10px Inter,system-ui,sans-serif'});}
+    c.strokeStyle=ink2;c.beginPath();c.moveTo(X(Math.max(0,v0)),y0);c.lineTo(X(Math.max(0,v0)),y1);c.moveTo(x0,y1);c.lineTo(x1,y1);c.stroke();
+    const curves=fam.slice();if(!fam.includes(IBs))curves.push(IBs);
+    curves.forEach(ib=>{const sel=ib===IBs;
+      if(ext){c.strokeStyle=sel?acc:ink2;c.lineWidth=1;c.setLineDash([4,4]);c.beginPath();c.moveTo(X(-VA),Y(0));c.lineTo(X(1),Y(BETA*ib*1e-6*(1+1/VA)));c.stroke();c.setLineDash([]);}
+      c.strokeStyle=sel?acc:ink;c.lineWidth=sel?3:1.8;c.beginPath();
+      for(let i=0;i<=200;i++){const v=Math.max(0,v0)+(v1-Math.max(0,v0))*i/200;i?c.lineTo(X(v),Y(Ic(ib,v,VA))):c.moveTo(X(v),Y(Ic(ib,v,VA)));}c.stroke();
+      if(!ext)label(c,ib+' mkA',X(v1)-2,Y(Ic(ib,v1,VA))-9,{align:'right',color:sel?acc:ink2,font:(sel?'600 ':'500 ')+'11px Inter,system-ui,sans-serif',bg:cssVar('--panel')});});
+    return {X,Y};};
+  let l0,l1,ly0,ly1,r0,r1,ry0,ry1;
+  if(m){l0=40;l1=w-10;ly0=14;ly1=h*0.52;r0=40;r1=w-10;ry0=h*0.52+40;ry1=h-22;}
+  else{l0=52;l1=w*0.58;ly0=14;ly1=h-26;r0=w*0.58+40;r1=w-12;ry0=14;ry1=h-26;}
+  const P=panel(l0,l1,ly0,ly1,0,VCEmax,false);
+  // ish nuqtasi V_CE = 5 V
+  const I5=Ic(IBs,5,VA);c.fillStyle=cssVar('--paper');c.strokeStyle=ink;c.lineWidth=2;c.beginPath();c.arc(P.X(5),P.Y(I5),5.5,0,7);c.fill();c.stroke();
+  tl(c,'I_C, mA',l0+6,ly0+4,{color:ink,font:'600 12px Inter,system-ui,sans-serif',bg:cssVar('--panel')});
+  tl(c,'V_CE, V',l1,ly1-10,{color:ink,align:'right',font:'600 12px Inter,system-ui,sans-serif'});
+  label(c,'toʻyinish',P.X(0.15),ly1-12,{color:mut,font:'500 10px Inter,system-ui,sans-serif'});
+  const R=panel(r0,r1,ry0,ry1,-VA*1.08-2,VCEmax,true);
+  c.fillStyle=acc;c.beginPath();c.arc(R.X(-VA),R.Y(0),4.5,0,7);c.fill();
+  tl(c,'−V_A',R.X(-VA),R.Y(0)-14,{align:'center',color:acc,font:'600 12px Inter,system-ui,sans-serif',bg:cssVar('--panel')});
+  label(c,'Early nuqtasi',r0+4,ry0+4,{color:ink2,font:'600 12px Inter,system-ui,sans-serif'});
+  $('r4').innerHTML=`<span>I<sub>C</sub> (V<sub>CE</sub> = 5 V) <b>${fmtN(I5*1e3,2)} mA</b></span><span>Chiqish qarshiligi r<sub>o</sub> = V<sub>A</sub>/I<sub>C</sub> <b>${fmtN(VA/(BETA*IBs*1e-6)/1e3,1)} kΩ</b></span><span>1→10 V da I<sub>C</sub> oʻsishi <b>${fmtN(100*(Ic(IBs,10,VA)/Ic(IBs,1,VA)-1),1)} %</b></span>`;
+}
+
+/* ============ yangilash ============ */
+function vals(){B=bjt();const K=coef();$('vals').innerHTML=[
+  ['E–B kontakt potensiali V<sub>bi</sub>',fmtN(B.Vbe1,3)+' V'],['B–C kontakt potensiali V<sub>bi</sub>',fmtN(B.Vbc1,3)+' V'],
+  ['E–B toʻsigʻi',fmtN(B.EcB-B.EcE,3)+' eV'],['Neytral baza kengligi x<sub>B</sub> (1-rasm)',fmtN(B.xB*1e4,3)+' mkm'],
+  ['n<sub>B0</sub> = n<sub>i</sub>²/N<sub>B</sub>',fmtE(B.nB0,2)+' sm⁻³'],['n<sub>B</sub>(0)',fmtE(B.n0,2)+' sm⁻³'],
+  ['I<sub>S</sub>',fmtE(q*ABE*DB1*B.nB0/B.xB,2)+' A'],['I<sub>C</sub>',fmtI(B.IC)],
+  ['γ / α<sub>T</sub> / α (3-rasm)',fmtN(K.g,4)+' / '+fmtN(K.t,4)+' / '+fmtN(K.a,4)],['β',String(Math.round(K.b))]].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');}
+const redraw=()=>{f3draw();f4draw();};
+S.sub(()=>{vals();redraw();});
+vals();redraw();
+window.addEventListener('resize',redraw);onTheme(redraw);
+document.fonts&&document.fonts.ready.then(redraw);
+animate([{el:$('f1'),draw:f1draw},{el:$('f2'),draw:f2draw}]);
+</script>
+</body>
+</html>

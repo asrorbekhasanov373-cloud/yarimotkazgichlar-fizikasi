@@ -1,0 +1,11 @@
+[
+  "Bipolyar tranzistor qanday kuchaytiradi",
+  "Bu — en-pe-en tranzistor: kuchli legirlangan emitter, juda yupqa baza va kollektor. Kuchlanish berilmaganda emitterdagi elektronlar oldida baland toʻsiq turadi va ular bazaga oʻta olmaydi.",
+  "Emitter va baza orasidagi oʻtishni toʻgʻri yoʻnalishda siljitamiz. Toʻsiq pasayadi va elektronlar bazaga oqib kiradi. Ular bazani kesib oʻtadi va baza bilan kollektor orasidagi tik qiyalikdan *kollektorga tushib ketadi*.",
+  "Bazada elektronlar atrofida kovaklar juda koʻp. Lekin baza yupqa boʻlgani uchun deyarli barcha elektronlar rekombinatsiyalanishga ulgurmay, kollektorga yetib boradi.",
+  "Endi bazani qalinlashtiramiz. Yoʻl uzaygan sari elektronlar kovaklar bilan tez-tez uchrashib, yoʻqoladi. Kollektorga yetganlar ulushi — *uzatish koeffitsienti* deb ataladi, va u kamaysa, kuchaytirish keskin pasayadi.",
+  "Emitter tokining bir qismi bazadan emitterga oʻtgan kovaklardan iborat. Elektronlar ulushi — *injeksiya samaradorligi*. Emitter qanchalik kuchli legirlansa, u birga shunchalik yaqin. Alfa birga yaqinlashganda, beta keskin oʻsadi.",
+  "Bu — tranzistorning chiqish xarakteristikalari. Aktiv rejimda kollektor toki baza tokidan taxminan yuz marta katta. Ammo chiziqlar biroz qiya: kollektor kuchlanishi ortganda neytral baza torayadi. Bu — *Erli effekti*.",
+  "Chiziqlarning davomi bitta nuqtada uchrashadi — minus Erli kuchlanishida. Bu kuchlanish qanchalik katta boʻlsa, chiziqlar shunchalik gorizontal va tranzistor ideal tok manbaiga shunchalik yaqin.",
+  "Eʼtiboringiz uchun rahmat!"
+]
