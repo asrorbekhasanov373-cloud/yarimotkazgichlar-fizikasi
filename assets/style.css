@@ -26,6 +26,7 @@
   --atom:#5d616a;--bond:#45454b;--atom-a:#6f9df0;--atom-b:#ef8a4a;}
 
 *{box-sizing:border-box}
+html,body{overscroll-behavior-x:none}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:19px/1.65 var(--serif);font-optical-sizing:auto;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
@@ -67,7 +68,12 @@ figcaption b{color:var(--ink2);font-weight:600}
 @media(min-width:640px){.ctl.c2{grid-template-columns:1fr 1fr}}
 .sl{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;min-height:40px}
 .sl output{font-variant-numeric:tabular-nums;color:var(--ink);min-width:7.5em;text-align:right}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;background:transparent;height:32px;margin:0}
+@media(max-width:640px){
+  .ctl{padding-left:12px;padding-right:12px}
+  .sl{grid-template-columns:1fr auto;gap:0 12px;min-height:0;padding-top:6px}
+  .sl input{grid-column:1/-1;grid-row:2}
+}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;background:transparent;height:40px;margin:0;touch-action:none;overscroll-behavior:contain}
 input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--ink2);opacity:.55}
 input[type=range]::-moz-range-track{height:2px;background:var(--ink2);opacity:.55}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-8px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);cursor:pointer}

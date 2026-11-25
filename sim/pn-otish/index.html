@@ -240,7 +240,7 @@ function f3draw(dt){
   c.beginPath();c.moveTo(L,Y(0));c.lineTo(X(R.V>0.01?R.xn:0),Y(0));c.stroke();
   c.beginPath();c.moveTo(X(R.V>0.01?-R.xp:0),Y(R.V));c.lineTo(Rr,Y(R.V));c.stroke();c.setLineDash([]);
   sym(c,Rr+5,Y(g.Ec(g.xR)),'E','c',cssVar('--ec'));sym(c,Rr+5,Y(g.Ev(g.xR)),'E','v',cssVar('--ev'));
-  sym(c,Rr+5,Y(R.V),'E','F',cssVar('--ef'));sym(c,L-24,Y(0),'E','F',cssVar('--ef'));
+  {const yc=Y(g.Ec(g.xR)),yv=Y(g.Ev(g.xR));let yf=Y(R.V);if(Math.abs(yf-yc)<15)yf=yc+15;if(Math.abs(yf-yv)<15)yf=yv-15;sym(c,Rr+5,yf,'E','F',cssVar('--ef'));}sym(c,L-24,Y(0),'E','F',cssVar('--ef'));
   const xa=X(g.xR)-(Rr-L)*0.07,t=Y(g.Ecp),b=Y(g.Ec(g.xR));
   c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(X(-R.xp),t);c.lineTo(xa+6,t);c.stroke();c.setLineDash([]);
   if(b-t>14){c.beginPath();c.moveTo(xa,t);c.lineTo(xa,b);c.moveTo(xa-4,t+6);c.lineTo(xa,t);c.lineTo(xa+4,t+6);c.moveTo(xa-4,b-6);c.lineTo(xa,b);c.lineTo(xa+4,b-6);c.stroke();}
