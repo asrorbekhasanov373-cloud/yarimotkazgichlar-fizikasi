@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shottki toʻsigʻi va geterooʻtish</title>
+<meta name="description" content="Metall va yarimoʻtkazgich tekkanda Shottki toʻsigʻi qanday hosil boʻladi, Shottki diodi p-n dioddan nimasi bilan farq qiladi, ommik kontakt va AlGaAs/GaAs geterooʻtishdagi ikki oʻlchamli elektron gazi. 9-bob uchun interaktiv maqola.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>9-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 9-bob</p>
+    <h1>Metall–yarimoʻtkazgich kontakti va geterooʻtish</h1>
+    <p class="dek">Metall simni kremniyga tekkizganda nima uchun baʼzan diod, baʼzan oddiy oʻtkazgich hosil boʻladi va ikki xil yarimoʻtkazgich chegarasida elektronlar qanday qilib yupqa «tekis» qatlamga yigʻiladi.</p>
+  </header>
+
+  <p>Har qanday yarimoʻtkazgich asbob tashqi zanjirga metall orqali ulanadi, demak unda kamida ikkita metall–yarimoʻtkazgich kontakti bor. Kontakt ikki xil boʻladi: <i>toʻgʻrilovchi</i> (Shottki toʻsigʻi) — u p-n oʻtish kabi tokni bir yoʻnalishda oʻtkazadi, va <i>ommik</i> — u tokni ikki yoʻnalishda ham kichik qarshilik bilan oʻtkazadi. Bobning ikkinchi qismi esa ikki xil yarimoʻtkazgich orasidagi oʻtish — geterooʻtishga bagʻishlangan.</p>
+
+  <h2>Metall n-kremniyga tegadi</h2>
+  <p>Tutashtirishdan oldin ikkala materialning zonalarini umumiy <i>vakuum sathi</i> E<sub>0</sub> ga nisbatan chizamiz. Metallda Fermi sathi vakuum sathidan <i>chiqish ishi</i> <span class="math">eφ<sub>m</sub></span> ga past. Yarimoʻtkazgichda oʻtkazuvchanlik zonasi tubi vakuumdan <i>elektron yaqinligi</i> <span class="math">eχ</span> ga, Fermi sathi esa <span class="math">eφ<sub>s</sub> = e(χ + φ<sub>n</sub>)</span> ga past; bu yerda <span class="math">eφ<sub>n</sub> = E<sub>c</sub> − E<sub>F</sub></span>.</p>
+  <p>Agar <span class="math">φ<sub>m</sub> &gt; φ<sub>s</sub></span> boʻlsa, yarimoʻtkazgichdagi elektronlar energiyasi metalldagidan yuqori. Tutashtirilganda ular metallga oʻtadi va Fermi sathlari tenglashadi. Yarimoʻtkazgich sirtida musbat donor ionlaridan iborat kambagʻallashgan soha qoladi, zonalar yuqoriga egiladi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="Metall va n-tur kremniyning zonalar diagrammasi: tutashtirishdan oldin va keyin"></canvas>
+      <div class="btns" id="b1"></div>
+      <div class="ctl" id="c1"></div>
+      <div class="readout" id="r1"></div>
+    </div>
+    <figcaption><b>1-rasm.</b> Metall (chapda) va n-Si (oʻngda, N<sub>d</sub> = 5 × 10¹⁵ sm⁻³, χ = 4,01 V). «Tutashtirish» tugmasini bosing, soʻng metallning chiqish ishini oʻzgartiring. Punktir — vakuum sathi.</figcaption>
+  </figure>
+
+  <p>Metall tomondan qaraganda elektronlar oldida <i>Shottki toʻsigʻi</i> turadi. Ideal holatda uning balandligi faqat ikki kattalikka bogʻliq:</p>
+  <p class="math" style="text-align:center">φ<sub>B0</sub> = φ<sub>m</sub> − χ, &nbsp;&nbsp;&nbsp; V<sub>bi</sub> = φ<sub>B0</sub> − φ<sub>n</sub></p>
+  <p>Yarimoʻtkazgich tomondan toʻsiq — ichki potensial <span class="math">V<sub>bi</sub></span> — undan <span class="math">φ<sub>n</sub></span> ga kichik. Metallda zaryad sirtdagi juda yupqa qatlamda toʻplanadi, shuning uchun kambagʻallashgan soha butunlay yarimoʻtkazgichda yotadi va bir tomonlama p⁺n oʻtishdagi kabi hisoblanadi: <span class="math">x<sub>n</sub> = √(2ε<sub>s</sub>V<sub>bi</sub>/eN<sub>d</sub>)</span>.</p>
+  <p>Chiqish ishini <span class="math">φ<sub>s</sub> ≈ 4,23 V</span> dan kichik qilsangiz, elektronlar aksincha metalldan yarimoʻtkazgichga oʻtadi, sirtda toʻplanadi va toʻsiq yoʻqoladi — bu ideal <i>ommik kontakt</i>.</p>
+  <aside class="note">Real kontaktlarda toʻsiq metallga ancha kuchsiz bogʻliq: chiqish ishlari 1,4 eV ga farq qiladigan metallar kremniyda deyarli bir xil — 0,6–0,9 eV toʻsiq beradi. Sababi — chegaradagi <i>interfeys holatlari</i> Fermi sathini «qadab» qoʻyadi. Rasm ostidagi yozuvda jadvaldagi metall uchun oʻlchangan qiymat ham koʻrsatiladi.</aside>
+
+  <h2>Shottki diodi: elektronlar toʻsiqdan oshib oʻtadi</h2>
+  <p>Shottki diodida tokni asosiy tashuvchilar — elektronlar tashiydi. Ular toʻsiq choʻqqisidan issiqlik energiyasi hisobiga oshib oʻtadi: bu <i>termoelektron emissiya</i>. Toʻgʻri kuchlanish yarimoʻtkazgich tomonidagi toʻsiqni <span class="math">e(V<sub>bi</sub> − V)</span> gacha pasaytiradi, metall tomonidagi toʻsiq <span class="math">eφ<sub>Bn</sub></span> esa oʻzgarmaydi. Natijada:</p>
+  <p class="math" style="text-align:center">J = J<sub>sT</sub>[exp(eV/k<sub>B</sub>T) − 1], &nbsp;&nbsp; J<sub>sT</sub> = A<sup>*</sup>T²exp(−eφ<sub>Bn</sub>/k<sub>B</sub>T)</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="Shottki diodining zonalar diagrammasi va Shottki hamda p-n diod volt-amper xarakteristikalari"></canvas>
+      <div class="ctl c2" id="c2"></div>
+      <div class="readout" id="r2"></div>
+    </div>
+    <figcaption><b>2-rasm.</b> Chapda (telefonda yuqorida) — kuchlanish ostidagi Shottki toʻsigʻi, oʻngda — Shottki diodi (A<sup>*</sup> = 110 A/(sm²·K²)) va p⁺n kremniy diodi VAX lari logarifmik masshtabda. Gorizontal punktir — 5 A/sm² tok.</figcaption>
+  </figure>
+
+  <p>Shakl ideal diod tenglamasiga oʻxshaydi, lekin toʻyinish toki boshqa mexanizm bilan aniqlanadi va odatda p-n diodnikidan bir necha tartib katta. Titan–kremniy kontaktida (<span class="math">φ<sub>Bn</sub> = 0,60 V</span>) <span class="math">J<sub>sT</sub> ≈ 8,6 × 10⁻⁴ A/sm²</span>, p⁺n diodda esa <span class="math">2 × 10⁻¹¹ A/sm²</span>. Shuning uchun bir xil tokda Shottki diodiga 0,45 V kamroq kuchlanish kerak — bu past kuchlanishli toʻgʻrilagichlarda isrofni kamaytiradi.</p>
+  <p>Ikkinchi afzallik — tezlik. Noasosiy tok tashuvchilar injeksiyasi deyarli yoʻq, demak neytral sohada zaryad toʻplanmaydi va oʻchishda saqlanish vaqti boʻlmaydi. Kamchiligi ham shu yerda: teskari tok ham shuncha katta.</p>
+
+  <h2>Ommik kontakt: toʻsiq orqali tunnel</h2>
+  <p>Kremniyda deyarli hamma metallar 0,5 V dan katta toʻsiq beradi, shuning uchun ommik kontaktni «toʻgʻri metall tanlab» olish qiyin. Amalda boshqa yoʻl tutiladi: kontakt ostidagi yarimoʻtkazgich juda kuchli legirlanadi. Kambagʻallashgan soha kengligi <span class="math">√N<sub>d</sub></span> ga teskari proporsional, shuning uchun <span class="math">N<sub>d</sub> ≳ 10¹⁹ sm⁻³</span> da toʻsiq bir necha nanometrgacha yupqalashadi va elektronlar uni <i>tunnel</i> oʻtadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="Metall va kuchli legirlangan kremniy kontaktida toʻsiqning yupqalashishi va tunnel oʻtish"></canvas>
+      <div class="ctl" id="c3"></div>
+      <div class="readout" id="r3"></div>
+    </div>
+    <figcaption><b>3-rasm.</b> Toʻsiq balandligi oʻzgarmaydi (φ<sub>Bn</sub> = 0,60 V), faqat qalinligi kamayadi. Gorizontal oʻq — nanometrlarda, 60 nm oyna. Shaffof iz bilan chizilgan elektronlar — tunnel oʻtganlar.</figcaption>
+  </figure>
+
+  <p>Qaysi mexanizm ustunligini <i>tunnel energiyasi</i> <span class="math">E<sub>00</sub> = (eħ/2)√(N<sub>d</sub>/m<sup>*</sup>ε<sub>s</sub>)</span> hal qiladi. <span class="math">k<sub>B</sub>T ≫ E<sub>00</sub></span> boʻlsa — termoelektron emissiya (TE), <span class="math">k<sub>B</sub>T ≈ E<sub>00</sub></span> da — termoelektron-maydon emissiyasi (TFE), <span class="math">k<sub>B</sub>T ≪ E<sub>00</sub></span> da — sof tunnel oʻtish, maydon emissiyasi (FE). Solishtirma kontakt qarshiligi <span class="math">R<sub>c</sub> ∝ exp(eφ<sub>Bn</sub>/E<sub>0</sub>)</span>, bu yerda <span class="math">E<sub>0</sub> = E<sub>00</sub>coth(E<sub>00</sub>/k<sub>B</sub>T)</span>. Legirlashni oshirib, <span class="math">R<sub>c</sub></span> ni oʻnlab tartibga kamaytirish mumkin.</p>
+
+  <h2>Geterooʻtish va ikki oʻlchamli elektron gazi</h2>
+  <p>Ikki xil yarimoʻtkazgich orasidagi oʻtish <i>geterooʻtish</i> deyiladi. Eng koʻp oʻrganilgan juftlik — GaAs va Al<sub>x</sub>Ga<sub>1−x</sub>As: panjara doimiylari atigi 0,13 % ga farq qiladi. Zonalar kengligi turlicha boʻlgani uchun chegarada oʻtkazuvchanlik zonasi tubi <span class="math">ΔE<sub>c</sub></span> ga, valent zona shipi <span class="math">ΔE<sub>v</sub></span> ga sakraydi: <span class="math">ΔE<sub>c</sub> + ΔE<sub>v</sub> = ΔE<sub>g</sub></span>. AlGaAs/GaAs da farqning taxminan 2/3 qismi oʻtkazuvchanlik zonasiga, 1/3 qismi valent zonaga toʻgʻri keladi.</p>
+  <p>Endi AlGaAs ni kuchli legirlab, GaAs ni legirlanmagan qoldiramiz. AlGaAs dagi donorlarning elektronlari energiyasi pastroq boʻlgan GaAs ga «tushadi», <span class="math">ΔE<sub>c</sub></span> toʻsigʻi esa ularni qaytarmaydi. Ionlangan donorlar va elektronlar orasidagi maydon GaAs da zonani egadi va chegarada <i>uchburchak kvant oʻra</i> hosil boʻladi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="N-AlGaAs va i-GaAs geteroo'tishining zonalar diagrammasi va uchburchak kvant o'ra"></canvas>
+      <div class="ctl c2" id="c4"></div>
+      <div class="readout" id="r4"></div>
+    </div>
+    <figcaption><b>4-rasm.</b> Chapda (telefonda yuqorida) — N-Al<sub>x</sub>Ga<sub>1−x</sub>As / i-GaAs geterooʻtishning toʻliq zonalar diagrammasi, oʻngda — chegaradagi oʻra kattalashtirilgan: E<sub>1</sub>, E<sub>2</sub> — kvantlangan sathlar, soya — birinchi sathdagi elektronning |ψ|² taqsimoti.</figcaption>
+  </figure>
+
+  <p>Oʻraning kengligi bir necha nanometr — elektronning de Broyl toʻlqin uzunligi tartibida. Shuning uchun chegaraga tik yoʻnalishda harakat kvantlanadi, chegara boʻylab esa elektronlar erkin. Bu <i>ikki oʻlchamli elektron gazi</i> (2DEG); uning zichligi sirt konsentratsiyasi <span class="math">n<sub>s</sub> = ε<sub>s</sub>ℰ/e</span> (sm⁻²) bilan beriladi.</p>
+  <p>Eng muhimi — elektronlar oʻz donorlaridan fazoda ajratilgan: ular toza GaAs da harakatlanadi, ionlar esa AlGaAs da qoladi. Ionlangan aralashmalarda sochilish keskin kamayadi va harakatchanlik, ayniqsa past haroratda, juda yuqori boʻladi. Bu <i>modulyatsion legirlash</i> — yuqori harakatchanlikka ega tranzistor (HEMT) ning asosi; unda zatvor kuchlanishi <span class="math">n<sub>s</sub></span> ni boshqaradi.</p>
+  <aside class="note">Al ulushi oshgan sari ΔE<sub>c</sub> kattalashadi va oʻraga koʻproq elektron sigʻadi. Ammo x ≳ 0,45 da AlGaAs bilvosita zonali boʻlib qoladi va donorlar chuqur sathlar (DX markazlar) hosil qiladi, shuning uchun HEMT larda odatda x ≈ 0,2–0,3 ishlatiladi.</aside>
+
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>1-rasmda oltin (φ<sub>m</sub> = 5,1 V) ni tanlang. Ideal toʻsiq balandligi qancha? Rasm ostida koʻrsatilgan tajribaviy qiymat bilan farqi nimadan kelib chiqadi?</li>
+    <li>2-rasmda φ<sub>Bn</sub> ni 0,60 dan 0,70 V ga oshiring. J<sub>sT</sub> necha marta kamaydi? Javobni exp(0,1/0,0259) bilan tekshiring.</li>
+    <li>3-rasmda N<sub>d</sub> ni 10¹⁸ dan 10²⁰ sm⁻³ gacha oshiring. Kambagʻallashgan soha necha marta torayadi? Bu <span class="math">x<sub>n</sub> ∝ 1/√N<sub>d</sub></span> ga mosmi (V<sub>bi</sub> ham biroz oʻzgarishini hisobga oling)?</li>
+  </ol>
+
+  <details><summary>Barcha hisoblangan qiymatlar va model</summary>
+    <table class="vals" id="vals"></table>
+    <p>Model: T = 300 K, k<sub>B</sub>T = 0,0259 eV. Kremniy: ε<sub>r</sub> = 11,7, χ = 4,01 V, E<sub>g</sub> = 1,12 eV, N<sub>c</sub> = 2,8 × 10¹⁹ sm⁻³; 1–2-rasmlarda N<sub>d</sub> = 5 × 10¹⁵ sm⁻³. Ideal Shottki toʻsigʻi φ<sub>B0</sub> = φ<sub>m</sub> − χ (tasvir kuchlari va interfeys holatlari hisobga olinmagan). Shottki diodi: A<sup>*</sup> = 110 A/(sm²·K²); p⁺n diod: J<sub>s</sub> = 2,12 × 10⁻¹¹ A/sm² (9.3-misol). 2-rasmdagi zonalar chizmasida kuchlanish V<sub>bi</sub> − 0,03 V bilan cheklangan. Ommik kontakt: m<sup>*</sup> = 0,26m<sub>0</sub>, R<sub>c</sub> ≈ (k<sub>B</sub>/eA<sup>*</sup>T)·exp(eφ<sub>Bn</sub>/k<sub>B</sub>T)·exp(eφ<sub>Bn</sub>/E<sub>0</sub> − eφ<sub>Bn</sub>/k<sub>B</sub>T) — oldingi koʻpaytuvchilar soddalashtirilgan, faqat tartibini koʻrsatadi; tunnel oʻtish animatsiyasi sxematik. Geterooʻtish: E<sub>g</sub>(x) = 1,424 + 1,247x eV, ΔE<sub>c</sub> = 2/3·ΔE<sub>g</sub>, GaAs: ε<sub>r</sub> = 13,1, m<sup>*</sup> = 0,067m<sub>0</sub>. n<sub>s</sub> oʻz-oʻzidan moslashgan oddiy model bilan topiladi: AlGaAs dagi kambagʻallashgan qatlam (spacer yoʻq, E<sub>c</sub> − E<sub>F</sub> = 0,05 eV), uchburchak oʻradagi sathlar E<sub>n</sub> = (ħ²/2m<sup>*</sup>)<sup>1/3</sup>[3πeℰ(n − 1/4)/2]<sup>2/3</sup>, faqat birinchi sath toʻladi deb olingan. GaAs ichida zonaning egilishi va |ψ|² (Fang–Hovard funksiyasi) sxematik.</p>
+  </details>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
+<script src="../../assets/common.js"></script>
+<script>
+const q=1.602e-19,kT=0.025852,eps0=8.854e-14,epsSi=11.7*eps0,Nc=2.8e19,chi=4.01,EgSi=1.12;
+const hbar=1.0546e-34,m0=9.109e-31;
+const NdS=5e15,phin1=kT*Math.log(Nc/NdS),phis=chi+phin1;
+const $=id=>document.getElementById(id);
+const S=makeStore({phim:5.1,cont:0,V:0,pB:0.6,Nd3:17,x:0.3,Nd4:18});
+const mob=()=>window.innerWidth<640;
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif';
+const SUBF='500 9px Inter,system-ui,sans-serif';
+function sym(c,x,y,main,sub,col,align){c.save();c.font=SERIF;const w=c.measureText(main).width;c.font=SUBF;const ws=sub?c.measureText(sub).width+1:0;c.restore();
+  if(align==='right')x-=w+ws;else if(align==='center')x-=(w+ws)/2;
+  label(c,main,x,y,{font:SERIF,color:col});if(sub)label(c,sub,x+w+1,y+4,{font:SUBF,color:col});}
+function varrow(c,x,y1,y2,col){if(Math.abs(y2-y1)<3)return;c.save();c.strokeStyle=col;c.lineWidth=1.2;c.beginPath();c.moveTo(x,y1);c.lineTo(x,y2);c.stroke();
+  if(Math.abs(y2-y1)>12){const s=y2>y1?1:-1;c.beginPath();c.moveTo(x-3.5,y1+s*6);c.lineTo(x,y1);c.lineTo(x+3.5,y1+s*6);c.moveTo(x-3.5,y2-s*6);c.lineTo(x,y2);c.lineTo(x+3.5,y2-s*6);c.stroke();}c.restore();}
+function hline(c,x0,x1,y,col,lw,dash){c.save();c.strokeStyle=col;c.lineWidth=lw||1;if(dash)c.setLineDash(dash);c.beginPath();c.moveTo(x0,y);c.lineTo(x1,y);c.stroke();c.restore();}
+function curve(c,x0,x1,f,X,Y,col,lw,dash){c.save();c.strokeStyle=col;c.lineWidth=lw||2.5;c.lineJoin='round';if(dash)c.setLineDash(dash);c.beginPath();
+  for(let i=0;i<=200;i++){const x=x0+(x1-x0)*i/200;i?c.lineTo(X(x),Y(f(x))):c.moveTo(X(x),Y(f(x)));}c.stroke();c.restore();}
+function metalSea(c,x0,x1,yF,yB){c.save();c.fillStyle=cssVar('--atom');c.globalAlpha=.45;c.fillRect(x0,yF,x1-x0,yB-yF);c.restore();}
+
+/* ============ 1-rasm: Shottki to'sig'i hosil bo'lishi ============ */
+buttons($('b1'),S,{key:'cont',options:[[0,'Alohida'],[1,'Tutashtirish']]});
+slider($('c1'),S,{key:'phim',label:'Metall chiqish ishi φ<sub>m</sub>',min:3.9,max:5.1,step:0.01,fmt:v=>fmtN(v,2)+' V'});
+const METALS=[['Al',4.28,0.81],['Ti',4.33,0.60],['Cr',4.5,0.60],['W',4.55,0.66],['Au',5.1,0.83]];
+const F1={J:0,dots:Array.from({length:12},()=>({u:Math.random(),j:rnd(0,6)})),fly:[]};
+function f1calc(){const pm=S.get('phim'),pB=pm-chi,Vbi=pB-phin1;return {pm,pB,Vbi,xn:Vbi>0?Math.sqrt(2*epsSi*Vbi/(q*NdS)):0};}
+function f1draw(dt){
+  const r=f1calc(),tgt=S.get('cont');
+  const dJ=dt/1500;F1.J=tgt>F1.J?Math.min(tgt,F1.J+dJ):Math.max(tgt,F1.J-dJ);const J=F1.J;
+  const {c,w,h}=fitCanvas($('f1'),mob()?0.95:0.5);
+  const P=12,T=30,B=h-26,Rr=w-(mob()?36:44),mw=w*(mob()?0.24:0.26);
+  const G=(mob()?26:56)*(1-J),xs=P+mw+G,sw=Rr-xs,XM=0.8e-4;
+  const X=x=>xs+x/XM*sw,Emax=0.45,Emin=-6.35,Y=E=>T+(Emax-E)/(Emax-Emin)*(B-T);
+  const d=-r.Vbi*J,Ecb=-chi+d,Eci=-chi,D=Eci-Ecb,lam=Math.sqrt(epsSi*kT/(q*NdS));
+  const wn=D>0?Math.sqrt(2*epsSi*D/(q*NdS)):0;
+  const sh=x=>D>0?(x<wn?(1-x/wn)**2:0):Math.exp(-x/lam);
+  const Ec=x=>Ecb+D*sh(x),EFs=-phis+(phis-r.pm)*J;
+  // fon
+  c.fillStyle=cssVar('--rule');c.globalAlpha=.5;c.fillRect(P,T,mw,B-T);c.globalAlpha=1;
+  metalSea(c,P,P+mw,Y(-r.pm),B);
+  c.fillStyle=cssVar('--n-tint');c.fillRect(xs,T,sw,B-T);
+  if(wn>0){c.fillStyle=cssVar('--dep-tint');c.fillRect(xs,T,X(wn)-xs,B-T);
+    const n=Math.max(1,Math.floor((X(wn)-xs)/14));for(let i=0;i<n;i++)drawIon(c,xs+8+i*14,B-12,1,7);
+    c.fillStyle=cssVar('--ion-p');c.globalAlpha=.8;c.fillRect(P+mw-3,B-18,3,12);c.globalAlpha=1;}
+  label(c,'metall',P+mw/2,T-14,{align:'center',font:'600 13px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  label(c,'n-Si',xs+sw/2,T-14,{align:'center',font:'600 13px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  // vakuum sathi
+  hline(c,P,P+mw,Y(0),cssVar('--muted'),1.4,[5,4]);
+  curve(c,0,XM,x=>Ec(x)+chi,X,Y,cssVar('--muted'),1.4,[5,4]);
+  // zonalar
+  curve(c,0,XM,Ec,X,Y,cssVar('--ec'),3);curve(c,0,XM,x=>Ec(x)-EgSi,X,Y,cssVar('--ev'),3);
+  hline(c,P,P+mw,Y(-r.pm),cssVar('--ef'),2);hline(c,xs,Rr,Y(EFs),cssVar('--ef'),2,[6,4]);
+  sym(c,Rr+5,Y(0)-2,'E','0',cssVar('--muted'));sym(c,Rr+5,Y(Ecb)-2,'E','c',cssVar('--ec'));
+  sym(c,Rr+5,Y(Ecb-EgSi),'E','v',cssVar('--ev'));{let yf=Y(EFs)+2;if(yf-Y(Ecb)<16)yf=Y(Ecb)+16;sym(c,Rr+5,yf,'E','F',cssVar('--ef'));}
+  // elektronlar
+  const k=dt/16;
+  F1.dots.forEach(p=>{p.j+=0.05*k;const x=Math.max(wn*1.05,0.02e-4)+(XM-Math.max(wn*1.05,0.02e-4))*p.u;
+    drawElectron(c,X(x)+Math.sin(p.j)*3,Y(Ec(x))-6,4.4);});
+  if(J>0&&J<1&&tgt===1&&Math.abs(r.Vbi)>0.05&&Math.random()<0.25*k)F1.fly.push(r.Vbi>0?{x:rnd(0.02,0.4)*1e-4,m:0,d:-1,a:1}:{x:0,m:rnd(0.1,0.8)*mw,d:1,a:1});
+  F1.fly.forEach(f=>{
+    if(f.d<0){if(f.x>0){f.x-=0.01e-4*k;drawElectron(c,X(Math.max(0,f.x)),Y(Ec(Math.max(0,f.x)))-6,4.4);}
+      else{f.m+=0.8*k;f.a-=0.025*k;drawElectron(c,xs-G-f.m,Y(-r.pm)-6,4.4,clamp(f.a,0,1));}}
+    else{if(f.m>0){f.m-=0.8*k;drawElectron(c,P+mw-f.m,Y(-r.pm)-6,4.4);}
+      else{f.x+=0.006e-4*k;f.a-=0.03*k;drawElectron(c,X(f.x),Y(Ec(f.x))-6,4.4,clamp(f.a,0,1));}}});
+  F1.fly=F1.fly.filter(f=>f.a>0);
+  // o'lchov strelkalari
+  const ink=cssVar('--ink2');
+  if(J<0.15){const a=1-J/0.15;c.globalAlpha=a;
+    const xm=P+mw*0.55;varrow(c,xm,Y(0),Y(-r.pm),ink);label(c,'eφm = '+fmtN(r.pm,2)+' eV',xm+6,(Y(0)+Y(-r.pm))/2,{bg:cssVar('--panel'),color:cssVar('--ink')});
+    const x1=xs+sw*(mob()?0.22:0.3),x2=xs+sw*(mob()?0.62:0.62);
+    varrow(c,x1,Y(0),Y(-chi),ink);label(c,'eχ',x1+6,(Y(0)+Y(-chi))/2,{bg:cssVar('--n-tint'),color:cssVar('--ink')});
+    varrow(c,x2,Y(0),Y(-phis),ink);label(c,'eφs = '+fmtN(phis,2),x2+6,(Y(0)+Y(-phis))/2+10,{bg:cssVar('--n-tint'),color:cssVar('--ink')});
+    c.globalAlpha=1;}
+  if(J>0.85){const a=(J-0.85)/0.15;c.globalAlpha=a;
+    if(r.Vbi>0.02){const xb=xs+5;varrow(c,xb,Y(-r.pm),Y(Eci),cssVar('--accent'));
+      label(c,'eφB0 = '+fmtN(r.pB,2)+' eV',xb+7,(Y(-r.pm)+Y(Eci))/2,{bg:cssVar('--dep-tint'),color:cssVar('--accent'),font:'600 12px Inter,system-ui,sans-serif'});
+      const xv=X(Math.min(XM*0.92,wn+0.12e-4));hline(c,xs,xv+6,Y(Eci),cssVar('--ink2'),1,[2,3]);varrow(c,xv,Y(Eci),Y(Ecb),ink);
+      label(c,'eVbi = '+fmtN(r.Vbi,2),xv+6,(Y(Eci)+Y(Ecb))/2,{bg:cssVar('--n-tint'),color:cssVar('--ink')});
+      c.strokeStyle=ink;c.lineWidth=1;const yb=B-22;c.beginPath();c.moveTo(xs,yb+4);c.lineTo(xs,yb);c.lineTo(X(wn),yb);c.lineTo(X(wn),yb+4);c.stroke();
+      label(c,'xn',(xs+X(wn))/2,yb-8,{align:'center',bg:cssVar('--dep-tint')});}
+    else label(c,'toʻsiq yoʻq: elektronlar sirtda toʻplanadi',xs+8,Y(Ecb)-34,{bg:cssVar('--n-tint'),color:cssVar('--ink')});
+    c.globalAlpha=1;}
+  const near=METALS.find(m=>Math.abs(m[1]-r.pm)<0.025);
+  $('r1').innerHTML=`<span>φ<sub>B0</sub> = φ<sub>m</sub> − χ <b>${fmtN(r.pB,2)} V</b></span><span>V<sub>bi</sub> <b>${fmtN(r.Vbi,2)} V</b></span>`+
+    (r.Vbi>0?`<span>x<sub>n</sub> <b>${fmtN(r.xn*1e4,3)} mkm</b></span><span>Kontakt <b>toʻgʻrilovchi</b></span>`:`<span>Kontakt <b>ommik</b> (φ<sub>m</sub> &lt; φ<sub>s</sub>)</span>`)+
+    (near?`<span>${near[0]}: tajribada φ<sub>Bn</sub> <b>${fmtN(near[2],2)} V</b></span>`:'');
+}
+
+/* ============ 2-rasm: Shottki diodi VAX ============ */
+slider($('c2'),S,{key:'V',label:'Kuchlanish V',min:-0.5,max:0.75,step:0.01,fmt:v=>(v>0?'+':'')+fmtN(v,2)+' V'});
+slider($('c2'),S,{key:'pB',label:'Toʻsiq φ<sub>Bn</sub>',min:0.5,max:0.9,step:0.01,fmt:v=>fmtN(v,2)+' V'});
+const Jpn0=2.12e-11,Astar=110;
+function f2calc(){const pB=S.get('pB'),V=S.get('V'),Vbi=pB-phin1,Js=Astar*300*300*Math.exp(-pB/kT);
+  return {pB,V,Vbi,Js,Jsh:Js*(Math.exp(V/kT)-1),Jp:Jpn0*(Math.exp(V/kT)-1),V5s:kT*Math.log(5/Js+1),V5p:kT*Math.log(5/Jpn0+1)};}
+const F2={idle:Array.from({length:10},()=>({u:Math.random(),j:rnd(0,6)})),fly:[]};
+function f2draw(dt){
+  const r=f2calc(),wide=!mob();
+  const {c,w,h}=fitCanvas($('f2'),wide?0.44:1.3);
+  // A panel: zonalar
+  const ax0=8,ax1=wide?w*0.44:w-30,ay0=24,ay1=wide?h-24:h*0.46;
+  const mw=(ax1-ax0)*0.26,xs=ax0+mw,XM=0.7e-4,X=x=>xs+x/XM*(ax1-xs);
+  const Emax=1.02,Emin=-0.62,Y=E=>ay0+(Emax-E)/(Emax-Emin)*(ay1-ay0);
+  const Vc=Math.min(r.V,r.Vbi-0.03),Ecb=Vc+phin1,D=r.pB-Ecb,wn=Math.sqrt(2*epsSi*D/(q*NdS));
+  const Ec=x=>x<wn?Ecb+D*(1-x/wn)**2:Ecb;
+  c.fillStyle=cssVar('--rule');c.globalAlpha=.5;c.fillRect(ax0,ay0,mw,ay1-ay0);c.globalAlpha=1;metalSea(c,ax0,xs,Y(0),ay1);
+  c.fillStyle=cssVar('--n-tint');c.fillRect(xs,ay0,ax1-xs,ay1-ay0);c.fillStyle=cssVar('--dep-tint');c.fillRect(xs,ay0,X(Math.min(wn,XM))-xs,ay1-ay0);
+  curve(c,0,XM,Ec,X,Y,cssVar('--ec'),3);
+  hline(c,ax0,xs,Y(0),cssVar('--ef'),2);hline(c,xs,ax1,Y(Vc),cssVar('--ef'),2,[6,4]);
+  sym(c,ax1+4,Y(Ecb)-2,'E','c',cssVar('--ec'));{let yf=Y(Vc)+2;if(yf-Y(Ecb)<15)yf=Y(Ecb)+15;sym(c,ax1+4,yf,'E','F',cssVar('--ef'));}
+  label(c,'metall',ax0+mw/2,ay0-12,{align:'center',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  label(c,'n-Si',(xs+ax1)/2,ay0-12,{align:'center',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  const ink=cssVar('--ink2');varrow(c,xs+5,Y(0),Y(r.pB),cssVar('--accent'));label(c,'eφBn',xs+10,Y(r.pB/2),{color:cssVar('--accent'),bg:cssVar('--dep-tint'),font:'600 12px Inter,system-ui,sans-serif'});
+  const xv=X(Math.min(XM*0.9,wn+0.08e-4));hline(c,xs,xv+5,Y(r.pB),ink,1,[2,3]);varrow(c,xv,Y(r.pB),Y(Ecb),ink);
+  if(Y(Ecb)-Y(r.pB)>22)label(c,'e(Vbi−V)',xv+5,(Y(r.pB)+Y(Ecb))/2,{bg:cssVar('--n-tint'),color:cssVar('--ink')});
+  if(Math.abs(Vc)>0.01){varrow(c,ax1-8,Y(0),Y(Vc),cssVar('--ef'));label(c,'eV',ax1-12,(Y(0)+Y(Vc))/2,{align:'right',color:cssVar('--ef'),bg:cssVar('--n-tint')});hline(c,X(XM*0.7),ax1,Y(0),cssVar('--ef'),1,[2,3]);}
+  // zarrachalar
+  const k=dt/16,Evis=0.08,r1=Math.min(0.5,0.5*Math.exp(-(r.Vbi-Vc)/Evis))*k,r2=0.5*Math.exp(-r.Vbi/Evis)*k;
+  if(F2.fly.length<40){
+    if(Math.random()<r1)F2.fly.push({t:'sm',x:rnd(wn,XM),E:r.pB+rnd(0.02,0.08),a:1});
+    if(Math.random()<r2)F2.fly.push({t:'ms',x:-rnd(0.2,0.8)*mw,E:r.pB+rnd(0.02,0.08),a:1});
+    if(Math.random()<0.03*k)F2.fly.push({t:'b',x:rnd(wn,XM),E:Ecb+rnd(0.1,0.8)*D,dir:-1,a:1});}
+  const sp=0.006e-4*k;
+  F2.fly.forEach(f=>{
+    if(f.t==='sm'){f.x-=f.x>0?sp:mw*0.012*k;if(f.x<0)f.a-=0.025*k;drawElectron(c,f.x>=0?X(f.x):xs+f.x,Y(f.E)-5,4.3,clamp(f.a,0,1));}
+    else if(f.t==='ms'){f.x+=f.x<0?mw*0.012*k:sp;if(f.x>wn)f.a-=0.03*k;drawElectron(c,f.x<0?xs+f.x:X(f.x),Y(f.E)-5,4.3,clamp(f.a,0,1));}
+    else{f.x+=f.dir*sp;if(f.dir<0&&Ec(f.x)>=f.E)f.dir=1;if(f.dir>0&&f.x>XM)f.a=0;drawElectron(c,X(f.x),Y(Math.max(f.E,Ec(f.x)))-5,4.3);}});
+  F2.fly=F2.fly.filter(f=>f.a>0);
+  F2.idle.forEach(p=>{p.j+=0.05*k;const x=wn+(XM-wn)*p.u;drawElectron(c,X(x)+Math.sin(p.j)*3,Y(Ecb)-5,4.3);});
+  // B panel: VAX (log)
+  const bx0=wide?w*0.53:44,bx1=w-12,by0=wide?14:h*0.53,by1=h-28;
+  const v0=-0.5,v1=0.8,l0=-13,l1=3,XX=v=>bx0+(v-v0)/(v1-v0)*(bx1-bx0),YY=lj=>by1-(clamp(lj,l0,l1)-l0)/(l1-l0)*(by1-by0);
+  c.strokeStyle=cssVar('--rule');c.lineWidth=1;
+  for(let e=l0+1;e<=l1;e+=2){c.beginPath();c.moveTo(bx0,YY(e));c.lineTo(bx1,YY(e));c.stroke();}
+  for(let v=-0.4;v<=0.81;v+=0.2){c.beginPath();c.moveTo(XX(v),by0);c.lineTo(XX(v),by1);c.stroke();}
+  c.strokeStyle=cssVar('--ink2');c.beginPath();c.moveTo(XX(0),by0);c.lineTo(XX(0),by1);c.moveTo(bx0,by1);c.lineTo(bx1,by1);c.stroke();
+  [-12,-8,-4,0].forEach(e=>label(c,'10'+sup(e),bx0-4,YY(e),{align:'right',font:'500 10px Inter,system-ui,sans-serif'}));
+  [-0.4,0,0.4].forEach(v=>label(c,fmtN(v,1),XX(v),by1+12,{align:'center',font:'500 10px Inter,system-ui,sans-serif'}));
+  label(c,'V, V',bx1,by1+12,{align:'right',font:'500 10px Inter,system-ui,sans-serif'});
+  label(c,'|J|, A/sm²',bx0+4,by0+6,{font:'500 10px Inter,system-ui,sans-serif',bg:cssVar('--panel')});
+  const lj=(Js,v)=>Math.log10(Math.max(1e-30,Math.abs(Js*(Math.exp(v/kT)-1))));
+  hline(c,bx0,bx1,YY(Math.log10(5)),cssVar('--muted'),1,[4,4]);
+  const pl=(Js,col)=>{c.save();c.strokeStyle=col;c.lineWidth=2.5;c.beginPath();let st=false;for(let i=0;i<=400;i++){const v=v0+(v1-v0)*i/400,L=lj(Js,v);if(L>l1+0.5){break;}const y=YY(L);st?c.lineTo(XX(v),y):c.moveTo(XX(v),y);st=true;}c.stroke();c.restore();};
+  pl(r.Js,cssVar('--accent'));pl(Jpn0,cssVar('--ec'));
+  label(c,'Shottki',XX(-0.45),YY(Math.log10(r.Js))-10,{color:cssVar('--accent'),font:'600 12px Inter,system-ui,sans-serif'});
+  label(c,'p⁺n',XX(-0.45),YY(Math.log10(Jpn0))-10,{color:cssVar('--ec'),font:'600 12px Inter,system-ui,sans-serif'});
+  // 5 A/sm2 dagi kuchlanish farqi
+  const y5=YY(Math.log10(5));c.save();c.fillStyle=cssVar('--ink2');[r.V5s,r.V5p].forEach(v=>{c.beginPath();c.arc(XX(v),y5,3,0,7);c.fill();});c.restore();
+  c.save();c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(XX(r.V5s),y5-12);c.lineTo(XX(r.V5p),y5-12);c.stroke();c.restore();
+  label(c,'ΔV = '+fmtN(r.V5p-r.V5s,2)+' V',(XX(r.V5s)+XX(r.V5p))/2,y5-22,{align:'center',bg:cssVar('--panel'),color:cssVar('--ink')});
+  [[r.Js,cssVar('--accent')],[Jpn0,cssVar('--ec')]].forEach(([Js,col])=>{const L=lj(Js,r.V);if(L>l1)return;c.save();c.fillStyle=cssVar('--paper');c.strokeStyle=col;c.lineWidth=2;c.beginPath();c.arc(XX(r.V),YY(L),5.5,0,7);c.fill();c.stroke();c.restore();});
+  $('r2').innerHTML=`<span>J<sub>sT</sub> <b>${fmtE(r.Js,1)} A/sm²</b></span><span>J<sub>sT</sub>/J<sub>s</sub>(p⁺n) <b>${fmtE(r.Js/Jpn0,1)}</b></span>`+
+    `<span>5 A/sm² da: Shottki <b>${fmtN(r.V5s,2)} V</b>, p⁺n <b>${fmtN(r.V5p,2)} V</b></span>`;
+}
+
+/* ============ 3-rasm: ommik kontakt ============ */
+slider($('c3'),S,{key:'Nd3',label:'Legirlash N<sub>d</sub>',min:16,max:20.3,step:0.05,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+const pB3=0.6,mS=0.26*m0;
+function f3calc(){const Nd=10**S.get('Nd3'),phin=kT*Math.log(Nc/Nd),Vbi=pB3-phin,xn=Math.sqrt(2*epsSi*Vbi/(q*Nd));
+  const E00=hbar/2*Math.sqrt(Nd*1e6/(mS*11.7*8.854e-12)),E0=E00/Math.tanh(E00/kT);
+  const RcTE=8.617e-5/(Astar*300)*Math.exp(pB3/kT),Rc=RcTE*Math.exp(pB3/E0-pB3/kT);
+  const reg=E00<kT/3?'TE':E00>3*kT?'FE':'TFE';return {Nd,phin,Vbi,xn,E00,E0,Rc,reg,pv:clamp((E0/kT-1)/3.2,0,0.92)};}
+const F3={el:[]};
+function f3draw(dt){
+  const r=f3calc(),{c,w,h}=fitCanvas($('f3'),mob()?0.9:0.46);
+  const P=10,T=26,B=h-30,Rr=w-(mob()?32:40),mw=(Rr-P)*0.2,xs=P+mw,XM=60e-7,X=x=>xs+x/XM*(Rr-xs);
+  const Emax=0.78,Emin=-0.32,Y=E=>T+(Emax-E)/(Emax-Emin)*(B-T);
+  const Ecb=r.phin,Ec=x=>x<r.xn?Ecb+r.Vbi*(1-x/r.xn)**2:Ecb;
+  c.fillStyle=cssVar('--rule');c.globalAlpha=.5;c.fillRect(P,T,mw,B-T);c.globalAlpha=1;metalSea(c,P,xs,Y(0),B);
+  c.fillStyle=cssVar('--n-tint');c.fillRect(xs,T,Rr-xs,B-T);c.fillStyle=cssVar('--dep-tint');c.fillRect(xs,T,X(Math.min(r.xn,XM))-xs,B-T);
+  // E_F dan pastdagi o'tkazuvchanlik elektronlari (aynigan holat)
+  if(Ecb<0){c.save();c.fillStyle=cssVar('--elec');c.globalAlpha=.18;c.beginPath();c.moveTo(X(XM),Y(0));
+    for(let i=200;i>=0;i--){const x=XM*i/200;c.lineTo(X(x),Y(Math.min(0,Ec(x))));}c.lineTo(X(XM),Y(0));c.fill();c.restore();}
+  curve(c,0,XM,Ec,X,Y,cssVar('--ec'),3);
+  hline(c,P,Rr,Y(0),cssVar('--ef'),2);
+  sym(c,Rr+5,Y(Ecb)+(Math.abs(Ecb)<0.04?-8:0),'E','c',cssVar('--ec'));sym(c,Rr+5,Y(0)+(Math.abs(Ecb)<0.04?8:0),'E','F',cssVar('--ef'));
+  label(c,'metall',P+mw/2,T-12,{align:'center',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  label(c,r.Nd>=1e19?'n⁺-Si':'n-Si',(xs+Rr)/2,T-12,{align:'center',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  varrow(c,xs+5,Y(0),Y(pB3),cssVar('--accent'));label(c,'eφBn = 0,60 eV',xs+10,Y(pB3)+12,{color:cssVar('--accent'),bg:cssVar('--dep-tint'),font:'600 12px Inter,system-ui,sans-serif'});
+  // o'lchov chizig'i
+  const yb=B+12;c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.beginPath();c.moveTo(xs,yb-4);c.lineTo(xs,yb);c.lineTo(X(Math.min(r.xn,XM)),yb);if(r.xn<=XM)c.lineTo(X(r.xn),yb-4);c.stroke();
+  label(c,r.xn<=XM?'xn = '+fmtN(r.xn*1e7,1)+' nm':'xn = '+fmtN(r.xn*1e7,0)+' nm →',r.xn<=XM?X(r.xn)+6:Rr,yb,{align:r.xn<=XM?'left':'right',bg:cssVar('--panel')});
+  // elektronlar
+  const k=dt/16,sp=0.45e-7*k;
+  if(F3.el.length<20&&Math.random()<0.09*k){
+    const fromM=Math.random()<0.5;let E;
+    if(Ecb<0)E=rnd(Ecb+0.01,-0.005);else E=Math.max(Ecb,Ec(XM))+rnd(0.005,0.03);
+    if(fromM)F3.el.push({x:-rnd(0.3,0.9)*mw,E:rnd(-0.035,-0.005),d:1,s:'go',a:1,m:1});
+    else F3.el.push({x:XM,E,d:-1,s:'go',a:1,m:0});}
+  const xt=E=>E>=pB3?0:E<=Ecb?r.xn:r.xn*(1-Math.sqrt((E-Ecb)/r.Vbi));
+  F3.el.forEach(e=>{const t=xt(e.E);
+    if(e.s==='go'){if(e.d<0){e.x-=sp;if(e.x<=t){if(Math.random()<r.pv)e.s='tun';else{e.s='back';e.d=1;}}}
+      else{e.x+=e.x<0?mw*0.01*k:sp;if(e.x>=0){if(Math.random()<r.pv)e.s='tun';else{e.s='back';e.d=-1;}}}}
+    else if(e.s==='tun'){e.x+=e.d*sp*0.8;if((e.d<0&&e.x<=0)||(e.d>0&&e.x>=t))e.s='out';}
+    else if(e.s==='out'){e.x+=e.d<0?-mw*0.012*k:sp;if(e.d<0&&e.x<-mw*0.85)e.a=0;if(e.d>0&&e.x>XM)e.a=0;}
+    else if(e.s==='back'){e.x+=e.d<0?-mw*0.012*k:sp;if(e.x>XM||e.x<-mw*0.9)e.a=0;}
+    const px=e.x<0?xs+e.x:X(e.x),py=Y(e.E)-5;
+    if(e.s==='tun'){const x0=e.d<0?X(t):xs;c.save();c.strokeStyle=cssVar('--elec');c.globalAlpha=.6;c.setLineDash([3,3]);c.lineWidth=1.5;c.beginPath();c.moveTo(x0,py);c.lineTo(px,py);c.stroke();c.restore();
+      drawElectron(c,px,py,4.3,0.5);}
+    else drawElectron(c,px,py,4.3,e.x>XM-2e-7?0.5:1);});
+  F3.el=F3.el.filter(e=>e.a>0);
+  const regN={TE:'termoelektron emissiya (TE)',TFE:'termoelektron-maydon (TFE)',FE:'tunnel, maydon emissiyasi (FE)'}[r.reg];
+  $('r3').innerHTML=`<span>x<sub>n</sub> <b>${r.xn<1e-4?fmtN(r.xn*1e7,1)+' nm':fmtN(r.xn*1e4,2)+' mkm'}</b></span><span>E<sub>00</sub> <b>${fmtN(r.E00*1e3,1)} meV</b> = <b>${fmtN(r.E00/kT,2)}</b> k<sub>B</sub>T</span>`+
+    `<span>Mexanizm <b>${regN}</b></span><span>R<sub>c</sub> ≈ <b>${fmtE(r.Rc,0)} Ω·sm²</b></span>`;
+}
+
+/* ============ 4-rasm: geteroo'tish va 2DEG ============ */
+slider($('c4'),S,{key:'x',label:'Al ulushi x',min:0.1,max:0.45,step:0.01,fmt:v=>fmtN(v,2)});
+slider($('c4'),S,{key:'Nd4',label:'AlGaAs da N<sub>d</sub>',min:17.3,max:18.7,step:0.05,fmt:v=>fmtE(10**v,1)+' sm⁻³'});
+const epsG=13.1*eps0,mG=0.067*m0,D2=mG/(Math.PI*hbar*hbar)*q*1e-4,EgG=1.424,dlt=0.05,EcbG=0.55;
+const En=(F,n)=>Math.cbrt(hbar*hbar/(2*mG))*Math.pow(1.5*Math.PI*(n-0.25)*q*F*100,2/3)/q;
+function f4calc(){const x=S.get('x'),Nd=10**S.get('Nd4'),EgA=EgG+1.247*x,dEg=1.247*x,dEc=dEg*2/3,dEv=dEg/3;
+  const g=ns=>{const F=q*ns/epsG,ef=En(F,1)+ns/D2,V2=dEc-ef-dlt;return ns-Math.sqrt(2*epsG*Nd*Math.max(0,V2)/q);};
+  let a=0,b=6e12;for(let i=0;i<60;i++){const m=(a+b)/2;g(m)>0?b=m:a=m;}
+  const ns=(a+b)/2,F=q*ns/epsG,E1=En(F,1),E2=En(F,2),ef=E1+ns/D2,Eci=-ef,V2=dEc-ef-dlt;
+  return {x,Nd,EgA,dEg,dEc,dEv,ns,F,E1,E2,ef,Eci,V2,wd:ns/Nd,zav:F>0?2*E1/(3*F):0};}
+const F4={el:Array.from({length:40},()=>({z:Math.random(),e:Math.random(),t:rnd(0,6)}))};
+function f4draw(dt){
+  const r=f4calc(),wide=!mob();
+  const {c,w,h}=fitCanvas($('f4'),wide?0.46:1.35);
+  const lam=r.F>0?(EcbG-r.Eci)/r.F:1;
+  const Ec=z=>z>=0?EcbG-(EcbG-r.Eci)*Math.exp(-z/lam):(z>-r.wd?r.Eci+r.dEc+r.F*z+q*r.Nd/(2*epsG)*z*z:r.Eci+r.dEc-r.V2);
+  const Ev=z=>Ec(z)-(z<0?r.EgA:EgG);
+  // A panel
+  const ax0=8,ax1=wide?w*0.47:w-34,ay0=26,ay1=wide?h-26:h*0.47;
+  const z0=-30e-7,z1=60e-7,X=z=>ax0+(z-z0)/(z1-z0)*(ax1-ax0),Emax=0.8,Emin=-2.1,Y=E=>ay0+(Emax-E)/(Emax-Emin)*(ay1-ay0);
+  c.fillStyle=cssVar('--n-tint');c.fillRect(ax0,ay0,X(0)-ax0,ay1-ay0);c.fillStyle=cssVar('--dep-tint');c.fillRect(X(-r.wd),ay0,X(0)-X(-r.wd),ay1-ay0);
+  c.fillStyle=cssVar('--rule');c.globalAlpha=.35;c.fillRect(X(0),ay0,ax1-X(0),ay1-ay0);c.globalAlpha=1;
+  label(c,'N-AlGaAs',(ax0+X(0))/2,ay0-12,{align:'center',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  label(c,'i-GaAs',(X(0)+ax1)/2,ay0-12,{align:'center',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  const seg=(f,col)=>{curve(c,z0,-1e-10,f,X,Y,col,3);curve(c,0,z1,f,X,Y,col,3);c.save();c.strokeStyle=col;c.lineWidth=3;c.beginPath();c.moveTo(X(0),Y(f(-1e-10)));c.lineTo(X(0),Y(f(0)));c.stroke();c.restore();};
+  seg(Ec,cssVar('--ec'));seg(Ev,cssVar('--ev'));hline(c,ax0,ax1,Y(0),cssVar('--ef'),1.8,[6,4]);
+  sym(c,ax1+4,Y(Ec(z1)),'E','c',cssVar('--ec'));sym(c,ax1+4,Y(Ev(z1)),'E','v',cssVar('--ev'));sym(c,ax1+4,Y(0)+(Math.abs(Ec(z1))<0.15?14:0)+12,'E','F',cssVar('--ef'));
+  const ink=cssVar('--ink2');
+  const xa=X(-3e-7);hline(c,xa-4,X(4e-7),Y(r.Eci),ink,1,[2,3]);varrow(c,xa,Y(r.Eci),Y(r.Eci+r.dEc),cssVar('--accent'));
+  label(c,'ΔEc = '+fmtN(r.dEc,2),xa-5,Y(r.Eci+r.dEc/2),{align:'right',color:cssVar('--accent'),bg:cssVar('--dep-tint'),font:'600 12px Inter,system-ui,sans-serif'});
+  const Evi=r.Eci-EgG;hline(c,X(-5e-7),X(5e-7),Y(Evi),ink,1,[2,3]);varrow(c,X(4e-7),Y(Evi),Y(Evi-r.dEv),cssVar('--accent'));
+  label(c,'ΔEv = '+fmtN(r.dEv,2),X(4e-7)+6,Y(Evi-r.dEv/2)+4,{color:cssVar('--accent'),bg:cssVar('--panel'),font:'600 12px Inter,system-ui,sans-serif'});
+  for(let i=0,n=Math.floor((X(0)-X(-r.wd))/12);i<n;i++)drawIon(c,X(0)-7-i*12,ay1-12,1,7);
+  // kattalashtirish ramkasi
+  const Zz0=-8e-7,Zz1=22e-7,ZE0=r.Eci-0.06,ZE1=r.Eci+r.dEc+0.04;
+  c.save();c.strokeStyle=cssVar('--muted');c.setLineDash([3,3]);c.lineWidth=1;c.strokeRect(X(Zz0),Y(ZE1),X(Zz1)-X(Zz0),Y(ZE0)-Y(ZE1));c.restore();
+  // B panel: zoom
+  const bx0=wide?w*0.56:12,bx1=w-34,by0=wide?26:h*0.56,by1=h-26;
+  const XB=z=>bx0+(z-Zz0)/(Zz1-Zz0)*(bx1-bx0),YB=E=>by0+(ZE1-E)/(ZE1-ZE0)*(by1-by0);
+  c.save();c.beginPath();c.rect(bx0,by0-4,bx1-bx0,by1-by0+8);c.clip();
+  c.fillStyle=cssVar('--n-tint');c.fillRect(bx0,by0,XB(0)-bx0,by1-by0);c.fillStyle=cssVar('--dep-tint');c.fillRect(Math.max(bx0,XB(-r.wd)),by0,XB(0)-Math.max(bx0,XB(-r.wd)),by1-by0);
+  c.fillStyle=cssVar('--rule');c.globalAlpha=.35;c.fillRect(XB(0),by0,bx1-XB(0),by1-by0);c.globalAlpha=1;
+  for(let z=-1.2e-7;z>Math.max(Zz0,-r.wd);z-=1.6e-7)for(let j=0;j<3;j++)drawIon(c,XB(z),by1-14-j*16,1,7);
+  // |psi|^2 (Fang-Hovard)
+  const bb=r.zav>0?3/r.zav:1e9,amp=Math.min(46,(by1-by0)*0.22);
+  if(r.ns>2e10){c.save();c.fillStyle=cssVar('--elec');c.globalAlpha=.16;c.beginPath();c.moveTo(XB(0),YB(r.E1+r.Eci));
+    for(let i=0;i<=160;i++){const z=Zz1*i/160,v=(bb*z)**2*Math.exp(-bb*z)/(4*Math.exp(-2));c.lineTo(XB(z),YB(r.E1+r.Eci)-amp*v);}
+    c.lineTo(XB(Zz1),YB(r.E1+r.Eci));c.fill();c.restore();}
+  curve(c,Zz0,-1e-10,Ec,XB,YB,cssVar('--ec'),3);curve(c,0,Zz1,Ec,XB,YB,cssVar('--ec'),3);
+  c.save();c.strokeStyle=cssVar('--ec');c.lineWidth=3;c.beginPath();c.moveTo(XB(0),YB(Ec(-1e-10)));c.lineTo(XB(0),YB(r.Eci));c.stroke();c.restore();
+  hline(c,bx0,bx1,YB(0),cssVar('--ef'),1.8,[6,4]);
+  const lev=(E,n)=>{const Ea=E+r.Eci;let zr=Zz1;for(let z=0;z<Zz1;z+=0.05e-7){if(Ec(z)>=Ea){zr=z;break;}}hline(c,XB(0),XB(zr),YB(Ea),cssVar('--ink'),1.4,n>1?[4,3]:null);
+    label(c,'E'+(n===1?'₁':'₂'),XB(zr)+8,YB(Ea)+8,{color:cssVar('--ink'),font:'italic 600 13px "Source Serif 4",Georgia,serif'});};
+  if(r.ns>2e10){lev(r.E1,1);if(r.E2+r.Eci<ZE1)lev(r.E2,2);}
+  // elektronlar
+  const ne=Math.round(clamp(r.ns/4e10,0,40)),k=dt/16;
+  for(let i=0;i<ne;i++){const p=F4.el[i];p.t+=0.04*k;if(Math.random()<0.01*k){p.z=Math.random();p.e=Math.random();}
+    // z ~ gamma(3,b) ning taxminiy kvantili
+    const zz=(0.4+2.6*p.z)/bb*(1+0.06*Math.sin(p.t)),E=r.Eci+r.E1+(r.ef-r.E1)*p.e;
+    if(XB(zz)<bx1-4)drawElectron(c,XB(zz),YB(E)-4,4,0.9);}
+  c.restore();
+  sym(c,bx1+4,YB(0),'E','F',cssVar('--ef'));sym(c,bx1+4,YB(Ec(Zz1)),'E','c',cssVar('--ec'));
+  label(c,'chegaradagi oʻra (kattalashtirilgan)',(bx0+bx1)/2,by0-12,{align:'center',font:'600 12px Inter,system-ui,sans-serif',color:cssVar('--ink')});
+  c.save();c.strokeStyle=cssVar('--ink2');c.lineWidth=1;const ys=by1+12,z5=5e-7;c.beginPath();c.moveTo(XB(0),ys-3);c.lineTo(XB(0),ys);c.lineTo(XB(z5),ys);c.lineTo(XB(z5),ys-3);c.stroke();c.restore();
+  label(c,'5 nm',XB(z5)+5,ys,{});
+  $('r4').innerHTML=`<span>ΔE<sub>g</sub> <b>${fmtN(r.dEg,3)} eV</b></span><span>ΔE<sub>c</sub> / ΔE<sub>v</sub> <b>${fmtN(r.dEc,3)} / ${fmtN(r.dEv,3)} eV</b></span>`+
+    `<span>n<sub>s</sub> <b>${fmtE(r.ns,1)} sm⁻²</b></span><span>E<sub>1</sub> <b>${fmtN(r.E1*1e3,0)} meV</b></span><span>ℰ <b>${fmtE(r.F,1)} V/sm</b></span>`;
+}
+
+/* ============ jadval ============ */
+function vals(){const a=f1calc(),b=f2calc(),d=f3calc(),e=f4calc();$('vals').innerHTML=[
+  ['φ<sub>n</sub> = (k<sub>B</sub>T/e)ln(N<sub>c</sub>/N<sub>d</sub>), N<sub>d</sub> = 5 × 10¹⁵',fmtN(phin1,3)+' V'],
+  ['Ideal toʻsiq φ<sub>B0</sub> (1-rasm)',fmtN(a.pB,3)+' V'],['Ichki potensial V<sub>bi</sub> (1-rasm)',fmtN(a.Vbi,3)+' V'],
+  ['Kambagʻallashgan soha x<sub>n</sub> (1-rasm)',a.Vbi>0?fmtN(a.xn*1e4,3)+' mkm':'—'],
+  ['Shottki toʻyinish toki J<sub>sT</sub> (2-rasm)',fmtE(b.Js,2)+' A/sm²'],['p⁺n toʻyinish toki J<sub>s</sub>',fmtE(Jpn0,2)+' A/sm²'],
+  ['5 A/sm² da kuchlanishlar farqi',fmtN(b.V5p-b.V5s,3)+' V'],
+  ['Tunnel energiyasi E<sub>00</sub> / E<sub>0</sub> (3-rasm)',fmtN(d.E00*1e3,1)+' / '+fmtN(d.E0*1e3,1)+' meV'],
+  ['x<sub>n</sub> (3-rasm)',fmtN(d.xn*1e7,1)+' nm'],['R<sub>c</sub> (taxminiy)',fmtE(d.Rc,1)+' Ω·sm²'],
+  ['E<sub>g</sub>(Al<sub>x</sub>Ga<sub>1−x</sub>As)',fmtN(e.EgA,3)+' eV'],['ΔE<sub>c</sub> / ΔE<sub>v</sub>',fmtN(e.dEc,3)+' / '+fmtN(e.dEv,3)+' eV'],
+  ['2DEG zichligi n<sub>s</sub>',fmtE(e.ns,2)+' sm⁻²'],['E<sub>1</sub>, E<sub>2</sub> (oʻra tubidan)',fmtN(e.E1*1e3,0)+', '+fmtN(e.E2*1e3,0)+' meV'],
+  ['E<sub>F</sub> − E<sub>1</sub>',fmtN((e.ef-e.E1)*1e3,0)+' meV'],['Oʻrtacha masofa ⟨z⟩',fmtN(e.zav*1e7,1)+' nm']
+].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');}
+S.sub(vals);vals();
+animate([{el:$('f1'),draw:f1draw},{el:$('f2'),draw:f2draw},{el:$('f3'),draw:f3draw},{el:$('f4'),draw:f4draw}]);
+</script>
+</body>
+</html>

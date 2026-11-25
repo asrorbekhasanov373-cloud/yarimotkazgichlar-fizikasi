@@ -131,7 +131,7 @@ function f1draw(){
   // atomlar zanjiri
   const n=Math.min(st.N,m?8:12),base=(w-60)/(rmax*(m?7:11)),d=st.r*base,x0=w/2-d*(n-1)/2,ya=strip/2;
   c.save();c.globalAlpha=.18;c.fillStyle=cssVar('--elec');
-  for(let i=0;i<n;i++){c.beginPath();c.arc(x0+i*d,ya,base*0.62,0,7);c.fill();}
+  for(let i=0;i<n;i++){c.beginPath();c.arc(x0+i*d,ya,Math.max(0.1,base*0.62),0,7);c.fill();}
   c.restore();
   for(let i=0;i<n;i++){c.fillStyle=cssVar('--ink');c.beginPath();c.arc(x0+i*d,ya,3.2,0,7);c.fill();}
   if(st.N>n){label(c,'… jami N = '+st.N,x0+(n-1)*d+base*0.7+6,ya,{color:cssVar('--muted'),font:SMALL});}

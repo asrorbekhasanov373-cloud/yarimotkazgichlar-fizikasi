@@ -1,0 +1,16 @@
+{
+  "url": "sim/shottki-geterootish/",
+  "kicker": "9-bob",
+  "title": "Shottki toʻsigʻi va geterooʻtish",
+  "setup": "S.set('cont',0);S.set('phim',5.1);S.set('V',0);S.set('pB',0.6);S.set('Nd3',16.5);S.set('x',0.3);S.set('Nd4',18)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 9-bob", "t": "Shottki toʻsigʻi va geterooʻtish", "d": "Metall–yarimoʻtkazgich kontakti, ommik kontakt va ikki oʻlchamli elektron gazi"},
+  "segs": [
+    {"fig": "f1", "w": 760, "dur": 7, "cap": "Alohida: metallda E<sub>F</sub> vakuumdan eφ<sub>m</sub> ga, n-Si da eφ<sub>s</sub> = e(χ + φ<sub>n</sub>) ga past."},
+    {"fig": "f1", "w": 760, "dur": 8, "start": "S.set('cont',1)", "cap": "Tutashganda elektronlar metallga oʻtadi: Shottki toʻsigʻi φ<sub>B0</sub> = φ<sub>m</sub> − χ hosil boʻladi."},
+    {"fig": "f1", "w": 760, "dur": 8, "act": "S.set('phim',__ease(5.1,4.0,p))", "cap": "φ<sub>m</sub> &lt; φ<sub>s</sub> boʻlsa, toʻsiq yoʻqoladi — ideal ommik kontakt."},
+    {"fig": "f2", "w": 880, "dur": 8, "act": "S.set('V',__ease(0,0.3,p))", "cap": "Toʻgʻri kuchlanish toʻsiqni pasaytiradi: elektronlar choʻqqidan oshib oʻtadi — termoelektron emissiya."},
+    {"fig": "f2", "w": 880, "dur": 7, "act": "S.set('pB',__ease(0.6,0.75,p))", "cap": "Shottki diodining toʻyinish toki katta: bir xil tokda u p⁺n dioddan ~0,45 V kam kuchlanish oladi."},
+    {"fig": "f3", "w": 840, "dur": 9, "act": "S.set('Nd3',__ease(16.5,20.3,p))", "cap": "Kuchli legirlashda toʻsiq bir necha nanometrgacha yupqalashadi va elektronlar uni tunnel oʻtadi."},
+    {"fig": "f4", "w": 840, "dur": 9, "act": "S.set('x',__ease(0.15,0.4,p))", "cap": "AlGaAs/GaAs: ΔE<sub>c</sub> sakrashi va uchburchak oʻrada ikki oʻlchamli elektron gazi — HEMT asosi."}
+  ]
+}
