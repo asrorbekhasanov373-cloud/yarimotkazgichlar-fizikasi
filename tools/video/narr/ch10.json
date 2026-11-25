@@ -1,0 +1,11 @@
+[
+  "Mosfet, finfet va ge-a-a tranzistorlar",
+  "Mos tuzilma uch qatlamdan iborat: metall zatvor, yupqa oksid va pe-tur kremniy. Zatvor manfiy boʻlsa, u kovaklarni sirtga tortadi — bu *akkumulyatsiya* deyiladi.",
+  "Zatvorga musbat kuchlanish beramiz. Kovaklar sirtdan itariladi va qoʻzgʻalmas ionlardan iborat kambagʻallashgan soha paydo boʻladi. Kuchlanish yanada oshganda sirtda elektronlar koʻpayib ketadi — bu *inversion qatlam*.",
+  "Endi tuzilmaning ikki yoniga istok va stok qoʻshamiz. Zatvor kuchlanishi boʻsagʻadan oshishi bilan sirtda kanal paydo boʻladi va elektronlar istokdan stokka oqa boshlaydi.",
+  "Stok kuchlanishini oshiramiz. Kanal stok tomonda ingichkalashadi va oxiri berkiladi. Shundan keyin tok deyarli oʻzgarmaydi — bu *toʻyinish*.",
+  "Chiqish xarakteristikasida buni yaqqol koʻramiz. Kichik kuchlanishda tok chiziqli oʻsadi, punktir chiziqdan keyin esa gorizontal boʻlib qoladi.",
+  "Tranzistorni kichraytirganda yangi muammo chiqadi. Kanal juda qisqa boʻlsa, uni zatvor emas, istok va stok boshqara boshlaydi va boʻsagʻa kuchlanishi pasayib ketadi. Bu — *qisqa kanal effekti*.",
+  "Yechim — kanalni yupqa qilib, uni zatvor bilan oʻrash. Finfetda zatvor kremniy qanotni uch tomondan, ge-a-a tranzistorda esa nanoqatlamlarni toʻrt tomondan oʻraydi. Shu tufayli juda qisqa kanalda ham tranzistor ishonchli yopiladi.",
+  "Eʼtiboringiz uchun rahmat!"
+]

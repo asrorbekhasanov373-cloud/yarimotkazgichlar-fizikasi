@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOSFET, FinFET va GAA</title>
+<meta name="description" content="Zatvor kuchlanishi kremniy sirtida qanday qilib oʻtkazuvchi kanal hosil qiladi: MOS tuzilma, n-kanalli MOSFET, chiqish xarakteristikalari, FinFET va GAA. 10-bob uchun interaktiv maqola.">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<nav class="bar"><a href="../../">Yarimoʻtkazgichlar fizikasi asoslari</a><span>10-bob</span></nav>
+<article>
+  <header>
+    <p class="kicker">Interaktiv maqola · 10-bob</p>
+    <h1>MOSFET, FinFET va GAA tranzistorlar</h1>
+    <p class="dek">Zatvorga berilgan kuchlanish yupqa oksid orqali kremniy sirtida oʻtkazuvchi kanal yaratadi. Bu oddiy gʻoya milliardlab tranzistorli protsessorlarning asosida turadi.</p>
+  </header>
+
+  <p>Metall-oksid-yarimoʻtkazgich maydon tranzistori — MOSFET — zamonaviy elektronikaning eng koʻp tarqalgan asbobi. Uning ishlash prinsipi bitta jumlaga sigʻadi: zatvor kuchlanishi sirtda elektronlar qatlamini paydo qiladi yoki yoʻqotadi va shu bilan istok va stok orasidagi tokni boshqaradi. Bu sahifada avval ikki elektrodli MOS tuzilmani, soʻng toʻliq tranzistorni koʻramiz. Oxirida tranzistorlar nanometr oʻlchamlarga kichrayganda nima uchun yangi shakllar — FinFET va GAA — kerak boʻlganini tushunamiz.</p>
+
+  <h2>Uch qatlamli kondensator</h2>
+  <p>MOS tuzilma uch qatlamdan iborat: metall (yoki kuchli legirlangan polikremniy) zatvor, yupqa SiO<sub>2</sub> qatlami va p-tur kremniy taglik. Oksid tok oʻtkazmaydi, shuning uchun bu tuzilma kondensatorga oʻxshaydi: zatvorga qanday zaryad berilsa, kremniy sirtida xuddi shuncha qarama-qarshi zaryad paydo boʻladi. Qiziq tomoni — kremniyda bu zaryadni kim tashishi kuchlanishga bogʻliq.</p>
+  <p>Rasmning yuqori qismida tuzilma kesimi, pastki qismida esa zonalar diagrammasi chizilgan. Zatvor kuchlanishini manfiydan musbatga oshirib, sirtda nima boʻlayotganini kuzating.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f1" aria-label="MOS tuzilmada zatvor kuchlanishiga qarab to'planish, kambag'allashish va inversiya"></canvas>
+      <div class="ctl" id="c1"></div>
+      <div class="readout" id="r1"></div>
+    </div>
+    <figcaption><b>1-rasm.</b> Yuqorida — zatvordagi zaryad (<span style="color:var(--ion-n)">+</span> yoki <span style="color:var(--ion-p)">−</span>), kremniydagi <em class="h">kovaklar</em>, <em class="e">elektronlar</em> va qoʻzgʻalmas akseptor ionlari. Pastda — zonalar sirtda qanday egilishi. Oksid qalinligi masshtabsiz koʻrsatilgan.</figcaption>
+  </figure>
+
+  <p><b>Akkumulyatsiya.</b> Zatvor manfiy boʻlsa, u kovaklarni sirtga tortadi: sirt yanada «p-tur» boʻladi, zonalar sirtda yuqoriga egiladi.</p>
+  <p><b>Kambagʻallashish.</b> Kichik musbat kuchlanish kovaklarni sirtdan itaradi. Ular ketgan joyda faqat manfiy akseptor ionlari qoladi — p-n oʻtishdagi kabi <i>kambagʻallashgan soha</i> hosil boʻladi, zonalar pastga egiladi. Bu sohaning kengligi kuchlanish bilan ortadi.</p>
+  <p><b>Inversiya.</b> Kuchlanish yanada oshganda zonalar shunchalik egiladiki, sirtda xususiy sath <span class="math">E<sub>i</sub></span> Fermi sathidan pastga tushadi. Endi sirtda elektronlar kovaklardan koʻp: p-tur kremniy sirtida yupqa n-tur qatlam — <i>inversion qatlam</i> paydo boʻladi. Sirt potensiali <span class="math">φ<sub>s</sub> = 2φ<sub>fp</sub></span> ga yetganda kuchli inversiya boshlanadi, bu yerda <span class="math">φ<sub>fp</sub> = (kT/e)·ln(N<sub>a</sub>/n<sub>i</sub>)</span>. Shundan keyin kambagʻallashgan soha deyarli kengaymaydi: qoʻshimcha zaryadning hammasi elektronlar qatlamiga ketadi.</p>
+  <p>Kuchli inversiya boshlanadigan zatvor kuchlanishi — <i>boʻsagʻa kuchlanishi</i>:</p>
+  <p class="math" style="text-align:center;white-space:normal">V<sub>T</sub> = |Q′<sub>SD</sub>(max)|/C<sub>ox</sub> + V<sub>FB</sub> + 2φ<sub>fp</sub></p>
+  <p>Birinchi had — kambagʻallashgan soha zaryadini oksid orqali muvozanatlash uchun kerak boʻlgan kuchlanish, ikkinchisi — tekis zonalar kuchlanishi, uchinchisi — sirt potensialini <span class="math">2φ<sub>fp</sub></span> ga yetkazish. Rasmdagi tuzilma uchun (<span class="math">N<sub>a</sub></span> = 5 × 10¹⁶ sm⁻³, <span class="math">t<sub>ox</sub></span> = 10 nm, <span class="math">V<sub>FB</sub></span> = 0) bu 1,13 V ni beradi.</p>
+  <aside class="note">Rasmda ideal tuzilma olingan: <span class="math">V<sub>FB</sub></span> = 0. Real n⁺ polikremniy zatvorli tuzilmada chiqish ishlari farqi va oksid zaryadi tufayli <span class="math">V<sub>FB</sub></span> ≈ −1 V boʻladi va barcha chegaralar shuncha chapga siljiydi. Sirt potensiali Puasson tenglamasining aniq birinchi integralidan topilgan, egilish shakli esa sxematik.</aside>
+
+  <h2>Kanal paydo boʻladi: n-kanalli MOSFET</h2>
+  <p>Endi MOS tuzilmaning ikki yoniga kuchli legirlangan n⁺ sohalar qoʻshamiz: biri — <i>istok</i> (S), ikkinchisi — <i>stok</i> (D). Zatvor kuchlanishi <span class="math">V<sub>GS</sub> &lt; V<sub>T</sub></span> boʻlsa, istok va stok orasida qarama-qarshi ulangan ikkita p-n oʻtish turadi va tok oqmaydi. <span class="math">V<sub>GS</sub> &gt; V<sub>T</sub></span> boʻlganda sirtdagi inversion qatlam ikkala n⁺ sohani tutashtiradi — bu <i>kanal</i>. Stokka musbat <span class="math">V<sub>DS</sub></span> berilsa, elektronlar kanal boʻylab istokdan stokka oqadi.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f2" aria-label="n-kanalli MOSFET kesimi: kanal hosil bo'lishi va elektronlar oqimi"></canvas>
+      <div class="ctl c2" id="c2"></div>
+      <div class="readout" id="r2"></div>
+    </div>
+    <figcaption><b>2-rasm.</b> n-kanalli MOSFET kesimi. Koʻk qatlam — inversion kanal, uning qalinligi shu joydagi elektronlar zaryadiga mutanosib. Avval <span class="math">V<sub>GS</sub></span> ni boʻsagʻadan oshiring, keyin <span class="math">V<sub>DS</sub></span> ni oshirib, kanal stok yonida qanday ingichkalashini kuzating.</figcaption>
+  </figure>
+
+  <p>Kanaldagi elektronlar zaryadi zatvor va kanal orasidagi kuchlanishga bogʻliq: <span class="math">Q′<sub>n</sub>(y) = −C<sub>ox</sub>[V<sub>GS</sub> − V<sub>T</sub> − V(y)]</span>. Istok yonida <span class="math">V(y)</span> = 0, stok yonida esa <span class="math">V<sub>DS</sub></span>. Shuning uchun kanal stok tomonga qarab ingichkalashadi. Tok esa kanalning har bir kesimida bir xil boʻlishi kerak — ingichka joyda elektronlar tezroq harakatlanadi. Animatsiyada buni koʻrish mumkin.</p>
+  <p><span class="math">V<sub>DS</sub> = V<sub>GS</sub> − V<sub>T</sub></span> boʻlganda stok yonida zaryad nolga tushadi: <i>kanal berkiladi</i> (pinch-off). Bundan katta kuchlanishda berkilish nuqtasi biroz istokka siljiydi, ortiqcha kuchlanish esa stok oldidagi kambagʻallashgan sohaga tushadi. Elektronlar bu sohani kuchli maydonda tez kesib oʻtadi, tok esa deyarli oʻzgarmaydi — bu <i>toʻyinish</i>.</p>
+
+  <h2>Chiqish xarakteristikalari</h2>
+  <p>Kanal boʻylab dreyf tokini istokdan stokkacha integrallasak, uzun kanalli MOSFET tenglamasi kelib chiqadi. Chiziqli (triod) sohada:</p>
+  <p class="math" style="text-align:center;white-space:normal">I<sub>D</sub> = K[2(V<sub>GS</sub> − V<sub>T</sub>)V<sub>DS</sub> − V<sub>DS</sub>²],&nbsp;&nbsp; K = Wμ<sub>n</sub>C<sub>ox</sub>/2L</p>
+  <p>Toʻyinish sohasida esa tok <span class="math">V<sub>DS</sub></span> ga bogʻliq emas va zatvor kuchlanishining kvadratiga mutanosib:</p>
+  <p class="math" style="text-align:center;white-space:normal">I<sub>D(sat)</sub> = K(V<sub>GS</sub> − V<sub>T</sub>)²,&nbsp;&nbsp; V<sub>DS(sat)</sub> = V<sub>GS</sub> − V<sub>T</sub></p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f3" aria-label="MOSFET chiqish xarakteristikalari oilasi"></canvas>
+      <div class="ctl c2" id="c3"></div>
+      <div class="readout" id="r3"></div>
+    </div>
+    <figcaption><b>3-rasm.</b> Uzun kanalli n-MOSFET chiqish xarakteristikalari (K = 1,38 mA/V², V<sub>T</sub> = 0,7 V). Koʻk punktir — toʻyinish chegarasi <span class="math">V<sub>DS</sub> = V<sub>GS</sub> − V<sub>T</sub></span>. Surgichlar 2-rasm bilan bogʻlangan.</figcaption>
+  </figure>
+
+  <p>Har bir egri chiziq kichik <span class="math">V<sub>DS</sub></span> da deyarli toʻgʻri chiziq — tranzistor zatvor bilan boshqariladigan qarshilikdek ishlaydi. Punktir chiziqdan oʻngda tok gorizontal boʻladi: tranzistor endi tok manbaiga aylanadi. Kuchaytirgichlarda aynan shu soha ishlatiladi; uning kuchaytirish qobiliyati <i>tikkalik</i> <span class="math">g<sub>m</sub> = 2K(V<sub>GS</sub> − V<sub>T</sub>)</span> bilan baholanadi.</p>
+  <aside class="note">2- va 3-rasmlarda <span class="math">V<sub>T</sub></span> = 0,7 V olingan: amalda boʻsagʻa kuchlanishi sirtga ionli legirlash bilan kerakli qiymatga sozlanadi. Kanal uzunligi modulyatsiyasi 2-rasmda faqat koʻrsatish uchun chizilgan, 3-rasmdagi egri chiziqlar esa ideal uzun kanal modeliga mos.</aside>
+
+  <h2>Kichraytirish va zatvor nazorati</h2>
+  <p>Kanal qisqarsa, tranzistor tezlashadi va zichroq joylashadi. Lekin kanal uzunligi istok va stok oʻtishlarining kambagʻallashgan sohalari bilan solishtirarli boʻlib qolganda, kanaldagi zaryadning bir qismini endi zatvor emas, istok va stok nazorat qila boshlaydi. Natijada boʻsagʻa kuchlanishi kanal qisqargan sari pasayadi, stok kuchlanishi esa istok oldidagi toʻsiqni tushiradi (DIBL). Tranzistorni toʻliq yopib boʻlmay qoladi — bu <i>qisqa kanal effektlari</i>.</p>
+  <p>Ikki oʻlchamli Puasson tenglamasi bu effektlar <span class="math">exp(−πL/2λ)</span> kabi kamayishini koʻrsatadi; <span class="math">λ</span> — <i>masshtab uzunligi</i>. Kanal bir necha <span class="math">λ</span> dan uzun boʻlsa, qisqa kanal effektlari sezilmaydi. Demak, kichraytirishni davom ettirish uchun <span class="math">λ</span> ni kamaytirish kerak. Planar tranzistorda bu oksidni yupqalash va legirlashni oshirishni talab qiladi, lekin ikkalasi ham chegarasiga yetdi. Yechim — kanalni yupqa qilib, uni zatvor bilan bir necha tomondan oʻrash.</p>
+
+  <figure class="wide">
+    <div class="stage">
+      <canvas id="f4" aria-label="Planar, FinFET va GAA tranzistorlar kesimi va bo'sag'a kuchlanishining kanal uzunligiga bog'liqligi"></canvas>
+      <div class="btns" id="b4"></div>
+      <div class="ctl" id="c4"></div>
+      <div class="readout" id="r4"></div>
+    </div>
+    <figcaption><b>4-rasm.</b> Chapda — kanalga perpendikulyar kesim: <span style="color:var(--ink2)">toʻq kulrang</span> — zatvor, och kulrang — dielektrik, <span style="color:var(--elec)">koʻk</span> — kanal joylashgan kremniy sirtlari. Oʻngda — boʻsagʻa kuchlanishining kanal uzunligiga bogʻliqligi (sxematik).</figcaption>
+  </figure>
+
+  <p><b>FinFET.</b> Kanal plastinadan tik koʻtarilgan yupqa kremniy «qanot» (fin) da hosil boʻladi, zatvor esa uni uch tomondan — ikki yon va yuqoridan — oʻraydi. Qanot kengligi bir necha nanometr boʻlgani uchun uning ichidagi potensialni deyarli butunlay zatvor boshqaradi. Bonus sifatida bir xil yuzada kanal kengligi ancha katta: <span class="math">W<sub>eff</sub> = 2H<sub>fin</sub> + W<sub>fin</sub></span>. FinFET 22 nm texnologiya avlodida sanoatga kirdi.</p>
+  <p><b>GAA.</b> Kanal yanada qisqarganda uch tomonlama nazorat ham yetmay qoladi. GAA (gate-all-around) tranzistorda kanal bir-birining ustiga joylashgan bir nechta gorizontal kremniy nanoqatlamlardan iborat, zatvor esa har bir qatlamni toʻrt tomondan oʻraydi. Bu eng kichik <span class="math">λ</span> ni va eng kuchli zatvor nazoratini beradi.</p>
+  <aside class="note">4-rasmdagi masshtab uzunliklari (planar 12 nm, FinFET 6 nm, GAA 4 nm) va egri chiziqlar amplitudasi tuzilmalarni solishtirish uchun shartli olingan. Kesimdagi oʻlchamlar: qanot 7 × 50 nm, nanoqatlamlar 30 × 5 nm, qadam 30 nm.</aside>
+
+  <h2>Oʻzingizni tekshiring</h2>
+  <ol class="ex">
+    <li>1-rasmda zatvor kuchlanishini asta oshiring. Holat «inversiya» ga oʻtgan kuchlanishni toping va uni <span class="math">V<sub>T</sub> = |Q′<sub>SD</sub>(max)|/C<sub>ox</sub> + 2φ<sub>fp</sub></span> formulasi bilan solishtiring (<span class="math">φ<sub>fp</sub></span> = 0,400 V, <span class="math">x<sub>dT</sub></span> = 0,144 mkm). Nima uchun shundan keyin <span class="math">x<sub>d</sub></span> deyarli oʻzgarmaydi?</li>
+    <li>2-rasmda <span class="math">V<sub>GS</sub></span> = 2,0 V qiling. Kanal qaysi <span class="math">V<sub>DS</sub></span> da berkiladi? Toʻyinish tokini formula bilan hisoblang va 3-rasm bilan tekshiring.</li>
+    <li>4-rasmda kanal uzunligini 15 nm qiling. Planar va GAA tranzistorlarda boʻsagʻa kuchlanishi qanchaga pasaydi? Nima uchun qanot va nanoqatlamlarni yupqa qilish <span class="math">λ</span> ni kamaytiradi?</li>
+  </ol>
+
+  <details><summary>Barcha hisoblangan qiymatlar va model</summary>
+    <table class="vals" id="vals"></table>
+    <p>1-rasm: kremniy, T = 300 K, n<sub>i</sub> = 9,65 × 10⁹ sm⁻³, ε<sub>r</sub> = 11,7, SiO<sub>2</sub> uchun ε<sub>r</sub> = 3,9, N<sub>a</sub> = 5 × 10¹⁶ sm⁻³, t<sub>ox</sub> = 10 nm, V<sub>FB</sub> = 0. Sirt potensiali V<sub>G</sub> = φ<sub>s</sub> + Q<sub>s</sub>(φ<sub>s</sub>)/C<sub>ox</sub> tenglamasidan, Q<sub>s</sub> esa Puasson tenglamasining aniq birinchi integralidan topiladi. 2–3-rasmlar: uzun kanalli MOSFET modeli (10.8)–(10.9), K = Wμ<sub>n</sub>C<sub>ox</sub>/2L = 1,38 mA/V², V<sub>T</sub> = 0,7 V. 4-rasm: V<sub>T</sub>(L) = V<sub>T∞</sub> − A·exp(−πL/2λ), V<sub>T∞</sub> = 0,4 V, A = 1,2 V (sxematik). Zarrachalar soni sxematik.</p>
+  </details>
+</article>
+<footer>«Yarimoʻtkazgichlar fizikasi asoslari» oʻquv qoʻllanmasiga interaktiv ilova. Muallif: A. Hasanov.</footer>
+
+<script src="../../assets/common.js"></script>
+<script>
+const q=1.602e-19,kT=0.025852,ni=9.65e9,e0=8.854e-14,es=11.7*e0,eox=3.9*e0,Eg=1.12;
+const $=id=>document.getElementById(id);
+const S=makeStore({VG:-1,VGS:2,VDS:1.5,arch:'planar',L:30});
+const mob=()=>window.innerWidth<640;
+const SERIF='italic 600 15px "Source Serif 4",Georgia,serif';
+const SUBF='500 9px Inter,system-ui,sans-serif';
+const F12='500 12px Inter,system-ui,sans-serif',F13='600 13px Inter,system-ui,sans-serif';
+function sym(c,x,y,main,sub,col){label(c,main,x,y,{font:SERIF,color:col});c.font=SERIF;const w=c.measureText(main).width;label(c,sub,x+w+1,y+4,{font:SUBF,color:col});}
+const vf=v=>fmtN(v,2)+' V';
+// "V_DS" kabi matnni pastki indeks bilan chizish
+function tl(c,text,x,y,o={}){
+  const font=o.font||F12,sz=parseFloat(font.match(/(\d+)px/)[1]),sf=font.replace(/\d+px/,Math.round(sz*0.72)+'px');
+  const parts=text.split(/_([A-Za-z]+)/);c.save();let tw=0;
+  parts.forEach((t,i)=>{c.font=i%2?sf:font;tw+=c.measureText(t).width;});
+  let x0=o.align==='right'?x-tw:o.align==='center'?x-tw/2:x;
+  if(o.bg){c.fillStyle=o.bg;c.fillRect(x0-3,y-9,tw+6,18);}
+  c.fillStyle=o.color||cssVar('--ink2');c.textBaseline='middle';c.textAlign='left';
+  parts.forEach((t,i)=>{c.font=i%2?sf:font;c.fillText(t,x0,i%2?y+sz*0.3:y);x0+=c.measureText(t).width;});c.restore();}
+
+/* ============ 1-rasm: MOS tuzilma ============ */
+const Na1=5e16,tox1=10e-7,Cox1=eox/tox1,pf=kT*Math.log(Na1/ni);
+const xdT=Math.sqrt(4*es*pf/(q*Na1)),Qsd=q*Na1*xdT,VT1=Qsd/Cox1+2*pf,LD=Math.sqrt(es*kT/(q*Na1));
+function Qs(ps){const b=ps/kT,r=(ni/Na1)**2;return Math.sqrt(2*es*q*kT*Na1)*Math.sqrt(Math.max(0,Math.exp(-b)+b-1+r*(Math.exp(b)-b-1)));}
+function solvePs(VG){let a=-0.7,b=1.3;for(let i=0;i<60;i++){const m=(a+b)/2,v=m+Math.sign(m)*Qs(m)/Cox1;if(v>VG)b=m;else a=m;}return (a+b)/2;}
+function mos(){const VG=S.get('VG'),ps=solvePs(VG),Qt=Qs(ps);
+  const W=ps>0?Math.sqrt(2*es*ps/(q*Na1)):0;
+  const Qn=ps>0?Math.max(0,Qt-Math.sqrt(2*es*q*Na1*Math.max(0,ps-kT))):0;
+  const ns=ni*ni/Na1*Math.exp(ps/kT),ps0=ni*ni/Na1;
+  const st=ps<-kT?'acc':ps<2*pf?'dep':'inv';
+  return {VG,ps,Qt,W,Qn,ns,st,xd:ps>0?Math.sqrt(2*es*Math.max(0,ps-(st==='inv'?0:0))/(q*Na1)):0};}
+const QM=Qs(solvePs(3));
+const ST={acc:'Akkumulyatsiya',dep:'Kambagʻallashish',inv:'Inversiya'};
+slider($('c1'),S,{key:'VG',label:'Zatvor kuchlanishi V<sub>G</sub>',min:-1.5,max:3,step:0.01,fmt:v=>(v>0?'+':'')+vf(v)});
+const H1=Array.from({length:70},()=>({u:Math.random(),v:Math.random(),a:rnd(0,6.3)}));
+const A1=Array.from({length:22},()=>({u:Math.random(),v:Math.random(),a:rnd(0,6.3)}));
+const E1=Array.from({length:30},()=>({u:Math.random(),v:Math.random(),a:rnd(0,6.3)}));
+function f1draw(dt){
+  const m=mos(),M=mob();
+  const {c,w,h}=fitCanvas($('f1'),M?1.0:0.5);
+  const P=12,Rr=w-(M?34:44),wc=Rr-P;
+  const xg1=P+wc*(M?0.13:0.11),xo1=xg1+wc*0.05;
+  const Dspan=0.24e-4,X=x=>xo1+x/Dspan*(Rr-xo1);
+  const T1=24,B1=T1+h*(M?0.32:0.34),T2=B1+14,B2=h-24;
+  const k=dt/16;
+  // kesim
+  c.fillStyle=cssVar('--atom');c.globalAlpha=.55;c.fillRect(P,T1,xg1-P,B1-T1);c.globalAlpha=1;
+  c.fillStyle=cssVar('--rule');c.fillRect(xg1,T1,xo1-xg1,B1-T1);
+  c.fillStyle=cssVar('--p-tint');c.fillRect(xo1,T1,Rr-xo1,B1-T1);
+  if(m.W>0){c.fillStyle=cssVar('--dep-tint');c.fillRect(xo1,T1,X(m.W)-xo1,B1-T1);}
+  label(c,M?'G':'zatvor',(P+xg1)/2,11,{align:'center',font:F12});
+  if(!M)label(c,'SiO₂',(xg1+xo1)/2,11,{align:'center',font:F12});
+  label(c,'p-tur kremniy',xo1+8,11,{font:F13,color:cssVar('--ink')});
+  // ionlar
+  const sp=M?12:14,sh=B1-T1;
+  for(let x=xo1+sp*0.6;x<Rr-4;x+=sp)for(let y=T1+sp*0.6;y<B1-4;y+=sp){const d=(x-xo1)/(Rr-xo1)*Dspan;drawIon(c,x,y,-1,M?6:7,d<m.W?0.95:0.22);}
+  // kovaklar (hajmda)
+  H1.forEach(p=>{p.a+=rnd(-.4,.4);p.u=clamp(p.u+Math.cos(p.a)*0.0012*k,0,1);p.v=clamp(p.v+Math.sin(p.a)*0.004*k,0.04,0.96);
+    const d=0.012e-4+p.u*(Dspan-0.012e-4);const a=m.W>0?clamp((d-m.W)/0.012e-4,0,1):1;if(a>0.02)drawHole(c,X(d),T1+p.v*sh,4,a);});
+  // akkumulyatsiya qatlami
+  const nA=m.ps<0?Math.round(m.Qt/QM*A1.length*1.6):0;
+  A1.slice(0,Math.min(nA,A1.length)).forEach(p=>{p.a+=rnd(-.4,.4);p.v=clamp(p.v+Math.sin(p.a)*0.004*k,0.04,0.96);drawHole(c,xo1+5+p.u*7,T1+p.v*sh,4);});
+  // inversion elektronlar
+  const nE=Math.round(m.Qn/QM*E1.length);
+  E1.slice(0,nE).forEach(p=>{p.a+=rnd(-.4,.4);p.v=clamp(p.v+Math.sin(p.a)*0.004*k,0.04,0.96);drawElectron(c,xo1+5+p.u*6,T1+p.v*sh,4.3);});
+  // zatvor zaryadi
+  const nG=Math.min(24,Math.round(m.Qt/QM*20)),rowsG=8;
+  for(let i=0;i<nG;i++){const col=Math.floor(i/rowsG),row=i%rowsG;
+    label(c,m.VG>0?'+':'−',xg1-7-col*11,T1+(row+0.5)*sh/rowsG,{align:'center',font:'600 15px Inter,system-ui,sans-serif',color:cssVar(m.VG>0?'--ion-n':'--ion-p')});}
+  // zonalar
+  const Ehi=1.3,Elo=-1.75,Y=E=>T2+(Ehi-E)/(Ehi-Elo)*(B2-T2);
+  const psi=x=>m.ps>=0?(x<m.W?m.ps*(1-x/m.W)**2:0):m.ps*Math.exp(-x/LD);
+  c.fillStyle=cssVar('--rule');c.fillRect(xg1,T2,xo1-xg1,B2-T2);
+  const EFm=-m.VG,yF=clamp(Y(EFm),T2,B2);
+  c.fillStyle=cssVar('--atom');c.globalAlpha=.35;c.fillRect(P,yF,xg1-P,B2-yF);c.globalAlpha=1;
+  c.strokeStyle=cssVar('--ef');c.lineWidth=2;c.beginPath();c.moveTo(P,yF);c.lineTo(xg1,yF);c.stroke();
+  tl(c,EFm>Ehi?'E_Fm ↑':EFm<Elo?'E_Fm ↓':'E_Fm',(P+xg1)/2,yF+(yF>B2-14?-10:10),{align:'center',font:'500 11px Inter,system-ui,sans-serif',color:cssVar('--ef')});
+  const curve=(f,col,lw,dash)=>{c.strokeStyle=col;c.lineWidth=lw;c.setLineDash(dash||[]);c.beginPath();for(let i=0;i<=200;i++){const x=Dspan*i/200;i?c.lineTo(X(x),Y(f(x))):c.moveTo(X(x),Y(f(x)));}c.stroke();c.setLineDash([]);};
+  const Ei=x=>pf-psi(x);
+  // E_i < E_F sohasi (inversiya)
+  if(Ei(0)<0){c.fillStyle=cssVar('--elec');c.globalAlpha=.16;c.beginPath();c.moveTo(X(0),Y(0));
+    for(let i=0;i<=200;i++){const x=Dspan*i/200;if(Ei(x)>0)break;c.lineTo(X(x),Y(Ei(x)));}c.closePath();c.fill();c.globalAlpha=1;}
+  curve(x=>Ei(x)+Eg/2,cssVar('--ec'),3);curve(x=>Ei(x)-Eg/2,cssVar('--ev'),3);
+  curve(Ei,cssVar('--ei'),1.4,[4,4]);
+  c.strokeStyle=cssVar('--ef');c.lineWidth=1.8;c.beginPath();c.moveTo(xo1,Y(0));c.lineTo(Rr,Y(0));c.stroke();
+  sym(c,Rr+5,Y(pf+Eg/2),'E','c',cssVar('--ec'));sym(c,Rr+5,Y(pf-Eg/2),'E','v',cssVar('--ev'));
+  sym(c,Rr+5,Y(pf)-2,'E','i',cssVar('--ei'));{const xl=X(Dspan*(M?0.82:0.88));c.fillStyle=cssVar('--panel');c.fillRect(xl-3,Y(0)-19,26,16);sym(c,xl,Y(0)-11,'E','F',cssVar('--ef'));}
+  // eφs strelkasi
+  if(Math.abs(m.ps)>0.06){const xa=X(Dspan*0.72),t=Y(pf),b=Y(pf-m.ps);
+    c.strokeStyle=cssVar('--ink2');c.lineWidth=1;c.setLineDash([2,3]);c.beginPath();c.moveTo(X(0),b);c.lineTo(xa+6,b);c.stroke();c.setLineDash([]);
+    c.beginPath();c.moveTo(xa,t);c.lineTo(xa,b);const s=b>t?1:-1;c.moveTo(xa-4,b-6*s);c.lineTo(xa,b);c.lineTo(xa+4,b-6*s);c.stroke();
+    label(c,'eφs = '+fmtN(m.ps,2)+' eV',xa-8,(t+b)/2,{align:'right',bg:cssVar('--panel'),color:cssVar('--ink')});}
+  label(c,ST[m.st],Rr-4,T2+12,{align:'right',font:F13,color:cssVar(m.st==='inv'?'--elec':m.st==='acc'?'--hole':'--ink'),bg:cssVar('--panel')});
+  (M?[0,0.1]:[0,0.1,0.2]).forEach(x=>label(c,x?fmtN(x,1):'0',X(x*1e-4),h-10,{align:'center',font:'500 11px Inter,system-ui,sans-serif'}));
+  label(c,'x, mkm',Rr,h-10,{align:'right',font:'500 11px Inter,system-ui,sans-serif',color:cssVar('--muted')});
+  $('r1').innerHTML=`<span>Holat <b>${ST[m.st].toLowerCase()}</b></span><span>φ<sub>s</sub> <b>${fmtN(m.ps,3)} V</b></span><span>x<sub>d</sub> <b>${fmtN(m.W*1e4,3)} mkm</b></span><span>Sirtda n<sub>s</sub> <b>${fmtE(m.ns,1)} sm⁻³</b></span><span>V<sub>T</sub> <b>${fmtN(VT1,2)} V</b></span>`;
+}
+
+/* ============ 2-rasm: MOSFET kesimi ============ */
+const VT=0.7,K=1.38;
+function fet(){const VGS=S.get('VGS'),VDS=S.get('VDS'),Vov=VGS-VT;
+  if(Vov<=0)return {VGS,VDS,Vov,I:0,Vd:0,mode:'off',Leff:1};
+  const Vd=Math.min(VDS,Vov),I=K*(2*Vov*Vd-Vd*Vd),sat=VDS>=Vov;
+  return {VGS,VDS,Vov,Vd,I,mode:sat?'sat':'lin',Leff:sat?1-0.12*Math.min(1,(VDS-Vov)/2):1};}
+const MODE={off:'yopiq',lin:'chiziqli soha',sat:'toʻyinish'};
+function Qch(f,s){if(f.Vov<=0||s>f.Leff)return 0;return Math.sqrt(Math.max(0,f.Vov*f.Vov-(s/f.Leff)*(2*f.Vov*f.Vd-f.Vd*f.Vd)));}
+slider($('c2'),S,{key:'VGS',label:'V<sub>GS</sub>',min:0,max:3,step:0.01,fmt:vf});
+slider($('c2'),S,{key:'VDS',label:'V<sub>DS</sub>',min:0,max:3,step:0.01,fmt:vf});
+const CH=Array.from({length:70},()=>({m:Math.random(),r:Math.random()}));
+const WS=Array.from({length:44},()=>({u:Math.random(),v:Math.random(),a:rnd(0,6.3),d:Math.random()<.5}));
+const HB=Array.from({length:40},()=>({u:Math.random(),v:Math.random(),a:rnd(0,6.3)}));
+function f2draw(dt){
+  const f=fet(),M=mob(),k=dt/16;
+  const {c,w,h}=fitCanvas($('f2'),M?0.82:0.42);
+  const P=10,ys=h*(M?0.38:0.40),bot=h-6,ww=(w-2*P)*(M?0.22:0.24),xs=P+ww,xd=w-P-ww,wD=h*0.2,Lc=xd-xs;
+  // taglik va kambag'allashgan soha
+  c.fillStyle=cssVar('--p-tint');c.fillRect(P,ys,w-2*P,bot-ys);
+  const dS=10,dD=10*Math.sqrt((0.8+f.VDS)/0.8),dch=f.VGS>0?(M?16:24)*Math.sqrt(Math.min(f.VGS,VT+0.15)/(VT+0.15)):0;
+  c.fillStyle=cssVar('--dep-tint');
+  c.beginPath();c.moveTo(P,ys+wD+dS);c.lineTo(xs-8,ys+wD+dS);c.quadraticCurveTo(xs+dS,ys+wD+dS,xs+dS,ys);
+  c.lineTo(xd-dD,ys);c.quadraticCurveTo(xd-dD,ys+wD+dD,xd+8,ys+wD+dD);c.lineTo(w-P,ys+wD+dD);c.lineTo(w-P,ys);c.lineTo(P,ys);c.closePath();c.fill();
+  if(dch>0){c.beginPath();c.moveTo(xs,ys);c.lineTo(xd,ys);c.lineTo(xd,ys+dch+(dD-dS)*0.8);c.quadraticCurveTo((xs+xd)/2,ys+dch,xs,ys+dch);c.closePath();c.fill();}
+  // kovaklar taglikda
+  HB.forEach(p=>{p.a+=rnd(-.4,.4);p.u=clamp(p.u+Math.cos(p.a)*0.0015*k,0,1);p.v=clamp(p.v+Math.sin(p.a)*0.004*k,0,1);
+    const x=P+6+p.u*(w-2*P-12),y=ys+wD*0.55+14+p.v*(bot-ys-wD*0.55-22);
+    const inDep=(x<xs+dS+10&&y<ys+wD+dS+6)||(x>xd-dD-10&&y<ys+wD+dD+6)||(x>xs&&x<xd&&y<ys+dch+(dD-dS)*0.8*(x-xs)/Lc+6);
+    if(!inDep)drawHole(c,x,y,3.6,0.85);});
+  // n+ sohalar
+  const well=(x0,x1,left)=>{c.fillStyle=cssVar('--n-tint');c.strokeStyle=cssVar('--ion-n');c.lineWidth=1;c.beginPath();
+    if(left){c.moveTo(x0,ys);c.lineTo(x1,ys);c.lineTo(x1,ys+wD-14);c.quadraticCurveTo(x1,ys+wD,x1-14,ys+wD);c.lineTo(x0,ys+wD);}
+    else{c.moveTo(x1,ys);c.lineTo(x0,ys);c.lineTo(x0,ys+wD-14);c.quadraticCurveTo(x0,ys+wD,x0+14,ys+wD);c.lineTo(x1,ys+wD);}
+    c.closePath();c.fill();c.stroke();};
+  well(P,xs,true);well(xd,w-P,false);
+  WS.forEach(p=>{p.a+=rnd(-.4,.4);p.u=clamp(p.u+Math.cos(p.a)*0.003*k,0,1);p.v=clamp(p.v+Math.sin(p.a)*0.004*k,0,1);
+    const x0=p.d?P:xd,x=x0+8+p.u*(ww-16),y=ys+6+p.v*(wD-14);drawElectron(c,x,y,3.4);});
+  // kanal
+  const tmax=M?15:22,th=s=>tmax*Qch(f,s)/2.3;
+  if(f.Vov>0){c.fillStyle=cssVar('--elec');c.globalAlpha=.32;c.beginPath();c.moveTo(xs,ys);
+    for(let i=0;i<=120;i++){const s=i/120;c.lineTo(xs+s*Lc,ys+th(s));}c.lineTo(xd,ys);c.closePath();c.fill();c.globalAlpha=1;}
+  // kanal elektronlari: zichlik ~ Q, oqim doimiy
+  const Qf=0.06,N=101,cum=[0];let qt=0;
+  if(f.Vov>0){for(let i=1;i<N;i++){const s=(i-.5)/(N-1);qt+=Math.max(Qf,Qch(f,s))/(N-1);cum.push(qt);}}
+  const nCh=f.Vov>0?Math.round((M?40:70)*Math.min(1,qt/2.3)):0;
+  if(nCh>0){const dm=Math.min(1/500,6e-4*(f.I/K)/qt)*dt;
+    CH.slice(0,nCh).forEach(p=>{p.m=(p.m+dm)%1;const t=p.m*qt;let lo=0,hi=N-1;while(hi-lo>1){const md=(lo+hi)>>1;if(cum[md]<t)lo=md;else hi=md;}
+      const s=(lo+(t-cum[lo])/Math.max(1e-9,cum[hi]-cum[lo]))/(N-1);const tt=th(s);
+      const y=tt>2?ys+2+p.r*Math.max(1,tt-4):ys+3+p.r*7;drawElectron(c,xs+s*Lc,y,3.4);});}
+  // oksid, zatvor, kontaktlar
+  const gh=h*(M?0.1:0.11),oy=ys-5;
+  c.fillStyle=cssVar('--atom');c.globalAlpha=.6;c.fillRect(xs-4,oy,Lc+8,5);c.globalAlpha=1;
+  c.fillStyle=cssVar('--ink2');c.globalAlpha=.75;c.fillRect(xs-4,oy-gh,Lc+8,gh);c.globalAlpha=1;
+  label(c,'zatvor',(xs+xd)/2,oy-gh/2,{align:'center',font:F12,color:cssVar('--paper')});
+  const pad=(x0,x1)=>{c.fillStyle=cssVar('--ink2');c.fillRect(x0,ys-8,x1-x0,8);};
+  pad(P+14,xs-18);pad(xd+18,w-P-14);
+  const wy=16;c.strokeStyle=cssVar('--ink2');c.lineWidth=1.4;
+  const wire=(x,y0,t)=>{c.beginPath();c.moveTo(x,y0);c.lineTo(x,wy+10);c.stroke();label(c,t,x,wy,{align:'center',font:F12,color:cssVar('--ink')});};
+  wire((P+xs)/2,ys-8,'S: 0 V');wire((xs+xd)/2,oy-gh,'G: '+vf(f.VGS));wire((xd+w-P)/2,ys-8,'D: '+vf(f.VDS));
+  label(c,'istok n⁺',(P+xs)/2,ys+wD+12+dS,{align:'center',font:F12});
+  label(c,'stok n⁺',(xd+w-P)/2,ys+wD+12+dD,{align:'center',font:F12});
+  label(c,'p-taglik',(xs+xd)/2,bot-12,{align:'center',font:F12});
+  if(f.mode==='sat'){const xp=xs+f.Leff*Lc,yl=ys+(M?34:46);c.strokeStyle=cssVar('--accent');c.lineWidth=1;c.beginPath();c.moveTo(xp,ys+2);c.lineTo(xp,yl-8);c.stroke();
+    label(c,'kanal berkilgan',xp,yl,{align:'right',font:F12,color:cssVar('--accent'),bg:cssVar('--panel')});}
+  else if(f.mode==='off')tl(c,'kanal yoʻq: V_GS < V_T',(xs+xd)/2,ys+(M?30:42),{align:'center',font:F12,color:cssVar('--muted')});
+  if(f.I>0.005&&!M)label(c,'elektronlar oqimi →',(xs+xd)/2,ys+(f.mode==='sat'?(M?54:70):(M?30:42)),{align:'center',font:F12,color:cssVar('--elec')});
+  $('r2').innerHTML=`<span>Rejim <b>${MODE[f.mode]}</b></span><span>I<sub>D</sub> <b>${fmtN(f.I,2)} mA</b></span><span>V<sub>DS(sat)</sub> <b>${f.Vov>0?vf(f.Vov):'—'}</b></span><span>V<sub>T</sub> <b>${vf(VT)}</b></span>`;
+}
+
+/* ============ 3-rasm: chiqish xarakteristikalari ============ */
+slider($('c3'),S,{key:'VGS',label:'V<sub>GS</sub>',min:0,max:3,step:0.01,fmt:vf});
+slider($('c3'),S,{key:'VDS',label:'V<sub>DS</sub>',min:0,max:3,step:0.01,fmt:vf});
+function Id(vgs,vds){const o=vgs-VT;if(o<=0)return 0;const d=Math.min(vds,o);return K*(2*o*d-d*d);}
+function f3draw(){
+  const f=fet(),M=mob();
+  const {c,w,h}=fitCanvas($('f3'),M?0.8:0.55);
+  const l=M?40:52,r=w-(M?58:76),t=14,b=h-36,X=v=>l+v/3*(r-l),Y=i=>b-i/8*(b-t);
+  c.strokeStyle=cssVar('--rule');c.lineWidth=1;
+  for(let v=0.5;v<=3.001;v+=0.5){c.beginPath();c.moveTo(X(v),t);c.lineTo(X(v),b);c.stroke();}
+  for(let i=2;i<=8;i+=2){c.beginPath();c.moveTo(l,Y(i));c.lineTo(r,Y(i));c.stroke();}
+  c.strokeStyle=cssVar('--ink2');c.beginPath();c.moveTo(l,t);c.lineTo(l,b);c.lineTo(r,b);c.stroke();
+  const F11='500 11px Inter,system-ui,sans-serif';
+  [0,1,2,3].forEach(v=>label(c,String(v),X(v),b+12,{align:'center',font:F11}));
+  [0,2,4,6,8].forEach(i=>label(c,String(i),l-6,Y(i),{align:'right',font:F11}));
+  tl(c,'V_DS, V',r,b+26,{align:'right',font:F12,color:cssVar('--ink2')});
+  tl(c,'I_D, mA',l+6,t+4,{font:F12,color:cssVar('--ink2'),bg:cssVar('--panel')});
+  // to'yinish chegarasi
+  c.strokeStyle=cssVar('--elec');c.lineWidth=1.6;c.setLineDash([5,4]);c.beginPath();
+  for(let i=0;i<=100;i++){const v=2.3*i/100;i?c.lineTo(X(v),Y(K*v*v)):c.moveTo(X(v),Y(0));}c.stroke();c.setLineDash([]);
+  const crv=(vgs,col,lw)=>{c.strokeStyle=col;c.lineWidth=lw;c.beginPath();for(let i=0;i<=150;i++){const v=3*i/150;i?c.lineTo(X(v),Y(Id(vgs,v))):c.moveTo(X(v),Y(0));}c.stroke();};
+  [1,1.5,2,2.5,3].forEach(g=>{crv(g,cssVar('--muted'),1.4);label(c,fmtN(g,1)+' V',r+6,Y(Id(g,3)),{font:F11,color:cssVar('--muted')});});
+  if(f.Vov>0){crv(f.VGS,cssVar('--accent'),3);tl(c,(M?'':'V_GS = ')+fmtN(f.VGS,2)+(M?' V':''),r+6,Y(Id(f.VGS,3))-(Math.abs(f.VGS-Math.round(f.VGS*2)/2)<0.12?14:0),{font:'600 11px Inter,system-ui,sans-serif',color:cssVar('--accent'),bg:cssVar('--panel')});}
+  label(c,'chiziqli',X(M?0.85:0.3),Y(7.75),{align:'center',font:F12,color:cssVar('--ink2')});
+  label(c,'toʻyinish',X(2.6),Y(7.75),{align:'center',font:F12,color:cssVar('--ink2')});
+  const x0=X(f.VDS),y0=Y(f.I);c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar('--ink');c.lineWidth=2;c.beginPath();c.arc(x0,y0,6,0,7);c.fill();c.stroke();
+  $('r3').innerHTML=`<span>I<sub>D</sub> <b>${fmtN(f.I,2)} mA</b></span><span>Rejim <b>${MODE[f.mode]}</b></span><span>Tikkalik g<sub>m</sub> <b>${f.mode==='sat'?fmtN(2*K*f.Vov,2)+' mS':f.mode==='lin'?fmtN(2*K*f.Vd,2)+' mS':'0'}</b></span>`;
+}
+
+/* ============ 4-rasm: planar, FinFET, GAA ============ */
+const ARCH={planar:{n:'Planar',lam:12,side:'1 tomondan (yuqoridan)',weff:30,col:'--ev'},fin:{n:'FinFET',lam:6,side:'3 tomondan',weff:107,col:'--acc'},gaa:{n:'GAA (nanoqatlamlar)',lam:4,side:'4 tomondan',weff:210,col:'--elec'}};
+const VTi=0.4,AV=1.2,VTL=(L,lam)=>VTi-AV*Math.exp(-Math.PI*L/(2*lam));
+buttons($('b4'),S,{key:'arch',options:[['planar','Planar'],['fin','FinFET'],['gaa','GAA']]});
+slider($('c4'),S,{key:'L',label:'Kanal uzunligi L',min:5,max:60,step:0.5,fmt:v=>fmtN(v,1)+' nm'});
+let ph4=0;
+function arrow(c,x0,y0,x1,y1,col){const a=Math.atan2(y1-y0,x1-x0);c.strokeStyle=col;c.fillStyle=col;c.lineWidth=1.5;c.setLineDash([3,3]);c.lineDashOffset=-ph4;
+  c.beginPath();c.moveTo(x0,y0);c.lineTo(x1-4*Math.cos(a),y1-4*Math.sin(a));c.stroke();c.setLineDash([]);c.lineDashOffset=0;
+  c.beginPath();c.moveTo(x1,y1);c.lineTo(x1-7*Math.cos(a-0.45),y1-7*Math.sin(a-0.45));c.lineTo(x1-7*Math.cos(a+0.45),y1-7*Math.sin(a+0.45));c.closePath();c.fill();}
+function xsec(c,x0,y0,bw,bh,arch){
+  const G=cssVar('--ink2'),D=cssVar('--atom'),Si=cssVar('--p-tint'),Ch=cssVar('--elec'),Ar=cssVar('--accent'),cx=x0+bw/2,d=4;
+  const fillR=(x,y,ww,hh,col,a)=>{c.globalAlpha=a||1;c.fillStyle=col;c.fillRect(x,y,ww,hh);c.globalAlpha=1;};
+  const chan=pts=>{c.strokeStyle=Ch;c.lineWidth=3.5;c.lineJoin='round';c.beginPath();pts.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.stroke();};
+  if(arch==='planar'){const ys=y0+bh*0.5,gx=x0+bw*0.18,gw=bw*0.64;
+    fillR(x0,ys,bw,bh*0.5,Si);fillR(gx,ys-d,gw,d,D);fillR(gx,ys-d-bh*0.24,gw,bh*0.24,G,.75);chan([[gx,ys+1],[gx+gw,ys+1]]);
+    for(let i=0;i<5;i++){const x=gx+gw*(i+.5)/5;arrow(c,x,ys-d-bh*0.13,x,ys+3,Ar);}
+    label(c,'zatvor',cx,ys-d-bh*0.2,{align:'center',font:F12,color:cssVar('--paper')});label(c,'Si taglik',cx,ys+bh*0.28,{align:'center',font:F12});}
+  else if(arch==='fin'){const yb=y0+bh*0.74,ysti=y0+bh*0.6,fw=bw*0.11,ft=y0+bh*0.22,gx=x0+bw*0.14,gw=bw*0.72,gt=y0+bh*0.06;
+    fillR(x0,yb,bw,y0+bh-yb,Si);fillR(x0,ysti,bw,yb-ysti,cssVar('--rule'));
+    fillR(gx,gt,gw,ysti-gt,G,.75);fillR(cx-fw/2-d,ft-d,fw+2*d,ysti-ft+d,D);fillR(cx-fw/2,ft,fw,yb-ft,Si);
+    chan([[cx-fw/2-1,ysti],[cx-fw/2-1,ft-1],[cx+fw/2+1,ft-1],[cx+fw/2+1,ysti]]);
+    [0.3,0.6,0.88].forEach(f=>{const y=ft+(ysti-ft)*f;arrow(c,gx+8,y,cx-fw/2-3,y,Ar);arrow(c,gx+gw-8,y,cx+fw/2+3,y,Ar);});
+    arrow(c,cx,gt+6,cx,ft-3,Ar);
+    label(c,'STI',x0+6,(ysti+yb)/2,{font:'500 11px Inter,system-ui,sans-serif'});label(c,'← qanot (Si)',cx+fw/2+6,(ysti+yb)/2,{font:F12});label(c,'Si taglik',cx,y0+bh-10,{align:'center',font:F12});
+    label(c,'zatvor',gx+gw*0.2,gt+12,{align:'center',font:F12,color:cssVar('--paper')});}
+  else{const yb=y0+bh*0.84,gx=x0+bw*0.12,gw=bw*0.76,gt=y0+bh*0.04,sw=bw*0.46,sh=bh*0.075;
+    fillR(x0,yb,bw,y0+bh-yb,Si);fillR(gx,gt,gw,yb-gt,G,.75);
+    for(let i=0;i<3;i++){const sy=gt+(yb-gt)*(0.2+i*0.28)-sh/2,sx=cx-sw/2;
+      fillR(sx-d,sy-d,sw+2*d,sh+2*d,D);fillR(sx,sy,sw,sh,Si);
+      chan([[sx-1,sy-1],[sx+sw+1,sy-1],[sx+sw+1,sy+sh+1],[sx-1,sy+sh+1],[sx-1,sy-1]]);
+      [0.25,0.5,0.75].forEach(f=>{const x=sx+sw*f;arrow(c,x,sy-d-15,x,sy-3,Ar);arrow(c,x,sy+sh+d+15,x,sy+sh+3,Ar);});
+      arrow(c,gx+6,sy+sh/2,sx-3,sy+sh/2,Ar);arrow(c,gx+gw-6,sy+sh/2,sx+sw+3,sy+sh/2,Ar);}
+    label(c,'Si taglik',cx,y0+bh-8,{align:'center',font:F12});}
+}
+function f4draw(dt){
+  ph4=(ph4+dt*0.02)%6;
+  const M=mob(),a=S.get('arch'),A=ARCH[a],L=S.get('L');
+  const {c,w,h}=fitCanvas($('f4'),M?1.45:0.45);
+  let bx,by,bw,bh,gx,gy,gw,gh;
+  if(M){bx=w*0.1;by=30;bw=w*0.8;bh=h*0.4;gx=44;gy=by+bh+38;gw=w-44-52;gh=h-gy-34;}
+  else{bx=14;by=36;bw=w*0.36;bh=h-by-14;gx=bw+bx+64;gy=14;gw=w-gx-62;gh=h-gy-36;}
+  label(c,A.n,bx,14,{font:F13,color:cssVar('--ink')});
+  label(c,'zatvor kanalni '+A.side+' oʻraydi',bx+bw,14,{align:'right',font:F12,color:cssVar('--ink2')});
+  xsec(c,bx,by,bw,bh,a);
+  // grafik
+  const X=l=>gx+(l-5)/55*gw,Y=v=>gy+(0.5-v)/1.1*gh;
+  c.strokeStyle=cssVar('--rule');c.lineWidth=1;
+  [10,20,30,40,50,60].forEach(l=>{c.beginPath();c.moveTo(X(l),gy);c.lineTo(X(l),gy+gh);c.stroke();});
+  [-0.4,-0.2,0,0.2,0.4].forEach(v=>{c.beginPath();c.moveTo(gx,Y(v));c.lineTo(gx+gw,Y(v));c.stroke();});
+  c.strokeStyle=cssVar('--ink2');c.beginPath();c.moveTo(gx,gy);c.lineTo(gx,gy+gh);c.lineTo(gx+gw,gy+gh);c.stroke();
+  const F11='500 11px Inter,system-ui,sans-serif';
+  [10,20,30,40,50,60].forEach(l=>label(c,String(l),X(l),gy+gh+12,{align:'center',font:F11}));
+  [-0.4,-0.2,0,0.2,0.4].forEach(v=>label(c,fmtN(v,1),gx-5,Y(v),{align:'right',font:F11}));
+  label(c,'L, nm',gx+gw,gy+gh+26,{align:'right',font:F12,color:cssVar('--ink2')});
+  tl(c,'V_T, V',gx+6,gy+8,{font:F12,color:cssVar('--ink2'),bg:cssVar('--panel')});
+  Object.entries(ARCH).forEach(([key,o])=>{const on=key===a;c.strokeStyle=cssVar(o.col);c.lineWidth=on?3:1.5;c.globalAlpha=on?1:.45;c.beginPath();
+    for(let i=0;i<=200;i++){const l=5+55*i/200,v=Math.max(-0.6,VTL(l,o.lam));i?c.lineTo(X(l),Y(v)):c.moveTo(X(l),Y(v));}c.stroke();c.globalAlpha=1;});
+  const lab=[['planar',0],['fin',1],['gaa',2]];
+  lab.forEach(([key,i])=>{const o=ARCH[key];label(c,o.n.split(' ')[0],gx+gw-4,gy+gh-14-(2-i)*16,{align:'right',font:key===a?'600 12px Inter,system-ui,sans-serif':F11,color:cssVar(o.col)});});
+  const v=VTL(L,A.lam);c.strokeStyle=cssVar('--muted');c.lineWidth=1;c.setLineDash([3,3]);c.beginPath();c.moveTo(X(L),gy);c.lineTo(X(L),gy+gh);c.stroke();c.setLineDash([]);
+  c.fillStyle=cssVar('--paper');c.strokeStyle=cssVar('--ink');c.lineWidth=2;c.beginPath();c.arc(X(L),Y(Math.max(-0.6,v)),6,0,7);c.fill();c.stroke();
+  $('r4').innerHTML=`<span>λ <b>${A.lam} nm</b></span><span>V<sub>T</sub>(L) <b>${fmtN(v,2)} V</b></span><span>ΔV<sub>T</sub> <b>${Math.abs(v-VTi)<0.005?'0,00':fmtN(v-VTi,2)} V</b></span><span>W<sub>eff</sub> 30 nm qadamda <b>${A.weff} nm</b></span>`;
+}
+
+/* ============ yangilash ============ */
+$('vals').innerHTML=[
+  ['φ<sub>fp</sub> = (kT/e)·ln(N<sub>a</sub>/n<sub>i</sub>)',fmtN(pf,3)+' V'],['Maksimal kambagʻallashgan soha x<sub>dT</sub>',fmtN(xdT*1e4,3)+' mkm'],
+  ['Oksid sigʻimi C<sub>ox</sub>',fmtE(Cox1,2)+' F/sm²'],['|Q′<sub>SD</sub>(max)| = eN<sub>a</sub>x<sub>dT</sub>',fmtE(Qsd,2)+' Kl/sm²'],
+  ['Boʻsagʻa kuchlanishi (1-rasm, V<sub>FB</sub> = 0)',fmtN(VT1,2)+' V'],['Debay uzunligi L<sub>D</sub>',fmtN(LD*1e7,1)+' nm'],
+  ['MOSFET: K = Wμ<sub>n</sub>C<sub>ox</sub>/2L',fmtN(K,2)+' mA/V²'],['MOSFET: V<sub>T</sub>',fmtN(VT,2)+' V'],
+  ['FinFET W<sub>eff</sub> = 2H<sub>fin</sub> + W<sub>fin</sub>','2 × 50 + 7 = 107 nm'],['Masshtab uzunligi λ: planar / FinFET / GAA','12 / 6 / 4 nm']].map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td></tr>`).join('');
+S.sub(f3draw);f3draw();
+window.addEventListener('resize',f3draw);onTheme(f3draw);
+document.fonts&&document.fonts.ready.then(f3draw);
+animate([{el:$('f1'),draw:f1draw},{el:$('f2'),draw:f2draw},{el:$('f4'),draw:f4draw}]);
+</script>
+</body>
+</html>

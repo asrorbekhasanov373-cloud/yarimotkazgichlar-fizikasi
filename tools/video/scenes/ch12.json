@@ -1,0 +1,16 @@
+{
+  "url": "sim/optoelektronika/",
+  "kicker": "12-bob",
+  "title": "Yorugʻlik va yarimoʻtkazgich",
+  "setup": "S.set('mat','Si');S.set('lam',0.45);S.set('G',1);S.set('V',0);S.set('led','GaAs')",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 12-bob", "t": "Yorugʻlik va yarimoʻtkazgich", "d": "Yutilish, quyosh elementi va yorugʻlik diodi"},
+  "segs": [
+    {"fig": "f1", "w": 930, "dur": 8, "act": "S.set('lam',__ease(0.45,1.0,p))", "cap": "Kremniy: toʻlqin uzunligi oshgan sari yorugʻlik chuqurroq kiradi. Kirish chuqurligi — <i>1/α</i>."},
+    {"fig": "f1", "w": 930, "dur": 8, "start": "S.set('mat','GaAs');S.set('lam',0.8)", "act": "S.set('lam',__ease(0.8,0.95,p))", "cap": "GaAs — toʻgʻri zonali: yutilish chegarasi keskin, 0,87 mkm dan uzun nur uchun u shaffof."},
+    {"fig": "f2", "w": 870, "dur": 8, "start": "S.set('G',0.3)", "act": "S.set('G',__ease(0.3,1,p))", "cap": "Quyosh elementi: maydon juftlarni ajratadi — <b style=\"color:var(--elec)\">elektronlar</b> n-tomonga, <b style=\"color:var(--hole)\">kovaklar</b> p-tomonga."},
+    {"fig": "f3", "w": 715, "dur": 8, "start": "S.set('G',1);S.set('V',0)", "act": "S.set('V',__ease(0,0.65,p))", "cap": "VAX: J<sub>sc</sub> = 35 mA/sm², V<sub>oc</sub> = 0,65 V. Koʻk toʻrtburchak — maksimal quvvat, η ≈ 19 %."},
+    {"fig": "f3", "w": 715, "dur": 7, "start": "S.set('V',0.55)", "act": "S.set('G',__ease(1,0.1,p))", "cap": "Yorugʻlik kamaysa, tok proporsional kamayadi, V<sub>oc</sub> esa faqat logarifmik pasayadi."},
+    {"fig": "f4", "w": 870, "dur": 9, "start": "S.set('led','GaAs')", "act": "S.set('Eg',__ease(1.42,2.70,p))", "cap": "Yorugʻlik diodi: foton energiyasi ≈ E<sub>g</sub>. Zona kengaysa, rang infraqizildan koʻkka oʻtadi."},
+    {"fig": "f4", "w": 870, "dur": 7, "start": "S.set('led','Si')", "cap": "Bilvosita zonali kremniyda energiya asosan issiqlikka ketadi — undan LED yasab boʻlmaydi."}
+  ]
+}

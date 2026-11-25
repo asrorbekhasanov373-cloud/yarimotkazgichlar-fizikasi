@@ -1,0 +1,16 @@
+{
+  "url": "sim/mosfet/",
+  "kicker": "10-bob",
+  "title": "MOSFET: zatvor kanalni qanday ochadi",
+  "setup": "S.set('VG',-1.2);S.set('VGS',0);S.set('VDS',0.5);S.set('arch','planar');S.set('L',60)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 10-bob", "t": "MOSFET, FinFET va GAA tranzistorlar", "d": "Zatvor kuchlanishi kremniy sirtida oʻtkazuvchi kanalni qanday yaratadi"},
+  "segs": [
+    {"fig": "f1", "w": 780, "dur": 7, "start": "S.set('VG',-1.2)", "cap": "MOS tuzilma: zatvor, yupqa oksid va p-tur kremniy. Manfiy zatvor <b style=\"color:var(--hole)\">kovaklarni</b> sirtga tortadi."},
+    {"fig": "f1", "w": 780, "dur": 9, "act": "S.set('VG',__ease(-1.2,2.4,p))", "cap": "Musbat zatvor kovaklarni itaradi: avval <i>kambagʻallashgan soha</i>, keyin sirtda <b style=\"color:var(--elec)\">elektronlar</b> qatlami."},
+    {"fig": "f2", "w": 930, "dur": 8, "start": "S.set('VDS',0.5)", "act": "S.set('VGS',__ease(0,2.2,p))", "cap": "MOSFET: V<sub>GS</sub> &gt; V<sub>T</sub> boʻlganda inversion kanal istok va stokni tutashtiradi."},
+    {"fig": "f2", "w": 930, "dur": 8, "act": "S.set('VDS',__ease(0.5,2.8,p))", "cap": "V<sub>DS</sub> ortganda kanal stok yonida ingichkalashadi va V<sub>DS</sub> = V<sub>GS</sub> − V<sub>T</sub> da berkiladi."},
+    {"fig": "f3", "w": 720, "dur": 8, "start": "S.set('VGS',2.2)", "act": "S.set('VDS',__ease(0,3,p))", "cap": "Chiqish xarakteristikasi: avval chiziqli soha, punktirdan keyin tok toʻyinadi."},
+    {"fig": "f4", "w": 840, "dur": 8, "start": "S.set('arch','planar')", "act": "S.set('L',__ease(60,12,p))", "cap": "Kanal qisqarganda planar tranzistorning boʻsagʻa kuchlanishi keskin pasayadi."},
+    {"fig": "f4", "w": 840, "dur": 9, "start": "S.set('L',12)", "act": "S.set('arch',p<0.34?'planar':p<0.67?'fin':'gaa')", "cap": "FinFET qanotni 3 tomondan, GAA nanoqatlamlarni 4 tomondan oʻraydi — qisqa kanal effekti bostiriladi."}
+  ]
+}
