@@ -30,7 +30,10 @@ figure.vshow figcaption,figure.vshow .btns{display:none!important}
 figure.vshow{transform-origin:50% 40%}
 `;
 
+// Har bir video uchun o'tish uslubi (nom bo'yicha): fade, slide, zoom, rise
+function variantOf(name){let h=0;for(const ch of String(name))h=(h*31+ch.charCodeAt(0))>>>0;return ['fade','slide','zoom','rise'][h%4];}
 async function render(video,outFile){
+  const VAR=video.variant||variantOf(outFile);
   const b=await chromium.launch();
   const ctx=await b.newContext({viewport:{width:1280,height:720},deviceScaleFactor:1.5,colorScheme:'light'});
   const pg=await ctx.newPage();
@@ -77,13 +80,15 @@ async function render(video,outFile){
       const p=n>1?i/(n-1):1,tt=i/FPS,rt=runOff+tt;
       const eo=x=>1-Math.pow(1-Math.max(0,Math.min(1,x)),3);
       const fadeIn=runStart&&si>0?Math.max(0,1-tt/0.35):0,fadeOut=runEnd&&si<segs.length-1?Math.max(0,1-(seg.dur-tt)/0.22):0;
-      const sc=(0.965+0.035*eo(rt/0.7))*(1+0.03*rt/runDur);
-      const fx={fade:Math.max(fadeIn,fadeOut),sc,cap:eo(tt/0.5),prog:(frames+1)/total,
+      const ein=eo(rt/0.7);
+      const sc=(VAR==='zoom'?0.88+0.12*ein:0.965+0.035*ein)*(1+0.03*rt/runDur);
+      const dx=VAR==='slide'?70*(1-ein):0,dy=VAR==='rise'?40*(1-ein):0;
+      const fx={fade:Math.max(fadeIn,fadeOut)*(VAR==='fade'?1:0.75),sc,dx,dy,cap:eo(tt/0.5),prog:(frames+1)/total,
         k:eo((rt-0.15)/0.6),t:eo((rt-0.35)/0.7),d:eo((rt-0.8)/0.7),r:eo((rt-1.1)/0.8)};
       await pg.evaluate(`(()=>{const p=${p};${seg.act||''};__step(${1000/FPS});const fx=${JSON.stringify(fx)};
         const cap=document.getElementById('vcap');const fr=cap.dataset.fresh==='1';
         cap.style.opacity=fr?fx.cap:1;cap.style.transform='translateX(-50%) translateY('+(fr?16*(1-fx.cap):0)+'px)';
-        const f=document.querySelector('figure.vshow');if(f)f.style.transform='translateX(-50%) scale('+fx.sc+')';
+        const f=document.querySelector('figure.vshow');if(f)f.style.transform='translateX(calc(-50% + '+fx.dx+'px)) translateY('+fx.dy+'px) scale('+fx.sc+')';
         const card=document.getElementById('vcard');
         if(card.style.display!=='none'){const q=s=>card.querySelector(s);
           q('.k').style.opacity=fx.k;q('.k').style.transform='translateY('+(12*(1-fx.k))+'px)';
@@ -147,5 +152,9 @@ const VIDEOS={
 };
 (async()=>{const name=process.argv[2],out=process.argv[3];
   const VO=JSON.parse(require('fs').readFileSync(process.env.VOICE_JSON||(__dirname+'/voice.json'),'utf8'))[name];
-  const v=VIDEOS[name];v.segs=v.segs.map((sg,i)=>{const lead=sg.card?0.6:0.5;const need=VO&&VO[i]?lead+VO[i].dur+0.5:0;return {...sg,dur:Math.max(sg.dur,need),lead};});
+  let v=VIDEOS[name];
+  if(!v){ // tashqi sahna fayli: scenes/<name>.json  {url,kicker,title,card:{k,t,d},segs:[...]}
+    const sc=JSON.parse(require('fs').readFileSync(__dirname+'/scenes/'+name+'.json','utf8'));
+    v={url:sc.url,kicker:sc.kicker,title:sc.title,setup:sc.setup,segs:[{card:sc.card,dur:4.5},...sc.segs,END]};}
+  v.segs=v.segs.map((sg,i)=>{const lead=sg.card?0.6:0.5;const need=VO&&VO[i]?lead+VO[i].dur+0.5:0;return {...sg,dur:Math.max(sg.dur,need),lead};});
   await render(v,out);})();

@@ -1,0 +1,12 @@
+{
+  "url": "sim/pn-otish/",
+  "kicker": "7-bob",
+  "title": "p-n oʻtish qanday hosil boʻladi",
+  "setup": "S.set('V',0)",
+  "card": {"k": "Yarimoʻtkazgichlar fizikasi asoslari · 7-bob", "t": "p-n oʻtish qanday hosil boʻladi", "d": "Bir qatorli qisqa tavsif"},
+  "segs": [
+    {"fig": "f1", "w": 1150, "dur": 6, "cap": "Ekrandagi izoh (1 qator, HTML mumkin)."},
+    {"fig": "f1", "w": 1150, "dur": 6, "start": "document.getElementById('join').click()", "cap": "..."},
+    {"fig": "f3", "w": 860, "dur": 7, "act": "S.set('V',__ease(0,0.6,p))", "cap": "..."}
+  ]
+}

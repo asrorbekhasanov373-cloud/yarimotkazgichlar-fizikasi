@@ -41,7 +41,22 @@ PROG = {
     'pn2':      [[40, 47, 55, 64], [36, 43, 52, 60], [43, 50, 59, 62], [38, 45, 54, 62]],   # Em C G D
 }
 
-def music(dur, prog, bpm=88):
+STYLES = {
+    # nom: (akkordlar, temp, arpedjio naqshi, arp tembri (garmonikalar), arp so'nishi, ritm turi)
+    'ch02': ([[45,52,60,64],[41,48,57,64],[43,50,59,62],[40,47,55,62]], 96, 'up',    (1,.5,.2), 4.0, 'soft'),
+    'ch03': ([[50,57,62,69],[46,53,62,65],[48,55,60,67],[45,52,60,64]], 80, 'wave',  (1,.15,.05), 3.0, 'none'),
+    'ch05': ([[43,50,59,62],[40,47,55,64],[36,43,52,60],[38,45,54,62]], 104,'run',   (1,.35,.12), 7.0, 'drive'),
+    'ch06': ([[41,48,57,64],[43,50,59,62],[45,52,60,64],[40,47,55,59]], 84, 'down',  (1,.1,.02), 2.5, 'soft'),
+    'ch08': ([[48,55,62,64],[45,52,60,67],[41,48,57,64],[43,50,55,62]], 92, 'up',    (1,.45,.25), 5.0, 'drive'),
+    'ch09': ([[38,45,53,60],[46,53,62,65],[41,48,57,64],[45,52,61,64]], 76, 'wave',  (1,.2,.08), 2.8, 'none'),
+    'ch10': ([[45,52,59,64],[43,50,57,62],[41,48,55,60],[43,50,59,62]], 100,'run',   (1,.3,.15,.05), 6.0, 'drive'),
+    'ch11': ([[40,47,54,59],[45,52,57,64],[38,45,54,57],[43,50,55,62]], 88, 'down',  (1,.4,.1), 4.5, 'soft'),
+    'ch12': ([[48,55,64,71],[50,57,65,69],[45,52,60,67],[43,50,59,65]], 94, 'up',    (1,.12,.04), 3.5, 'soft'),
+    'ch13': ([[47,54,62,66],[43,50,59,62],[45,52,61,64],[42,49,57,61]], 108,'run',   (1,.5,.3,.1), 7.5, 'drive'),
+}
+PATTERNS = {'up':[1,2,3,'2+',3,2,'1+',3], 'down':['3+','2+',3,2,'1+',3,2,1], 'wave':[1,3,2,'3+',2,3,1,2], 'run':[1,2,3,'1+','2+','3+','2+',3]}
+
+def music(dur, prog, bpm=88, pattern='up', harm=(1,.25,.08), dec=5.5, rhythm='soft'):
     n = int(dur * SR); beat = 60 / bpm; bar = 4 * beat
     mix = np.zeros((n, 2)); dry = np.zeros((n, 2))
     nbars = int(np.ceil(dur / bar)) + 1
@@ -70,17 +85,18 @@ def music(dur, prog, bpm=88):
             g = 0.16 if b >= 1 else 0.0
             dry[j0:j0+L] += (s * g)[:, None]
         # arpedjio (8-lik notalar), stereo ping-pong
-        tones = [ch[1] + 12, ch[2] + 12, ch[3] + 12, ch[2] + 24, ch[3] + 12, ch[2] + 12, ch[1] + 24, ch[3] + 12]
+        pat = PATTERNS.get(pattern, PATTERNS['up'])
+        tones = [ch[int(str(q)[0])] + (24 if str(q).endswith('+') else 12) for q in pat]
         for k in range(8):
             j0 = int((t0 + k * beat / 2) * SR)
             if j0 >= n: continue
             L = min(int(0.9 * SR), n - j0); tt = np.arange(L) / SR; f = mtof(tones[k])
-            s = (np.sin(2*np.pi*f*tt) + 0.25*np.sin(2*np.pi*2*f*tt) + 0.08*np.sin(2*np.pi*3*f*tt)) * np.exp(-tt * 5.5) * env_adsr(L, 0.004, 0.05)
+            s = sum(a*np.sin(2*np.pi*(h+1)*f*tt) for h, a in enumerate(harm)) * np.exp(-tt * dec) * env_adsr(L, 0.004, 0.05)
             g = 0.05 if b >= 1 else 0.035; pan = 0.3 if k % 2 else -0.3
             mix[j0:j0+L, 0] += s * g * (1 - pan); mix[j0:j0+L, 1] += s * g * (1 + pan)
         # ritm: 2-taktdan boshlab yumshoq kik va xet
-        if b >= 2:
-            for k in (0, 2):
+        if b >= 2 and rhythm != 'none':
+            for k in ((0, 1, 2, 3) if rhythm == 'drive' else (0, 2)):
                 j0 = int((t0 + k * beat) * SR)
                 if j0 >= n: continue
                 L = min(int(0.35 * SR), n - j0); tt = np.arange(L) / SR
@@ -133,7 +149,7 @@ def load(f):
 
 def main(name, meta_path, out_wav):
     meta = json.load(open(meta_path)); dur = meta['dur']
-    mus = music(dur, PROG[name])
+    mus = music(dur, PROG[name]) if name in PROG else music(dur, *STYLES[name][:1], bpm=STYLES[name][1], pattern=STYLES[name][2], harm=STYLES[name][3], dec=STYLES[name][4], rhythm=STYLES[name][5])
     sfx = np.zeros_like(mus)
     w = whoosh(); c = chime()
     for ev in meta['events']:
