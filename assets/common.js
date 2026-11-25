@@ -7,8 +7,9 @@ function fmtE(x,d=2){
   if(x===0)return '0';
   const e=Math.floor(Math.log10(Math.abs(x)));
   if(e>=-2&&e<=2)return fmtN(x,d);
-  const m=x/Math.pow(10,e);
-  return fmtN(m,d)+' × 10'+sup(e);
+  let ee=e,m=x/Math.pow(10,e);
+  if(Math.abs(+m.toFixed(d))>=10){m/=10;ee++;}
+  return fmtN(m,d)+' × 10'+sup(ee);
 }
 function fmtN(x,d=2){return x.toFixed(d).replace('.',',').replace('-','−');}
 // Fonli yozuv (chiziqlar ustida o'qilishi uchun)
